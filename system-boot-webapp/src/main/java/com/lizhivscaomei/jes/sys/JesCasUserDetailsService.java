@@ -6,25 +6,23 @@ import com.lizhivscaomei.jes.sys.entity.SysUser;
 import com.lizhivscaomei.jes.sys.service.SysUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.cas.authentication.CasAssertionAuthenticationToken;
+import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by lizhi on 2018/3/30.
- */
-//@Service
-public class JesUserDetailsService implements UserDetailsService {
+@Service
+public class JesCasUserDetailsService implements AuthenticationUserDetailsService<CasAssertionAuthenticationToken> {
     @Autowired
     SysUserService sysUserService;
     @Override
-    public UserDetails loadUserByUsername(String loginName) throws UsernameNotFoundException {
+    public UserDetails loadUserDetails(CasAssertionAuthenticationToken token) throws UsernameNotFoundException {
+        System.out.println("当前的用户名是："+token.getName());
         try {
-            SysUser user = sysUserService.getByLoginName(loginName);
+            SysUser user = sysUserService.getByLoginName(token.getName());
             if(user!=null){
                 JesUserDetails jesUserDetails=new JesUserDetails();
                 jesUserDetails.setLoginName(user.getLoginName());
