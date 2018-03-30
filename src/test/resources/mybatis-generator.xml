@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="mysql" defaultModelType="flat" targetRuntime="MyBatis3" >
+        <property name="autoDelimitKeywords" value="false"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+            <property name="suppressJavaInterface" value="false"/>
+        </plugin>
+        <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ServicePlugin">
+            <property name="targetProject" value="systemapi/src/main/java"/>
+            <property name="targetPackage" value="com.lizhivscaomei.jes.sys.service"/>
+        </plugin>
+        <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ServiceImpPlugin">
+            <property name="targetProject" value="systembusiness/src/test/java"/>
+            <property name="targetPackage" value="com.lizhivscaomei.jes.sys.service"/>
+        </plugin>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.165.3:3306/jes"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+        <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="com.lizhivscaomei.jes.sys.entity" targetProject="systemapi/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <javaClientGenerator targetPackage="com.lizhivscaomei.jes.sys.dao" type="ANNOTATEDMAPPER" targetProject="systembusiness/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="sys_area"  ></table>
+        <table tableName="sys_dict"  ></table>
+        <table tableName="sys_domain"></table>
+        <table tableName="sys_log"   ></table>
+        <table tableName="sys_mdict" ></table>
+        <table tableName="sys_menu"  ></table>
+        <table tableName="sys_office"></table>
+        <table tableName="sys_param" ></table>
+        <table tableName="sys_role"  ></table>
+        <table tableName="sys_role_menu" ></table>
+        <!--<table tableName="sys_role_office"></table>-->
+        <table tableName="sys_user"  ></table>
+        <table tableName="sys_user_role" ></table>
+
+    </context>
+
+</generatorConfiguration>

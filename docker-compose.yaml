@@ -1,0 +1,11 @@
+version: '2'
+services:
+  iot-manage:
+    image: 10.28.110.122:8082/fvc-weather:1.0.0
+    container_name: fvc-weather
+    restart: always
+    ports:
+      - "8088:8080"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+
