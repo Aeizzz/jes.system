@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by lizhi on 2018/3/30.
  */
-//@Service
+@Service
 public class JesUserDetailsService implements UserDetailsService {
     @Autowired
     SysUserService sysUserService;

@@ -17,35 +17,10 @@ import java.util.List;
 @Service
 public class JesCasUserDetailsService implements AuthenticationUserDetailsService<CasAssertionAuthenticationToken> {
     @Autowired
-    SysUserService sysUserService;
+    JesUserDetailsService jesUserDetailsService;
     @Override
     public UserDetails loadUserDetails(CasAssertionAuthenticationToken token) throws UsernameNotFoundException {
-        System.out.println("当前的用户名是："+token.getName());
-        try {
-            SysUser user = sysUserService.getByLoginName(token.getName());
-            if(user!=null){
-                JesUserDetails jesUserDetails=new JesUserDetails();
-                jesUserDetails.setLoginName(user.getLoginName());
-                jesUserDetails.setName(user.getName());
-                jesUserDetails.setPassword(user.getPassword());
-                //设置权限
-                List<SysMenu> menuList = sysUserService.getMyMenus(user.getId());
-                List<JesGrantedAuthority> authorities=new ArrayList<>();
-                for(SysMenu sysMenu:menuList){
-                    if(StringUtils.isNotEmpty(sysMenu.getPermission())){
-                        JesGrantedAuthority authoritie=new JesGrantedAuthority();
-                        authoritie.setAuthority(sysMenu.getPermission());
-                        authorities.add(authoritie);
-                    }
-                }
-                jesUserDetails.setAuthorities(authorities);
-                return jesUserDetails;
-            }else {
-                throw new UsernameNotFoundException("");
-            }
-        } catch (AppException e) {
-            e.printStackTrace();
-        }
-        return null;
+        System.out.println("CAS当前的用户名是："+token.getName());
+        return jesUserDetailsService.loadUserByUsername(token.getName());
     }
 }

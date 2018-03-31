@@ -74,6 +74,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic();*/
         http.authorizeRequests()//配置安全策略
+                .antMatchers("/static/**").permitAll()
+                .antMatchers("/jsp/pulic/**").permitAll()
+                .antMatchers("/favicon.ico").permitAll()
                 //.antMatchers("/","/hello").permitAll()//定义/请求不需要验证
                 .anyRequest().authenticated()//其余的所有请求都需要验证
                 .and()
@@ -114,17 +117,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public ServiceProperties serviceProperties() {
         ServiceProperties serviceProperties = new ServiceProperties();
-        serviceProperties.setService(casUrl + appLoginUrl);
+//        <!-- Cas Server认证成功后的跳转地址，这里要跳转到我们的Spring Security应用，之后会由CasAuthenticationFilter处理，默认处理地址为 -->
+        serviceProperties.setService(appUrl+appLoginUrl);
         serviceProperties.setAuthenticateAllArtifacts(true);
         return serviceProperties;
     }
 
     /**CAS认证过滤器*/
+    /**之后我们需要配置一个CasAuthenticationFilter，
+     * 并将其放置在Filter链表中CAS_FILTER的位置，
+     * 以处理Cas Server认证成功后的页面跳转，
+     * 用以在Spring Security中进行认证。
+     * 该Filter会将Cas Server传递过来的ticket（Cas概念）封装成一个Authentication（对应UsernamePasswordAuthenticationToken，
+     * 其中ticket作为该Authentication的password），然后传递给AuthenticationManager进行认证。
+     * */
     @Bean
     public CasAuthenticationFilter casAuthenticationFilter() throws Exception {
         CasAuthenticationFilter casAuthenticationFilter = new CasAuthenticationFilter();
         casAuthenticationFilter.setAuthenticationManager(authenticationManager());
-        casAuthenticationFilter.setFilterProcessesUrl(casLoginUrl);
+        casAuthenticationFilter.setFilterProcessesUrl(appLoginUrl);
         return casAuthenticationFilter;
     }
 
@@ -135,24 +146,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         casAuthenticationProvider.setAuthenticationUserDetailsService(jesCasUserDetailsService);
         //casAuthenticationProvider.setUserDetailsService(customUserDetailsService()); //这里只是接口类型，实现的接口不一样，都可以的。
         casAuthenticationProvider.setServiceProperties(serviceProperties());
-        casAuthenticationProvider.setTicketValidator(cas20ServiceTicketValidator());
+        casAuthenticationProvider.setTicketValidator(new Cas20ServiceTicketValidator(casUrl));
         casAuthenticationProvider.setKey("casAuthenticationProviderKey");
         return casAuthenticationProvider;
     }
 
-	/*@Bean
-	public UserDetailsService customUserDetailsService(){
-		return new CustomUserDetailsService();
-	}*/
-
-
-
-    @Bean
-    public Cas20ServiceTicketValidator cas20ServiceTicketValidator() {
-        return new Cas20ServiceTicketValidator(casUrl);
-    }
-
-    /**单点登出过滤器*/
+    /**单点注销Filter类，接收cas服务端发出的注销session请求*/
     @Bean
     public SingleSignOutFilter singleSignOutFilter() {
         SingleSignOutFilter singleSignOutFilter = new SingleSignOutFilter();
@@ -161,11 +160,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return singleSignOutFilter;
     }
 
-    /**请求单点退出过滤器*/
+    /**登录退出Filter类，转发至cas服务端进行注销*/
     @Bean
     public LogoutFilter casLogoutFilter() {
-        LogoutFilter logoutFilter = new LogoutFilter(casLogoutUrl, new SecurityContextLogoutHandler());
-        logoutFilter.setFilterProcessesUrl(casLogoutUrl);
+        LogoutFilter logoutFilter = new LogoutFilter(casLogoutUrl+"service="+appUrl, new SecurityContextLogoutHandler());
+        logoutFilter.setFilterProcessesUrl(this.appLogoutUrl);
         return logoutFilter;
     }
 }
