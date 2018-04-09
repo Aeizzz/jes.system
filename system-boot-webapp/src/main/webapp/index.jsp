@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<div id="container" class="effect aside-float aside-bright mainnav-sm">
+<div id="container" class="effect aside-float aside-bright mainnav-lg">
 
     <!--NAVBAR 顶部横条-->
     <!--===================================================-->
@@ -18,7 +18,7 @@
             <!--================================-->
             <div class="navbar-header">
                 <a href="index.html" class="navbar-brand">
-                    <img src="img/logo.png" alt="Nifty Logo" class="brand-icon">
+                    <img src="static/img/logo.png" alt="Nifty Logo" class="brand-icon">
                     <div class="brand-title">
                         <span class="brand-text">微立方IoT平台</span>
                     </div>
@@ -158,30 +158,30 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-sm-12 col-md-3">
+                                <%--<div class="col-sm-12 col-md-3">
                                     <p class="dropdown-header"><i class="pli-file-jpg icon-lg icon-fw"></i> Gallery</p>
                                     <div class="row img-gallery">
                                         <div class="col-xs-4">
-                                            <img class="img-responsive" src="img/thumbs/img-1.jpg" alt="thumbs">
+                                            <img class="img-responsive" src="static/img/thumbs/img-1.jpg" alt="thumbs">
                                         </div>
                                         <div class="col-xs-4">
-                                            <img class="img-responsive" src="img/thumbs/img-3.jpg" alt="thumbs">
+                                            <img class="img-responsive" src="static/img/thumbs/img-3.jpg" alt="thumbs">
                                         </div>
                                         <div class="col-xs-4">
-                                            <img class="img-responsive" src="img/thumbs/img-2.jpg" alt="thumbs">
+                                            <img class="img-responsive" src="static/img/thumbs/img-2.jpg" alt="thumbs">
                                         </div>
                                         <div class="col-xs-4">
-                                            <img class="img-responsive" src="img/thumbs/img-4.jpg" alt="thumbs">
+                                            <img class="img-responsive" src="static/img/thumbs/img-4.jpg" alt="thumbs">
                                         </div>
                                         <div class="col-xs-4">
-                                            <img class="img-responsive" src="img/thumbs/img-6.jpg" alt="thumbs">
+                                            <img class="img-responsive" src="static/img/thumbs/img-6.jpg" alt="thumbs">
                                         </div>
                                         <div class="col-xs-4">
-                                            <img class="img-responsive" src="img/thumbs/img-5.jpg" alt="thumbs">
+                                            <img class="img-responsive" src="static/img/thumbs/img-5.jpg" alt="thumbs">
                                         </div>
                                     </div>
                                     <a href="#" class="btn btn-block btn-primary">Browse Gallery</a>
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
                     </li>
@@ -334,7 +334,7 @@
                                 <span class="ic-user pull-right">
                                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                                     <!--You can use an image instead of an icon.-->
-                                    <!--<img class="img-circle img-user media-object" src="img/profile-photos/1.png" alt="Profile Picture">-->
+                                    <!--<img class="img-circle img-user media-object" src="static/img/profile-photos/1.png" alt="Profile Picture">-->
                                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                                     <i class="pli-male"></i>
                                 </span>
@@ -392,7 +392,7 @@
             <!--===================================================-->
             <div id="page-content" style="padding: 0px">
 
-                <iframe src="http://www.w3school.com.cn/tags/tag_iframe.asp" width="100%" height="90%" frameborder="0" name="mainframe" id="mainframe" ></iframe>
+                <iframe src="/jsp/module/sys/sysUser/sysUserList.jsp" width="100%" height="90%" frameborder="0" name="mainframe" id="mainframe" ></iframe>
 
             </div>
             <!--===================================================-->
@@ -416,7 +416,7 @@
                 <!--================================
                 <div class="mainnav-brand">
                     <a href="index.html" class="brand">
-                        <img src="img/logo.png" alt="Nifty Logo" class="brand-icon">
+                        <img src="static/img/logo.png" alt="Nifty Logo" class="brand-icon">
                         <span class="brand-text">Nifty</span>
                     </a>
                     <a href="#" class="mainnav-toggle"><i class="pci-cross pci-circle icon-lg"></i></a>
@@ -436,7 +436,7 @@
                             <div id="mainnav-profile" class="mainnav-profile">
                                 <div class="profile-wrap text-center">
                                     <div class="pad-btm">
-                                        <img class="img-circle img-md" src="img/profile-photos/1.png" alt="Profile Picture">
+                                        <img class="img-circle img-md" src="static/img/profile-photos/1.png" alt="Profile Picture">
                                     </div>
                                     <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
                                             <span class="pull-right dropdown-toggle">

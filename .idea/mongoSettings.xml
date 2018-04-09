@@ -6,6 +6,7 @@
         <ServerConfiguration>
           <option name="authenticationDatabase" value="iotdb" />
           <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="iotdb" />
           <option name="password" value="iotuser" />
           <option name="serverUrls">
             <list>
@@ -16,6 +17,22 @@
             <SshTunnelingConfiguration />
           </option>
           <option name="userDatabase" value="iotdb" />
+          <option name="username" value="iotuser" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="lora" />
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="lora" />
+          <option name="password" value="iotuser" />
+          <option name="serverUrls">
+            <list>
+              <option value="10.28.110.149:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="lora" />
           <option name="username" value="iotuser" />
         </ServerConfiguration>
       </list>

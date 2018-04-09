@@ -1,5 +1,6 @@
 package com.lizhivscaomei.jes.sys;
 
+import com.lizhivscaomei.jes.sys.security.userdetails.JesUserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class IndexController {
-    @GetMapping(value = {"","/","/home","/index"})
+    @GetMapping(value = {"","/","/home","/index","/welcome"})
     public ModelAndView index(HttpSession session){
         ModelAndView mv = new ModelAndView("index");
         JesUserDetails jesUserDetails= (JesUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -23,4 +24,5 @@ public class IndexController {
     public String login(){
         return "login";
     }
+
 }

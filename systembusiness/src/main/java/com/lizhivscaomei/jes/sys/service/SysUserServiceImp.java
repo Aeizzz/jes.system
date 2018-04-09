@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,6 +27,11 @@ public class SysUserServiceImp implements SysUserService {
      * */
     public void add(SysUser entity) throws AppException {
         if(entity!=null){
+            //默认数据
+            entity.setId(UUID.randomUUID().toString());
+            entity.setCreateDate(new Date());
+            entity.setUpdateDate(new Date());
+            entity.setDelFlag("0");
             this.sysUserMapper.insertSelective(entity);
         }else {
             throw new AppException("entity不可为空");
@@ -33,6 +39,7 @@ public class SysUserServiceImp implements SysUserService {
     }
 
     public void update(SysUser entity) throws AppException {
+        entity.setUpdateDate(new Date());
         this.sysUserMapper.updateByPrimaryKeySelective(entity);
     }
 
