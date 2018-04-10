@@ -1,7 +1,6 @@
 package com.lizhivscaomei.jes.sys.controller;
 
 
-
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class SysUserController {
     @Autowired
     SysUserService sysUserService;
-
     /**
     * 保存
     * */
@@ -31,8 +29,11 @@ public class SysUserController {
         Msg msg=new Msg();
         try {
             if(StringUtils.isNotEmpty(entity.getId())){
+                entity.setUpdateBy("");
                 this.sysUserService.update(entity);
             }else {
+                entity.setCreateBy("");
+                entity.setUpdateBy("");
                 this.sysUserService.add(entity);
             }
             msg.setSuccess(true);

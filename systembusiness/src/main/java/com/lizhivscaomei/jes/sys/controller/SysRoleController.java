@@ -6,31 +6,35 @@ import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
-import com.lizhivscaomei.jes.sys.entity.SysMenu;
+import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
+import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysRole;
-import com.lizhivscaomei.jes.sys.entity.SysUser;
 import com.lizhivscaomei.jes.sys.service.SysRoleService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-@RequestMapping("/role")
 @RestController
+@RequestMapping("/com/lizhivscaomei/jes/sys/controller")
 public class SysRoleController {
     @Autowired
     SysRoleService sysRoleService;
 
     /**
-    * 添加
+    * 保存
     * */
     @ResponseBody
-    @RequestMapping("/com/lizhivscaomei/jes/sys/controller/add")
+    @RequestMapping("/sysRole/save")
     public Msg add(SysRole entity){
         Msg msg=new Msg();
         try {
-            this.sysRoleService.add(entity);
+            if(StringUtils.isNotEmpty(entity.getId())){
+                this.sysRoleService.update(entity);
+            }else {
+                this.sysRoleService.add(entity);
+            }
             msg.setSuccess(true);
         } catch (AppException e) {
             msg.setSuccess(false);
@@ -38,27 +42,12 @@ public class SysRoleController {
         }
         return msg;
     }
-    /**
-    * 修改
-    * */
-    @ResponseBody
-    @RequestMapping("/com/lizhivscaomei/jes/sys/controller/update")
-    public Msg update(SysRole entity){
-        Msg msg=new Msg();
-        try {
-            this.sysRoleService.update(entity);
-            msg.setSuccess(true);
-        } catch (AppException e) {
-            msg.setSuccess(false);
-            msg.setInfo(e.getMessage());
-        }
-        return msg;
-    }
+
     /**
     * 删除
     * */
     @ResponseBody
-    @RequestMapping("/com/lizhivscaomei/jes/sys/controller/delete")
+    @RequestMapping("/sysRole/delete")
     public Msg update(String id){
         Msg msg=new Msg();
         try {
@@ -70,43 +59,35 @@ public class SysRoleController {
         }
         return msg;
     }
+
     /**
-     * 分页查询
-     * */
+    * 详情
+    * */
     @ResponseBody
-    @RequestMapping("/com/lizhivscaomei/jes/sys/controller/query/page")
-    public Msg update(SysRole entity, Page page){
+    @RequestMapping("/sysRole/query/detail")
+    public Msg detail(String id){
+        SysRole entity= this.sysRoleService.getById(id);
+        Msg msg=new Msg();
+        msg.setSuccess(true);
+        msg.setData(entity);
+        return msg;
+
+    }
+    /**
+    * 分页查询
+    * */
+    @ResponseBody
+    @RequestMapping("/sysRole/query/page")
+    public DataTablesResponse<SysRole> update(SysRole entity, DataTablesRequest dataTablesRequest){
+        DataTablesResponse<SysRole> response=new DataTablesResponse<>();
+        response.setDraw(dataTablesRequest.getDraw());
+        Page page=new Page();
+        page.setCurrentPage(dataTablesRequest.getStart());
+        page.setPageSize(dataTablesRequest.getLength());
         PageInfo<SysRole> pages = this.sysRoleService.queryPage(entity, page);
-        Msg msg=new Msg();
-        msg.setSuccess(true);
-        msg.setData(pages);
-        return msg;
-
-    }
-    /**
-     * 查询角色下的用户
-     * */
-    @ResponseBody
-    @RequestMapping("/com/lizhivscaomei/jes/sys/controller/query/page/users")
-    public Msg queryUsers(String id){
-        List<SysUser> data = this.sysRoleService.getUsers(id);
-        Msg msg=new Msg();
-        msg.setSuccess(true);
-        msg.setData(data);
-        return msg;
-
-    }
-    /**
-     * 查询角色下的菜单
-     * */
-    @ResponseBody
-    @RequestMapping("/com/lizhivscaomei/jes/sys/controller/query/page/menus")
-    public Msg queryMenus(String id){
-        List<SysMenu> data = this.sysRoleService.getMenus(id);
-        Msg msg=new Msg();
-        msg.setSuccess(true);
-        msg.setData(data);
-        return msg;
+        response.setData(pages.getList());
+        response.setRecordsTotal(pages.getTotal());
+        return response;
 
     }
 

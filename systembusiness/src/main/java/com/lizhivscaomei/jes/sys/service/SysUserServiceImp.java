@@ -10,6 +10,8 @@ import com.lizhivscaomei.jes.sys.entity.SysRole;
 import com.lizhivscaomei.jes.sys.entity.SysUser;
 import com.lizhivscaomei.jes.sys.entity.SysUserExample;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -27,9 +29,12 @@ public class SysUserServiceImp implements SysUserService {
      * */
     public void add(SysUser entity) throws AppException {
         if(entity!=null){
+            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
             //默认数据
             entity.setId(UUID.randomUUID().toString());
+            entity.setCreateBy(userDetails.getUsername());
             entity.setCreateDate(new Date());
+            entity.setUpdateBy(userDetails.getUsername());
             entity.setUpdateDate(new Date());
             entity.setDelFlag("0");
             this.sysUserMapper.insertSelective(entity);
@@ -39,6 +44,8 @@ public class SysUserServiceImp implements SysUserService {
     }
 
     public void update(SysUser entity) throws AppException {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+        entity.setUpdateBy(userDetails.getUsername());
         entity.setUpdateDate(new Date());
         this.sysUserMapper.updateByPrimaryKeySelective(entity);
     }

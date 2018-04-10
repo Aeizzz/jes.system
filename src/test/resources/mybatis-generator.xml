@@ -47,18 +47,18 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <!--<table tableName="sys_area"  ></table>
-        <table tableName="sys_dict"  ></table>
-        <table tableName="sys_domain"></table>
-        <table tableName="sys_log"   ></table>
-        <table tableName="sys_mdict" ></table>
+        <!--<table tableName="sys_area"  ></table>-->
+        <!--<table tableName="sys_dict"  ></table>-->
+        <!--<table tableName="sys_domain"></table>-->
+        <!--<table tableName="sys_log"   ></table>-->
+        <!--<table tableName="sys_mdict" ></table>-->
         <table tableName="sys_menu"  ></table>
-        <table tableName="sys_office"></table>
-        <table tableName="sys_param" ></table>
-        <table tableName="sys_role"  ></table>
-        <table tableName="sys_role_menu" ></table>-->
+        <!--<table tableName="sys_office"></table>-->
+        <!--<table tableName="sys_param" ></table>-->
+        <!--<table tableName="sys_role"  ></table>-->
+        <!--<table tableName="sys_role_menu" ></table>-->
         <!--<table tableName="sys_role_office"></table>-->
-        <table tableName="sys_user"  ></table>
+        <!--<table tableName="sys_user"  ></table>-->
         <!--<table tableName="sys_user_role" ></table>-->
 
     </context>

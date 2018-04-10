@@ -7,10 +7,15 @@ import com.lizhivscaomei.jes.common.exception.AppException;
 import com.lizhivscaomei.jes.sys.dao.*;
 import com.lizhivscaomei.jes.sys.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class SysRoleServiceImp implements SysRoleService {
     @Autowired
@@ -26,6 +31,14 @@ public class SysRoleServiceImp implements SysRoleService {
 
     public void add(SysRole entity) throws AppException {
         if(entity!=null){
+            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+            //默认数据
+            entity.setId(UUID.randomUUID().toString());
+            entity.setCreateBy(userDetails.getUsername());
+            entity.setCreateDate(new Date());
+            entity.setUpdateBy(userDetails.getUsername());
+            entity.setUpdateDate(new Date());
+            entity.setDelFlag("0");
             this.sysRoleMapper.insertSelective(entity);
         }else {
             throw new AppException("entity不可为空");
@@ -33,6 +46,9 @@ public class SysRoleServiceImp implements SysRoleService {
     }
 
     public void update(SysRole entity) throws AppException {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+        entity.setUpdateBy(userDetails.getUsername());
+        entity.setUpdateDate(new Date());
         this.sysRoleMapper.updateByPrimaryKeySelective(entity);
     }
 

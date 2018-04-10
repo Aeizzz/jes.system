@@ -507,19 +507,19 @@
                                 <li class="active-sub">
                                     <a href="#">
                                         <i class="pli-mouse-3"></i>
-                                        <span class="menu-title">Active State</span>
+                                        <span class="menu-title">系统管理</span>
                                         <i class="arrow"></i>
                                     </a>
 
                                     <!--Submenu-->
                                     <ul class="collapse in">
-                                        <li><a href="#">Link</a></li>
-                                        <li class="active-link"><a href="#">Active link</a></li>
-                                        <li><a href="#">Another link</a></li>
-                                        <li><a href="#">Some else here</a></li>
-                                        <li class="list-divider"></li>
-                                        <li><a href="#">Separate link</a></li>
-
+                                        <li class="menuItem" data-link="/jsp/module/sys/sysUser/sysUserList.jsp"><a href="#">用户管理</a></li>
+                                        <li class="menuItem" data-link="/jsp/module/sys/sysDomain/sysDomainList.jsp"><a href="#">域管理</a></li>
+                                        <li class="menuItem" data-link="/jsp/module/sys/sysRole/sysRoleList.jsp"><a href="#">角色管理</a></li>
+                                        <li class="menuItem" data-link="/jsp/module/sys/sysMenu/sysMenuList.jsp"><a href="#">菜单管理</a></li>
+                                        <li class="menuItem" data-link="#"><a href="#">字典管理</a></li>
+                                        <li class="menuItem" data-link="#"><a href="#">树形字典管理</a></li>
+                                        <li class="menuItem" data-link="http://www.baidu.com"><a href="#">百度</a></li>
                                     </ul>
                                 </li>
                                 <!--Menu list item-->
@@ -702,3 +702,12 @@
 
 </body>
 </html>
+<script>
+    $(function () {
+        $("#mainnav-menu .menuItem").each(function () {
+            $(this).click(function () {
+                $("#mainframe").attr("src",$(this).data("link"));
+            });
+        });
+    });
+</script>

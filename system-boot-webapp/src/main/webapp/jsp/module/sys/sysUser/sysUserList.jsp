@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>SysUser管理</title>
+    <title>用户管理</title>
     <%@ include file="/jsp/public/commonTable.jsp" %>
 </head>
 <body>
@@ -10,7 +10,7 @@
     <div class="row-fluid">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">SysUser管理</h3>
+                <h3 class="panel-title">用户管理</h3>
             </div>
 
             <div class="panel-body">
@@ -22,6 +22,7 @@
                     <%--<div class="btn-group">--%>
                     <%--<button class="btn btn-default" type="button" onclick="superQuery()" >高级查询</button>--%>
                     <%--</div>--%>
+
                     <hr>
                     <table id="datatable" class="table">
 
@@ -49,81 +50,81 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">归属公司：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="companyId"  name="companyId"
+                            <input type="text" class="form-control" id="companyId" name="companyId"
                                    placeholder="请输入归属公司">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">归属部门：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="officeId"  name="officeId"
+                            <input type="text" class="form-control" id="officeId" name="officeId"
                                    placeholder="请输入归属部门">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">登录名：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="loginName"  name="loginName"
+                            <input type="text" class="form-control" id="loginName" name="loginName"
                                    placeholder="请输入登录名">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">密码：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="password"  name="password"
+                            <input type="text" class="form-control" id="password" name="password"
                                    placeholder="请输入密码">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">工号：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="no"  name="no"
+                            <input type="text" class="form-control" id="no" name="no"
                                    placeholder="请输入工号">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">姓名：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="name"  name="name"
+                            <input type="text" class="form-control" id="name" name="name"
                                    placeholder="请输入姓名">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">邮箱：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="email"  name="email"
+                            <input type="text" class="form-control" id="email" name="email"
                                    placeholder="请输入邮箱">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">电话：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="phone"  name="phone"
+                            <input type="text" class="form-control" id="phone" name="phone"
                                    placeholder="请输入电话">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">手机：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="mobile"  name="mobile"
+                            <input type="text" class="form-control" id="mobile" name="mobile"
                                    placeholder="请输入手机">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">用户类型：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="userType"  name="userType"
+                            <input type="text" class="form-control" id="userType" name="userType"
                                    placeholder="请输入用户类型">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">用户头像：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="photo"  name="photo"
+                            <input type="text" class="form-control" id="photo" name="photo"
                                    placeholder="请输入用户头像">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <%--<div class="form-group">
                         <label class="control-label col-xs-4">最后登陆IP：</label>
                         <div class="col-xs-8">
                             <input type="text" class="form-control" id="loginIp"  name="loginIp"
@@ -185,7 +186,7 @@
                             <input type="text" class="form-control" id="delFlag"  name="delFlag"
                                    placeholder="请输入删除标记">
                         </div>
-                    </div>
+                    </div>--%>
                     <input type="hidden" name="id" id="id">
 
                 </form>
@@ -197,7 +198,6 @@
         </div>
     </div>
 </div>
-
 <!-- 删除确认-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
     <div class="modal-dialog" role="document">
@@ -205,30 +205,37 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i class="fa fa-exclamation-circle"></i>删除</h4>
+                <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i
+                        class="fa fa-exclamation-circle"></i>删除</h4>
             </div>
             <div class="modal-body">
                 <p id="confirmMsg"></p>
             </div>
-            <div class="modal-footer" >
+            <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" onclick="saveForm()">确认</button>
+                <button type="button" class="btn btn-primary" id="deleteConfirmBtn">确认</button>
             </div>
         </div>
     </div>
 </div>
+<%--操作提示--%>
+<div class="alert hidden" id="alert" style="position: fixed;right: 10px;top: 10px;width: 300px;">
+    <a href="#" class="close" data-dismiss="alert">
+        &times;
+    </a>
+    <div id="alertMessage"></div>
+</div>
 <script>
     var datatable;
     $(function () {
-        createTable({});
+        createTable();
     });
-
-    function createTable(params) {
-        var queryBaseUr="/com/lizhivscaomei/jes/sys/controller/sysUser/query/page";
-        var options={};
-        $.extend(options,dataTableJesOptions);
-        options.ajax={url:queryBaseUr};
-        options.columns=[
+    function createTable() {
+        var queryBaseUr = "/com/lizhivscaomei/jes/sys/controller/sysUser/query/page";
+        var options = {};
+        $.extend(options, dataTableJesOptions);
+        options.ajax = {url: queryBaseUr};
+        options.columns = [
             {
                 "title": "序号",
                 "data": "id"
@@ -245,10 +252,10 @@
                 "title": "登录名",
                 "data": "loginName"
             },
-            {
+           /* {
                 "title": "密码",
                 "data": "password"
-            },
+            },*/
             {
                 "title": "工号",
                 "data": "no"
@@ -273,7 +280,7 @@
                 "title": "用户类型",
                 "data": "userType"
             },
-            {
+            /*{
                 "title": "用户头像",
                 "data": "photo"
             },
@@ -304,21 +311,21 @@
             {
                 "title": "更新时间",
                 "data": "updateDate"
-            },
-            {
+            },*/
+           /* {
                 "title": "备注信息",
                 "data": "remarks"
-            },
-            {
+            },*/
+           /* {
                 "title": "删除标记",
                 "data": "delFlag"
-            },
+            },*/
             {
                 "title": "操作",
                 "data": "id"
             }
         ];
-        options.columnDefs=[
+        options.columnDefs = [
             /*{
              "targets": -2,//最后第二列
              "createdCell": function (td, cellData, rowData, row, col) {
@@ -343,16 +350,15 @@
                     var btn_delete = '<button class="btn btn-danger" onclick="remove(this)" data-row="' + row + '" data-id="' + rowData.id + '">删除</button>';
                     $(td).children(".btn-group").append(btn_delete);
                     /*var btn_isuse = "";
-                    if (rowData.isuse === 1) {
-                        btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">禁用</button>';
-                    } else {
-                        btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">启用</button>';
-                    }
-                    $(td).children(".btn-group").append(btn_isuse);*/
+                     if (rowData.isuse === 1) {
+                     btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">禁用</button>';
+                     } else {
+                     btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">启用</button>';
+                     }
+                     $(td).children(".btn-group").append(btn_isuse);*/
                 }
             }
         ];
-        debugger
         datatable = $('#datatable').dataTable(options);
     }
     function showModal(action, data) {
@@ -367,12 +373,20 @@
             if ("view" == action) {
                 $("#modal-actions").hide();
                 $("#editModalLabel").text("详情");
-            }else if ("edit" == action) {
+            } else if ("edit" == action) {
                 $("#modal-actions").show();
                 $("#editModalLabel").text("修改");
             }
         }
         $("#editModal").modal();
+    }
+    function showAlert(classAttr, msg) {
+        $("#alert").attr("class", "alert " + classAttr);
+        $("#alertMessage").text(msg);
+        $("#alert").alert();
+        setTimeout(function () {
+            $("#alert").alert('close')
+        },2000);
     }
     function add() {
         $("#id").val("");
@@ -390,21 +404,35 @@
         showModal("edit", $(node).data("id"));
     }
     function remove(node) {
-        var rowData=datatable.api().row($(node).data("row")).data();
-        $("#confirmMsg").text("确定要删除"+rowData.name+"吗？");
-        $("#deleteModal").modal();
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysUser/delete";
+        var rowData = datatable.api().row($(node).data("row")).data();
+        $("#deleteConfirmBtn").click(function () {
+            $.post(url, {id: rowData.id}, function (data) {
+                if (data.success) {
+                    showAlert("alert-success", "删除成功");
+                    $("#deleteModal").modal('toggle');
+                    refreshTable();
+                } else {
+                    showAlert("alert-warning", "删除失败，" + data.info);
+                }
+            });
+        });
+        $("#confirmMsg").text("确定要删除" + rowData.name + "？");
+        $("#deleteModal").modal('toggle');
+
     }
     function view(node) {
         //datatable.api().row($(node).data("row")).data()
         $("input").each(function () {
-            $(this).attr("readonly","readonly");
+            $(this).attr("readonly", "readonly");
         });
         showModal("view", $(node).data("id"));
 
     }
     function loadFormdata(id) {
-        var url="/com/lizhivscaomei/jes/sys/controller/sysUser/query/detail";
-        $.get(url,{"id":id},function (data) {
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysUser/query/detail";
+        $.get(url, {"id": id}, function (data) {
+            $("#id").val(id);
             $("#companyId").val(data.data.companyId);
             $("#officeId").val(data.data.officeId);
             $("#loginName").val(data.data.loginName);
@@ -428,31 +456,41 @@
         });
     }
     function saveForm() {
-        var url="/com/lizhivscaomei/jes/sys/controller/sysUser/save";
-        var formdata=new Object();
-        formdata.companyId=$("#companyId").val();
-        formdata.officeId=$("#officeId").val();
-        formdata.loginName=$("#loginName").val();
-        formdata.password=$("#password").val();
-        formdata.no=$("#no").val();
-        formdata.name=$("#name").val();
-        formdata.email=$("#email").val();
-        formdata.phone=$("#phone").val();
-        formdata.mobile=$("#mobile").val();
-        formdata.userType=$("#userType").val();
-        formdata.photo=$("#photo").val();
-        formdata.loginIp=$("#loginIp").val();
-        formdata.loginDate=$("#loginDate").val();
-        formdata.loginFlag=$("#loginFlag").val();
-        formdata.createBy=$("#createBy").val();
-        formdata.createDate=$("#createDate").val();
-        formdata.updateBy=$("#updateBy").val();
-        formdata.updateDate=$("#updateDate").val();
-        formdata.remarks=$("#remarks").val();
-        formdata.delFlag=$("#delFlag").val();
-        $.post(url,formdata,function (data) {
-            alert(data.success);
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysUser/save";
+        var formdata = new Object();
+        formdata.id = $("#id").val();
+        formdata.companyId = $("#companyId").val();
+        formdata.officeId = $("#officeId").val();
+        formdata.loginName = $("#loginName").val();
+        formdata.password = $("#password").val();
+        formdata.no = $("#no").val();
+        formdata.name = $("#name").val();
+        formdata.email = $("#email").val();
+        formdata.phone = $("#phone").val();
+        formdata.mobile = $("#mobile").val();
+        formdata.userType = $("#userType").val();
+        formdata.photo = $("#photo").val();
+        formdata.loginIp = $("#loginIp").val();
+        formdata.loginDate = $("#loginDate").val();
+        formdata.loginFlag = $("#loginFlag").val();
+        formdata.createBy = $("#createBy").val();
+        formdata.createDate = $("#createDate").val();
+        formdata.updateBy = $("#updateBy").val();
+        formdata.updateDate = $("#updateDate").val();
+        formdata.remarks = $("#remarks").val();
+        formdata.delFlag = $("#delFlag").val();
+        $.post(url, formdata, function (data) {
+            if (data.success) {
+                showAlert("alert-success", "保存成功");
+                $("#editModal").modal('toggle');
+                refreshTable();
+            } else {
+                showAlert("alert-warning", "保存失败，" + data.info);
+            }
         });
+    }
+    function refreshTable() {
+        $('#datatable').DataTable().ajax.reload();
     }
 </script>
 </body>

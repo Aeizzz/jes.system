@@ -8,9 +8,14 @@ import com.lizhivscaomei.jes.sys.entity.SysMenu;
 import com.lizhivscaomei.jes.sys.dao.SysMenuMapper;
 import com.lizhivscaomei.jes.sys.entity.SysMenuExample;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class SysMenuServiceImp implements SysMenuService {
     @Autowired
@@ -18,6 +23,14 @@ public class SysMenuServiceImp implements SysMenuService {
 
     public void add(SysMenu entity) throws AppException {
         if(entity!=null){
+            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+            //默认数据
+            entity.setId(UUID.randomUUID().toString());
+            entity.setCreateBy(userDetails.getUsername());
+            entity.setCreateDate(new Date());
+            entity.setUpdateBy(userDetails.getUsername());
+            entity.setUpdateDate(new Date());
+            entity.setDelFlag("0");
             this.sysMenuMapper.insertSelective(entity);
         }else {
             throw new AppException("entity不可为空");
@@ -25,6 +38,9 @@ public class SysMenuServiceImp implements SysMenuService {
     }
 
     public void update(SysMenu entity) throws AppException {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+        entity.setUpdateBy(userDetails.getUsername());
+        entity.setUpdateDate(new Date());
         this.sysMenuMapper.updateByPrimaryKeySelective(entity);
     }
 

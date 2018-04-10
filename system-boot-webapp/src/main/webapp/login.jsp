@@ -31,10 +31,10 @@
                 </div>
                 <form method="post" action="/login">
                     <div class="form-group">
-                        <input type="text" name="username" class="form-control" placeholder="用户名" autofocus>
+                        <input type="text" name="username" class="form-control" placeholder="用户名" autofocus value="admin">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="密码">
+                        <input type="password" name="password" class="form-control" placeholder="密码" value="admin">
                     </div>
                     <div class="checkbox pad-btm text-left">
                         <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox">
