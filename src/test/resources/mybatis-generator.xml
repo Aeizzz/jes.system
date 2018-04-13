@@ -52,7 +52,7 @@
         <!--<table tableName="sys_domain"></table>-->
         <!--<table tableName="sys_log"   ></table>-->
         <!--<table tableName="sys_mdict" ></table>-->
-        <table tableName="sys_menu"  ></table>
+        <!--<table tableName="sys_menu"  ></table>-->
         <!--<table tableName="sys_office"></table>-->
         <!--<table tableName="sys_param" ></table>-->
         <!--<table tableName="sys_role"  ></table>-->

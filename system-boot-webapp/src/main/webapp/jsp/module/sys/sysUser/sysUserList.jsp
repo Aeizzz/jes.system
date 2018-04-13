@@ -46,7 +46,7 @@
                 <h4 class="modal-title" id="editModalLabel">未知</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal no-margin form-border" method="post" name="entityForm" id="entityForm">
+                <form class="form-horizontal no-margin form-border" method="post" name="entityForm" id="entityForm" way-data="sys.user.formdata" way-persistent="true">
                     <div class="form-group">
                         <label class="control-label col-xs-4">归属公司：</label>
                         <div class="col-xs-8">

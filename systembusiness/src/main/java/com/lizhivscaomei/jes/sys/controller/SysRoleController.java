@@ -10,6 +10,8 @@ import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
 import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysRole;
 import com.lizhivscaomei.jes.sys.service.SysRoleService;
+import com.lizhivscaomei.jes.sys.view.SysRoleViewService;
+import com.lizhivscaomei.jes.sys.view.SysRoleVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class SysRoleController {
     @Autowired
     SysRoleService sysRoleService;
-
+    @Autowired
+    SysRoleViewService sysRoleViewService;
     /**
     * 保存
     * */
@@ -78,14 +81,14 @@ public class SysRoleController {
     * */
     @ResponseBody
     @RequestMapping("/sysRole/query/page")
-    public DataTablesResponse<SysRole> update(SysRole entity, DataTablesRequest dataTablesRequest){
-        DataTablesResponse<SysRole> response=new DataTablesResponse<>();
+    public DataTablesResponse<SysRoleVo> update(SysRole entity, DataTablesRequest dataTablesRequest){
+        DataTablesResponse<SysRoleVo> response=new DataTablesResponse<>();
         response.setDraw(dataTablesRequest.getDraw());
         Page page=new Page();
         page.setCurrentPage(dataTablesRequest.getStart());
         page.setPageSize(dataTablesRequest.getLength());
         PageInfo<SysRole> pages = this.sysRoleService.queryPage(entity, page);
-        response.setData(pages.getList());
+        response.setData(this.sysRoleViewService.dtoList2voList(pages.getList()));
         response.setRecordsTotal(pages.getTotal());
         return response;
 

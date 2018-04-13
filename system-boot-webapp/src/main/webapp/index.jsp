@@ -2,8 +2,8 @@
 <%@ include file="jsp/public/head.jsp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>标准化生产种植管理系统</title>
-    <%@ include file="jsp/public/nifty.jsp"%>
+    <title way-data="selectedDomain.name"></title>
+    <%@ include file="jsp/public/nifty.jsp" %>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                 <a href="index.html" class="navbar-brand">
                     <img src="static/img/logo.png" alt="Nifty Logo" class="brand-icon">
                     <div class="brand-title">
-                        <span class="brand-text">微立方IoT平台</span>
+                        <span class="brand-text" way-data="selectedDomain.name"></span>
                     </div>
                 </a>
             </div>
@@ -44,12 +44,12 @@
                     <!--End Navigation toogle button-->
 
 
-
                     <!--搜索-->
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <li>
                         <div class="custom-search-form">
-                            <label class="btn btn-trans" for="search-input" data-toggle="collapse" data-target="#nav-searchbox">
+                            <label class="btn btn-trans" for="search-input" data-toggle="collapse"
+                                   data-target="#nav-searchbox">
                                 <i class="pli-magnifi-glass"></i>
                             </label>
                             <form>
@@ -61,12 +61,6 @@
                     </li>
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <!--End Search-->
-
-
-
-
-
-
 
 
                 </ul>
@@ -81,84 +75,43 @@
                         </a>
                         <div class="dropdown-menu mega-dropdown-menu">
                             <div class="row">
-                                <div class="col-sm-4 col-md-3">
-
+                                <div class="col-sm-12 col-md-3">
                                     <!--Mega menu list-->
-                                    <ul class="list-unstyled">
-                                        <li class="dropdown-header"><i class="pli-file icon-lg icon-fw"></i> Pages</li>
-                                        <li><a href="#">Profile</a></li>
-                                        <li><a href="#">Search Result</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Sreen Lock</a></li>
-                                        <li><a href="#">Maintenance</a></li>
-                                        <li><a href="#">Invoice</a></li>
-                                        <li><a href="#" class="disabled">Disabled</a></li>                                        </ul>
-
-                                </div>
-                                <div class="col-sm-4 col-md-3">
-
-                                    <!--Mega menu list-->
-                                    <ul class="list-unstyled">
-                                        <li class="dropdown-header"><i class="pli-mail icon-lg icon-fw"></i> Mailbox</li>
-                                        <li><a href="#"><span class="pull-right label label-danger">Hot</span>Indox</a></li>
-                                        <li><a href="#">Read Message</a></li>
-                                        <li><a href="#">Compose</a></li>
-                                        <li><a href="#">Template</a></li>
-                                    </ul>
-                                    <p class="pad-top text-main text-sm text-uppercase text-bold"><i class="icon-lg pli-calendar-4 icon-fw"></i>News</p>
-                                    <p class="pad-top mar-top bord-top text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                                </div>
-                                <div class="col-sm-4 col-md-3">
-                                    <!--Mega menu list-->
-                                    <ul class="list-unstyled">
+                                    <ul class="list-unstyled" way-repeat="domainList">
                                         <li>
                                             <a href="#" class="media mar-btm">
-                                                <span class="badge badge-success pull-right">90%</span>
+                                                <span class="badge badge-success pull-right">new</span>
                                                 <div class="media-left">
                                                     <i class="pli-data-settings icon-2x"></i>
                                                 </div>
                                                 <div class="media-body">
-                                                    <p class="text-semibold text-main mar-no">Data Backup</p>
+                                                    <p class="text-semibold text-main mar-no" way-data="name"></p>
                                                     <small class="text-muted">This is the item description</small>
                                                 </div>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#" class="media mar-btm">
-                                                <div class="media-left">
-                                                    <i class="pli-support icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="text-semibold text-main mar-no">Support</p>
-                                                    <small class="text-muted">This is the item description</small>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="media mar-btm">
-                                                <div class="media-left">
-                                                    <i class="pli-computer-secure icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="text-semibold text-main mar-no">Security</p>
-                                                    <small class="text-muted">This is the item description</small>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="media mar-btm">
-                                                <div class="media-left">
-                                                    <i class="pli-map-2 icon-2x"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="text-semibold text-main mar-no">Location</p>
-                                                    <small class="text-muted">This is the item description</small>
-                                                </div>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </div>
-                                <%--<div class="col-sm-12 col-md-3">
+                                <%--<div class="col-sm-4 col-md-3">
+
+                                    <!--Mega menu list-->
+                                    <ul class="list-unstyled">
+                                        <li class="dropdown-header"><i class="pli-mail icon-lg icon-fw"></i> Mailbox
+                                        </li>
+                                        <li><a href="#"><span class="pull-right label label-danger">Hot</span>Indox</a>
+                                        </li>
+                                        <li><a href="#">Read Message</a></li>
+                                        <li><a href="#">Compose</a></li>
+                                        <li><a href="#">Template</a></li>
+                                    </ul>
+                                    <p class="pad-top text-main text-sm text-uppercase text-bold"><i
+                                            class="icon-lg pli-calendar-4 icon-fw"></i>News</p>
+                                    <p class="pad-top mar-top bord-top text-sm">Lorem ipsum dolor sit amet, consectetuer
+                                        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+                                        natoque penatibus et magnis dis parturient montes.</p>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
                                     <p class="dropdown-header"><i class="pli-file-jpg icon-lg icon-fw"></i> Gallery</p>
                                     <div class="row img-gallery">
                                         <div class="col-xs-4">
@@ -187,7 +140,6 @@
                     </li>
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <!--End mega dropdown-->
-
 
 
                     <!--Notification dropdown-->
@@ -326,7 +278,6 @@
                     <!--End notifications dropdown-->
 
 
-
                     <!--User dropdown-->
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <li id="dropdown-user" class="dropdown">
@@ -351,10 +302,12 @@
                                     <a href="#"><i class="pli-male icon-lg icon-fw"></i> 名片</a>
                                 </li>
                                 <li>
-                                    <a href="#"><span class="badge badge-danger pull-right">9</span><i class="pli-mail icon-lg icon-fw"></i> 通知</a>
+                                    <a href="#"><span class="badge badge-danger pull-right">9</span><i
+                                            class="pli-mail icon-lg icon-fw"></i> 通知</a>
                                 </li>
                                 <li>
-                                    <a href="#"><span class="label label-success pull-right">New</span><i class="pli-gear icon-lg icon-fw"></i> 设置</a>
+                                    <a href="#"><span class="label label-success pull-right">New</span><i
+                                            class="pli-gear icon-lg icon-fw"></i> 设置</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="pli-computer-secure icon-lg icon-fw"></i> 修改密码</a>
@@ -392,7 +345,8 @@
             <!--===================================================-->
             <div id="page-content" style="padding: 0px">
 
-                <iframe src="/jsp/module/sys/sysUser/sysUserList.jsp" width="100%" height="90%" frameborder="0" name="mainframe" id="mainframe" ></iframe>
+                <iframe src="/jsp/module/sys/sysUser/sysUserList.jsp" width="100%" height="90%" frameborder="0"
+                        name="mainframe" id="mainframe"></iframe>
 
             </div>
             <!--===================================================-->
@@ -402,7 +356,6 @@
         </div>
         <!--===================================================-->
         <!--END CONTENT CONTAINER-->
-
 
 
         <!--MAIN NAVIGATION-->
@@ -424,7 +377,6 @@
                 -->
 
 
-
                 <!--Menu-->
                 <!--================================-->
                 <div id="mainnav-menu-wrap">
@@ -436,9 +388,11 @@
                             <div id="mainnav-profile" class="mainnav-profile">
                                 <div class="profile-wrap text-center">
                                     <div class="pad-btm">
-                                        <img class="img-circle img-md" src="static/img/profile-photos/1.png" alt="Profile Picture">
+                                        <img class="img-circle img-md" src="static/img/profile-photos/1.png"
+                                             alt="Profile Picture">
                                     </div>
-                                    <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                                    <a href="#profile-nav" class="box-block" data-toggle="collapse"
+                                       aria-expanded="false">
                                             <span class="pull-right dropdown-toggle">
                                                 <i class="dropdown-caret"></i>
                                             </span>
@@ -501,47 +455,23 @@
                             <!--End shortcut buttons-->
 
 
-                            <ul id="mainnav-menu" class="list-group">
+                            <ul id="mainnav-menu" class="list-group" way-repeat="selectedDomain.menuList">
 
                                 <!--Menu list item-->
                                 <li class="active-sub">
                                     <a href="#">
                                         <i class="pli-mouse-3"></i>
-                                        <span class="menu-title">系统管理</span>
+                                        <span class="menu-title" way-data="name">系统管理</span>
                                         <i class="arrow"></i>
                                     </a>
 
                                     <!--Submenu-->
-                                    <ul class="collapse in">
-                                        <li class="menuItem" data-link="/jsp/module/sys/sysUser/sysUserList.jsp"><a href="#">用户管理</a></li>
-                                        <li class="menuItem" data-link="/jsp/module/sys/sysDomain/sysDomainList.jsp"><a href="#">域管理</a></li>
-                                        <li class="menuItem" data-link="/jsp/module/sys/sysRole/sysRoleList.jsp"><a href="#">角色管理</a></li>
-                                        <li class="menuItem" data-link="/jsp/module/sys/sysMenu/sysMenuList.jsp"><a href="#">菜单管理</a></li>
-                                        <li class="menuItem" data-link="#"><a href="#">字典管理</a></li>
-                                        <li class="menuItem" data-link="#"><a href="#">树形字典管理</a></li>
-                                        <li class="menuItem" data-link="http://www.baidu.com"><a href="#">百度</a></li>
+                                    <ul class="collapse in" way-repeat="childs">
+                                        <li class="menuItem" data-link="/jsp/module/sys/sysUser/sysUserList.jsp"><a
+                                                href="#" way-data="name"></a></li>
                                     </ul>
                                 </li>
                                 <!--Menu list item-->
-                                <li class="active-sub">
-                                    <a href="#">
-                                        <i class="pli-mouse-3"></i>
-                                        <span class="menu-title">Active State</span>
-                                        <i class="arrow"></i>
-                                    </a>
-
-                                    <!--Submenu-->
-                                    <ul class="collapse in">
-                                        <li><a href="#">Link</a></li>
-                                        <li class="active-link"><a href="#">Active link</a></li>
-                                        <li><a href="#">Another link</a></li>
-                                        <li><a href="#">Some else here</a></li>
-                                        <li class="list-divider"></li>
-                                        <li><a href="#">Separate link</a></li>
-
-                                    </ul>
-                                </li>
-
                             </ul>
 
                         </div>
@@ -587,7 +517,6 @@
                         <!--End nav tabs-->
 
 
-
                         <!-- Tabs Content -->
                         <!--================================-->
                         <div class="tab-content">
@@ -598,11 +527,16 @@
                                 <p class="pad-all text-lg">First tab</p>
                                 <div class="pad-hor">
                                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.
+                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                                    lobortis nisl
+                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate
+                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+                                    eros et accumsan
+                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                                    dolore te feugait nulla facilisi.
                                 </div>
                             </div>
                             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -615,11 +549,16 @@
                                 <p class="pad-all text-lg">Second tab</p>
                                 <div class="pad-hor">
                                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.
+                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                                    lobortis nisl
+                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate
+                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+                                    eros et accumsan
+                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                                    dolore te feugait nulla facilisi.
                                 </div>
                             </div>
                             <!--End second tab-->
@@ -632,11 +571,16 @@
                                 <p class="pad-all text-lg">Third tab</p>
                                 <div class="pad-hor">
                                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.
+                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                                    lobortis nisl
+                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate
+                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+                                    eros et accumsan
+                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                                    dolore te feugait nulla facilisi.
                                 </div>
                             </div>
                             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -652,7 +596,6 @@
     </div>
 
 
-
     <!-- FOOTER -->
     <!--===================================================-->
     <footer id="footer">
@@ -664,7 +607,6 @@
         </div>
 
 
-
         <!-- Visible when footer positions are static -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="hide-fixed pull-right pad-rgt">
@@ -672,13 +614,11 @@
         </div>
 
 
-
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Remove the class "show-fixed" and "hide-fixed" to make the content always appears. -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
         <p class="pad-lft">&#0169; 2017 Your Company</p>
-
 
 
     </footer>
@@ -694,7 +634,6 @@
     <!--===================================================-->
 
 
-
 </div>
 <!--===================================================-->
 <!-- END OF CONTAINER -->
@@ -704,9 +643,95 @@
 </html>
 <script>
     $(function () {
+        //entity
+        way.set("selectedDomain",{
+            id:1,
+            name:"物联网平台",
+            menuList:[
+                {
+                    id:1,
+                    name:"用户中心",
+                    url:"#",
+                    childs:[
+                        {
+                            id:1,
+                            name:"用户管理",
+                            url:"/jsp/module/sys/sysUser/sysUserList.jsp",
+                            childs:[]
+                        }
+                    ]
+                },
+                {
+                    id:2,
+                    name:"权限管理",
+                    url:"#",
+                    childs:[
+                        {
+                            id:1,
+                            name:"域管理",
+                            url:"/jsp/module/sys/sysDomain/sysDomainList.jsp",
+                            childs:[]
+                        },
+                        {
+                            id:1,
+                            name:"角色管理",
+                            url:"/jsp/module/sys/sysRole/sysRoleList.jsp",
+                            childs:[]
+                        },
+                        {
+                            id:1,
+                            name:"权限管理",
+                            url:"/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                            childs:[]
+                        },
+                        {
+                            id:1,
+                            name:"权限管理",
+                            url:"/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                            childs:[]
+                        }
+                    ]
+                },
+                {
+                    id:3,
+                    name:"基础数据",
+                    url:"#",
+                    childs:[]
+                },
+                {
+                    id:3,
+                    name:"系统设置",
+                    url:"#",
+                    childs:[]
+                }
+            ]
+        });
+        way.set("domainList",[
+            {
+                id:1,
+                name:"物联网平台",
+            },
+            {
+                id:1,
+                name:"标准化种植",
+            },
+            {
+                id:1,
+                name:"价格体系",
+            },
+            {
+                id:1,
+                name:"区块链",
+            },
+            {
+                id:1,
+                name:"市政桥涵",
+            }
+        ]);
+        //actions
         $("#mainnav-menu .menuItem").each(function () {
             $(this).click(function () {
-                $("#mainframe").attr("src",$(this).data("link"));
+                $("#mainframe").attr("src", $(this).data("link"));
             });
         });
     });

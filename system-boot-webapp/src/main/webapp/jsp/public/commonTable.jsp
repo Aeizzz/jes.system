@@ -21,3 +21,4 @@
 <script src="/static/component/datatables/js/dataTable.default.js"></script>
 <script src="/static/component/select2/4.0.6/select2.min.js"></script>
 <script src="/static/js/utils.js"></script>
+<script src="/static/component/way/way.js"></script>

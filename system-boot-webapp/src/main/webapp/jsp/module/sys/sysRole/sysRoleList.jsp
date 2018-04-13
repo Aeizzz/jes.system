@@ -196,7 +196,8 @@
             var selectDom=this;
             $.get($(this).data("url"),{},function (data) {
                 $(selectDom).select2({
-                    data:data
+                    data:data,
+                    minimumResultsForSearch: -1
                 });
             })
         });
@@ -213,7 +214,7 @@
             },
             {
                 "title": "所属域",
-                "data": "domainId"
+                "data": "domainName"
             },
            /* {
                 "title": "归属机构",
@@ -395,7 +396,7 @@
             $("#updateDate").val(data.data.updateDate);
             $("#remarks").val(data.data.remarks);
             $("#delFlag").val(data.data.delFlag);
-            $("#domainId").val(data.data.domainId);
+            $("#domainId").val(data.data.domainId).trigger("change");
         });
     }
     function saveForm() {

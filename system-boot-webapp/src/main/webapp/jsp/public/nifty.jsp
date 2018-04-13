@@ -48,3 +48,5 @@ Optional plugins. You may choose whether to include it in your project or not.
 Detailed information and more samples can be found in the document.
 
 =================================================-->
+
+<script src="/static/component/way/way.js"></script>

@@ -54,6 +54,7 @@ public class SysDomainServiceImp implements SysDomainService {
 
     public PageInfo<SysDomain> queryPage(SysDomain entity, Page page) {
         SysDomainExample example=new SysDomainExample();
+        example.setOrderByClause("code asc");
         PageHelper.startPage(page.getCurrentPage(),page.getPageSize());
         List<SysDomain> list= this.sysDomainMapper.selectByExample(example);
         return new PageInfo<SysDomain>(list);
