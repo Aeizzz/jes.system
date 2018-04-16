@@ -50,3 +50,9 @@ Detailed information and more samples can be found in the document.
 =================================================-->
 
 <script src="/static/component/way/way.js"></script>
+<style>
+    #mainnav-menu a:hover{
+        background-color:#26a69a;
+        color: white;
+    }
+</style>

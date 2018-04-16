@@ -454,24 +454,18 @@
                             <!--================================-->
                             <!--End shortcut buttons-->
 
-
-                            <ul id="mainnav-menu" class="list-group" way-repeat="selectedDomain.menuList">
-
+                            <ul id="mainnav-menu" class="list-group">
                                 <!--Menu list item-->
-                                <li class="active-sub">
-                                    <a href="#">
-                                        <i class="pli-mouse-3"></i>
-                                        <span class="menu-title" way-data="name">系统管理</span>
-                                        <i class="arrow"></i>
-                                    </a>
 
-                                    <!--Submenu-->
-                                    <ul class="collapse in" way-repeat="childs">
-                                        <li class="menuItem" data-link="/jsp/module/sys/sysUser/sysUserList.jsp"><a
-                                                href="#" way-data="name"></a></li>
-                                    </ul>
+                                <li>
+                                    <a href="#" data-original-title="" title="" class="" aria-expanded="false">
+                                        <i class="pli-receipt-4"></i>
+                                        <span class="menu-title"><strong>用户中心</strong></span><i class="arrow"></i></a>
+                                    <ul class="collapse pop-in" id="用户中心" aria-expanded="false">
+                                        <li class="menuItem" data-link="/jsp/module/sys/sysUser/sysUserList.jsp"><a href="#">
+                                            <i class="pli-circular-point"></i>
+                                            用户管理</a></li></ul>
                                 </li>
-                                <!--Menu list item-->
                             </ul>
 
                         </div>
@@ -646,66 +640,67 @@
         //entity
         way.set("selectedDomain",{
             id:1,
-            name:"物联网平台",
-            menuList:[
-                {
-                    id:1,
-                    name:"用户中心",
-                    url:"#",
-                    childs:[
-                        {
-                            id:1,
-                            name:"用户管理",
-                            url:"/jsp/module/sys/sysUser/sysUserList.jsp",
-                            childs:[]
-                        }
-                    ]
-                },
-                {
-                    id:2,
-                    name:"权限管理",
-                    url:"#",
-                    childs:[
-                        {
-                            id:1,
-                            name:"域管理",
-                            url:"/jsp/module/sys/sysDomain/sysDomainList.jsp",
-                            childs:[]
-                        },
-                        {
-                            id:1,
-                            name:"角色管理",
-                            url:"/jsp/module/sys/sysRole/sysRoleList.jsp",
-                            childs:[]
-                        },
-                        {
-                            id:1,
-                            name:"权限管理",
-                            url:"/jsp/module/sys/sysMenu/sysMenuList.jsp",
-                            childs:[]
-                        },
-                        {
-                            id:1,
-                            name:"权限管理",
-                            url:"/jsp/module/sys/sysMenu/sysMenuList.jsp",
-                            childs:[]
-                        }
-                    ]
-                },
-                {
-                    id:3,
-                    name:"基础数据",
-                    url:"#",
-                    childs:[]
-                },
-                {
-                    id:3,
-                    name:"系统设置",
-                    url:"#",
-                    childs:[]
-                }
-            ]
+            name:"物联网平台"
         });
+        var menuData=[
+            {
+                id:1,
+                name:"用户中心",
+                url:"#",
+                childs:[
+                    {
+                        id:1,
+                        name:"用户管理",
+                        url:"/jsp/module/sys/sysUser/sysUserList.jsp",
+                        childs:[]
+                    }
+                ]
+            },
+            {
+                id:2,
+                name:"权限管理",
+                url:"#",
+                childs:[
+                    {
+                        id:1,
+                        name:"域管理",
+                        url:"/jsp/module/sys/sysDomain/sysDomainList.jsp",
+                        childs:[]
+                    },
+                    {
+                        id:1,
+                        name:"角色管理",
+                        url:"/jsp/module/sys/sysRole/sysRoleList.jsp",
+                        childs:[]
+                    },
+                    {
+                        id:1,
+                        name:"权限管理",
+                        url:"/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                        childs:[]
+                    },
+                    {
+                        id:1,
+                        name:"权限管理",
+                        url:"/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                        childs:[]
+                    }
+                ]
+            },
+            {
+                id:3,
+                name:"基础数据",
+                url:"#",
+                childs:[]
+            },
+            {
+                id:3,
+                name:"系统设置",
+                url:"#",
+                childs:[]
+            }
+        ];
+        initMenu(menuData);
         way.set("domainList",[
             {
                 id:1,
@@ -735,4 +730,38 @@
             });
         });
     });
+
+    function initMenu(json){
+        var menuHtml = [];
+        //一级菜单
+        for(var i=0;i<json.length;i++){
+            var root = json[i];
+            menuHtml.push('<li ><a href="#">');
+            if(!root.icon){
+                root.icon = "pli-receipt-4";
+            }
+            menuHtml.push('<i class="'+root.icon+'"></i>');
+            menuHtml.push(' <span class="menu-title"><strong>',root.name,'</strong></span><i class="arrow"></i></a>');
+            appendChildren(menuHtml,root);
+            menuHtml.push('</li>');
+        }
+        $('#mainnav-menu').prepend(menuHtml.join(''));
+    }
+    function appendChildren(menuHtml,obj){
+        var childs = obj.childs;
+        if(childs){
+            menuHtml.push('<ul class="collapse" id="'+obj.name+'">');
+            $.each(childs,function(){
+                var icon = this.icon;
+                if(!icon){
+                    icon = "pli-circular-point";
+                }
+                menuHtml.push('<li class="menuItem" data-link="'+this.url+'"><a href="#">');
+                menuHtml.push('<i class="'+icon+'"></i>');
+                menuHtml.push(this.name+'</a></li>');
+                appendChildren(menuHtml,this);
+            });
+            menuHtml.push('</ul>');
+        }
+    }
 </script>
