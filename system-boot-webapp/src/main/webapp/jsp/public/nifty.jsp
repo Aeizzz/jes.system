@@ -30,7 +30,7 @@
 
 
 <!--Nifty Admin [ RECOMMENDED ]-->
-<script src="static/js/nifty.min.js"></script>
+<%--<script src="static/js/nifty.min.js"></script>--%>
 <!--=================================================
 
 REQUIRED
@@ -49,7 +49,7 @@ Detailed information and more samples can be found in the document.
 
 =================================================-->
 
-<script src="/static/component/way/way.js"></script>
+<script src="/static/js/vue.min.js"></script>
 <style>
     #mainnav-menu a:hover{
         background-color:#26a69a;

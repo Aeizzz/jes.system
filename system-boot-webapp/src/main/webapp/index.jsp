@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ include file="jsp/public/head.jsp" %>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" id="vue">
 <head>
-    <title way-data="selectedDomain.name"></title>
+    <title>首页</title>
     <%@ include file="jsp/public/nifty.jsp" %>
 </head>
 
@@ -20,7 +20,7 @@
                 <a href="index.html" class="navbar-brand">
                     <img src="static/img/logo.png" alt="Nifty Logo" class="brand-icon">
                     <div class="brand-title">
-                        <span class="brand-text" way-data="selectedDomain.name"></span>
+                        <span class="brand-text">{{selectedDomain.name}}</span>
                     </div>
                 </a>
             </div>
@@ -78,14 +78,14 @@
                                 <div class="col-sm-12 col-md-3">
                                     <!--Mega menu list-->
                                     <ul class="list-unstyled">
-                                        <li way-repeat="my.domainList">
-                                            <a href="#" class="media mar-btm" way-attr="data-link=url">
+                                        <li v-for="domain in my.domainList">
+                                            <a href="#" class="media mar-btm" v-on:click="openframe(domain)">
                                                 <span class="badge badge-success pull-right">new</span>
                                                 <div class="media-left">
                                                     <i class="pli-data-settings icon-2x"></i>
                                                 </div>
                                                 <div class="media-body">
-                                                    <p class="text-semibold text-main mar-no" way-data="name"></p>
+                                                    <p class="text-semibold text-main mar-no">{{domain.name}}</p>
                                                     <small class="text-muted"></small>
                                                 </div>
                                             </a>
@@ -156,8 +156,8 @@
                                 <div class="nano-content">
                                     <ul class="head-list">
                                         <!-- Dropdown list-->
-                                        <li way-repeat="my.notification">
-                                            <a href="#" class="media iframe-menuItem" way-attr="data-link=url">
+                                        <li v-for="notification in my.notificationList">
+                                            <a href="#" class="media" v-on:click="openframe(notification)">
                                                 <span class="badge badge-success pull-right">1</span>
                                                 <div class="media-left">
 
@@ -166,7 +166,7 @@
 									</span>
                                                 </div>
                                                 <div class="media-body">
-                                                    <div class="text-nowrap" way-data="text"></div>
+                                                    <div class="text-nowrap" >{{notification.text}}</div>
                                                 </div>
                                             </a>
                                         </li>
@@ -254,7 +254,7 @@
             <!--===================================================-->
             <div id="page-content" style="padding: 0px">
 
-                <iframe src="/jsp/module/sys/sysUser/sysUserList.jsp" width="100%" height="90%" frameborder="0"
+                <iframe v-bind:src="iframeDefUrl" width="100%" height="90%" frameborder="0"
                         name="mainframe" id="mainframe"></iframe>
 
             </div>
@@ -343,7 +343,15 @@
 
                             <ul id="mainnav-menu" class="list-group">
                                 <!--Menu list item-->
-
+                                <li v-for="menu in selectedDomain.menuList">
+                                    <a href="#">
+                                        <i class="pli-receipt-4"></i>
+                                        <span class="menu-title"><strong>{{menu.text}}</strong></span><i class="arrow"></i>
+                                    </a>
+                                    <ul class="collapse">
+                                        <li v-for="menu2 in menu.childs" ><a href="#" v-on:click="openframe(menu2)"><i class="pli-circular-point"></i>{{menu2.text}}</a></li>
+                                    </ul>
+                                </li>
                             </ul>
 
                         </div>
@@ -514,154 +522,8 @@
 </body>
 </html>
 <script>
-    $(function () {
-        //entity
-        way.set("my", {
-            notification: [
-                {
-                    id: "12313",
-                    text: "未处理订单",
-                    url: "http://www.163.com"
-                },
-                {
-                    id: "12313",
-                    text: "该浇水了",
-                    url: "http://www.sohu.com"
-                },
-                {
-                    id: "12313",
-                    text: "该施肥水了",
-                    url: "http://www.baidu.com"
-                }
-            ],
-            domainList: [
-                {
-                    id: 1,
-                    name: "物联网平台",
-                    url: "http://www.baidu.com"
-                },
-                {
-                    id: 2,
-                    name: "标准化种植",
-                    url: "http://www.baidu.com"
-                },
-                {
-                    id: 3,
-                    name: "价格体系",
-                    url: "http://www.baidu.com"
-                },
-                {
-                    id: 4,
-                    name: "区块链",
-                    url: "http://www.baidu.com"
-                },
-                {
-                    id: 5,
-                    name: "运维平台",
-                    url: "http://www.baidu.com"
-                },
-                {
-                    id: 6,
-                    name: "市政桥涵",
-                    url: "http://www.baidu.com"
-                }
-            ]
-        });
-        way.set("selectedDomain", {
-            id: 1,
-            name: "物联网平台",
-            menuList: [
-                {
-                    id: 1,
-                    name: "用户中心",
-                    url: "#",
-                    childs: [
-                        {
-                            id: 1,
-                            name: "用户管理",
-                            url: "/jsp/module/sys/sysUser/sysUserList.jsp",
-                            childs: []
-                        }
-                    ]
-                },
-                {
-                    id: 2,
-                    name: "权限管理",
-                    url: "#",
-                    childs: [
-                        {
-                            id: 1,
-                            name: "域管理",
-                            url: "/jsp/module/sys/sysDomain/sysDomainList.jsp",
-                            childs: []
-                        },
-                        {
-                            id: 1,
-                            name: "角色管理",
-                            url: "/jsp/module/sys/sysRole/sysRoleList.jsp",
-                            childs: []
-                        },
-                        {
-                            id: 1,
-                            name: "权限管理",
-                            url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
-                            childs: []
-                        },
-                        {
-                            id: 1,
-                            name: "权限管理",
-                            url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
-                            childs: []
-                        }
-                    ]
-                },
-                {
-                    id: 3,
-                    name: "基础数据",
-                    url: "#",
-                    childs: [
-
-                        {
-                            id: 1,
-                            name: "行政区划",
-                            url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
-                            childs: []
-                        }
-                    ]
-                },
-                {
-                    id: 3,
-                    name: "系统设置",
-                    url: "#",
-                    childs: [
-                        {
-                            id: 1,
-                            name: "参数设置",
-                            url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
-                            childs: []
-                        }
-                    ]
-                }
-            ]
-        });
-        initMenu(way.get("selectedDomain.menuList"));
-        //actions
-        //点击菜单，改变iframe的动作，有左侧菜单，通知，个人中心的相关内容
-        $(".iframe-menuItem").each(function () {
-            $(this).click(function () {
-                $("#mainframe").attr("src", $(this).data("link"));
-            });
-        });
-        $(".media.mar-btm").each(function () {
-            $(this).click(function () {
-                $("#mainframe").attr("src", $(this).data("link"));
-                if($(".mega-dropdown").hasClass("open")){
-                    $(".mega-dropdown").removeClass("open");
-                }
-            });
-        });
-    });
     /*初始化菜单*/
+
     function initMenu(json) {
         var menuHtml = [];
         //一级菜单
@@ -677,8 +539,9 @@
             menuHtml.push('</li>');
         }
         $('#mainnav-menu').prepend(menuHtml.join(''));
+//        $(document).trigger('nifty.ready');
         // nav收缩展开
-        $('#mainnav-menu>li>a').on('click',function(){
+        /*$('#mainnav-menu>li>a').on('click',function(){
             if ($(this).next().css('display') == "none") {
                 //展开未展开
                 $(this).parent('li').addClass('active');
@@ -690,7 +553,7 @@
                 $(this).siblings('ul').removeClass('in');
                 $(this).siblings('ul').attr('aria-expanded',false);
             }
-        });
+        });*/
     }
     function appendChildren(menuHtml, obj) {
         var childs = obj.childs;
@@ -709,9 +572,148 @@
             menuHtml.push('</ul>');
         }
     }
+    //vue
+    var vueApp=new Vue({
+        el:"#container",
+        data:{
+            my:{
+                notificationList: [
+                    {
+                        id: "12313",
+                        text: "未处理订单",
+                        url: "http://www.163.com"
+                    },
+                    {
+                        id: "12313",
+                        text: "该浇水了",
+                        url: "http://www.sohu.com"
+                    },
+                    {
+                        id: "12313",
+                        text: "该施肥水了",
+                        url: "http://www.baidu.com"
+                    }
+                ],
+                domainList: [
+                    {
+                        id: 1,
+                        name: "物联网平台",
+                        url: "http://www.baidu.com"
+                    },
+                    {
+                        id: 2,
+                        name: "标准化种植",
+                        url: "http://www.baidu.com"
+                    },
+                    {
+                        id: 3,
+                        name: "价格体系",
+                        url: "http://www.baidu.com"
+                    },
+                    {
+                        id: 4,
+                        name: "区块链",
+                        url: "http://www.baidu.com"
+                    },
+                    {
+                        id: 5,
+                        name: "运维平台",
+                        url: "http://www.baidu.com"
+                    },
+                    {
+                        id: 6,
+                        name: "市政桥涵",
+                        url: "http://www.baidu.com"
+                    }
+                ]
+            },
+            selectedDomain:{
+                id: 1,
+                name: "物联网平台",
+                menuList: [
+                    {
+                        id: 1,
+                        text: "用户中心",
+                        url: "#",
+                        childs: [
+                            {
+                                id: 1,
+                                text: "用户管理",
+                                url: "/jsp/module/sys/sysUser/sysUserList.jsp",
+                                childs: []
+                            }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        text: "权限管理",
+                        url: "#",
+                        childs: [
+                            {
+                                id: 1,
+                                text: "域管理",
+                                url: "/jsp/module/sys/sysDomain/sysDomainList.jsp",
+                                childs: []
+                            },
+                            {
+                                id: 1,
+                                text: "角色管理",
+                                url: "/jsp/module/sys/sysRole/sysRoleList.jsp",
+                                childs: []
+                            },
+                            {
+                                id: 1,
+                                text: "权限管理",
+                                url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                                childs: []
+                            },
+                            {
+                                id: 1,
+                                text: "权限管理",
+                                url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                                childs: []
+                            }
+                        ]
+                    },
+                    {
+                        id: 3,
+                        text: "基础数据",
+                        url: "#",
+                        childs: [
 
+                            {
+                                id: 1,
+                                text: "行政区划",
+                                url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                                childs: []
+                            }
+                        ]
+                    },
+                    {
+                        id: 3,
+                        text: "系统设置",
+                        url: "#",
+                        childs: [
+                            {
+                                id: 1,
+                                text: "参数设置",
+                                url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                                childs: []
+                            }
+                        ]
+                    }
+                ]
+            },
+            iframeDefUrl:"/jsp/module/sys/sysUser/sysUserList.jsp"
+        },
+        methods:{
+            openframe:function (data) {
+                $("#mainframe").attr("src",data.url);
+            }
+        }
+    });
 
 </script>
 <%--一定要放在最后--%>
-<%--<script src="static/js/nifty.min.js"></script>--%>
+<script src="static/js/nifty.min.js"></script>
 
