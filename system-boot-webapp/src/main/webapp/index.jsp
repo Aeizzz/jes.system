@@ -77,16 +77,16 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-3">
                                     <!--Mega menu list-->
-                                    <ul class="list-unstyled" way-repeat="domainList">
-                                        <li>
-                                            <a href="#" class="media mar-btm">
+                                    <ul class="list-unstyled">
+                                        <li way-repeat="my.domainList">
+                                            <a href="#" class="media mar-btm" way-attr="data-link=url">
                                                 <span class="badge badge-success pull-right">new</span>
                                                 <div class="media-left">
                                                     <i class="pli-data-settings icon-2x"></i>
                                                 </div>
                                                 <div class="media-body">
                                                     <p class="text-semibold text-main mar-no" way-data="name"></p>
-                                                    <small class="text-muted">This is the item description</small>
+                                                    <small class="text-muted"></small>
                                                 </div>
                                             </a>
                                         </li>
@@ -155,68 +155,10 @@
                             <div class="nano scrollable">
                                 <div class="nano-content">
                                     <ul class="head-list">
-
                                         <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#">
-                                                <div class="clearfix">
-                                                    <p class="pull-left">Progressbar</p>
-                                                    <p class="pull-right">70%</p>
-                                                </div>
-                                                <div class="progress progress-sm">
-                                                    <div style="width: 70%;" class="progress-bar">
-                                                        <span class="sr-only">70% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#" class="media">
-                                                <div class="media-left">
-                                                    <i class="pli-hd icon-2x icon-lg"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">With Icon</div>
-                                                    <small class="text-muted">15 minutes ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#" class="media">
-                                                <div class="media-left">
-                                                    <i class="pli-power-cable icon-2x icon-lg"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">With Icon</div>
-                                                    <small class="text-muted">15 minutes ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#" class="media">
-                                                <div class="media-left">
-
-									<span class="icon-wrap icon-circle bg-primary">
-									    <i class="pli-disk icon-lg icon-lg"></i>
-									</span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">Circle Icon</div>
-                                                    <small class="text-muted">15 minutes ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#" class="media">
-                                                <span class="badge badge-success pull-right">90%</span>
+                                        <li way-repeat="my.notification">
+                                            <a href="#" class="media iframe-menuItem" way-attr="data-link=url">
+                                                <span class="badge badge-success pull-right">1</span>
                                                 <div class="media-left">
 
 									<span class="icon-wrap icon-circle bg-danger">
@@ -224,44 +166,11 @@
 									</span>
                                                 </div>
                                                 <div class="media-body">
-                                                    <div class="text-nowrap">Circle icon with badge</div>
-                                                    <small class="text-muted">50 minutes ago</small>
+                                                    <div class="text-nowrap" way-data="text"></div>
                                                 </div>
                                             </a>
                                         </li>
 
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#" class="media">
-                                                <div class="media-left">
-
-									<span class="icon-wrap bg-info">
-									    <i class="pli-monitor-3 icon-lg icon-lg"></i>
-									</span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">Square icon</div>
-                                                    <small class="text-muted">Last Update 8 hours ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                        <!-- Dropdown list-->
-                                        <li>
-                                            <a href="#" class="media">
-                                                <span class="label label-danger pull-right">New</span>
-                                                <div class="media-left">
-
-									<span class="icon-wrap bg-purple">
-									    <i class="pli-paintbrush icon-lg icon-lg"></i>
-									</span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">Square icon with label</div>
-                                                    <small class="text-muted">Last Update 8 hours ago</small>
-                                                </div>
-                                            </a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -269,7 +178,7 @@
                             <!--Dropdown footer-->
                             <div class="pad-all bord-top">
                                 <a href="#" class="btn-link text-main box-block">
-                                    <i class="pci-chevron chevron-right pull-right"></i>Show All Notifications
+                                    <i class="pci-chevron chevron-right pull-right"></i>显示所有
                                 </a>
                             </div>
                         </div>
@@ -302,15 +211,15 @@
                                     <a href="#"><i class="pli-male icon-lg icon-fw"></i> 名片</a>
                                 </li>
                                 <li>
-                                    <a href="#"><span class="badge badge-danger pull-right">9</span><i
-                                            class="pli-mail icon-lg icon-fw"></i> 通知</a>
+                                    <a href="#"><i class="pli-computer-secure icon-lg icon-fw"></i> 修改密码</a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="label label-success pull-right">New</span><i
+                                            class="pli-folder-with-document icon-lg icon-fw"></i> 帮助</a>
                                 </li>
                                 <li>
                                     <a href="#"><span class="label label-success pull-right">New</span><i
                                             class="pli-gear icon-lg icon-fw"></i> 设置</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="pli-computer-secure icon-lg icon-fw"></i> 修改密码</a>
                                 </li>
                                 <li>
                                     <a href="/logout"><i class="pli-unlock icon-lg icon-fw"></i> 安全退出</a>
@@ -321,11 +230,11 @@
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <!--End user dropdown-->
 
-                    <li>
+                    <%--<li>
                         <a href="#" class="aside-toggle">
                             <i class="pli-dot-vertical"></i>
                         </a>
-                    </li>
+                    </li>--%>
                 </ul>
             </div>
             <!--================================-->
@@ -391,28 +300,6 @@
                                         <img class="img-circle img-md" src="static/img/profile-photos/1.png"
                                              alt="Profile Picture">
                                     </div>
-                                    <a href="#profile-nav" class="box-block" data-toggle="collapse"
-                                       aria-expanded="false">
-                                            <span class="pull-right dropdown-toggle">
-                                                <i class="dropdown-caret"></i>
-                                            </span>
-                                        <p class="mnp-name">${user.loginName}</p>
-                                        <span class="mnp-desc">${user.name}</span>
-                                    </a>
-                                </div>
-                                <div id="profile-nav" class="collapse list-group bg-trans">
-                                    <a href="#" class="list-group-item">
-                                        <i class="pli-male icon-lg icon-fw"></i> 名片
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="pli-gear icon-lg icon-fw"></i> 设置
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="pli-information icon-lg icon-fw"></i> 修改密码
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="pli-unlock icon-lg icon-fw"></i> 安全退出
-                                    </a>
                                 </div>
                             </div>
 
@@ -428,13 +315,6 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="col-xs-3" data-content="通知">
-                                        <a class="shortcut-grid" href="#">
-                                            <div class="icon-wrap icon-wrap-sm icon-circle bg-warning">
-                                                <i class="pli-speech-bubble-3"></i>
-                                            </div>
-                                        </a>
-                                    </li>
                                     <li class="col-xs-3" data-content="修改密码">
                                         <a class="shortcut-grid" href="#">
                                             <div class="icon-wrap icon-wrap-sm icon-circle bg-success">
@@ -442,8 +322,15 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="col-xs-3" data-content="安全退出">
+                                    <li class="col-xs-3" data-content="设置">
                                         <a class="shortcut-grid" href="#">
+                                            <div class="icon-wrap icon-wrap-sm icon-circle bg-warning">
+                                                <i class="pli-gear"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="col-xs-3" data-content="安全退出">
+                                        <a class="shortcut-grid" href="/logout">
                                             <div class="icon-wrap icon-wrap-sm icon-circle bg-purple">
                                                 <i class="pli-lock-2"></i>
                                             </div>
@@ -457,15 +344,6 @@
                             <ul id="mainnav-menu" class="list-group">
                                 <!--Menu list item-->
 
-                                <li>
-                                    <a href="#" data-original-title="" title="" class="" aria-expanded="false">
-                                        <i class="pli-receipt-4"></i>
-                                        <span class="menu-title"><strong>用户中心</strong></span><i class="arrow"></i></a>
-                                    <ul class="collapse pop-in" id="用户中心" aria-expanded="false">
-                                        <li class="menuItem" data-link="/jsp/module/sys/sysUser/sysUserList.jsp"><a href="#">
-                                            <i class="pli-circular-point"></i>
-                                            用户管理</a></li></ul>
-                                </li>
                             </ul>
 
                         </div>
@@ -481,109 +359,109 @@
 
         <!--ASIDE-->
         <!--===================================================-->
-        <aside id="aside-container">
-            <div id="aside">
-                <div class="nano">
-                    <div class="nano-content">
+        <%--  <aside id="aside-container">
+              <div id="aside">
+                  <div class="nano">
+                      <div class="nano-content">
 
-                        <!--Nav tabs-->
-                        <!--================================-->
-                        <ul class="nav nav-tabs nav-justified">
-                            <li class="active">
-                                <a href="#demo-asd-tab-1" data-toggle="tab">
-                                    <i class="pli-speech-bubble-7"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#demo-asd-tab-2" data-toggle="tab">
-                                    <i class="pli-information"></i>
-                                    Reports
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#demo-asd-tab-3" data-toggle="tab">
-                                    <i class="pli-wrench"></i>
-                                    Settings
-                                </a>
-                            </li>
-                        </ul>
-                        <!--================================-->
-                        <!--End nav tabs-->
-
-
-                        <!-- Tabs Content -->
-                        <!--================================-->
-                        <div class="tab-content">
-
-                            <!--First tab-->
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                            <div class="tab-pane fade in active" id="demo-asd-tab-1">
-                                <p class="pad-all text-lg">First tab</p>
-                                <div class="pad-hor">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                                    volutpat.
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                    lobortis nisl
-                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-                                    vulputate
-                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-                                    eros et accumsan
-                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
-                                    dolore te feugait nulla facilisi.
-                                </div>
-                            </div>
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                            <!--End first tab-->
+                          <!--Nav tabs-->
+                          <!--================================-->
+                          <ul class="nav nav-tabs nav-justified">
+                              <li class="active">
+                                  <a href="#demo-asd-tab-1" data-toggle="tab">
+                                      <i class="pli-speech-bubble-7"></i>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#demo-asd-tab-2" data-toggle="tab">
+                                      <i class="pli-information"></i>
+                                      Reports
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#demo-asd-tab-3" data-toggle="tab">
+                                      <i class="pli-wrench"></i>
+                                      Settings
+                                  </a>
+                              </li>
+                          </ul>
+                          <!--================================-->
+                          <!--End nav tabs-->
 
 
-                            <!--Second tab-->
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                            <div class="tab-pane fade" id="demo-asd-tab-2">
-                                <p class="pad-all text-lg">Second tab</p>
-                                <div class="pad-hor">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                                    volutpat.
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                    lobortis nisl
-                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-                                    vulputate
-                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-                                    eros et accumsan
-                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
-                                    dolore te feugait nulla facilisi.
-                                </div>
-                            </div>
-                            <!--End second tab-->
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                          <!-- Tabs Content -->
+                          <!--================================-->
+                          <div class="tab-content">
+
+                              <!--First tab-->
+                              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                              <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                  <p class="pad-all text-lg">First tab</p>
+                                  <div class="pad-hor">
+                                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                      sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                      volutpat.
+                                      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                                      lobortis nisl
+                                      ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                      vulputate
+                                      velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+                                      eros et accumsan
+                                      et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                                      dolore te feugait nulla facilisi.
+                                  </div>
+                              </div>
+                              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                              <!--End first tab-->
 
 
-                            <!--Third tab-->
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                            <div class="tab-pane fade" id="demo-asd-tab-3">
-                                <p class="pad-all text-lg">Third tab</p>
-                                <div class="pad-hor">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                                    volutpat.
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                    lobortis nisl
-                                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-                                    vulputate
-                                    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-                                    eros et accumsan
-                                    et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
-                                    dolore te feugait nulla facilisi.
-                                </div>
-                            </div>
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                              <!--Second tab-->
+                              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                              <div class="tab-pane fade" id="demo-asd-tab-2">
+                                  <p class="pad-all text-lg">Second tab</p>
+                                  <div class="pad-hor">
+                                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                      sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                      volutpat.
+                                      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                                      lobortis nisl
+                                      ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                      vulputate
+                                      velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+                                      eros et accumsan
+                                      et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                                      dolore te feugait nulla facilisi.
+                                  </div>
+                              </div>
+                              <!--End second tab-->
+                              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </aside>
+
+                              <!--Third tab-->
+                              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                              <div class="tab-pane fade" id="demo-asd-tab-3">
+                                  <p class="pad-all text-lg">Third tab</p>
+                                  <div class="pad-hor">
+                                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                      sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                      volutpat.
+                                      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                                      lobortis nisl
+                                      ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                      vulputate
+                                      velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+                                      eros et accumsan
+                                      et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                                      dolore te feugait nulla facilisi.
+                                  </div>
+                              </div>
+                              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </aside>--%>
         <!--===================================================-->
         <!--END ASIDE-->
 
@@ -638,130 +516,202 @@
 <script>
     $(function () {
         //entity
-        way.set("selectedDomain",{
-            id:1,
-            name:"物联网平台"
+        way.set("my", {
+            notification: [
+                {
+                    id: "12313",
+                    text: "未处理订单",
+                    url: "http://www.163.com"
+                },
+                {
+                    id: "12313",
+                    text: "该浇水了",
+                    url: "http://www.sohu.com"
+                },
+                {
+                    id: "12313",
+                    text: "该施肥水了",
+                    url: "http://www.baidu.com"
+                }
+            ],
+            domainList: [
+                {
+                    id: 1,
+                    name: "物联网平台",
+                    url: "http://www.baidu.com"
+                },
+                {
+                    id: 2,
+                    name: "标准化种植",
+                    url: "http://www.baidu.com"
+                },
+                {
+                    id: 3,
+                    name: "价格体系",
+                    url: "http://www.baidu.com"
+                },
+                {
+                    id: 4,
+                    name: "区块链",
+                    url: "http://www.baidu.com"
+                },
+                {
+                    id: 5,
+                    name: "运维平台",
+                    url: "http://www.baidu.com"
+                },
+                {
+                    id: 6,
+                    name: "市政桥涵",
+                    url: "http://www.baidu.com"
+                }
+            ]
         });
-        var menuData=[
-            {
-                id:1,
-                name:"用户中心",
-                url:"#",
-                childs:[
-                    {
-                        id:1,
-                        name:"用户管理",
-                        url:"/jsp/module/sys/sysUser/sysUserList.jsp",
-                        childs:[]
-                    }
-                ]
-            },
-            {
-                id:2,
-                name:"权限管理",
-                url:"#",
-                childs:[
-                    {
-                        id:1,
-                        name:"域管理",
-                        url:"/jsp/module/sys/sysDomain/sysDomainList.jsp",
-                        childs:[]
-                    },
-                    {
-                        id:1,
-                        name:"角色管理",
-                        url:"/jsp/module/sys/sysRole/sysRoleList.jsp",
-                        childs:[]
-                    },
-                    {
-                        id:1,
-                        name:"权限管理",
-                        url:"/jsp/module/sys/sysMenu/sysMenuList.jsp",
-                        childs:[]
-                    },
-                    {
-                        id:1,
-                        name:"权限管理",
-                        url:"/jsp/module/sys/sysMenu/sysMenuList.jsp",
-                        childs:[]
-                    }
-                ]
-            },
-            {
-                id:3,
-                name:"基础数据",
-                url:"#",
-                childs:[]
-            },
-            {
-                id:3,
-                name:"系统设置",
-                url:"#",
-                childs:[]
-            }
-        ];
-        initMenu(menuData);
-        way.set("domainList",[
-            {
-                id:1,
-                name:"物联网平台",
-            },
-            {
-                id:1,
-                name:"标准化种植",
-            },
-            {
-                id:1,
-                name:"价格体系",
-            },
-            {
-                id:1,
-                name:"区块链",
-            },
-            {
-                id:1,
-                name:"市政桥涵",
-            }
-        ]);
+        way.set("selectedDomain", {
+            id: 1,
+            name: "物联网平台",
+            menuList: [
+                {
+                    id: 1,
+                    name: "用户中心",
+                    url: "#",
+                    childs: [
+                        {
+                            id: 1,
+                            name: "用户管理",
+                            url: "/jsp/module/sys/sysUser/sysUserList.jsp",
+                            childs: []
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "权限管理",
+                    url: "#",
+                    childs: [
+                        {
+                            id: 1,
+                            name: "域管理",
+                            url: "/jsp/module/sys/sysDomain/sysDomainList.jsp",
+                            childs: []
+                        },
+                        {
+                            id: 1,
+                            name: "角色管理",
+                            url: "/jsp/module/sys/sysRole/sysRoleList.jsp",
+                            childs: []
+                        },
+                        {
+                            id: 1,
+                            name: "权限管理",
+                            url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                            childs: []
+                        },
+                        {
+                            id: 1,
+                            name: "权限管理",
+                            url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                            childs: []
+                        }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "基础数据",
+                    url: "#",
+                    childs: [
+
+                        {
+                            id: 1,
+                            name: "行政区划",
+                            url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                            childs: []
+                        }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "系统设置",
+                    url: "#",
+                    childs: [
+                        {
+                            id: 1,
+                            name: "参数设置",
+                            url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                            childs: []
+                        }
+                    ]
+                }
+            ]
+        });
+        initMenu(way.get("selectedDomain.menuList"));
         //actions
-        $("#mainnav-menu .menuItem").each(function () {
+        //点击菜单，改变iframe的动作，有左侧菜单，通知，个人中心的相关内容
+        $(".iframe-menuItem").each(function () {
             $(this).click(function () {
                 $("#mainframe").attr("src", $(this).data("link"));
             });
         });
+        $(".media.mar-btm").each(function () {
+            $(this).click(function () {
+                $("#mainframe").attr("src", $(this).data("link"));
+                if($(".mega-dropdown").hasClass("open")){
+                    $(".mega-dropdown").removeClass("open");
+                }
+            });
+        });
     });
-
-    function initMenu(json){
+    /*初始化菜单*/
+    function initMenu(json) {
         var menuHtml = [];
         //一级菜单
-        for(var i=0;i<json.length;i++){
+        for (var i = 0; i < json.length; i++) {
             var root = json[i];
             menuHtml.push('<li ><a href="#">');
-            if(!root.icon){
+            if (!root.icon) {
                 root.icon = "pli-receipt-4";
             }
-            menuHtml.push('<i class="'+root.icon+'"></i>');
-            menuHtml.push(' <span class="menu-title"><strong>',root.name,'</strong></span><i class="arrow"></i></a>');
-            appendChildren(menuHtml,root);
+            menuHtml.push('<i class="' + root.icon + '"></i>');
+            menuHtml.push(' <span class="menu-title"><strong>', root.name, '</strong></span><i class="arrow"></i></a>');
+            appendChildren(menuHtml, root);
             menuHtml.push('</li>');
         }
         $('#mainnav-menu').prepend(menuHtml.join(''));
+        // nav收缩展开
+        $('#mainnav-menu>li>a').on('click',function(){
+            if ($(this).next().css('display') == "none") {
+                //展开未展开
+                $(this).parent('li').addClass('active');
+                $(this).siblings('ul').addClass('in');
+                $(this).siblings('ul').attr('aria-expanded',true);
+            }else{
+                //收缩已展开
+                $(this).parent('li').removeClass('active');
+                $(this).siblings('ul').removeClass('in');
+                $(this).siblings('ul').attr('aria-expanded',false);
+            }
+        });
     }
-    function appendChildren(menuHtml,obj){
+    function appendChildren(menuHtml, obj) {
         var childs = obj.childs;
-        if(childs){
-            menuHtml.push('<ul class="collapse" id="'+obj.name+'">');
-            $.each(childs,function(){
+        if (childs) {
+            menuHtml.push('<ul class="collapse" id="' + obj.name + '">');
+            $.each(childs, function () {
                 var icon = this.icon;
-                if(!icon){
+                if (!icon) {
                     icon = "pli-circular-point";
                 }
-                menuHtml.push('<li class="menuItem" data-link="'+this.url+'"><a href="#">');
-                menuHtml.push('<i class="'+icon+'"></i>');
-                menuHtml.push(this.name+'</a></li>');
-                appendChildren(menuHtml,this);
+                menuHtml.push('<li class="iframe-menuItem" data-link="' + this.url + '"><a href="#">');
+                menuHtml.push('<i class="' + icon + '"></i>');
+                menuHtml.push(this.name + '</a></li>');
+                appendChildren(menuHtml, this);
             });
             menuHtml.push('</ul>');
         }
     }
+
+
 </script>
+<%--一定要放在最后--%>
+<%--<script src="static/js/nifty.min.js"></script>--%>
+

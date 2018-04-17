@@ -155,8 +155,21 @@
         var scope = self.dom(element).scope(),
             selector = scope ? scope + '.' + options.data : options.data,
             data = self.get(selector);
-
         self.dom(element).fromJSON(data, options);
+    };
+    WAY.prototype.fromStorage4Attr = function (options, element) {
+        var self = this,
+            element = element || self._element,
+            options = options || self.dom(element).getOptions();
+
+        if (options.writeonly) {
+            return false;
+        }
+
+        var scope = self.dom(element).scope(),
+            selector = scope ? scope + '.' + options.attr.split("=")[1] : options.attr.split("=")[1],
+            data = self.get(selector);
+        w.dom(element).attr(options.attr.split("=")[0], data);
     };
 
     WAY.prototype.fromJSON = function (data, options, element) {
@@ -187,6 +200,7 @@
 
         self.dom(element).setValue(data, options);
     };
+
 
     /////////////////////////////////
     // DOM METHODS: GET - SET HTML //
@@ -388,6 +402,7 @@
         // self._bindings = {};
 
         var self = this;
+        // var selector = '[' + tagPrefix + '-data]'+',[' + tagPrefix + '-attr]';
         var selector = '[' + tagPrefix + '-data]';
         self._bindings = {};
 
@@ -401,6 +416,21 @@
             self._bindings[selector] = self._bindings[selector] || [];
             if (!_w.contains(self._bindings[selector], w.dom(element).get(0))) {
                 self._bindings[selector].push(w.dom(element).get(0));
+            }
+        }
+        var selector_attr = '[' + tagPrefix + '-attr]';
+        self._bindings_attr = {};
+        //自定义扩展，添加attribute
+        var elements_attr = w.dom(selector_attr).get();
+        for (var i in elements_attr) {
+            var element = elements_attr[i],
+                options = self.dom(element).getOptions(),
+                scope = self.dom(element).scope(),
+                selector = scope ? scope + '.' + options.attr.split("=")[1] : options.attr.split("=")[1];
+
+            self._bindings_attr[selector] = self._bindings_attr[selector] || [];
+            if (!_w.contains(self._bindings_attr[selector], w.dom(element).get(0))) {
+                self._bindings_attr[selector].push(w.dom(element).get(0));
             }
         }
     };
@@ -417,6 +447,17 @@
                 : false;
             if (!focused) {
                 self.dom(element).fromStorage();
+            }
+        });
+        //自定义扩展，添加attribute
+        self._bindings_attr = self._bindings_attr || {};
+        var bindings_attr = pickAndMergeParentArrays(self._bindings_attr, selector);
+        bindings_attr.forEach(function (element) {
+            var focused = w.dom(element).get(0) === w.dom(':focus').get(0)
+                ? true
+                : false;
+            if (!focused) {
+                self.dom(element).fromStorage4Attr();
             }
         });
 
