@@ -8,9 +8,14 @@ import com.lizhivscaomei.jes.sys.entity.SysParam;
 import com.lizhivscaomei.jes.sys.dao.SysParamMapper;
 import com.lizhivscaomei.jes.sys.entity.SysParamExample;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class SysParamServiceImp implements SysParamService {
     @Autowired
@@ -18,6 +23,14 @@ public class SysParamServiceImp implements SysParamService {
 
     public void add(SysParam entity) throws AppException {
         if(entity!=null){
+            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+            //默认数据
+            entity.setId(UUID.randomUUID().toString());
+            entity.setCreateBy(userDetails.getUsername());
+            entity.setCreateDate(new Date());
+            entity.setUpdateBy(userDetails.getUsername());
+            entity.setUpdateDate(new Date());
+            entity.setDelFlag("0");
             this.sysParamMapper.insertSelective(entity);
         }else {
             throw new AppException("entity不可为空");
@@ -25,6 +38,9 @@ public class SysParamServiceImp implements SysParamService {
     }
 
     public void update(SysParam entity) throws AppException {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+        entity.setUpdateBy(userDetails.getUsername());
+        entity.setUpdateDate(new Date());
         this.sysParamMapper.updateByPrimaryKeySelective(entity);
     }
 

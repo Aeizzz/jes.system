@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>SysMenu管理</title>
+    <title>权限管理</title>
     <%@ include file="/jsp/public/commonTable.jsp" %>
 </head>
 <body>
@@ -10,7 +10,7 @@
     <div class="row-fluid">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">SysMenu管理</h3>
+                <h3 class="panel-title">权限管理</h3>
             </div>
 
             <div class="panel-body">
@@ -39,7 +39,7 @@
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header  bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="editModalLabel">未知</h4>
@@ -49,63 +49,63 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">父级编号：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="parentId"  name="parentId"
+                            <input type="text" class="form-control" id="parentId"  name="parentId" v-model="form.data.parentId"
                                    placeholder="请输入父级编号">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">所有父级编号：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="parentIds"  name="parentIds"
+                            <input type="text" class="form-control" id="parentIds"  name="parentIds" v-model="form.data.parentIds"
                                    placeholder="请输入所有父级编号">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">名称：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="name"  name="name"
+                            <input type="text" class="form-control" id="name"  name="name" v-model="form.data.name"
                                    placeholder="请输入名称">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">排序：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="sort"  name="sort"
+                            <input type="text" class="form-control" id="sort"  name="sort" v-model="form.data.sort"
                                    placeholder="请输入排序">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">链接：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="href"  name="href"
+                            <input type="text" class="form-control" id="href"  name="href" v-model="form.data.href"
                                    placeholder="请输入链接">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">目标：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="target"  name="target"
+                            <input type="text" class="form-control" id="target"  name="target" v-model="form.data.target"
                                    placeholder="请输入目标">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">图标：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="icon"  name="icon"
+                            <input type="text" class="form-control" id="icon"  name="icon" v-model="form.data.icon"
                                    placeholder="请输入图标">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">是否在菜单中显示：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="isShow"  name="isShow"
+                            <input type="text" class="form-control" id="isShow"  name="isShow" v-model="form.data.isShow"
                                    placeholder="请输入是否在菜单中显示">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">权限标识：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="permission"  name="permission"
+                            <input type="text" class="form-control" id="permission"  name="permission" v-model="form.data.permission"
                                    placeholder="请输入权限标识">
                         </div>
                     </div>
@@ -154,11 +154,11 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">域ID：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="domainId"  name="domainId"
+                            <input type="text" class="form-control" id="domainId"  name="domainId" v-model="form.data.domainId"
                                    placeholder="请输入域ID">
                         </div>
                     </div>
-                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="id" id="id" v-model="form.data.id">
 
                 </form>
             </div>
@@ -173,7 +173,7 @@
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header  bg-danger">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i class="fa fa-exclamation-circle"></i>删除</h4>
@@ -183,7 +183,7 @@
             </div>
             <div class="modal-footer" >
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="deleteConfirmBtn">确认</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmBtn">确认</button>
             </div>
         </div>
     </div>
@@ -210,42 +210,43 @@
                 "title": "序号",
                 "data": "id"
             },
-            {
+            /*{
                 "title": "父级编号",
                 "data": "parentId"
             },
             {
                 "title": "所有父级编号",
                 "data": "parentIds"
-            },
+            },*/
             {
                 "title": "名称",
                 "data": "name"
             },
             {
-                "title": "排序",
-                "data": "sort"
+                "title": "权限标识",
+                "data": "permission"
             },
             {
                 "title": "链接",
                 "data": "href"
             },
-            {
+            /*{
                 "title": "目标",
                 "data": "target"
-            },
+            },*/
             {
                 "title": "图标",
                 "data": "icon"
             },
             {
+                "title": "排序",
+                "data": "sort"
+            },
+            /*{
                 "title": "是否在菜单中显示",
                 "data": "isShow"
-            },
-            {
-                "title": "权限标识",
-                "data": "permission"
-            },
+            },*/
+
             /*{
                 "title": "创建者",
                 "data": "createBy"
@@ -271,7 +272,7 @@
                 "data": "delFlag"
             },*/
             {
-                "title": "域ID",
+                "title": "所属域",
                 "data": "domainId"
             },
             {
@@ -293,11 +294,12 @@
 
              }, */{
                 "targets": -1,//最后一列
+                "width":"200px",
                 "createdCell": function (td, cellData, rowData, row, col) {
                     $(td).empty();
                     var btn_group = '<div class="btn-group"></div>';
                     $(td).append(btn_group);
-                    var btn_update = '<button class="btn btn-info" onclick="edit(this)" data-row="' + row + '" data-id="' + rowData.id + '">修改</button>';
+                    var btn_update = '<button class="btn btn-warning" onclick="edit(this)" data-row="' + row + '" data-id="' + rowData.id + '">修改</button>';
                     $(td).children(".btn-group").append(btn_update);
                     var btn_detail = '<button class="btn btn-info" onclick="view(this)" data-row="' + row + '" data-id="' + rowData.id + '">详情</button>';
                     $(td).children(".btn-group").append(btn_detail);
@@ -386,46 +388,28 @@
     function loadFormdata(id) {
         var url="/com/lizhivscaomei/jes/sys/controller/sysMenu/query/detail";
         $.get(url,{"id":id},function (data) {
-            $("#id").val(id);
-            $("#parentId").val(data.data.parentId);
-            $("#parentIds").val(data.data.parentIds);
-            $("#name").val(data.data.name);
-            $("#sort").val(data.data.sort);
-            $("#href").val(data.data.href);
-            $("#target").val(data.data.target);
-            $("#icon").val(data.data.icon);
-            $("#isShow").val(data.data.isShow);
-            $("#permission").val(data.data.permission);
-            $("#createBy").val(data.data.createBy);
-            $("#createDate").val(data.data.createDate);
-            $("#updateBy").val(data.data.updateBy);
-            $("#updateDate").val(data.data.updateDate);
-            $("#remarks").val(data.data.remarks);
-            $("#delFlag").val(data.data.delFlag);
-            $("#domainId").val(data.data.domainId);
+            vueApp.form.data.id=id;
+            vueApp.form.data.parentId=data.data.parentId;
+            vueApp.form.data.parentIds=data.data.parentIds;
+            vueApp.form.data.name=data.data.name;
+            vueApp.form.data.sort=data.data.sort;
+            vueApp.form.data.href=data.data.href;
+            vueApp.form.data.target=data.data.target;
+            vueApp.form.data.icon=data.data.icon;
+            vueApp.form.data.isShow=data.data.isShow;
+            vueApp.form.data.permission=data.data.permission;
+            vueApp.form.data.createBy=data.data.createBy;
+            vueApp.form.data.createDate=data.data.createDate;
+            vueApp.form.data.updateBy=data.data.updateBy;
+            vueApp.form.data.updateDate=data.data.updateDate;
+            vueApp.form.data.remarks=data.data.remarks;
+            vueApp.form.data.delFlag=data.data.delFlag;
+            vueApp.form.data.domainId=data.data.domainId;
         });
     }
     function saveForm() {
         var url="/com/lizhivscaomei/jes/sys/controller/sysMenu/save";
-        var formdata=new Object();
-        formdata.id=$("#id").val();
-        formdata.parentId=$("#parentId").val();
-        formdata.parentIds=$("#parentIds").val();
-        formdata.name=$("#name").val();
-        formdata.sort=$("#sort").val();
-        formdata.href=$("#href").val();
-        formdata.target=$("#target").val();
-        formdata.icon=$("#icon").val();
-        formdata.isShow=$("#isShow").val();
-        formdata.permission=$("#permission").val();
-        formdata.createBy=$("#createBy").val();
-        formdata.createDate=$("#createDate").val();
-        formdata.updateBy=$("#updateBy").val();
-        formdata.updateDate=$("#updateDate").val();
-        formdata.remarks=$("#remarks").val();
-        formdata.delFlag=$("#delFlag").val();
-        formdata.domainId=$("#domainId").val();
-        $.post(url,formdata,function (data) {
+        $.post(url,vueApp.form.data,function (data) {
             if (data.success) {
                 showAlert("alert-success", "保存成功");
                 $("#editModal").modal('toggle');
@@ -438,6 +422,34 @@
     function refreshTable() {
         $('#datatable').DataTable().ajax.reload();
     }
+    var vueApp=new Vue({
+        el:"#entityForm",
+        data:{
+            form:{
+                data:{
+                    id:"",
+                    parentId:"",
+                    parentIds:"",
+                    name:"",
+                    sort:"",
+                    href:"",
+                    target:"",
+                    icon:"",
+                    isShow:"",
+                    permission:"",
+                    createBy:"",
+                    createDate:"",
+                    updateBy:"",
+                    updateDate:"",
+                    remarks:"",
+                    delFlag:"",
+                    domainId:""
+                },
+                options:{}
+            }
+        },
+        methods:{}
+    });
 </script>
 </body>
 

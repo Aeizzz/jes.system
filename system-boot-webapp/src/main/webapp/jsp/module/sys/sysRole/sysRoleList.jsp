@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>SysRole管理</title>
+    <title>角色管理</title>
     <%@ include file="/jsp/public/commonTable.jsp" %>
 </head>
 <body>
@@ -10,7 +10,7 @@
     <div class="row-fluid">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">SysRole管理</h3>
+                <h3 class="panel-title">角色管理</h3>
             </div>
 
             <div class="panel-body">
@@ -39,7 +39,7 @@
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header  bg-primary"">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="editModalLabel">未知</h4>
@@ -52,7 +52,7 @@
                         <div class="col-xs-8">
                             <%--<input type="text" class="form-control" id="domainId"  name="domainId"
                                    placeholder="请输入域ID">--%>
-                            <select class="select2 form-control" id="domainId"  name="domainId" data-url="/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner" style="width: 100%">
+                            <select class="form-control" id="domainId"  name="domainId" v-model="form.data.domainId">
                             </select>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">角色代码：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="enname"  name="enname"
+                            <input type="text" class="form-control" id="enname"  name="enname" v-model="form.data.enname"
                                    placeholder="请输入角色代码">
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">角色名称：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="name"  name="name"
+                            <input type="text" class="form-control" id="name"  name="name" v-model="form.data.name"
                                    placeholder="请输入角色名称">
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                                    placeholder="请输入删除标记">
                         </div>
                     </div>--%>
-                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="id" id="id" v-model="form.data.id">
 
                 </form>
             </div>
@@ -163,7 +163,7 @@
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header  bg-danger">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i class="fa fa-exclamation-circle"></i>删除</h4>
@@ -173,7 +173,7 @@
             </div>
             <div class="modal-footer" >
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="deleteConfirmBtn">确认</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmBtn">确认</button>
             </div>
         </div>
     </div>
@@ -213,6 +213,14 @@
                 "data": "id"
             },
             {
+                "title": "角色名称",
+                "data": "name"
+            },
+            {
+                "title": "角色代码",
+                "data": "enname"
+            },
+            {
                 "title": "所属域",
                 "data": "domainName"
             },
@@ -220,14 +228,6 @@
                 "title": "归属机构",
                 "data": "officeId"
             },*/
-            {
-                "title": "角色代码",
-                "data": "enname"
-            },
-            {
-                "title": "角色名称",
-                "data": "name"
-            },
 
             /*{
                 "title": "角色类型",
@@ -289,15 +289,18 @@
 
              }, */{
                 "targets": -1,//最后一列
+                "width":"200px",
                 "createdCell": function (td, cellData, rowData, row, col) {
                     $(td).empty();
                     var btn_group = '<div class="btn-group"></div>';
                     $(td).append(btn_group);
-                    var btn_update = '<button class="btn btn-info" onclick="edit(this)" data-row="' + row + '" data-id="' + rowData.id + '">修改</button>';
+                    var btn_update = '<button class="btn btn-warning" onclick="edit(this)" data-row="' + row + '" data-id="' + rowData.id + '">修改</button>';
                     $(td).children(".btn-group").append(btn_update);
                     var btn_detail = '<button class="btn btn-info" onclick="view(this)" data-row="' + row + '" data-id="' + rowData.id + '">详情</button>';
                     $(td).children(".btn-group").append(btn_detail);
                     var btn_delete = '<button class="btn btn-danger" onclick="remove(this)" data-row="' + row + '" data-id="' + rowData.id + '">删除</button>';
+                    $(td).children(".btn-group").append(btn_delete);
+                    var btn_delete = '<button class="btn btn-danger" onclick="remove(this)" data-row="' + row + '" data-id="' + rowData.id + '">权限</button>';
                     $(td).children(".btn-group").append(btn_delete);
                     /*var btn_isuse = "";
                     if (rowData.isuse === 1) {
@@ -382,42 +385,26 @@
     function loadFormdata(id) {
         var url="/com/lizhivscaomei/jes/sys/controller/sysRole/query/detail";
         $.get(url,{"id":id},function (data) {
-            $("#id").val(id);
-            $("#officeId").val(data.data.officeId);
-            $("#name").val(data.data.name);
-            $("#enname").val(data.data.enname);
-            $("#roleType").val(data.data.roleType);
-            $("#dataScope").val(data.data.dataScope);
-            $("#isSys").val(data.data.isSys);
-            $("#useable").val(data.data.useable);
-            $("#createBy").val(data.data.createBy);
-            $("#createDate").val(data.data.createDate);
-            $("#updateBy").val(data.data.updateBy);
-            $("#updateDate").val(data.data.updateDate);
-            $("#remarks").val(data.data.remarks);
-            $("#delFlag").val(data.data.delFlag);
-            $("#domainId").val(data.data.domainId).trigger("change");
+            vueApp.form.data.id=id;
+            vueApp.form.data.officeId=data.data.officeId;
+            vueApp.form.data.name=data.data.name;
+            vueApp.form.data.enname=data.data.enname;
+            vueApp.form.data.roleType=data.data.roleType;
+            vueApp.form.data.dataScope=data.data.dataScope;
+            vueApp.form.data.isSys=data.data.isSys;
+            vueApp.form.data.useable=data.data.useable;
+            vueApp.form.data.createBy=data.data.createBy;
+            vueApp.form.data.createDate=data.data.createDate;
+            vueApp.form.data.updateBy=data.data.updateBy;
+            vueApp.form.data.updateDate=data.data.updateDate;
+            vueApp.form.data.remarks=data.data.remarks;
+            vueApp.form.data.delFlag=data.data.delFlag;
+            vueApp.form.data.domainId=data.data.domainId;
         });
     }
     function saveForm() {
         var url="/com/lizhivscaomei/jes/sys/controller/sysRole/save";
-        var formdata=new Object();
-        formdata.id=$("#id").val();
-        formdata.officeId=$("#officeId").val();
-        formdata.name=$("#name").val();
-        formdata.enname=$("#enname").val();
-        formdata.roleType=$("#roleType").val();
-        formdata.dataScope=$("#dataScope").val();
-        formdata.isSys=$("#isSys").val();
-        formdata.useable=$("#useable").val();
-        formdata.createBy=$("#createBy").val();
-        formdata.createDate=$("#createDate").val();
-        formdata.updateBy=$("#updateBy").val();
-        formdata.updateDate=$("#updateDate").val();
-        formdata.remarks=$("#remarks").val();
-        formdata.delFlag=$("#delFlag").val();
-        formdata.domainId=$("#domainId").val();
-        $.post(url,formdata,function (data) {
+        $.post(url,vueApp.form.data,function (data) {
             if (data.success) {
                 showAlert("alert-success", "保存成功");
                 $("#editModal").modal('toggle');
@@ -430,6 +417,32 @@
     function refreshTable() {
         $('#datatable').DataTable().ajax.reload();
     }
+    var vueApp=new Vue({
+        el:"#entityForm",
+        data:{
+            form:{
+                data:{
+                    id:"",
+                    officeId:"",
+                    name:"",
+                    enname:"",
+                    roleType:"",
+                    dataScope:"",
+                    isSys:"",
+                    useable:"",
+//                    createBy:"",
+//                    createDate:"",
+//                    updateBy:"",
+//                    updateDate:"",
+                    remarks:"",
+//                    delFlag:"",
+                    domainId:""
+                },
+                options:{}
+            }
+        },
+        methods:{}
+    });
 </script>
 </body>
 

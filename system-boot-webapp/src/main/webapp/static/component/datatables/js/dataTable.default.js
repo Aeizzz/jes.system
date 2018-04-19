@@ -2,6 +2,7 @@ var dataTableJesOptions={
     "scrollY": "400px",
     "scrollCollapse": true,
     "searching": false,
+    "ordering": false,
     "paging": true,
     // "pagingType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
     "pageLength": 5,

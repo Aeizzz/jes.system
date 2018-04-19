@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>SysDomain管理</title>
+    <title>域管理</title>
     <%@ include file="/jsp/public/commonTable.jsp" %>
 </head>
 <body>
@@ -10,7 +10,7 @@
     <div class="row-fluid">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">SysDomain管理</h3>
+                <h3 class="panel-title">域管理</h3>
             </div>
 
             <div class="panel-body">
@@ -39,7 +39,7 @@
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header  bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="editModalLabel">未知</h4>
@@ -49,14 +49,14 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">编码：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="code"  name="code"
+                            <input type="text" class="form-control" id="code" name="code" v-model="form.data.code"
                                    placeholder="请输入编码">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-4">域名称：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="name"  name="name"
+                            <input type="text" class="form-control" id="name" name="name" v-model="form.data.name"
                                    placeholder="请输入域名称">
                         </div>
                     </div>
@@ -70,9 +70,9 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">是否可用：</label>
                         <div class="col-xs-8">
-                           <%-- <input type="text" class="form-control" id="useable"  name="useable"
-                                   placeholder="请输入是否可用">--%>
-                            <select class="form-control" id="useable"  name="useable">
+                            <%-- <input type="text" class="form-control" id="useable"  name="useable"
+                                    placeholder="请输入是否可用">--%>
+                            <select class="form-control" id="useable" name="useable" v-model="form.data.useable">
                                 <option value="1" selected>是</option>
                                 <option value="0">否</option>
                             </select>
@@ -120,7 +120,7 @@
                                    placeholder="请输入删除标记">
                         </div>
                     </div>--%>
-                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="id" id="id" v-model="form.data.id">
 
                 </form>
             </div>
@@ -135,17 +135,18 @@
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header  bg-danger">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i class="fa fa-exclamation-circle"></i>删除</h4>
+                <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i
+                        class="fa fa-exclamation-circle"></i>删除</h4>
             </div>
             <div class="modal-body">
                 <p id="confirmMsg"></p>
             </div>
-            <div class="modal-footer" >
+            <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="deleteConfirmBtn">确认</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmBtn">确认</button>
             </div>
         </div>
     </div>
@@ -163,61 +164,61 @@
         createTable();
     });
     function createTable() {
-        var queryBaseUr="/com/lizhivscaomei/jes/sys/controller/sysDomain/query/page";
-        var options={};
-        $.extend(options,dataTableJesOptions);
-        options.ajax={url:queryBaseUr};
-        options.columns=[
+        var queryBaseUr = "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/page";
+        var options = {};
+        $.extend(options, dataTableJesOptions);
+        options.ajax = {url: queryBaseUr};
+        options.columns = [
             {
                 "title": "序号",
                 "data": "id"
             },
             {
-                "title": "编码",
-                "data": "code"
-            },
-            {
                 "title": "域名称",
                 "data": "name"
             },
+            {
+                "title": "编码",
+                "data": "code"
+            },
             /*{
-                "title": "子系统主页地址",
-                "data": "homePage"
-            },*/
+             "title": "子系统主页地址",
+             "data": "homePage"
+             },*/
             /*{
-                "title": "是否可用",
-                "data": "useable"
-            },*/
+             "title": "是否可用",
+             "data": "useable"
+             },*/
             /*{
-                "title": "创建者",
-                "data": "createBy"
-            },
-            {
-                "title": "创建时间",
-                "data": "createDate"
-            },
-            {
-                "title": "更新者",
-                "data": "updateBy"
-            },
-            {
-                "title": "更新时间",
-                "data": "updateDate"
-            },
-            {
-                "title": "备注信息",
-                "data": "remarks"
-            },
-            {
-                "title": "删除标记",
-                "data": "delFlag"
-            },*/
+             "title": "创建者",
+             "data": "createBy"
+             },
+             {
+             "title": "创建时间",
+             "data": "createDate"
+             },
+             {
+             "title": "更新者",
+             "data": "updateBy"
+             },
+             {
+             "title": "更新时间",
+             "data": "updateDate"
+             },
+             {
+             "title": "备注信息",
+             "data": "remarks"
+             },
+             {
+             "title": "删除标记",
+             "data": "delFlag"
+             },*/
             {
                 "title": "操作",
                 "data": "id"
             }
         ];
-        options.columnDefs=[
+        options.columnDefs = [
             /*{
              "targets": -2,//最后第二列
              "createdCell": function (td, cellData, rowData, row, col) {
@@ -231,23 +232,24 @@
 
              }, */{
                 "targets": -1,//最后一列
+                "width": "200px",
                 "createdCell": function (td, cellData, rowData, row, col) {
                     $(td).empty();
                     var btn_group = '<div class="btn-group"></div>';
                     $(td).append(btn_group);
-                    var btn_update = '<button class="btn btn-info" onclick="edit(this)" data-row="' + row + '" data-id="' + rowData.id + '">修改</button>';
+                    var btn_update = '<button class="btn btn-warning" onclick="edit(this)" data-row="' + row + '" data-id="' + rowData.id + '">修改</button>';
                     $(td).children(".btn-group").append(btn_update);
                     var btn_detail = '<button class="btn btn-info" onclick="view(this)" data-row="' + row + '" data-id="' + rowData.id + '">详情</button>';
                     $(td).children(".btn-group").append(btn_detail);
                     var btn_delete = '<button class="btn btn-danger" onclick="remove(this)" data-row="' + row + '" data-id="' + rowData.id + '">删除</button>';
                     $(td).children(".btn-group").append(btn_delete);
                     /*var btn_isuse = "";
-                    if (rowData.useable === 1) {
-                        btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">禁用</button>';
-                    } else {
-                        btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">启用</button>';
-                    }
-                    $(td).children(".btn-group").append(btn_isuse);*/
+                     if (rowData.useable === 1) {
+                     btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">禁用</button>';
+                     } else {
+                     btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">启用</button>';
+                     }
+                     $(td).children(".btn-group").append(btn_isuse);*/
                 }
             }
         ];
@@ -265,7 +267,7 @@
             if ("view" == action) {
                 $("#modal-actions").hide();
                 $("#editModalLabel").text("详情");
-            }else if ("edit" == action) {
+            } else if ("edit" == action) {
                 $("#modal-actions").show();
                 $("#editModalLabel").text("修改");
             }
@@ -278,7 +280,7 @@
         $("#alert").alert();
         setTimeout(function () {
             $("#alert").alert('close');
-        },2000);
+        }, 2000);
     }
     function add() {
         $("#id").val("");
@@ -296,10 +298,10 @@
         showModal("edit", $(node).data("id"));
     }
     function remove(node) {
-        var url="/com/lizhivscaomei/jes/sys/controller/sysDomain/delete";
-        var rowData=datatable.api().row($(node).data("row")).data();
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysDomain/delete";
+        var rowData = datatable.api().row($(node).data("row")).data();
         $("#deleteConfirmBtn").click(function () {
-            $.post(url,{id:rowData.id},function (data) {
+            $.post(url, {id: rowData.id}, function (data) {
                 if (data.success) {
                     showAlert("alert-success", "删除成功");
                     $("#deleteModal").modal('toggle');
@@ -309,49 +311,37 @@
                 }
             });
         });
-        $("#confirmMsg").text("确定要删除"+rowData.name+"？");
+        $("#confirmMsg").text("确定要删除" + rowData.name + "？");
         $("#deleteModal").modal('toggle');
 
     }
     function view(node) {
         //datatable.api().row($(node).data("row")).data()
         $("input").each(function () {
-            $(this).attr("readonly","readonly");
+            $(this).attr("readonly", "readonly");
         });
         showModal("view", $(node).data("id"));
 
     }
     function loadFormdata(id) {
-        var url="/com/lizhivscaomei/jes/sys/controller/sysDomain/query/detail";
-        $.get(url,{"id":id},function (data) {
-            $("#id").val(id);
-            $("#code").val(data.data.code);
-            $("#name").val(data.data.name);
-            $("#homePage").val(data.data.homePage);
-            $("#useable").val(data.data.useable);
-            $("#createBy").val(data.data.createBy);
-            $("#createDate").val(data.data.createDate);
-            $("#updateBy").val(data.data.updateBy);
-            $("#updateDate").val(data.data.updateDate);
-            $("#remarks").val(data.data.remarks);
-            $("#delFlag").val(data.data.delFlag);
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/detail";
+        $.get(url, {"id": id}, function (data) {
+            vueApp.form.data.id = id;
+            vueApp.form.data.code = data.data.code;
+            vueApp.form.data.name = data.data.name;
+            vueApp.form.data.homePage = data.data.homePage;
+            vueApp.form.data.useable = data.data.useable;
+//            vueApp.form.data.createBy=data.data.createBy;
+//            vueApp.form.data.createDate=data.data.createDate;
+//            vueApp.form.data.updateBy=data.data.updateBy;
+//            vueApp.form.data.updateDate=data.data.updateDate;
+            vueApp.form.data.remarks = data.data.remarks;
+//            vueApp.form.data.delFlag=data.data.delFlag;
         });
     }
     function saveForm() {
-        var url="/com/lizhivscaomei/jes/sys/controller/sysDomain/save";
-        var formdata=new Object();
-        formdata.id=$("#id").val();
-        formdata.code=$("#code").val();
-        formdata.name=$("#name").val();
-        formdata.homePage=$("#homePage").val();
-        formdata.useable=$("#useable").val();
-        formdata.createBy=$("#createBy").val();
-        formdata.createDate=$("#createDate").val();
-        formdata.updateBy=$("#updateBy").val();
-        formdata.updateDate=$("#updateDate").val();
-        formdata.remarks=$("#remarks").val();
-        formdata.delFlag=$("#delFlag").val();
-        $.post(url,formdata,function (data) {
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysDomain/save";
+        $.post(url, vueApp.form.data, function (data) {
             if (data.success) {
                 showAlert("alert-success", "保存成功");
                 $("#editModal").modal('toggle');
@@ -364,6 +354,28 @@
     function refreshTable() {
         $('#datatable').DataTable().ajax.reload();
     }
+    var vueApp = new Vue({
+        el: "#entityForm",
+        data: {
+            form: {
+                data: {
+                    id: "",
+                    code: "",
+                    name: "",
+                    homePage: "",
+                    useable: "",
+                    //            createBy          :"",
+                    //            createDate        :"",
+                    //            updateBy          :"",
+                    //            updateDate        :"",
+                    remarks: "",
+                    //            delFlag           :"",
+                },
+                options: {}
+            }
+        },
+        methods: {}
+    });
 </script>
 </body>
 

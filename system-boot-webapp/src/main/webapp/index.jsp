@@ -522,57 +522,6 @@
 </body>
 </html>
 <script>
-    /*初始化菜单*/
-
-    function initMenu(json) {
-        var menuHtml = [];
-        //一级菜单
-        for (var i = 0; i < json.length; i++) {
-            var root = json[i];
-            menuHtml.push('<li ><a href="#">');
-            if (!root.icon) {
-                root.icon = "pli-receipt-4";
-            }
-            menuHtml.push('<i class="' + root.icon + '"></i>');
-            menuHtml.push(' <span class="menu-title"><strong>', root.name, '</strong></span><i class="arrow"></i></a>');
-            appendChildren(menuHtml, root);
-            menuHtml.push('</li>');
-        }
-        $('#mainnav-menu').prepend(menuHtml.join(''));
-//        $(document).trigger('nifty.ready');
-        // nav收缩展开
-        /*$('#mainnav-menu>li>a').on('click',function(){
-            if ($(this).next().css('display') == "none") {
-                //展开未展开
-                $(this).parent('li').addClass('active');
-                $(this).siblings('ul').addClass('in');
-                $(this).siblings('ul').attr('aria-expanded',true);
-            }else{
-                //收缩已展开
-                $(this).parent('li').removeClass('active');
-                $(this).siblings('ul').removeClass('in');
-                $(this).siblings('ul').attr('aria-expanded',false);
-            }
-        });*/
-    }
-    function appendChildren(menuHtml, obj) {
-        var childs = obj.childs;
-        if (childs) {
-            menuHtml.push('<ul class="collapse" id="' + obj.name + '">');
-            $.each(childs, function () {
-                var icon = this.icon;
-                if (!icon) {
-                    icon = "pli-circular-point";
-                }
-                menuHtml.push('<li class="iframe-menuItem" data-link="' + this.url + '"><a href="#">');
-                menuHtml.push('<i class="' + icon + '"></i>');
-                menuHtml.push(this.name + '</a></li>');
-                appendChildren(menuHtml, this);
-            });
-            menuHtml.push('</ul>');
-        }
-    }
-    //vue
     var vueApp=new Vue({
         el:"#container",
         data:{
@@ -697,7 +646,7 @@
                             {
                                 id: 1,
                                 text: "参数设置",
-                                url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                                url: "/jsp/module/sys/sysParam/sysParamList.jsp",
                                 childs: []
                             }
                         ]
@@ -712,7 +661,6 @@
             }
         }
     });
-
 </script>
 <%--一定要放在最后--%>
 <script src="static/js/nifty.min.js"></script>
