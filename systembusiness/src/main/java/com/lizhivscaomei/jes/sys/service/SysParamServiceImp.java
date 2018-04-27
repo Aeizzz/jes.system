@@ -54,6 +54,8 @@ public class SysParamServiceImp implements SysParamService {
 
     public PageInfo<SysParam> queryPage(SysParam entity, Page page) {
         SysParamExample example=new SysParamExample();
+        SysParamExample.Criteria criteria = example.createCriteria();
+        criteria.andDomainIdEqualTo(entity.getDomainId());
         PageHelper.startPage(page.getCurrentPage(),page.getPageSize());
         List<SysParam> list= this.sysParamMapper.selectByExample(example);
         return new PageInfo<SysParam>(list);

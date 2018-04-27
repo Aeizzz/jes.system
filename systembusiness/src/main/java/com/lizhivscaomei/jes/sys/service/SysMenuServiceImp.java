@@ -54,15 +54,32 @@ public class SysMenuServiceImp implements SysMenuService {
 
     public PageInfo<SysMenu> queryPage(SysMenu entity, Page page) {
         SysMenuExample example=new SysMenuExample();
+        SysMenuExample.Criteria criteria = example.createCriteria();
+        criteria.andDomainIdEqualTo(entity.getDomainId());
         PageHelper.startPage(page.getCurrentPage(),page.getPageSize());
         List<SysMenu> list= this.sysMenuMapper.selectByExample(example);
         return new PageInfo<SysMenu>(list);
     }
 
-    public List<SysMenu> getChilds(String s) {
+    @Override
+    public List<SysMenu> getChilds(String domainId, String pid) {
         SysMenuExample example=new SysMenuExample();
         SysMenuExample.Criteria criteria = example.createCriteria();
-        criteria.andParentIdEqualTo(s);
+        criteria.andParentIdEqualTo(pid);
+        criteria.andDomainIdEqualTo(domainId);
         return this.sysMenuMapper.selectByExample(example);
+    }
+
+    @Override
+    public List<SysMenu> getAll(String domainId) {
+        SysMenuExample example=new SysMenuExample();
+        SysMenuExample.Criteria criteria = example.createCriteria();
+        criteria.andDomainIdEqualTo(domainId);
+        List<SysMenu> list = this.sysMenuMapper.selectByExample(example);
+        SysMenu root=new SysMenu();
+        root.setId("-1");
+        root.setName("顶级菜单");
+        list.add(root);
+        return list;
     }
 }

@@ -6,22 +6,31 @@ import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
+import com.lizhivscaomei.jes.common.view.tree.TreeVo;
 import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
 import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysMenu;
 import com.lizhivscaomei.jes.sys.service.SysMenuService;
+import com.lizhivscaomei.jes.sys.view.SysMenuTreeViewService;
+import com.lizhivscaomei.jes.sys.view.SysMenuViewService;
+import com.lizhivscaomei.jes.sys.view.SysMenuVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/com/lizhivscaomei/jes/sys/controller")
 public class SysMenuController {
     @Autowired
     SysMenuService sysMenuService;
-
+    @Autowired
+    SysMenuViewService sysMenuViewService;
+    @Autowired
+    SysMenuTreeViewService sysMenuTreeViewService;
     /**
     * 保存
     * */
@@ -72,20 +81,34 @@ public class SysMenuController {
         msg.setData(entity);
         return msg;
 
+    }    /**
+    * 详情
+    * */
+    @ResponseBody
+    @RequestMapping("/sysMenu/query/select")
+    public Msg select(String domainId){
+        List<SysMenu> list = this.sysMenuService.getAll(domainId);
+        this.sysMenuTreeViewService.setTreeVoList(list);
+        TreeVo treeVo = this.sysMenuTreeViewService.convertToTree();
+        Msg msg=new Msg();
+        msg.setSuccess(true);
+        msg.setData(new TreeVo[]{treeVo});
+        return msg;
+
     }
     /**
     * 分页查询
     * */
     @ResponseBody
     @RequestMapping("/sysMenu/query/page")
-    public DataTablesResponse<SysMenu> update(SysMenu entity, DataTablesRequest dataTablesRequest){
-        DataTablesResponse<SysMenu> response=new DataTablesResponse<>();
+    public DataTablesResponse<SysMenuVo> update(SysMenu entity, DataTablesRequest dataTablesRequest){
+        DataTablesResponse<SysMenuVo> response=new DataTablesResponse<>();
         response.setDraw(dataTablesRequest.getDraw());
         Page page=new Page();
         page.setCurrentPage(dataTablesRequest.getStart());
         page.setPageSize(dataTablesRequest.getLength());
         PageInfo<SysMenu> pages = this.sysMenuService.queryPage(entity, page);
-        response.setData(pages.getList());
+        response.setData(this.sysMenuViewService.dtoList2voList(pages.getList()));
         response.setRecordsTotal(pages.getTotal());
         return response;
 

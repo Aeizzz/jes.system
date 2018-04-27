@@ -343,7 +343,9 @@
              }
              }
 
-             }, */{
+             }, */
+
+            {
                 "targets": -1,//最后一列
                 "width": "300px",
                 "createdCell": function (td, cellData, rowData, row, col) {
@@ -402,6 +404,7 @@
     //添加按钮事件响应
     function add() {
         $("#id").val("");
+        vueApp.form.data.id="";
         $("input").each(function () {
             $(this).removeAttr("readonly");
         });

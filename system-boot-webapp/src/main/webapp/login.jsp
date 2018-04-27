@@ -4,8 +4,6 @@
 <html lang="en">
 
 <head>
-
-    <title>Login page | Nifty - Admin</title>
     <%@ include file="jsp/public/nifty.jsp" %>
 </head>
 

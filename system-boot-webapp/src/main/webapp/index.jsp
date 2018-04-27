@@ -2,7 +2,7 @@
 <%@ include file="jsp/public/head.jsp" %>
 <html xmlns="http://www.w3.org/1999/xhtml" id="vue">
 <head>
-    <title>首页</title>
+    <title>物联网平台</title>
     <%@ include file="jsp/public/nifty.jsp" %>
 </head>
 

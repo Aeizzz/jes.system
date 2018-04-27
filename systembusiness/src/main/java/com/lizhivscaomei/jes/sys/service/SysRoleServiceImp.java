@@ -62,6 +62,8 @@ public class SysRoleServiceImp implements SysRoleService {
 
     public PageInfo<SysRole> queryPage(SysRole entity, Page page) {
         SysRoleExample example=new SysRoleExample();
+        SysRoleExample.Criteria criteria = example.createCriteria();
+        criteria.andDomainIdEqualTo(entity.getDomainId());
         PageHelper.startPage(page.getCurrentPage(),page.getPageSize());
         List<SysRole> list= this.sysRoleMapper.selectByExample(example);
         return new PageInfo<SysRole>(list);

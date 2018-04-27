@@ -10,5 +10,7 @@ import java.util.List;
 * */
 public interface SysMenuService extends EntityService<SysMenu>{
     /*查询子菜单*/
-    List<SysMenu> getChilds(String pid);
+    List<SysMenu> getChilds(String domainId,String pid);
+    /*查询所有*/
+    List<SysMenu> getAll(String domainId);
 }

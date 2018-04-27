@@ -4,207 +4,239 @@
 <head>
     <title>权限管理</title>
     <%@ include file="/jsp/public/commonTable.jsp" %>
+    <link href="/static/component/bootstrap/3.3.7/plugins/treeview/bootstrap-treeview.min.css" rel="stylesheet">
+    <script src="/static/component/bootstrap/3.3.7/plugins/treeview/bootstrap-treeview.min.js"></script>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">权限管理</h3>
-            </div>
-
-            <div class="panel-body">
-                <div class="span12">
-                    <div class="btn-group">
-                        <button class="btn btn-default" type="button" onclick="add()">添加</button>
-                        <%--<button class="btn btn-default" type="button" onclick="query()">刷新</button>--%>
-                    </div>
-                    <%--<div class="btn-group">--%>
-                    <%--<button class="btn btn-default" type="button" onclick="superQuery()" >高级查询</button>--%>
-                    <%--</div>--%>
-                    <hr>
-                    <table id="datatable" class="table">
-
-                    </table>
+<div id="vueApp">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">权限管理</h3>
                 </div>
 
+                <div class="panel-body">
+                    <div class="span12">
+                        <div class="btn-group">
+                            <button class="btn btn-default" type="button" onclick="add()">添加</button>
+                            <%--<button class="btn btn-default" type="button" onclick="query()">刷新</button>--%>
+                        </div>
+                        <%--<div class="btn-group">--%>
+                        <%--<button class="btn btn-default" type="button" onclick="superQuery()" >高级查询</button>--%>
+                        <%--</div>--%>
+                        <hr>
+                        <form class="form-inline" name="searchForm">
+                            <div class="form-group">
+                                <select v-model="form.filter.domainId" class="form-control">
+                                    <option v-for="option in form.options.domainList" v-bind:value="option.id" >{{option.text}}</option>
+                                </select>
+                                <button class="btn btn-primary" type="button"  onclick="refreshTable()">查询</button>
+                            </div>
+                        </form>
+                        <hr>
+                        <table id="datatable" class="table">
+
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="panel-footer"></div>
             </div>
 
-            <div class="panel-footer"></div>
         </div>
+    </div>
+    <!-- 弹窗 增加 修改 -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header  bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="editModalLabel">未知</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal no-margin form-border" method="post" name="entityForm" id="entityForm">
 
-    </div>
-</div>
-<!-- 弹窗 增加 修改 -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header  bg-primary">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="editModalLabel">未知</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal no-margin form-border" method="post" name="entityForm" id="entityForm">
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">父级编号：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="parentId"  name="parentId" v-model="form.data.parentId"
-                                   placeholder="请输入父级编号">
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">所属域：</label>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="domainId"  name="domainId" v-model="form.data.domainId" >
+                                    <option v-for="option in form.options.domainList" v-bind:value="option.id" >{{option.text}}</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">所有父级编号：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="parentIds"  name="parentIds" v-model="form.data.parentIds"
-                                   placeholder="请输入所有父级编号">
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">上级菜单：</label>
+                            <div class="col-xs-8">
+                                <input type="hidden" class="form-control" id="parentId"  name="parentId" v-model="form.data.parentId">
+                                <input type="text" class="form-control" readOnly id="parentText"  name="parentText" v-model="form.data.parentText"
+                                       placeholder="请选择上级菜单" onclick="showParentIdTreeview()">
+                                <div id="parentIdTreeview" style="display: none;z-index: 100;position: fixed"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">名称：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="name"  name="name" v-model="form.data.name"
-                                   placeholder="请输入名称">
+                        <%--<div class="form-group">
+                            <label class="control-label col-xs-4">所有父级编号：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="parentIds"  name="parentIds" v-model="form.data.parentIds"
+                                       placeholder="请输入所有父级编号">
+                            </div>
+                        </div>--%>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">名称：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="name"  name="name" v-model="form.data.name"
+                                       placeholder="请输入名称">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">排序：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="sort"  name="sort" v-model="form.data.sort"
-                                   placeholder="请输入排序">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">链接：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="href"  name="href" v-model="form.data.href"
-                                   placeholder="请输入链接">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">目标：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="target"  name="target" v-model="form.data.target"
-                                   placeholder="请输入目标">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">图标：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="icon"  name="icon" v-model="form.data.icon"
-                                   placeholder="请输入图标">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">是否在菜单中显示：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="isShow"  name="isShow" v-model="form.data.isShow"
-                                   placeholder="请输入是否在菜单中显示">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">权限标识：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="permission"  name="permission" v-model="form.data.permission"
-                                   placeholder="请输入权限标识">
-                        </div>
-                    </div>
-                    <%--<div class="form-group">
-                        <label class="control-label col-xs-4">创建者：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="createBy"  name="createBy"
-                                   placeholder="请输入创建者">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">创建时间：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="createDate"  name="createDate"
-                                   placeholder="请输入创建时间">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">更新者：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="updateBy"  name="updateBy"
-                                   placeholder="请输入更新者">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">更新时间：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="updateDate"  name="updateDate"
-                                   placeholder="请输入更新时间">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">备注信息：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="remarks"  name="remarks"
-                                   placeholder="请输入备注信息">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">删除标记：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="delFlag"  name="delFlag"
-                                   placeholder="请输入删除标记">
-                        </div>
-                    </div>--%>
-                    <div class="form-group">
-                        <label class="control-label col-xs-4">域ID：</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" id="domainId"  name="domainId" v-model="form.data.domainId"
-                                   placeholder="请输入域ID">
-                        </div>
-                    </div>
-                    <input type="hidden" name="id" id="id" v-model="form.data.id">
 
-                </form>
-            </div>
-            <div class="modal-footer" id="modal-actions">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" onclick="saveForm()">保存</button>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">权限标识：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="permission"  name="permission" v-model="form.data.permission"
+                                       placeholder="请输入权限标识">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">排序：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="sort"  name="sort" v-model="form.data.sort"
+                                       placeholder="请输入排序">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">链接：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="href"  name="href" v-model="form.data.href"
+                                       placeholder="请输入链接">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">目标：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="target"  name="target" v-model="form.data.target"
+                                       placeholder="请输入目标">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">图标：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="icon"  name="icon" v-model="form.data.icon"
+                                       placeholder="请输入图标">
+                            </div>
+                        </div>
+                        <%--<div class="form-group">
+                            <label class="control-label col-xs-4">是否在菜单中显示：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="isShow"  name="isShow" v-model="form.data.isShow"
+                                       placeholder="请输入是否在菜单中显示">
+                            </div>
+                        </div>--%>
+                        <%--<div class="form-group">
+                            <label class="control-label col-xs-4">创建者：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="createBy"  name="createBy"
+                                       placeholder="请输入创建者">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">创建时间：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="createDate"  name="createDate"
+                                       placeholder="请输入创建时间">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">更新者：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="updateBy"  name="updateBy"
+                                       placeholder="请输入更新者">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">更新时间：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="updateDate"  name="updateDate"
+                                       placeholder="请输入更新时间">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">备注信息：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="remarks"  name="remarks"
+                                       placeholder="请输入备注信息">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4">删除标记：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="delFlag"  name="delFlag"
+                                       placeholder="请输入删除标记">
+                            </div>
+                        </div>--%>
+                        <input type="hidden" name="id" id="id" v-model="form.data.id">
+
+                    </form>
+                </div>
+                <div class="modal-footer" id="modal-actions">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="saveForm()">保存</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- 删除确认-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header  bg-danger">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i class="fa fa-exclamation-circle"></i>删除</h4>
-            </div>
-            <div class="modal-body">
-                <p id="confirmMsg"></p>
-            </div>
-            <div class="modal-footer" >
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-danger" id="deleteConfirmBtn">确认</button>
+    <!-- 删除确认-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header  bg-danger">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i class="fa fa-exclamation-circle"></i>删除</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="confirmMsg"></p>
+                </div>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-danger" id="deleteConfirmBtn">确认</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- 操作提示-->
-<div class="alert hidden" id="alert" style="position: fixed;right: 10px;top: 10px;width: 300px;">
-    <a href="#" class="close" data-dismiss="alert">
-        &times;
-    </a>
-    <div id="alertMessage"></div>
+    <!-- 操作提示-->
+    <div class="alert hidden" id="alert" style="position: fixed;right: 10px;top: 10px;width: 300px;">
+        <a href="#" class="close" data-dismiss="alert">
+            &times;
+        </a>
+        <div id="alertMessage"></div>
+    </div>
 </div>
 <script>
     var datatable;
     $(function () {
-        createTable();
+        getDomainList();
     });
+    function getDomainList() {
+        $.get("/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner", {}, function (data) {
+            vueApp.form.options.domainList = data;
+            //查询参数默认值
+            vueApp.form.data.domainId=data[0].id;
+            //添加表单默认值
+            vueApp.form.filter.domainId=data[0].id;
+            createTable();
+        });
+    }
     function createTable() {
         var queryBaseUr="/com/lizhivscaomei/jes/sys/controller/sysMenu/query/page";
         var options={};
         $.extend(options,dataTableJesOptions);
-        options.ajax={url:queryBaseUr};
+        options.ajax={url:queryBaseUr,
+            data:function (d) {
+                return vueApp.form.filter;
+            }
+        };
         options.columns=[
             {
                 "title": "序号",
@@ -271,9 +303,13 @@
                 "title": "删除标记",
                 "data": "delFlag"
             },*/
-            {
+            /*{
                 "title": "所属域",
                 "data": "domainId"
+            },*/
+            {
+                "title": "所属域",
+                "data": "domainName"
             },
             {
                 "title": "操作",
@@ -292,7 +328,9 @@
              }
              }
 
-             }, */{
+             }, */
+
+            {
                 "targets": -1,//最后一列
                 "width":"200px",
                 "createdCell": function (td, cellData, rowData, row, col) {
@@ -346,6 +384,7 @@
     }
     function add() {
         $("#id").val("");
+        vueApp.form.data.id="";
         $("input").each(function () {
             $(this).removeAttr("readonly");
         });
@@ -390,20 +429,20 @@
         $.get(url,{"id":id},function (data) {
             vueApp.form.data.id=id;
             vueApp.form.data.parentId=data.data.parentId;
-            vueApp.form.data.parentIds=data.data.parentIds;
+//            vueApp.form.data.parentIds=data.data.parentIds;
             vueApp.form.data.name=data.data.name;
             vueApp.form.data.sort=data.data.sort;
             vueApp.form.data.href=data.data.href;
             vueApp.form.data.target=data.data.target;
             vueApp.form.data.icon=data.data.icon;
-            vueApp.form.data.isShow=data.data.isShow;
+//            vueApp.form.data.isShow=data.data.isShow;
             vueApp.form.data.permission=data.data.permission;
-            vueApp.form.data.createBy=data.data.createBy;
-            vueApp.form.data.createDate=data.data.createDate;
-            vueApp.form.data.updateBy=data.data.updateBy;
-            vueApp.form.data.updateDate=data.data.updateDate;
+//            vueApp.form.data.createBy=data.data.createBy;
+//            vueApp.form.data.createDate=data.data.createDate;
+//            vueApp.form.data.updateBy=data.data.updateBy;
+//            vueApp.form.data.updateDate=data.data.updateDate;
             vueApp.form.data.remarks=data.data.remarks;
-            vueApp.form.data.delFlag=data.data.delFlag;
+//            vueApp.form.data.delFlag=data.data.delFlag;
             vueApp.form.data.domainId=data.data.domainId;
         });
     }
@@ -422,30 +461,50 @@
     function refreshTable() {
         $('#datatable').DataTable().ajax.reload();
     }
+    function showParentIdTreeview() {
+        $.get("/com/lizhivscaomei/jes/sys/controller/sysMenu/query/select",{
+            domainId:"d926086b-bdb9-4e9f-af4e-e960523e9427",
+            parentId:0
+        },function (data) {
+            debugger;
+            $('#parentIdTreeview').treeview({data:data.data,onNodeSelected:function (event, data) {
+                vueApp.form.data.parentId=data.id;
+                vueApp.form.data.parentText=data.text;
+                $("#parentIdTreeview").hide();
+            }});
+            $("#parentIdTreeview").show();
+        });
+    }
     var vueApp=new Vue({
-        el:"#entityForm",
+        el:"#vueApp",
         data:{
             form:{
                 data:{
                     id:"",
                     parentId:"",
-                    parentIds:"",
+                    parentText:"",
+//                    parentIds:"",
                     name:"",
                     sort:"",
                     href:"",
                     target:"",
                     icon:"",
-                    isShow:"",
+                    isShow:"1",
                     permission:"",
-                    createBy:"",
-                    createDate:"",
-                    updateBy:"",
-                    updateDate:"",
+//                    createBy:"",
+//                    createDate:"",
+//                    updateBy:"",
+//                    updateDate:"",
                     remarks:"",
-                    delFlag:"",
+//                    delFlag:"",
                     domainId:""
                 },
-                options:{}
+                filter: {
+                    domainId: ""
+                },
+                options:{
+                    domainList:[]
+                }
             }
         },
         methods:{}

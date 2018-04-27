@@ -230,7 +230,9 @@
              }
              }
 
-             }, */{
+             }, */
+
+            {
                 "targets": -1,//最后一列
                 "width": "200px",
                 "createdCell": function (td, cellData, rowData, row, col) {
@@ -284,6 +286,7 @@
     }
     function add() {
         $("#id").val("");
+        vueApp.form.data.id="";
         $("input").each(function () {
             $(this).removeAttr("readonly");
         });

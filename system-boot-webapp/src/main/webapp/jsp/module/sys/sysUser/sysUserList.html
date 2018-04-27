@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Title</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../css/index.css">
+    <style>
+        html,
+        body,
+        el-container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+
+    <hr style="border: none">
+    <div>
+        <el-button type="primary" @click="editForm.dialogFormVisible = true">添加</el-button>
+        <hr style="border: none">
+        <el-form :inline="true" :model="queryForm" class="demo-form-inline">
+            <el-form-item label="">
+                <el-input v-model="queryForm.data.name" placeholder="审批人"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="queryFormSubmit">查询</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+    <hr>
+    <div>
+        <el-table :data="tableData" style="width: 100%">
+            <el-table-column label="日期" width="180">
+                <template slot-scope="scope">
+                    <i class="el-icon-time"></i>
+                    <span style="margin-left: 10px">{{ scope.row.date }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="姓名" width="180">
+                <template slot-scope="scope">
+                    <el-popover trigger="hover" placement="top">
+                        <p>姓名: {{ scope.row.name }}</p>
+                        <p>住址: {{ scope.row.address }}</p>
+                        <div slot="reference" class="name-wrapper">
+                            <el-tag size="medium">{{ scope.row.name }}</el-tag>
+                        </div>
+                    </el-popover>
+                </template>
+            </el-table-column>
+            <el-table-column fixed="right" label="操作" width="200">
+                <template slot-scope="scope">
+                    <el-button size="mini" @click="showEditForm(scope.$index, scope.row)">编辑</el-button>
+                    <el-button size="mini" type="danger" @click="deleteItem(scope.$index, scope.row)">删除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="pages.currentPage" :page-sizes="pages.pageSizeList"
+                       :page-size="pages.pageSize" layout="total, sizes, prev, pager, next, jumper" :total="pages.total" prev-text="上一页"
+                       next-text="下一页" background=true>
+        </el-pagination>
+    </div>
+    <div>
+        <el-dialog :title="editForm.formName" :visible.sync="editForm.dialogFormVisible">
+            <el-form ref="editForm.data" :model="editForm.data" label-width="80px">
+                <el-form-item label="活动名称">
+                    <el-input v-model="editForm.dataname"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="editForm.dialogFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="editForm.dialogFormVisible = false">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+</div>
+</body>
+
+
+<script src="../js/vue.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../js/index.js"></script>
+<script>
+
+    var vueApp = new Vue({
+        el: "#app",
+        data: {
+            url: {
+                queryPage: "",
+                save: "",
+                delete: "",
+            },
+            pages: {
+                total: 0,
+                currentPage: 1,
+                pageSize: 20,
+                pageSizeList: [20, 40, 100]
+            },
+            tableData: [],
+            editForm: {
+                formName: "用户",
+                dialogFormVisible: false,
+                data: {
+                    currentPage: 1,
+                    pageSize: 10,
+                    companyId: "",
+                    officeId: "",
+                    loginName: "",
+                    //                    password:"",
+                    no: "",
+                    name: "",
+                    email: "",
+                    phone: "",
+                    mobile: "",
+                    userType: "",
+                    photo: "",
+                    //                    loginIp:"",
+                    //                    loginDate:"",
+                    //                    loginFlag:"",
+                    //                    createBy:"",
+                    //                    createDate:"",
+                    //                    updateBy:"",
+                    //                    updateDate:"",
+                    remarks: "",
+                    //                    delFlag:"",
+                    id: ""
+                },
+                options: {}
+            },
+            queryForm: {
+                dialogFormVisible: false,
+                data: {
+                    companyId: "",
+                    officeId: "",
+                    loginName: "",
+                    no: "",
+                    name: "",
+                    email: "",
+                    phone: "",
+                    mobile: "",
+                    userType: "",
+                    photo: "",
+                    remarks: "",
+                    id: ""
+                },
+                options: {}
+            }
+        },
+        methods: {
+            handleSizeChange:function(val) {
+                console.log("每页 ${val} 条");
+            },
+            handleCurrentChange:function(val) {
+                console.log("当前页: ${val}");
+            },
+            queryFormSubmit:function() {
+                console.log("查询");
+                this.editForm.data.currentPage = pages.currentPage;
+                this.editForm.data.pageSize = pages.pageSize;
+                this.$http.get(this.url.queryPage, this.editForm.data).then(function (res) {
+                    console.log(res.data);
+                    this.tableData=res.data.data;
+                    this.pages.total=res.data.recordsTotal;
+                }, function (res) {
+                    console.log(res.status)
+                });
+            },
+            showEditForm:function(index, row) {
+                this.editForm.dialogFormVisible = true
+                console.log("编辑" + index);
+            },
+            deleteItem:function(index, row) {
+                console.log("删除" + index);
+            }
+        }
+    });
+</script>
+
+</html>

@@ -6,40 +6,50 @@
     <%@ include file="/jsp/public/commonTable.jsp" %>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">角色管理</h3>
-            </div>
-
-            <div class="panel-body">
-                <div class="span12">
-                    <div class="btn-group">
-                        <button class="btn btn-default" type="button" onclick="add()">添加</button>
-                        <%--<button class="btn btn-default" type="button" onclick="query()">刷新</button>--%>
-                    </div>
-                    <%--<div class="btn-group">--%>
-                    <%--<button class="btn btn-default" type="button" onclick="superQuery()" >高级查询</button>--%>
-                    <%--</div>--%>
-                    <hr>
-                    <table id="datatable" class="table">
-
-                    </table>
+<div id="vueApp">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">角色管理</h3>
                 </div>
 
+                <div class="panel-body">
+                    <div class="span12">
+                        <div class="btn-group">
+                            <button class="btn btn-default" type="button" onclick="add()">添加</button>
+                            <%--<button class="btn btn-default" type="button" onclick="query()">刷新</button>--%>
+                        </div>
+                        <%--<div class="btn-group">--%>
+                        <%--<button class="btn btn-default" type="button" onclick="superQuery()" >高级查询</button>--%>
+                        <%--</div>--%>
+                        <hr>
+                        <form class="form-inline" name="searchForm">
+                            <div class="form-group">
+                                <select v-model="form.filter.domainId" class="form-control">
+                                    <option v-for="option in form.options.domainList" v-bind:value="option.id" >{{option.text}}</option>
+                                </select>
+                                <button class="btn btn-primary" type="button"  onclick="refreshTable()">查询</button>
+                            </div>
+                        </form>
+                        <hr>
+                        <table id="datatable" class="table">
+
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="panel-footer"></div>
             </div>
 
-            <div class="panel-footer"></div>
         </div>
-
     </div>
-</div>
-<!-- 弹窗 增加 修改 -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header  bg-primary"">
+    <!-- 弹窗 增加 修改 -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header  bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="editModalLabel">未知</h4>
@@ -52,7 +62,10 @@
                         <div class="col-xs-8">
                             <%--<input type="text" class="form-control" id="domainId"  name="domainId"
                                    placeholder="请输入域ID">--%>
-                            <select class="form-control" id="domainId"  name="domainId" v-model="form.data.domainId">
+                            <select class="form-control" id="domainId" name="domainId" v-model="form.data.domainId">
+                                <option v-for="(option,index) in form.options.domainList"
+                                        v-bind:value="option.id" >{{option.text}}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -60,7 +73,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">角色代码：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="enname"  name="enname" v-model="form.data.enname"
+                            <input type="text" class="form-control" id="enname" name="enname" v-model="form.data.enname"
                                    placeholder="请输入角色代码">
                         </div>
                     </div>
@@ -74,7 +87,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-4">角色名称：</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control" id="name"  name="name" v-model="form.data.name"
+                            <input type="text" class="form-control" id="name" name="name" v-model="form.data.name"
                                    placeholder="请输入角色名称">
                         </div>
                     </div>
@@ -166,12 +179,13 @@
             <div class="modal-header  bg-danger">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i class="fa fa-exclamation-circle"></i>删除</h4>
+                <h4 class="modal-title modal-title-primary" id="deleteModalLabel"><i
+                        class="fa fa-exclamation-circle"></i>删除</h4>
             </div>
             <div class="modal-body">
                 <p id="confirmMsg"></p>
             </div>
-            <div class="modal-footer" >
+            <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 <button type="button" class="btn btn-danger" id="deleteConfirmBtn">确认</button>
             </div>
@@ -185,29 +199,34 @@
     </a>
     <div id="alertMessage"></div>
 </div>
+</div>
+
 <script>
     var datatable;
     $(function () {
-        createTable();
-        initSelect();
+        getDomainList();
     });
-    function initSelect() {
-        $(".select2").each(function () {
-            var selectDom=this;
-            $.get($(this).data("url"),{},function (data) {
-                $(selectDom).select2({
-                    data:data,
-                    minimumResultsForSearch: -1
-                });
-            })
+    function getDomainList() {
+        $.get("/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner", {}, function (data) {
+            vueApp.form.options.domainList = data;
+            //查询参数默认值
+            vueApp.form.data.domainId=data[0].id;
+            //添加表单默认值
+            vueApp.form.filter.domainId=data[0].id;
+            createTable();
         });
     }
     function createTable() {
-        var queryBaseUr="/com/lizhivscaomei/jes/sys/controller/sysRole/query/page";
-        var options={};
-        $.extend(options,dataTableJesOptions);
-        options.ajax={url:queryBaseUr};
-        options.columns=[
+        var queryBaseUr = "/com/lizhivscaomei/jes/sys/controller/sysRole/query/page";
+        var options = {};
+        $.extend(options, dataTableJesOptions);
+        options.ajax = {
+            url: queryBaseUr,
+            data:function (d) {
+                return vueApp.form.filter;
+            }
+        };
+        options.columns = [
             {
                 "title": "序号",
                 "data": "id"
@@ -224,58 +243,58 @@
                 "title": "所属域",
                 "data": "domainName"
             },
-           /* {
-                "title": "归属机构",
-                "data": "officeId"
-            },*/
+            /* {
+             "title": "归属机构",
+             "data": "officeId"
+             },*/
 
             /*{
-                "title": "角色类型",
-                "data": "roleType"
-            },*/
+             "title": "角色类型",
+             "data": "roleType"
+             },*/
             /*{
-                "title": "数据范围",
-                "data": "dataScope"
-            },
-            {
-                "title": "是否系统数据",
-                "data": "isSys"
-            },
-            {
-                "title": "是否可用",
-                "data": "useable"
-            },*/
+             "title": "数据范围",
+             "data": "dataScope"
+             },
+             {
+             "title": "是否系统数据",
+             "data": "isSys"
+             },
+             {
+             "title": "是否可用",
+             "data": "useable"
+             },*/
             /*{
-                "title": "创建者",
-                "data": "createBy"
-            },
-            {
-                "title": "创建时间",
-                "data": "createDate"
-            },
-            {
-                "title": "更新者",
-                "data": "updateBy"
-            },
-            {
-                "title": "更新时间",
-                "data": "updateDate"
-            },
-            {
-                "title": "备注信息",
-                "data": "remarks"
-            },
-            {
-                "title": "删除标记",
-                "data": "delFlag"
-            },*/
+             "title": "创建者",
+             "data": "createBy"
+             },
+             {
+             "title": "创建时间",
+             "data": "createDate"
+             },
+             {
+             "title": "更新者",
+             "data": "updateBy"
+             },
+             {
+             "title": "更新时间",
+             "data": "updateDate"
+             },
+             {
+             "title": "备注信息",
+             "data": "remarks"
+             },
+             {
+             "title": "删除标记",
+             "data": "delFlag"
+             },*/
 
             {
                 "title": "操作",
                 "data": "id"
             }
         ];
-        options.columnDefs=[
+        options.columnDefs = [
             /*{
              "targets": -2,//最后第二列
              "createdCell": function (td, cellData, rowData, row, col) {
@@ -287,9 +306,11 @@
              }
              }
 
-             }, */{
+             }, */
+
+            {
                 "targets": -1,//最后一列
-                "width":"200px",
+                "width": "200px",
                 "createdCell": function (td, cellData, rowData, row, col) {
                     $(td).empty();
                     var btn_group = '<div class="btn-group"></div>';
@@ -303,12 +324,12 @@
                     var btn_delete = '<button class="btn btn-danger" onclick="remove(this)" data-row="' + row + '" data-id="' + rowData.id + '">权限</button>';
                     $(td).children(".btn-group").append(btn_delete);
                     /*var btn_isuse = "";
-                    if (rowData.isuse === 1) {
-                        btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">禁用</button>';
-                    } else {
-                        btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">启用</button>';
-                    }
-                    $(td).children(".btn-group").append(btn_isuse);*/
+                     if (rowData.isuse === 1) {
+                     btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">禁用</button>';
+                     } else {
+                     btn_isuse = '<button class="btn btn-warning" onclick="changeStatus(this)" data-row="' + row + '" data-id="' + rowData.id + '">启用</button>';
+                     }
+                     $(td).children(".btn-group").append(btn_isuse);*/
                 }
             }
         ];
@@ -326,7 +347,7 @@
             if ("view" == action) {
                 $("#modal-actions").hide();
                 $("#editModalLabel").text("详情");
-            }else if ("edit" == action) {
+            } else if ("edit" == action) {
                 $("#modal-actions").show();
                 $("#editModalLabel").text("修改");
             }
@@ -339,10 +360,11 @@
         $("#alert").alert();
         setTimeout(function () {
             $("#alert").alert('close');
-        },2000);
+        }, 2000);
     }
     function add() {
         $("#id").val("");
+        vueApp.form.data.id = "";
         $("input").each(function () {
             $(this).removeAttr("readonly");
         });
@@ -357,10 +379,10 @@
         showModal("edit", $(node).data("id"));
     }
     function remove(node) {
-        var url="/com/lizhivscaomei/jes/sys/controller/sysRole/delete";
-        var rowData=datatable.api().row($(node).data("row")).data();
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysRole/delete";
+        var rowData = datatable.api().row($(node).data("row")).data();
         $("#deleteConfirmBtn").click(function () {
-            $.post(url,{id:rowData.id},function (data) {
+            $.post(url, {id: rowData.id}, function (data) {
                 if (data.success) {
                     showAlert("alert-success", "删除成功");
                     $("#deleteModal").modal('toggle');
@@ -370,41 +392,41 @@
                 }
             });
         });
-        $("#confirmMsg").text("确定要删除"+rowData.name+"？");
+        $("#confirmMsg").text("确定要删除" + rowData.name + "？");
         $("#deleteModal").modal('toggle');
 
     }
     function view(node) {
         //datatable.api().row($(node).data("row")).data()
         $("input").each(function () {
-            $(this).attr("readonly","readonly");
+            $(this).attr("readonly", "readonly");
         });
         showModal("view", $(node).data("id"));
 
     }
     function loadFormdata(id) {
-        var url="/com/lizhivscaomei/jes/sys/controller/sysRole/query/detail";
-        $.get(url,{"id":id},function (data) {
-            vueApp.form.data.id=id;
-            vueApp.form.data.officeId=data.data.officeId;
-            vueApp.form.data.name=data.data.name;
-            vueApp.form.data.enname=data.data.enname;
-            vueApp.form.data.roleType=data.data.roleType;
-            vueApp.form.data.dataScope=data.data.dataScope;
-            vueApp.form.data.isSys=data.data.isSys;
-            vueApp.form.data.useable=data.data.useable;
-            vueApp.form.data.createBy=data.data.createBy;
-            vueApp.form.data.createDate=data.data.createDate;
-            vueApp.form.data.updateBy=data.data.updateBy;
-            vueApp.form.data.updateDate=data.data.updateDate;
-            vueApp.form.data.remarks=data.data.remarks;
-            vueApp.form.data.delFlag=data.data.delFlag;
-            vueApp.form.data.domainId=data.data.domainId;
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysRole/query/detail";
+        $.get(url, {"id": id}, function (data) {
+            vueApp.form.data.id = id;
+            vueApp.form.data.officeId = data.data.officeId;
+            vueApp.form.data.name = data.data.name;
+            vueApp.form.data.enname = data.data.enname;
+            vueApp.form.data.roleType = data.data.roleType;
+            vueApp.form.data.dataScope = data.data.dataScope;
+            vueApp.form.data.isSys = data.data.isSys;
+            vueApp.form.data.useable = data.data.useable;
+            vueApp.form.data.createBy = data.data.createBy;
+            vueApp.form.data.createDate = data.data.createDate;
+            vueApp.form.data.updateBy = data.data.updateBy;
+            vueApp.form.data.updateDate = data.data.updateDate;
+            vueApp.form.data.remarks = data.data.remarks;
+            vueApp.form.data.delFlag = data.data.delFlag;
+            vueApp.form.data.domainId = data.data.domainId;
         });
     }
     function saveForm() {
-        var url="/com/lizhivscaomei/jes/sys/controller/sysRole/save";
-        $.post(url,vueApp.form.data,function (data) {
+        var url = "/com/lizhivscaomei/jes/sys/controller/sysRole/save";
+        $.post(url, vueApp.form.data, function (data) {
             if (data.success) {
                 showAlert("alert-success", "保存成功");
                 $("#editModal").modal('toggle');
@@ -417,31 +439,36 @@
     function refreshTable() {
         $('#datatable').DataTable().ajax.reload();
     }
-    var vueApp=new Vue({
-        el:"#entityForm",
-        data:{
-            form:{
-                data:{
-                    id:"",
-                    officeId:"",
-                    name:"",
-                    enname:"",
-                    roleType:"",
-                    dataScope:"",
-                    isSys:"",
-                    useable:"",
+    var vueApp = new Vue({
+        el: "#vueApp",
+        data: {
+            form: {
+                data: {
+                    id: "",
+                    officeId: "",
+                    name: "",
+                    enname: "",
+                    roleType: "",
+                    dataScope: "",
+                    isSys: "",
+                    useable: "",
 //                    createBy:"",
 //                    createDate:"",
 //                    updateBy:"",
 //                    updateDate:"",
-                    remarks:"",
+                    remarks: "",
 //                    delFlag:"",
-                    domainId:""
+                    domainId: ""
                 },
-                options:{}
+                filter: {
+                    domainId: ""
+                },
+                options: {
+                    domainList: []
+                }
             }
         },
-        methods:{}
+        methods: {}
     });
 </script>
 </body>
