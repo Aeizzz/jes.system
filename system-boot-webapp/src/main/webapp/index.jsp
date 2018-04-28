@@ -667,6 +667,11 @@
                                 text: "行政区划",
                                 url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
                                 childs: []
+                            },{
+                                id: 1,
+                                text: "数据字典",
+                                url: "/jsp/module/sys/sysDict/sysDictList.html",
+                                childs: []
                             }
                         ]
                     },

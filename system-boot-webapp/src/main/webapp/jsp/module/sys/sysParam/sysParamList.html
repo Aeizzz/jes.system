@@ -69,28 +69,40 @@
         <el-dialog :title="editForm.formName" :visible.sync="editForm.dialogFormVisible">
             <el-form ref="editForm" :model="editForm.data" :rules="editForm.rules" label-width="120px"
                      label-position="right">
-                <el-form-item label="所属域" prop="domainId">
-                    <el-select v-model="editForm.data.domainId" placeholder="请选择">
-                        <el-option
-                                v-for="item in options.domainId"
-                                :key="item.id"
-                                :label="item.text"
-                                :value="item.id">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="参数名" prop="name">
-                    <el-input v-model="editForm.data.name" clearable></el-input>
-                </el-form-item>
-                <el-form-item label="参数代码" prop="code">
-                    <el-input v-model="editForm.data.code" clearable></el-input>
-                </el-form-item>
-                <el-form-item label="参数值" prop="value">
-                    <el-input v-model="editForm.data.value" clearable></el-input>
-                </el-form-item>
-                <el-form-item label="描述" prop="description">
-                    <el-input v-model="editForm.data.description" clearable></el-input>
-                </el-form-item>
+                <el-row>
+                    <el-col :span="12">
+                        <el-form-item label="所属域" prop="domainId">
+                            <el-select v-model="editForm.data.domainId" placeholder="请选择" style="width: 100%">
+                                <el-option
+                                        v-for="item in options.domainId"
+                                        :key="item.id"
+                                        :label="item.text"
+                                        :value="item.id">
+                                </el-option>
+                            </el-select>
+                        </el-form-item>
+
+                        <el-form-item label="参数代码" prop="code">
+                            <el-input v-model="editForm.data.code" clearable></el-input>
+                        </el-form-item>
+                    </el-col>
+                    <el-col :span="12">
+                        <el-form-item label="参数名" prop="name">
+                            <el-input v-model="editForm.data.name" clearable></el-input>
+                        </el-form-item>
+
+                        <el-form-item label="参数值" prop="value">
+                            <el-input v-model="editForm.data.value" clearable></el-input>
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+                <el-row>
+
+                    <el-form-item label="描述" prop="description">
+                        <el-input v-model="editForm.data.description" clearable></el-input>
+                    </el-form-item>
+                </el-row>
+
                 <!--<el-form-item label="创建者" prop="createBy">
                     <el-input v-model="editForm.data.createBy" clearable></el-input>
                 </el-form-item>

@@ -11,24 +11,24 @@
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
 
-       <!-- <plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin">
             <property name="suppressJavaInterface" value="false"/>
         </plugin>
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ServicePlugin">
             <property name="targetProject" value="systemapi/src/main/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.service"/>
-            <property name="overwrite" value="false"/>
+            <property name="overwrite" value="true"/>
         </plugin>
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ServiceImpPlugin">
             <property name="targetProject" value="systembusiness/src/test/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.service"/>
-            <property name="overwrite" value="false"/>
-        </plugin>-->
+            <property name="overwrite" value="true"/>
+        </plugin>
 
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ControllerPlugin">
             <property name="targetProject" value="systembusiness/src/main/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.controller"/>
-            <property name="overwrite" value="false"/>
+            <property name="overwrite" value="true"/>
         </plugin>
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.JspPlugin">
             <property name="targetProject" value="system-boot-webapp/src/main/webapp/jsp/module"/>
@@ -52,14 +52,14 @@
         </javaClientGenerator>
 
         <!--<table tableName="sys_area"  ></table>-->
-        <!--<table tableName="sys_dict"  ></table>-->
+        <table tableName="sys_dict"  ></table>
         <!--<table tableName="sys_domain"></table>-->
         <!--<table tableName="sys_log"   ></table>-->
         <!--<table tableName="sys_mdict" ></table>-->
         <!--<table tableName="sys_menu"  ></table>-->
         <!--<table tableName="sys_office"></table>-->
         <!--<table tableName="sys_param" ></table>-->
-        <table tableName="sys_role"  ></table>
+        <!--<table tableName="sys_role"  ></table>-->
         <!--<table tableName="sys_role_menu" ></table>-->
         <!--<table tableName="sys_role_office"></table>-->
         <!--<table tableName="sys_user"  ></table>-->
