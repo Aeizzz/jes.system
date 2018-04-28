@@ -20,7 +20,7 @@
             <property name="overwrite" value="true"/>
         </plugin>
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ServiceImpPlugin">
-            <property name="targetProject" value="systembusiness/src/test/java"/>
+            <property name="targetProject" value="systembusiness/src/main/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.service"/>
             <property name="overwrite" value="true"/>
         </plugin>
@@ -52,7 +52,7 @@
         </javaClientGenerator>
 
         <!--<table tableName="sys_area"  ></table>-->
-        <table tableName="sys_dict"  ></table>
+        <!--<table tableName="sys_dict"  ></table>-->
         <!--<table tableName="sys_domain"></table>-->
         <!--<table tableName="sys_log"   ></table>-->
         <!--<table tableName="sys_mdict" ></table>-->

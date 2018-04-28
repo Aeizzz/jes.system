@@ -2,28 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44f1b9ac-cb95-41c5-9367-d106b908f71e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDict.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDict.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$Criteria.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$Criteria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$Criterion.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$Criterion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$GeneratedCriteria.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$GeneratedCriteria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysRole.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysRoleExample$Criteria.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysRoleExample$Criteria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysRoleExample$GeneratedCriteria.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysRoleExample$GeneratedCriteria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/controller/SysDictController.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/controller/SysDictController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysDictMapper.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysDictMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysDictSqlProvider.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysDictSqlProvider.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysRoleMapper.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysRoleMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysRoleSqlProvider.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysRoleSqlProvider.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysDictTreeViewService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/mybatis-generator.xml" afterPath="$PROJECT_DIR$/src/test/resources/mybatis-generator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.html" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysDict.java" afterPath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysDict.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysDictExample.java" afterPath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysDictExample.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictService.java" afterPath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysDictController.java" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysDictController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/dao/SysDictMapper.java" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/dao/SysDictMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/dao/SysDictSqlProvider.java" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/dao/SysDictSqlProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,7 +32,109 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="sysDictList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDict/sysDictList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="298" column="100" lean-forward="false" selection-start-line="298" selection-start-column="100" selection-end-line="298" selection-end-column="100" />
+              <folding>
+                <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#0;n#el-row#0;n#el-form#0;n#el-dialog#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#1;n#el-row#0;n#el-form#0;n#el-dialog#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#8933#10911#0" expanded="false" />
+                <element signature="e#10936#11843#0" expanded="false" />
+                <element signature="e#11933#12177#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysDictServiceImp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1270">
+              <caret line="71" column="24" lean-forward="false" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysDictController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysDictController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="88" column="11" lean-forward="true" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreeVo.class" pinned="false" current-in-tab="false">
+        <entry file="jar://E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/view/tree/TreeVo.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysMenuController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysMenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="83" column="6" lean-forward="false" selection-start-line="83" selection-start-column="6" selection-end-line="97" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysMenuViewService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuViewService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysMenuTreeViewService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuTreeViewService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysDictTreeViewService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysDictTreeViewService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysMenuServiceImp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysMenuServiceImp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="851">
+              <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -55,8 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>this.$http</find>
-      <find>queryForm</find>
       <find>updateDate</find>
       <find>=&gt;</find>
       <find>showEditForm</find>
@@ -85,6 +174,8 @@
       <find>类型</find>
       <find>options</find>
       <find>所属域</find>
+      <find>sysMenuTreeViewService</find>
+      <find>parentOptions</find>
     </findStrings>
     <replaceStrings>
       <replace>com.lizhivscaomei.jes.common.exception.AppException</replace>
@@ -123,10 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/user/userList.jsp" />
-        <option value="$PROJECT_DIR$/systembusiness/pom.xml" />
-        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysUserController.java" />
-        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysUserServiceImp.java" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/js/utils.js" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysDomainService.java" />
@@ -167,13 +254,17 @@
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysDomainServiceImp.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysDomainController.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysRoleController.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/mybatis-generator.xml" />
         <option value="$PROJECT_DIR$/systembusiness/src/test/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDict/sysDictList.html" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.html" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDomain/sysDomainList.html" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysRole/sysRoleList.html" />
+        <option value="$PROJECT_DIR$/src/test/resources/mybatis-generator.xml" />
+        <option value="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictService.java" />
+        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java" />
+        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysDictController.java" />
+        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDict/sysDictList.html" />
+        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysDictTreeViewService.java" />
       </list>
     </option>
   </component>
@@ -246,6 +337,24 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="Plugins" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="system" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="mybatis-generator" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
@@ -333,6 +442,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -353,6 +466,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="systembusiness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,32 +577,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="systembusiness" />
+              <option name="myItemId" value="systemapi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SysRoleController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -468,7 +591,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="systembusiness" />
+              <option name="myItemId" value="systemapi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="systemapi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -478,22 +619,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SysDomainController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -675,6 +800,70 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sysDict" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system-boot-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system-boot-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1453,7 +1642,7 @@
       <workItem from="1524475016878" duration="1402000" />
       <workItem from="1524707770820" duration="2433000" />
       <workItem from="1524808143236" duration="7051000" />
-      <workItem from="1524873310870" duration="23915000" />
+      <workItem from="1524873310870" duration="27192000" />
     </task>
     <task id="LOCAL-00001" summary="cas初步打通">
       <created>1522489673810</created>
@@ -1546,15 +1735,22 @@
       <option name="project" value="LOCAL" />
       <updated>1524901051749</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="表单分两列">
+      <created>1524904823693</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1524904823693</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257648000" />
+    <option name="totallyTimeSpent" value="260925000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1318" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1572,7 +1768,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978687" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34767026" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43189964" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1583,7 +1779,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35573477" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18073316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24040921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294539" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1616,7 +1812,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978687" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34767026" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43189964" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1628,7 +1824,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35573477" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18073316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24040921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294539" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1656,7 +1852,8 @@
     <MESSAGE value="vue支持" />
     <MESSAGE value="系统参数管理" />
     <MESSAGE value="角色" />
-    <option name="LAST_COMMIT_MESSAGE" value="角色" />
+    <MESSAGE value="表单分两列" />
+    <option name="LAST_COMMIT_MESSAGE" value="表单分两列" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1667,8 +1864,14 @@
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/view/tree/TreeViewService.class</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="41" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1677,41 +1880,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysRoleViewService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuViewService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="24" column="61" lean-forward="false" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysRoleServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="64" column="8" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="65" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysParamVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysParamViewService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1735,13 +1903,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/TreeVo.java" />
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuTreeViewService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/service/EntityService.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1757,48 +1918,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysMenuService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysMenuServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2112">
-          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/java/maven/.m2/org/springframework/spring-web/5.0.4.RELEASE/spring-web-5.0.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/view/tree/TreeVo.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/view/tree/TreeViewService.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2574">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1988,24 +2111,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/test/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -2021,25 +2126,6 @@
         <state relative-caret-position="-627">
           <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mybatis-generator.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDict/sysDictList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="79" column="39" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="79" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#0;n#el-row#0;n#el-form#0;n#el-dialog#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#1;n#el-row#0;n#el-form#0;n#el-dialog#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2075,7 +2161,138 @@
         <state relative-caret-position="156">
           <caret line="85" column="108" lean-forward="false" selection-start-line="85" selection-start-column="108" selection-end-line="85" selection-end-column="108" />
           <folding>
+            <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#0;n#el-row#0;n#el-form#0;n#el-dialog#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/test/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mybatis-generator.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="55" column="50" lean-forward="false" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysMenuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="14" column="42" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysMenuServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuViewService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="83" column="6" lean-forward="false" selection-start-line="83" selection-start-column="6" selection-end-line="97" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/view/tree/TreeViewService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDict/sysDictList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="298" column="100" lean-forward="false" selection-start-line="298" selection-start-column="100" selection-end-line="298" selection-end-column="100" />
+          <folding>
+            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#0;n#el-row#0;n#el-form#0;n#el-dialog#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#1;n#el-row#0;n#el-form#0;n#el-dialog#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#8933#10911#0" expanded="false" />
+            <element signature="e#10936#11843#0" expanded="false" />
+            <element signature="e#11933#12177#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/view/tree/TreeVo.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuTreeViewService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysDictController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="88" column="11" lean-forward="true" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1270">
+          <caret line="71" column="24" lean-forward="false" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysDictTreeViewService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
