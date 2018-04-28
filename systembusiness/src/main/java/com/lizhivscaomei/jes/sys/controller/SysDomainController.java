@@ -27,8 +27,8 @@ public class SysDomainController {
     SysDomainService sysDomainService;
 
     /**
-    * 保存
-    * */
+     * 保存
+     * */
     @ResponseBody
     @RequestMapping("/sysDomain/save")
     public Msg add(SysDomain entity){
@@ -48,8 +48,8 @@ public class SysDomainController {
     }
 
     /**
-    * 删除
-    * */
+     * 删除
+     * */
     @ResponseBody
     @RequestMapping("/sysDomain/delete")
     public Msg update(String id){
@@ -65,8 +65,8 @@ public class SysDomainController {
     }
 
     /**
-    * 详情
-    * */
+     * 详情
+     * */
     @ResponseBody
     @RequestMapping("/sysDomain/query/detail")
     public Msg detail(String id){
@@ -78,8 +78,8 @@ public class SysDomainController {
 
     }
     /**
-    * 分页查询
-    * */
+     * 分页查询
+     * */
     @ResponseBody
     @RequestMapping("/sysDomain/query/page")
     public DataTablesResponse<SysDomain> update(SysDomain entity, DataTablesRequest dataTablesRequest){

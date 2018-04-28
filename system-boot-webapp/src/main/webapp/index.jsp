@@ -36,7 +36,7 @@
                     <!--Navigation toogle button-->
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <li class="tgl-menu-btn">
-                        <a class="mainnav-toggle" href="#">
+                        <a class="mainnav-toggle" href="#" @click="toggleMainnav()">
                             <i class="pli-list-view icon-lg"></i>
                         </a>
                     </li>
@@ -353,7 +353,38 @@
                                     </ul>
                                 </li>
                             </ul>
-
+                            <%--<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+                                <el-submenu index="1">
+                                    <template slot="title">
+                                        <i class="el-icon-location"></i>
+                                        <span slot="title">导航一</span>
+                                    </template>
+                                    <el-menu-item-group>
+                                        <span slot="title">分组一</span>
+                                        <el-menu-item index="1-1">选项1</el-menu-item>
+                                        <el-menu-item index="1-2">选项2</el-menu-item>
+                                    </el-menu-item-group>
+                                    <el-menu-item-group title="分组2">
+                                        <el-menu-item index="1-3">选项3</el-menu-item>
+                                    </el-menu-item-group>
+                                    <el-submenu index="1-4">
+                                        <span slot="title">选项4</span>
+                                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                                    </el-submenu>
+                                </el-submenu>
+                                <el-menu-item index="2">
+                                    <i class="el-icon-menu"></i>
+                                    <span slot="title">导航二</span>
+                                </el-menu-item>
+                                <el-menu-item index="3" disabled>
+                                    <i class="el-icon-document"></i>
+                                    <span slot="title">导航三</span>
+                                </el-menu-item>
+                                <el-menu-item index="4">
+                                    <i class="el-icon-setting"></i>
+                                    <span slot="title">导航四</span>
+                                </el-menu-item>
+                            </el-menu>--%>
                         </div>
                     </div>
                 </div>
@@ -525,6 +556,7 @@
     var vueApp=new Vue({
         el:"#container",
         data:{
+            isCollapse:false,
             my:{
                 notificationList: [
                     {
@@ -601,13 +633,13 @@
                             {
                                 id: 1,
                                 text: "域管理",
-                                url: "/jsp/module/sys/sysDomain/sysDomainList.jsp",
+                                url: "/jsp/module/sys/sysDomain/sysDomainList.html",
                                 childs: []
                             },
                             {
                                 id: 1,
                                 text: "角色管理",
-                                url: "/jsp/module/sys/sysRole/sysRoleList.jsp",
+                                url: "/jsp/module/sys/sysRole/sysRoleList.html",
                                 childs: []
                             },
                             {
@@ -658,6 +690,19 @@
         methods:{
             openframe:function (data) {
                 $("#mainframe").attr("src",data.url);
+            },
+            handleOpen(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleClose(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            toggleMainnav(){
+                if(this.isCollapse){
+                    this.isCollapse=false;
+                }else {
+                    this.isCollapse=true;
+                }
             }
         }
     });

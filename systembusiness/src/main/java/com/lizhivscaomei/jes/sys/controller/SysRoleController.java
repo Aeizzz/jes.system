@@ -26,8 +26,8 @@ public class SysRoleController {
     @Autowired
     SysRoleViewService sysRoleViewService;
     /**
-    * 保存
-    * */
+     * 保存
+     * */
     @ResponseBody
     @RequestMapping("/sysRole/save")
     public Msg add(SysRole entity){
@@ -47,8 +47,8 @@ public class SysRoleController {
     }
 
     /**
-    * 删除
-    * */
+     * 删除
+     * */
     @ResponseBody
     @RequestMapping("/sysRole/delete")
     public Msg update(String id){
@@ -64,8 +64,8 @@ public class SysRoleController {
     }
 
     /**
-    * 详情
-    * */
+     * 详情
+     * */
     @ResponseBody
     @RequestMapping("/sysRole/query/detail")
     public Msg detail(String id){
@@ -77,8 +77,8 @@ public class SysRoleController {
 
     }
     /**
-    * 分页查询
-    * */
+     * 分页查询
+     * */
     @ResponseBody
     @RequestMapping("/sysRole/query/page")
     public DataTablesResponse<SysRoleVo> update(SysRole entity, DataTablesRequest dataTablesRequest){

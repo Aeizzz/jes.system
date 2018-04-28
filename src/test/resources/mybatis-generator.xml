@@ -17,20 +17,24 @@
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ServicePlugin">
             <property name="targetProject" value="systemapi/src/main/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.service"/>
+            <property name="overwrite" value="false"/>
         </plugin>
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ServiceImpPlugin">
             <property name="targetProject" value="systembusiness/src/test/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.service"/>
+            <property name="overwrite" value="false"/>
         </plugin>-->
 
-        <!--<plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ControllerPlugin">
+        <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ControllerPlugin">
             <property name="targetProject" value="systembusiness/src/main/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.controller"/>
+            <property name="overwrite" value="false"/>
         </plugin>
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.JspPlugin">
             <property name="targetProject" value="system-boot-webapp/src/main/webapp/jsp/module"/>
             <property name="targetPackage" value="sys"/>
-        </plugin>-->
+            <property name="overwrite" value="true"/>
+        </plugin>
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://192.168.165.3:3306/jes"
                         userId="root"
@@ -54,8 +58,8 @@
         <!--<table tableName="sys_mdict" ></table>-->
         <!--<table tableName="sys_menu"  ></table>-->
         <!--<table tableName="sys_office"></table>-->
-        <table tableName="sys_param" ></table>
-        <!--<table tableName="sys_role"  ></table>-->
+        <!--<table tableName="sys_param" ></table>-->
+        <table tableName="sys_role"  ></table>
         <!--<table tableName="sys_role_menu" ></table>-->
         <!--<table tableName="sys_role_office"></table>-->
         <!--<table tableName="sys_user"  ></table>-->

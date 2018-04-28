@@ -17,6 +17,7 @@
 <!--=================================================-->
 <!--Page Load Progress Bar [ OPTIONAL ]-->
 <link href="static/css/pace.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/component/element/css/index.css">
 <script src="static/js/pace.min.js"></script>
 <!--JAVASCRIPT-->
 <!--=================================================-->
@@ -48,8 +49,9 @@ Optional plugins. You may choose whether to include it in your project or not.
 Detailed information and more samples can be found in the document.
 
 =================================================-->
-
-<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/vue-resource.min.js"></script>
+<script src="/static/component/element/js/index.js"></script>
 <style>
     #mainnav-menu a:hover{
         background-color:#26a69a;
