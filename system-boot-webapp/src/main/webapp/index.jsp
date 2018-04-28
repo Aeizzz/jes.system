@@ -646,7 +646,7 @@
                             {
                                 id: 1,
                                 text: "参数设置",
-                                url: "/jsp/module/sys/sysParam/sysParamList.jsp",
+                                url: "/jsp/module/sys/sysParam/sysParamList.html",
                                 childs: []
                             }
                         ]

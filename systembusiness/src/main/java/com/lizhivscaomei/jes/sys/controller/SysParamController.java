@@ -10,8 +10,6 @@ import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
 import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysParam;
 import com.lizhivscaomei.jes.sys.service.SysParamService;
-import com.lizhivscaomei.jes.sys.view.SysParamViewService;
-import com.lizhivscaomei.jes.sys.view.SysParamVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SysParamController {
     @Autowired
     SysParamService sysParamService;
-    @Autowired
-    SysParamViewService sysParamViewService;
+
     /**
     * 保存
     * */
@@ -81,14 +78,14 @@ public class SysParamController {
     * */
     @ResponseBody
     @RequestMapping("/sysParam/query/page")
-    public DataTablesResponse<SysParamVo> update(SysParam entity, DataTablesRequest dataTablesRequest){
-        DataTablesResponse<SysParamVo> response=new DataTablesResponse<>();
+    public DataTablesResponse<SysParam> update(SysParam entity, DataTablesRequest dataTablesRequest){
+        DataTablesResponse<SysParam> response=new DataTablesResponse<>();
         response.setDraw(dataTablesRequest.getDraw());
         Page page=new Page();
         page.setCurrentPage(dataTablesRequest.getStart());
         page.setPageSize(dataTablesRequest.getLength());
         PageInfo<SysParam> pages = this.sysParamService.queryPage(entity, page);
-        response.setData(this.sysParamViewService.dtoList2voList(pages.getList()));
+        response.setData(pages.getList());
         response.setRecordsTotal(pages.getTotal());
         return response;
 

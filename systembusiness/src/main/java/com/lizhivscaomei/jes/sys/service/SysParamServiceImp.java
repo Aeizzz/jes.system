@@ -30,7 +30,6 @@ public class SysParamServiceImp implements SysParamService {
             entity.setCreateDate(new Date());
             entity.setUpdateBy(userDetails.getUsername());
             entity.setUpdateDate(new Date());
-            entity.setDelFlag("0");
             this.sysParamMapper.insertSelective(entity);
         }else {
             throw new AppException("entity不可为空");

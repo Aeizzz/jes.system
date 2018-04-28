@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44f1b9ac-cb95-41c5-9367-d106b908f71e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/css/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/js/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/js/vue-resource.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/js/vue.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_2_0_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_0_4_RELEASE.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/system_boot_webapp_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/system_boot_webapp_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/component/element/css/fonts/element-icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/component/element/css/fonts/element-icons.woff" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/css/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/js/index.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/controller/SysParamController.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/controller/SysParamController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.html" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/view/sysUserList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/mybatis-generator.xml" afterPath="$PROJECT_DIR$/src/test/resources/mybatis-generator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysParam.java" afterPath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysParam.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysParamExample.java" afterPath="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysParamExample.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysParamController.java" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysParamController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/dao/SysParamMapper.java" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/dao/SysParamMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/dao/SysParamSqlProvider.java" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/dao/SysParamSqlProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysParamServiceImp.java" afterPath="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysParamServiceImp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/js/vue-resource.min.js" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/js/vue-resource.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/js/vue.js" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/js/vue.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/view/sysUserList.html" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,69 +39,67 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="sysUserList.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.jsp">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="sysUserList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="516" column="25" lean-forward="false" selection-start-line="516" selection-start-column="25" selection-end-line="516" selection-end-column="25" />
+            <state relative-caret-position="275">
+              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#11625#11655#0#HTML" expanded="false" />
-                <element signature="e#11928#14000#0#HTML" expanded="false" />
-                <element signature="e#14031#16180#0#HTML" expanded="false" />
-                <element signature="e#16297#16864#0#HTML" expanded="false" />
-                <element signature="e#16915#17136#0#HTML" expanded="false" />
-                <element signature="e#17171#17356#0#HTML" expanded="false" />
-                <element signature="e#17396#17603#0#HTML" expanded="false" />
-                <element signature="e#17645#18336#0#HTML" expanded="false" />
-                <element signature="e#18376#18589#0#HTML" expanded="false" />
-                <element signature="e#18633#21058#0#HTML" expanded="false" />
-                <element signature="e#21101#21514#0#HTML" expanded="false" />
-                <element signature="e#21554#21612#0#HTML" expanded="false" />
-                <element signature="e#21651#22537#0#HTML" expanded="false" />
-                <element signature="e#21738#22457#0#HTML" expanded="false" />
-                <marker date="1524809832856" expanded="true" signature="121:22565" ph="..." />
-                <marker date="1524809832856" expanded="true" signature="221:22556" ph="..." />
-                <marker date="1524809832856" expanded="true" signature="11586:22548" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sysUserList.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/view/sysUserList.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="172" column="19" lean-forward="true" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
-              <folding>
+                <element signature="n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#template#0;n#el-table-column#0;n#el-table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#script#3;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysUserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysUserController.java">
+      <file leaf-file-name="mybatis-generator.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/mybatis-generator.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="89" column="24" lean-forward="false" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+            <state relative-caret-position="0">
+              <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="32" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Page.class" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/entity/Page.class">
+      <file leaf-file-name="SysParamServiceImp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysParamServiceImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="24" />
+            <state relative-caret-position="429">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysParam.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysParam.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-33">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sysParamList.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="311" column="30" lean-forward="false" selection-start-line="311" selection-start-column="30" selection-end-line="311" selection-end-column="30" />
+              <folding>
+                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#9700#13107#0" expanded="false" />
+                <element signature="e#9747#9819#0" expanded="false" />
+                <element signature="e#9882#9954#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,22 +107,11 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-963">
-              <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="243" selection-end-column="13" />
+            <state relative-caret-position="361">
+              <caret line="648" column="80" lean-forward="false" selection-start-line="648" selection-start-column="80" selection-end-line="648" selection-end-column="80" />
               <folding>
-                <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="e#19038#25120#0#JSP" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nifty.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/public/nifty.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-776">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="55" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -133,25 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>=data.data.</find>
-      <find>=</find>
-      <find>&quot;).val(</find>
-      <find>管理</find>
-      <find>\</find>
-      <find>modal-header</find>
-      <find>add</find>
-      <find>add()</find>
-      <find>&lt;form</find>
-      <find>v-f</find>
-      <find>v-</find>
-      <find>initSelect</find>
-      <find>search</find>
-      <find>debugger</find>
-      <find>select</find>
-      <find>form</find>
-      <find>updateDate</find>
-      <find>isShow</find>
-      <find>所属域</find>
       <find>domainId</find>
       <find>filter</find>
       <find>parentIds</find>
@@ -163,6 +139,25 @@
       <find>target</find>
       <find>ifra</find>
       <find>`</find>
+      <find>this.$http</find>
+      <find>queryForm</find>
+      <find>updateDate</find>
+      <find>createDate</find>
+      <find>=&gt;</find>
+      <find>showEditForm</find>
+      <find>EditForm</find>
+      <find>ref</find>
+      <find>queryPage</find>
+      <find>this.$options.methods</find>
+      <find>query</find>
+      <find>query(</find>
+      <find>showE</find>
+      <find>editForm.data</find>
+      <find>this.$refs[formName]</find>
+      <find>save</find>
+      <find>resetEditForm</find>
+      <find>editForm.data.domainId</find>
+      <find>editForm</find>
     </findStrings>
     <replaceStrings>
       <replace>com.lizhivscaomei.jes.common.exception.AppException</replace>
@@ -186,6 +181,7 @@
       <replace>/</replace>
       <replace>modal-header  bg-primary</replace>
       <replace>&quot;</replace>
+      <replace>//updateDate</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -199,8 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/sys/IndexController.java" />
-        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/user/columns.json" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/component/datatables/js/language.js" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/user/columns.js" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -224,12 +218,10 @@
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/component/way/way.js" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/public/commonTable.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/public/nifty.jsp" />
-        <option value="$PROJECT_DIR$/src/test/resources/mybatis-generator.xml" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/component/datatables/js/dataTable.default.js" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysRoleServiceImp.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuVo.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuViewService.java" />
-        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysParamServiceImp.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysParamVo.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysParamViewService.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysParamController.java" />
@@ -243,13 +235,17 @@
         <option value="$PROJECT_DIR$/system-boot-webapp/pom.xml" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.jsp" />
-        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDomain/sysDomainList.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysMenu/sysMenuList.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysRole/sysRoleList.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.jsp" />
+        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/view/sysUserList.html" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.html" />
+        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/test/resources/mybatis-generator.xml" />
+        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysParamServiceImp.java" />
+        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.html" />
       </list>
     </option>
   </component>
@@ -384,7 +380,6 @@
     <panes>
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -491,40 +486,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="systembusiness" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="system-boot-webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -570,6 +531,196 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system-boot-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system-boot-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system-boot-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="element" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system-boot-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="element" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system-boot-webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="element" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -636,10 +787,6 @@
               <option name="myItemId" value="sys" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sysUser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -675,11 +822,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sysUser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
+              <option name="myItemId" value="sysParam" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -704,16 +847,26 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jsp" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sys" />
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -727,20 +880,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="system-boot-webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -767,27 +931,137 @@
     <property name="ignore_missing_gitignore" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\js" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser\view" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\select2\4.0.6" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sysManage" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="jsp.module.sys" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\bootstrap\3.3.7\plugins\treeview" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\js" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\way" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\datatables\js" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.lizhivscaomei.jes.sys.view" />
       <recent name="com.lizhivscaomei.jes.config" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser\view" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\select2\4.0.6" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sysManage" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\WEB-INF\jsp" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\WEB-INF" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\element\css\fonts" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\bootstrap\3.3.7\plugins\treeview" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\js" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\way" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/view/sysUserList.html</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Tomcat Server.web">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -807,10 +1081,7 @@
       <option name="SCRIPT_PATH" value="" />
       <option name="PRINT_REDIS_CALL" value="false" />
       <option name="USE_SYNC" value="false" />
-      <method>
-        <option name="Make" enabled="true" />
-        <option name="#com.seventh7.widget.iedis.run.ParametersRunTaskProvider" enabled="true" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -1351,7 +1622,8 @@
       <workItem from="1524463304717" duration="7526000" />
       <workItem from="1524475016878" duration="1402000" />
       <workItem from="1524707770820" duration="2433000" />
-      <workItem from="1524808143236" duration="7020000" />
+      <workItem from="1524808143236" duration="7051000" />
+      <workItem from="1524873310870" duration="15641000" />
     </task>
     <task id="LOCAL-00001" summary="cas初步打通">
       <created>1522489673810</created>
@@ -1423,15 +1695,22 @@
       <option name="project" value="LOCAL" />
       <updated>1524821653705</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="vue支持">
+      <created>1524821728379</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1524821728379</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233702000" />
+    <option name="totallyTimeSpent" value="249374000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1318" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1449,7 +1728,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978687" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38799283" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45698926" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1460,9 +1739,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35573477" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18073316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18073316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294539" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1470,7 +1750,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294539" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1493,7 +1772,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978687" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38799283" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45698926" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1505,7 +1784,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35573477" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18073316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18073316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294539" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1552,34 +1831,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/js/nifty.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="28" column="11766" lean-forward="false" selection-start-line="28" selection-start-column="11754" selection-end-line="28" selection-end-column="11766" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/css/nifty.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="8952" column="1" lean-forward="false" selection-start-line="8952" selection-start-column="1" selection-end-line="8952" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../UI/nifty/nifty-v2.9/demo/js/nifty.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../UI/nifty/nifty-v2.9/demo/js/nifty.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/premium/icon-sets/icons/line-icons/premium-line-icons.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -1598,20 +1849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/error.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mybatis-generator.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1881">
-          <caret line="57" column="49" lean-forward="false" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -1692,13 +1929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysParamServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="57" column="58" lean-forward="true" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysParamController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -1741,9 +1971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1798,14 +2025,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.html" />
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1818,7 +2038,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1184">
           <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1856,20 +2075,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/public/nifty.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-776">
+        <state relative-caret-position="264">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="55" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-963">
-          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="243" selection-end-column="13" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#19038#25120#0#JSP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1877,7 +2085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1893,47 +2100,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#733#734#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/controller/SysUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
+        <state relative-caret-position="2541">
           <caret line="89" column="24" lean-forward="false" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
+        <state relative-caret-position="17028">
           <caret line="516" column="25" lean-forward="false" selection-start-line="516" selection-start-column="25" selection-end-line="516" selection-end-column="25" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#11625#11655#0#HTML" expanded="false" />
-            <element signature="e#11928#14000#0#HTML" expanded="false" />
-            <element signature="e#14031#16180#0#HTML" expanded="false" />
-            <element signature="e#16297#16864#0#HTML" expanded="false" />
-            <element signature="e#16915#17136#0#HTML" expanded="false" />
-            <element signature="e#17171#17356#0#HTML" expanded="false" />
-            <element signature="e#17396#17603#0#HTML" expanded="false" />
-            <element signature="e#17645#18336#0#HTML" expanded="false" />
-            <element signature="e#18376#18589#0#HTML" expanded="false" />
-            <element signature="e#18633#21058#0#HTML" expanded="false" />
-            <element signature="e#21101#21514#0#HTML" expanded="false" />
-            <element signature="e#21554#21612#0#HTML" expanded="false" />
-            <element signature="e#21651#22537#0#HTML" expanded="false" />
-            <element signature="e#21738#22457#0#HTML" expanded="false" />
-            <marker date="1524809832856" expanded="true" signature="121:22565" ph="..." />
-            <marker date="1524809832856" expanded="true" signature="221:22556" ph="..." />
-            <marker date="1524809832856" expanded="true" signature="11586:22548" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1941,19 +2125,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/view/sysUserList.html">
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/component/element/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="172" column="19" lean-forward="true" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#template#0;n#el-table-column#0;n#el-table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#script#3;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="648" column="80" lean-forward="false" selection-start-line="648" selection-start-column="80" selection-end-line="648" selection-end-column="80" />
+          <folding>
+            <element signature="e#19038#25120#0#JSP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/static/component/element/css/fonts/element-icons.woff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/entity/SysParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mybatis-generator.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="32" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysParamServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="311" column="30" lean-forward="false" selection-start-line="311" selection-start-column="30" selection-end-line="311" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#9700#13107#0" expanded="false" />
+            <element signature="e#9747#9819#0" expanded="false" />
+            <element signature="e#9882#9954#0" expanded="false" />
           </folding>
         </state>
       </provider>

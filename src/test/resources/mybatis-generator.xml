@@ -23,14 +23,14 @@
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.service"/>
         </plugin>-->
 
-        <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ControllerPlugin">
+        <!--<plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ControllerPlugin">
             <property name="targetProject" value="systembusiness/src/main/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.controller"/>
         </plugin>
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.JspPlugin">
             <property name="targetProject" value="system-boot-webapp/src/main/webapp/jsp/module"/>
             <property name="targetPackage" value="sys"/>
-        </plugin>
+        </plugin>-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://192.168.165.3:3306/jes"
                         userId="root"

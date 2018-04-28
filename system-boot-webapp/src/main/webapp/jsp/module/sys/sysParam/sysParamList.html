@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SysParam</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/component/element/css/index.css">
+
+</head>
+<body style="background-color: white">
+<div id="app">
+
+    <hr style="border: none">
+    <div>
+        <el-button size="mini" type="primary" @click="showEditForm('add')" icon="el-icon-plus">添加</el-button>
+        <hr style="border: none">
+        <el-form :inline="true" :model="queryForm.data" class="demo-form-inline">
+            <el-form-item>
+                <el-select v-model="queryForm.data.domainId" placeholder="所属域">
+                    <el-option
+                            v-for="item in options.domainId"
+                            :key="item.id"
+                            :label="item.text"
+                            :value="item.id">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="">
+                <el-input v-model="queryForm.data.name" placeholder="名称"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="queryFormSubmit" icon="el-icon-search">查询</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+    <hr>
+    <div>
+        <el-table :data="tableData" v-loading="loading" style="width: 100%">
+            <el-table-column label="序号" type="index"></el-table-column>
+            <el-table-column label="参数名" prop="name"></el-table-column>
+            <el-table-column label="参数代码" prop="code"></el-table-column>
+            <el-table-column label="参数值" prop="value"></el-table-column>
+            <el-table-column label="描述" prop="description"></el-table-column>
+            <el-table-column label="所属域" prop="domainId"></el-table-column>
+            <!--<el-table-column label="创建者" prop="createBy"></el-table-column>
+            <el-table-column label="创建时间" prop="createDate"></el-table-column>
+            <el-table-column label="更新者" prop="updateBy"></el-table-column>
+            <el-table-column label="更新时间" prop="updateDate"></el-table-column>
+            <el-table-column label="备注信息" prop="remarks"></el-table-column>-->
+            <el-table-column label="操作" fixed="right" width="200" prop="id">
+                <template slot-scope="scope">
+                    <el-button size="mini" type="primary" @click="showEditForm('edit',scope.$index, scope.row)" icon="el-icon-edit">编辑</el-button>
+                    <el-button size="mini" type="danger" @click="deleteItem(scope.$index, scope.row)" icon="el-icon-delete">删除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                       :current-page="pages.currentPage" :page-sizes="pages.pageSizeList"
+                       :page-size="pages.pageSize" layout="total, sizes, prev, pager, next, jumper" :total="pages.total"
+                       prev-text="上一页"
+                       next-text="下一页" background>
+        </el-pagination>
+    </div>
+    <div>
+        <el-dialog :title="editForm.formName" :visible.sync="editForm.dialogFormVisible">
+            <el-form ref="editForm" :model="editForm.data" :rules="editForm.rules" label-width="120px"
+                     label-position="right">
+                <el-form-item label="所属域" prop="domainId">
+                    <el-select v-model="editForm.data.domainId" placeholder="请选择">
+                        <el-option
+                                v-for="item in options.domainId"
+                                :key="item.id"
+                                :label="item.text"
+                                :value="item.id">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="参数名" prop="name">
+                    <el-input v-model="editForm.data.name" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="参数代码" prop="code">
+                    <el-input v-model="editForm.data.code" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="参数值" prop="value">
+                    <el-input v-model="editForm.data.value" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="描述" prop="description">
+                    <el-input v-model="editForm.data.description" clearable></el-input>
+                </el-form-item>
+                <!--<el-form-item label="创建者" prop="createBy">
+                    <el-input v-model="editForm.data.createBy" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="创建时间" prop="createDate">
+                    <el-input v-model="editForm.data.createDate" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="更新者" prop="updateBy">
+                    <el-input v-model="editForm.data.updateBy" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="更新时间" prop="updateDate">
+                    <el-input v-model="editForm.data.updateDate" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="备注信息" prop="remarks">
+                    <el-input v-model="editForm.data.remarks" clearable></el-input>
+                </el-form-item>-->
+                <input type="hidden" v-model="editForm.data.id">
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="editForm.dialogFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="save('editForm')">保 存</el-button>
+            </div>
+        </el-dialog>
+    </div>
+</div>
+</body>
+
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/vue-resource.min.js"></script>
+<script src="/static/component/element/js/index.js"></script>
+<script>
+    Vue.http.options.emulateJSON = true;
+    var vueApp = new Vue({
+        el: "#app",
+        data: {
+            loading: false,
+            url: {
+                queryPage: "/com/lizhivscaomei/jes/sys/controller/sysParam/query/page",
+                save: "/com/lizhivscaomei/jes/sys/controller/sysParam/save",
+                delete: "/com/lizhivscaomei/jes/sys/controller/sysParam/delete",
+                detail: "/com/lizhivscaomei/jes/sys/controller/sysParam/query/detail",
+                domainOptions:"/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner"
+            },
+            pages: {
+                total: 0,
+                currentPage: 1,
+                pageSize: 20,
+                pageSizeList: [20, 40, 100]
+            },
+            tableData: [],
+            editForm: {
+                formName: "SysParam",
+                dialogFormVisible: false,
+                data: {
+                    //所属域
+                    domainId: "",
+                    //参数名
+                    name: "",
+                    //参数代码
+                    code: "",
+                    //参数值
+                    value: "",
+                    //描述
+                    description: "",
+                    /*//创建者
+                     createBy: "",
+                     //创建时间
+                     createDate: "",
+                     //更新者
+                     updateBy: "",
+                     //更新时间
+                     updateDate: "",
+                     //备注信息
+                     remarks: "",*/
+                    id: ""
+                },
+                rules: {
+                    domainId: [{required: true, message: '请输入所属域', trigger: 'blur'}],
+                    name: [{required: true, message: '请输入参数名', trigger: 'blur'}],
+                    code: [{required: true, message: '请输入参数代码', trigger: 'blur'}],
+                    value: [{required: true, message: '请输入参数值', trigger: 'blur'}],
+                    description: [{required: true, message: '请输入描述', trigger: 'blur'}]
+                    /* createBy: [{required: true, message: '请输入创建者', trigger: 'blur'}],
+                     createDate: [{required: true, message: '请输入创建时间', trigger: 'blur'}],
+                     updateBy: [{required: true, message: '请输入更新者', trigger: 'blur'}],
+                     updateDate: [{required: true, message: '请输入更新时间', trigger: 'blur'}],
+                     remarks: [{required: true, message: '请输入备注信息', trigger: 'blur'}],
+                     id: []*/
+                }
+            },
+            queryForm: {
+                dialogFormVisible: false,
+                data: {
+                    currentPage: 1,
+                    pageSize: 10,
+                    //所属域
+                    domainId: ""
+                    /* //参数名
+                     name: "",
+                     //参数代码
+                     code: "",
+                     //参数值
+                     value: "",
+                     //描述
+                     description: "",
+                     //创建者
+                     createBy: "",
+                     //创建时间
+                     createDate: "",
+                     //更新者
+                     updateBy: "",
+                     //更新时间
+                     updateDate: "",
+                     //备注信息
+                     remarks: "",
+                     id: ""*/
+                }
+            }
+            ,
+            options: {
+                domainId: [
+
+                ]
+            }
+        },
+        methods: {
+            handleSizeChange: function (val) {
+                this.$options.methods.queryFormSubmit();
+            }
+            ,
+            handleCurrentChange: function (val) {
+                this.$options.methods.queryFormSubmit();
+            }
+            ,
+            queryFormSubmit: function () {
+
+                query();
+            }
+            ,
+            showEditForm: function (action, index, row) {
+                debugger;
+                if (action == "add") {
+                    this.editForm.data.id = "";
+                }
+                if (action == "edit") {
+                    this.editForm.dialogFormVisible = true;
+                    this.editForm.dialogFormVisible = true;
+                    this.editForm.data.id = row.id;
+                    this.editForm.data.domainId = row.domainId;
+                    this.editForm.data.name = row.name;
+                    this.editForm.data.code = row.code;
+                    this.editForm.data.value = row.value;
+                    this.editForm.data.description = row.description;
+                }
+
+                this.editForm.dialogFormVisible = true;
+            }
+            ,
+            deleteItem: function (index, row) {
+                this.$confirm('此操作将删除' + row.name + ', 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$http.get(this.url.delete, {params: {id: row.id}}).then(function (res) {
+                        this.$message({
+                            type: 'success',
+                            message: '删除成功!'
+                        });
+                        this.$options.methods.queryFormSubmit();
+                    }, function (res) {
+                        this.$message({
+                            showClose: true,
+                            message: '网络错误' + res.status,
+                            type: 'error'
+                        });
+                    });
+
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+            }
+            ,
+            save: function (formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        this.$http.post(this.url.save, this.editForm.data).then(function (res) {
+                            this.$message({
+                                type: 'success',
+                                message: '保存成功!'
+                            });
+                            this.editForm.dialogFormVisible = false;
+                            this.$options.methods.queryFormSubmit();
+                        }, function (res) {
+                            this.loading = false;
+                            console.log(res.status);
+                            this.$message({
+                                showClose: true,
+                                message: '网络错误' + res.status,
+                                type: 'error'
+                            });
+                        });
+
+                    } else {
+                        console.log('error submit!!');
+
+                        return false;
+                    }
+                });
+            }
+        },
+        mounted:function () {
+            debugger;
+            this.$http.get(this.url.domainOptions).then(function (res) {
+                this.options.domainId = res.data;
+                this.editForm.data.domainId=res.data[0].id;
+                this.queryForm.data.domainId=res.data[0].id;
+            }, function (res) {
+                this.$message({
+                    showClose: true,
+                    message: "网络错误,code=" + res.status,
+                    type: "error"
+                });
+            });
+        }
+    });
+    function query() {
+        vueApp.loading = true;
+        vueApp.queryForm.data.currentPage = vueApp.pages.currentPage;
+        vueApp.queryForm.data.pageSize = vueApp.pages.pageSize;
+        vueApp.$http.get(vueApp.url.queryPage, {params: vueApp.queryForm.data}).then(function (res) {
+            vueApp.loading = false;
+            vueApp.tableData = res.data.data;
+            vueApp.pages.total = res.data.recordsTotal;
+        }, function (res) {
+            vueApp.loading = false;
+            vueApp.$message({
+                showClose: true,
+                message: "网络错误,code=" + res.status,
+                type: "error"
+            });
+        });
+    }
+</script>
+</html>
