@@ -215,8 +215,8 @@
                 this.queryForm.data.pageSize = this.pages.pageSize;
                 this.$http.get(this.url.queryPage, {params: this.queryForm.data}).then(function (res) {
                     this.loading = false;
-                    this.tableData = res.data.data;
-                    this.pages.total = res.data.recordsTotal;
+                    this.tableData = res.data.data.list;
+                    this.pages.total = res.data.data.total;
                 }, function (res) {
                     this.loading = false;
                     this.$message({

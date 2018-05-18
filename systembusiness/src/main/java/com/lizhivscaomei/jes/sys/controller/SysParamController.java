@@ -1,13 +1,10 @@
 package com.lizhivscaomei.jes.sys.controller;
 
 
-
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysParam;
 import com.lizhivscaomei.jes.sys.service.SysParamService;
 import org.apache.commons.lang3.StringUtils;
@@ -78,16 +75,12 @@ public class SysParamController {
     * */
     @ResponseBody
     @RequestMapping("/sysParam/query/page")
-    public DataTablesResponse<SysParam> update(SysParam entity, DataTablesRequest dataTablesRequest){
-        DataTablesResponse<SysParam> response=new DataTablesResponse<>();
-        response.setDraw(dataTablesRequest.getDraw());
-        Page page=new Page();
-        page.setCurrentPage(dataTablesRequest.getStart());
-        page.setPageSize(dataTablesRequest.getLength());
+    public Msg update(SysParam entity, Page page){
         PageInfo<SysParam> pages = this.sysParamService.queryPage(entity, page);
-        response.setData(pages.getList());
-        response.setRecordsTotal(pages.getTotal());
-        return response;
+        Msg msg=new Msg();
+        msg.setSuccess(true);
+        msg.setData(pages);
+        return msg;
 
     }
 

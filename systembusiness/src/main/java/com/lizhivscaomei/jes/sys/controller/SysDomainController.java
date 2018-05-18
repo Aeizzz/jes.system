@@ -1,14 +1,11 @@
 package com.lizhivscaomei.jes.sys.controller;
 
 
-
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.entity.SpinnerVo;
 import com.lizhivscaomei.jes.common.exception.AppException;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysDomain;
 import com.lizhivscaomei.jes.sys.service.SysDomainService;
 import org.apache.commons.lang3.StringUtils;
@@ -82,16 +79,12 @@ public class SysDomainController {
      * */
     @ResponseBody
     @RequestMapping("/sysDomain/query/page")
-    public DataTablesResponse<SysDomain> update(SysDomain entity, DataTablesRequest dataTablesRequest){
-        DataTablesResponse<SysDomain> response=new DataTablesResponse<>();
-        response.setDraw(dataTablesRequest.getDraw());
-        Page page=new Page();
-        page.setCurrentPage(dataTablesRequest.getStart());
-        page.setPageSize(dataTablesRequest.getLength());
+    public Msg update(SysDomain entity, Page page){
         PageInfo<SysDomain> pages = this.sysDomainService.queryPage(entity, page);
-        response.setData(pages.getList());
-        response.setRecordsTotal(pages.getTotal());
-        return response;
+        Msg msg=new Msg();
+        msg.setSuccess(true);
+        msg.setData(pages);
+        return msg;
 
     }
     /**

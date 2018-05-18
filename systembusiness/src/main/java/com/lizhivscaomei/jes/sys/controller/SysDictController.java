@@ -1,14 +1,11 @@
 package com.lizhivscaomei.jes.sys.controller;
 
 
-
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
 import com.lizhivscaomei.jes.common.view.tree.TreeVo;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysDict;
 import com.lizhivscaomei.jes.sys.service.SysDictService;
 import com.lizhivscaomei.jes.sys.view.SysDictTreeViewService;
@@ -98,16 +95,12 @@ public class SysDictController {
     * */
     @ResponseBody
     @RequestMapping("/sysDict/query/page")
-    public DataTablesResponse<SysDict> update(SysDict entity, DataTablesRequest dataTablesRequest){
-        DataTablesResponse<SysDict> response=new DataTablesResponse<>();
-        response.setDraw(dataTablesRequest.getDraw());
-        Page page=new Page();
-        page.setCurrentPage(dataTablesRequest.getStart());
-        page.setPageSize(dataTablesRequest.getLength());
+    public Msg update(SysDict entity, Page page){
         PageInfo<SysDict> pages = this.sysDictService.queryPage(entity, page);
-        response.setData(pages.getList());
-        response.setRecordsTotal(pages.getTotal());
-        return response;
+        Msg msg=new Msg();
+        msg.setSuccess(true);
+        msg.setData(pages);
+        return msg;
 
     }
 

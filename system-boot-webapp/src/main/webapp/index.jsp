@@ -620,7 +620,7 @@
                             {
                                 id: 1,
                                 text: "用户管理",
-                                url: "/jsp/module/sys/sysUser/sysUserList.jsp",
+                                url: "/jsp/module/sys/sysUser/sysUserList.html",
                                 childs: []
                             }
                         ]
@@ -644,8 +644,8 @@
                             },
                             {
                                 id: 1,
-                                text: "权限管理",
-                                url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                                text: "菜单管理",
+                                url: "/jsp/module/sys/sysMenu/sysMenuList.html",
                                 childs: []
                             },
                             {
@@ -665,7 +665,7 @@
                             {
                                 id: 1,
                                 text: "行政区划",
-                                url: "/jsp/module/sys/sysMenu/sysMenuList.jsp",
+                                url: "/jsp/module/sys/sysArea/sysAreaList.html",
                                 childs: []
                             },{
                                 id: 1,
@@ -690,7 +690,7 @@
                     }
                 ]
             },
-            iframeDefUrl:"/jsp/module/sys/sysUser/sysUserList.jsp"
+            iframeDefUrl:"/jsp/module/sys/sysUser/sysUserList.html"
         },
         methods:{
             openframe:function (data) {

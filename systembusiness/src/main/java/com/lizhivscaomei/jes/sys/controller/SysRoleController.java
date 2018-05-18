@@ -1,17 +1,13 @@
 package com.lizhivscaomei.jes.sys.controller;
 
 
-
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysRole;
 import com.lizhivscaomei.jes.sys.service.SysRoleService;
 import com.lizhivscaomei.jes.sys.view.SysRoleViewService;
-import com.lizhivscaomei.jes.sys.view.SysRoleVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -81,16 +77,12 @@ public class SysRoleController {
      * */
     @ResponseBody
     @RequestMapping("/sysRole/query/page")
-    public DataTablesResponse<SysRoleVo> update(SysRole entity, DataTablesRequest dataTablesRequest){
-        DataTablesResponse<SysRoleVo> response=new DataTablesResponse<>();
-        response.setDraw(dataTablesRequest.getDraw());
-        Page page=new Page();
-        page.setCurrentPage(dataTablesRequest.getStart());
-        page.setPageSize(dataTablesRequest.getLength());
+    public Msg update(SysRole entity, Page page){
         PageInfo<SysRole> pages = this.sysRoleService.queryPage(entity, page);
-        response.setData(this.sysRoleViewService.dtoList2voList(pages.getList()));
-        response.setRecordsTotal(pages.getTotal());
-        return response;
+        Msg msg=new Msg();
+        msg.setSuccess(true);
+        msg.setData(pages);
+        return msg;
 
     }
 

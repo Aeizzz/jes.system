@@ -16,7 +16,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.geronimo.bundles:aspectjweaver:1.6.8_2" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.9" />
-          <element id="library" level="project" name="Maven: com.lizhivscaomei.jes:plugins-datatables:1.0-SNAPSHOT" />
           <element id="library" level="project" name="Maven: com.lizhivscaomei.jes:common:1.0-SNAPSHOT" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:4.1.4" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" />

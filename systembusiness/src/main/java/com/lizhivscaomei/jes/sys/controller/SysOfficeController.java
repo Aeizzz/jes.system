@@ -71,7 +71,7 @@ public class SysOfficeController {
     * */
     @ResponseBody
     @RequestMapping("/com/lizhivscaomei/jes/sys/controller/query/page")
-    public Msg update(SysOffice entity, Page page){
+    public Msg query(SysOffice entity, Page page){
         PageInfo<SysOffice> pages = this.sysOfficeService.queryPage(entity, page);
         Msg msg=new Msg();
         msg.setSuccess(true);

@@ -284,8 +284,8 @@
                 this.queryForm.data.pageSize = this.pages.pageSize;
                 this.$http.get(this.url.queryPage, {params: this.queryForm.data}).then(function (res) {
                     this.loading = false;
-                    this.tableData = res.data.data;
-                    this.pages.total = res.data.recordsTotal;
+                    this.tableData = res.data.data.list;
+                    this.pages.total = res.data.data.total;
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -309,6 +309,7 @@
                     this.editForm.data.id = "";
                 }
                 if (action == "edit") {
+                    this.editForm.data.id = row.id;
                     this.editForm.data.name = row.name;
                     this.editForm.data.code = row.code;
                     this.editForm.data.type = row.type;
@@ -330,7 +331,7 @@
                             type: 'success',
                             message: '删除成功!'
                         });
-                        query();
+                        vueApp.queryFormSubmit();
                     }, function (res) {
                         this.$message({
                             showClose: true,
@@ -354,7 +355,7 @@
                                 message: '保存成功!'
                             });
                             this.editForm.dialogFormVisible = false;
-                            query();
+                            vueApp.queryFormSubmit();
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);
@@ -392,8 +393,6 @@
 
         }
     });
-    function query() {
-        vueApp.queryFormSubmit();
-    }
+
 </script>
 </html>

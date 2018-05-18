@@ -1,19 +1,15 @@
 package com.lizhivscaomei.jes.sys.controller;
 
 
-
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
 import com.lizhivscaomei.jes.common.view.tree.TreeVo;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesRequest;
-import com.lizhivscaomei.jes.plugins.datatables.DataTablesResponse;
 import com.lizhivscaomei.jes.sys.entity.SysMenu;
 import com.lizhivscaomei.jes.sys.service.SysMenuService;
 import com.lizhivscaomei.jes.sys.view.SysMenuTreeViewService;
 import com.lizhivscaomei.jes.sys.view.SysMenuViewService;
-import com.lizhivscaomei.jes.sys.view.SysMenuVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -101,16 +97,12 @@ public class SysMenuController {
     * */
     @ResponseBody
     @RequestMapping("/sysMenu/query/page")
-    public DataTablesResponse<SysMenuVo> update(SysMenu entity, DataTablesRequest dataTablesRequest){
-        DataTablesResponse<SysMenuVo> response=new DataTablesResponse<>();
-        response.setDraw(dataTablesRequest.getDraw());
-        Page page=new Page();
-        page.setCurrentPage(dataTablesRequest.getStart());
-        page.setPageSize(dataTablesRequest.getLength());
+    public Msg update(SysMenu entity, Page page){
         PageInfo<SysMenu> pages = this.sysMenuService.queryPage(entity, page);
-        response.setData(this.sysMenuViewService.dtoList2voList(pages.getList()));
-        response.setRecordsTotal(pages.getTotal());
-        return response;
+        Msg msg=new Msg();
+        msg.setSuccess(true);
+        msg.setData(pages);
+        return msg;
 
     }
 

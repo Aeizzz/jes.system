@@ -31,6 +31,7 @@ public class SysUserServiceImp implements SysUserService {
         if(entity!=null){
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
             //默认数据
+            entity.setPassword("123456");
             entity.setId(UUID.randomUUID().toString());
             entity.setCreateBy(userDetails.getUsername());
             entity.setCreateDate(new Date());
