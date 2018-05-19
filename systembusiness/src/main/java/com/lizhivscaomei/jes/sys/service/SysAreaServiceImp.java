@@ -8,9 +8,14 @@ import com.lizhivscaomei.jes.sys.entity.SysArea;
 import com.lizhivscaomei.jes.sys.dao.SysAreaMapper;
 import com.lizhivscaomei.jes.sys.entity.SysAreaExample;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class SysAreaServiceImp implements SysAreaService {
     @Autowired
@@ -18,6 +23,13 @@ public class SysAreaServiceImp implements SysAreaService {
 
     public void add(SysArea entity) throws AppException {
         if(entity!=null){
+            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+            //默认数据
+            entity.setId(UUID.randomUUID().toString());
+            entity.setCreateBy(userDetails.getUsername());
+            entity.setCreateDate(new Date());
+            entity.setUpdateBy(userDetails.getUsername());
+            entity.setUpdateDate(new Date());
             this.sysAreaMapper.insertSelective(entity);
         }else {
             throw new AppException("entity不可为空");
@@ -25,6 +37,9 @@ public class SysAreaServiceImp implements SysAreaService {
     }
 
     public void update(SysArea entity) throws AppException {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
+        entity.setUpdateBy(userDetails.getUsername());
+        entity.setUpdateDate(new Date());
         this.sysAreaMapper.updateByPrimaryKeySelective(entity);
     }
 
@@ -41,5 +56,16 @@ public class SysAreaServiceImp implements SysAreaService {
         PageHelper.startPage(page.getCurrentPage(),page.getPageSize());
         List<SysArea> list= this.sysAreaMapper.selectByExample(example);
         return new PageInfo<SysArea>(list);
+    }
+
+    @Override
+    public List<SysArea> getAll() {
+        List<SysArea> list = this.sysAreaMapper.selectByExample(new SysAreaExample());
+        SysArea root=new SysArea();
+        root.setId("0");
+        root.setName("中华人民共和国");
+        root.setCode("86");
+        list.add(root);
+        return list;
     }
 }

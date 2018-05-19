@@ -77,8 +77,9 @@ public class SysMenuController {
         msg.setData(entity);
         return msg;
 
-    }    /**
-    * 详情
+    }
+    /**
+    * 树形选择
     * */
     @ResponseBody
     @RequestMapping("/sysMenu/query/select")

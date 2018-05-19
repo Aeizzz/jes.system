@@ -70,8 +70,12 @@ public class SysDictServiceImp implements SysDictService {
     public List<SysDict> getAll(String domainId) {
         SysDict root=new SysDict();
         root.setId("0");
-        root.setName("顶级");
-        List<SysDict> list = this.getChilds(domainId, "0");
+        root.setCode("ROOT");
+        root.setName("根");
+        SysDictExample example=new SysDictExample();
+        SysDictExample.Criteria criteria = example.createCriteria();
+        criteria.andDomainIdEqualTo(domainId);
+        List<SysDict> list = this.sysDictMapper.selectByExample(example);
         list.add(root);
         return list;
     }

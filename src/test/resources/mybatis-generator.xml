@@ -28,12 +28,12 @@
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.ControllerPlugin">
             <property name="targetProject" value="systembusiness/src/main/java"/>
             <property name="targetPackage" value="com.lizhivscaomei.jes.sys.controller"/>
-            <property name="overwrite" value="true"/>
+            <property name="overwrite" value="false"/>
         </plugin>
         <plugin type="com.lizhivscaomei.jes.codegen.mybatis.plugins.JspPlugin">
             <property name="targetProject" value="system-boot-webapp/src/main/webapp/jsp/module"/>
             <property name="targetPackage" value="sys"/>
-            <property name="overwrite" value="true"/>
+            <property name="overwrite" value="false"/>
         </plugin>
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://192.168.165.3:3306/jes"
@@ -51,8 +51,8 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="sys_area"  ></table>
-        <!--<table tableName="sys_dict"  ></table>-->
+        <!--<table tableName="sys_area"  ></table>-->
+        <table tableName="sys_dict"  ></table>
         <!--<table tableName="sys_domain"></table>-->
         <!--<table tableName="sys_log"   ></table>-->
         <!--<table tableName="sys_mdict" ></table>-->

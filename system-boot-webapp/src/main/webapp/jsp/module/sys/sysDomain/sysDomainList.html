@@ -77,7 +77,14 @@
                         </el-form-item>
 
                         <el-form-item label="是否可用" prop="useable">
-                            <el-input v-model="editForm.data.useable" clearable></el-input>
+                            <el-select v-model="editForm.data.useable" placeholder="请选择" style="width: 100%">
+                                <el-option v-for="item in options.yesno"
+                                           :key="item.id"
+                                           :label="item.text"
+                                           :value="item.id">
+
+                                </el-option>
+                            </el-select>
                         </el-form-item>
                     </el-col>
                 </el-row>
@@ -135,7 +142,7 @@
             },
             tableData: [],
             editForm: {
-                formName: "SysDomain",
+                formName: "域",
                 dialogFormVisible: false,
                 data: {
                     //名称
@@ -196,10 +203,18 @@
 //                    remarks: "",
 //                    id: ""
                 }
-            }
-            ,
+            },
             options: {
-                domainId: []
+                domainId: [],
+                yesno: [
+                    {
+                        "id": "1",
+                        "text": "是"
+                    }, {
+                        "id": "0",
+                        "text": "否"
+                    }
+                ]
             }
         },
         methods: {
@@ -229,6 +244,7 @@
             showEditForm: function (action, index, row) {
                 if (action == "add") {
                     this.editForm.data.id = "";
+                    this.editForm.data.useable = "1";
                 }
                 if (action == "edit") {
                     this.editForm.data.id = row.id;

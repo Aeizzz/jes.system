@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SysMenu</title>
+    <title>菜单</title>
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/static/component/element/css/index.css">
 
@@ -14,184 +14,178 @@
 <div id="app">
 
     <hr style="border: none">
-    <div>
-        <el-button size="mini" type="primary" @click="showEditForm('add')" icon="el-icon-plus">添加</el-button>
-        <hr style="border: none">
-        <el-form :inline="true" :model="queryForm.data" class="demo-form-inline">
-            <el-form-item label="">
-                <el-input v-model="queryForm.data.name" placeholder="名称"></el-input>
-            </el-form-item>
-            <el-form-item>
-                <el-button type="primary" @click="queryFormSubmit" icon="el-icon-search">查询</el-button>
-            </el-form-item>
-        </el-form>
-    </div>
-    <hr>
-    <div>
-        <el-table :data="tableData" v-loading="loading" style="width: 100%">
-            <el-table-column label="序号" type="index"></el-table-column>
-            <el-table-column label="父级编号" prop="parentId"></el-table-column>
-            <el-table-column label="所有父级编号" prop="parentIds"></el-table-column>
-            <el-table-column label="名称" prop="name"></el-table-column>
-            <el-table-column label="排序" prop="sort"></el-table-column>
-            <el-table-column label="链接" prop="href"></el-table-column>
-            <el-table-column label="目标" prop="target"></el-table-column>
-            <el-table-column label="图标" prop="icon"></el-table-column>
-            <el-table-column label="是否在菜单中显示" prop="isShow"></el-table-column>
-            <el-table-column label="权限标识" prop="permission"></el-table-column>
-            <el-table-column label="创建者" prop="createBy"></el-table-column>
-            <el-table-column label="创建时间" prop="createDate"></el-table-column>
-            <el-table-column label="更新者" prop="updateBy"></el-table-column>
-            <el-table-column label="更新时间" prop="updateDate"></el-table-column>
-            <el-table-column label="备注信息" prop="remarks"></el-table-column>
-            <el-table-column label="删除标记" prop="delFlag"></el-table-column>
-            <el-table-column label="域ID" prop="domainId"></el-table-column>
-            <el-table-column label="操作" fixed="right" width="200" prop="id">
-                <template slot-scope="scope">
-                    <el-button size="mini" type="primary" @click="showEditForm('edit',scope.$index, scope.row)"
-                               icon="el-icon-edit">编辑
-                    </el-button>
-                    <el-button size="mini" type="danger" @click="deleteItem(scope.$index, scope.row)"
-                               icon="el-icon-delete">删除
-                    </el-button>
-                </template>
-            </el-table-column>
-        </el-table>
 
-        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                       :current-page="pages.currentPage" :page-sizes="pages.pageSizeList"
-                       :page-size="pages.pageSize" layout="total, sizes, prev, pager, next, jumper" :total="pages.total"
-                       prev-text="上一页"
-                       next-text="下一页" background>
-        </el-pagination>
-    </div>
     <div>
-        <el-dialog :title="editForm.formName" :visible.sync="editForm.dialogFormVisible">
-            <el-form ref="editForm.data" :model="editForm.data" :rules="editForm.rules" label-width="120px"
-                     label-position="right">
-                <el-row>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="所有父级编号" prop="parentIds">
-                            <el-input v-model="editForm.data.parentIds" clearable></el-input>
+        <el-container>
+            <el-aside>
+                <el-card>
+                    <div slot="header">
+                        菜单-索引
+                    </div>
+                    <el-form :inline="true" :model="queryForm.data" class="demo-form-inline">
+                        <el-form-item>
+                            <el-select v-model="queryForm.data.domainId" placeholder="所属域"
+                                       @change="queryFormSubmit">
+                                <el-option
+                                        v-for="item in options.domainId"
+                                        :key="item.id"
+                                        :label="item.text"
+                                        :value="item.id">
+                                </el-option>
+                            </el-select>
                         </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="排序" prop="sort">
-                            <el-input v-model="editForm.data.sort" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="目标" prop="target">
-                            <el-input v-model="editForm.data.target" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="是否在菜单中显示" prop="isShow">
-                            <el-input v-model="editForm.data.isShow" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="创建者" prop="createBy">
-                            <el-input v-model="editForm.data.createBy" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="更新者" prop="updateBy">
-                            <el-input v-model="editForm.data.updateBy" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="备注信息" prop="remarks">
-                            <el-input v-model="editForm.data.remarks" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="域ID" prop="domainId">
-                            <el-input v-model="editForm.data.domainId" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="父级编号" prop="parentId">
-                            <el-input v-model="editForm.data.parentId" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="名称" prop="name">
-                            <el-input v-model="editForm.data.name" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="链接" prop="href">
-                            <el-input v-model="editForm.data.href" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="图标" prop="icon">
-                            <el-input v-model="editForm.data.icon" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="权限标识" prop="permission">
-                            <el-input v-model="editForm.data.permission" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="创建时间" prop="createDate">
-                            <el-input v-model="editForm.data.createDate" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="更新时间" prop="updateDate">
-                            <el-input v-model="editForm.data.updateDate" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="删除标记" prop="delFlag">
-                            <el-input v-model="editForm.data.delFlag" clearable></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                    </el-col>
-                </el-row>
+                    </el-form>
+                    <el-tree :data="treeData" :props="treeProps" node-key="id" :default-expanded-keys="['-1']"
+                             @node-click="handleNodeClick"></el-tree>
+                </el-card>
+            </el-aside>
+            <el-main>
+                <div>
+                    <el-button size="mini" type="primary" @click="showEditForm('add')" icon="el-icon-plus">添加
+                    </el-button>
+                    <el-button size="mini" type="danger" @click="deleteItem()" icon="el-icon-delete">删除
+                    </el-button>
+                    <hr style="border: none">
 
-                <input type="hidden" v-model="editForm.data.id">
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button @click="editForm.dialogFormVisible = false">取 消</el-button>
-                <el-button type="primary" @click="save('editForm.data')">保 存</el-button>
-            </div>
-        </el-dialog>
+                </div>
+                <hr>
+
+                <el-form ref="editForm.data" :model="editForm.data" :rules="editForm.rules" label-width="120px"
+                         label-position="right">
+                    <el-row>
+                        <!--<el-col :span="12">
+                            <el-form-item label="所有父级编号" prop="parentIds">
+                                <el-input v-model="editForm.data.parentIds" clearable></el-input>
+                            </el-form-item>
+                        </el-col>-->
+
+                        <el-col :span="12">
+                            <el-form-item label="所属域" prop="domainId">
+                                <el-select v-model="editForm.data.domainId" placeholder="请选择" style="width: 100%">
+                                    <el-option
+                                            v-for="item in options.domainId"
+                                            :key="item.id"
+                                            :label="item.text"
+                                            :value="item.id">
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="父级" prop="parentIds">
+                                <el-cascader v-model="editForm.data.parentIdArray" :props="treeProps" expand-trigger="click" style="width: 100%"
+                                        :options="treeData" :show-all-levels="false"
+                                        change-on-select
+                                ></el-cascader>
+                            </el-form-item>
+                        </el-col>
+
+                        <el-col :span="12">
+                            <el-form-item label="名称" prop="name">
+                                <el-input v-model="editForm.data.name" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+
+                        <el-col :span="12">
+                            <el-form-item label="权限标识" prop="permission">
+                                <el-input v-model="editForm.data.permission" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+
+                        <el-col :span="12">
+                            <el-form-item label="链接" prop="href">
+                                <el-input v-model="editForm.data.href" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="图标" prop="icon">
+                                <el-input v-model="editForm.data.icon" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <!--<el-col :span="12">
+                            <el-form-item label="目标" prop="target">
+                                <el-input v-model="editForm.data.target" clearable></el-input>
+                            </el-form-item>
+                        </el-col>-->
+                        <el-col :span="12">
+                            <el-form-item label="显示" prop="isShow">
+                                <el-select v-model="editForm.data.isShow" placeholder="请选择" style="width: 100%">
+                                    <el-option v-for="item in options.yesno"
+                                               :key="item.id"
+                                               :label="item.text"
+                                               :value="item.id">
+
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="排序" prop="sort">
+                                <el-input v-model="editForm.data.sort" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <!--<el-col :span="12">
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="创建者" prop="createBy">
+                                <el-input v-model="editForm.data.createBy" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="更新者" prop="updateBy">
+                                <el-input v-model="editForm.data.updateBy" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="备注信息" prop="remarks">
+                                <el-input v-model="editForm.data.remarks" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                        </el-col>-->
+                        <!--<el-col :span="12">
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="创建时间" prop="createDate">
+                                <el-input v-model="editForm.data.createDate" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="更新时间" prop="updateDate">
+                                <el-input v-model="editForm.data.updateDate" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="删除标记" prop="delFlag">
+                                <el-input v-model="editForm.data.delFlag" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                        </el-col>-->
+                    </el-row>
+                    <el-row>
+                        <el-form-item style="text-align: right">
+                            <el-button type="primary" @click="save('editForm.data')">保 存 （{{editForm.formName}}）</el-button>
+                        </el-form-item>
+                    </el-row>
+                    <input type="hidden" v-model="editForm.data.id">
+                </el-form>
+
+            </el-main>
+        </el-container>
+
     </div>
+
 </div>
 </body>
 
@@ -207,26 +201,26 @@
             loading: false,
             url: {
                 queryPage: "/com/lizhivscaomei/jes/sys/controller/sysMenu/query/page",
+                queryTree: "/com/lizhivscaomei/jes/sys/controller/sysMenu/query/select",
                 save: "/com/lizhivscaomei/jes/sys/controller/sysMenu/save",
                 delete: "/com/lizhivscaomei/jes/sys/controller/sysMenu/delete",
                 detail: "/com/lizhivscaomei/jes/sys/controller/sysMenu/query/detail",
                 domainOptions: "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner"
             },
-            pages: {
-                total: 0,
-                currentPage: 1,
-                pageSize: 20,
-                pageSizeList: [20, 40, 100]
+            treeData: [],
+            treeProps: {
+                value:"id",
+                label: "text",
+                children: "nodes",
             },
-            tableData: [],
             editForm: {
-                formName: "SysMenu",
-                dialogFormVisible: false,
+                formName: "添加",
                 data: {
                     //父级编号
-                    parentId: "",
+                    parentId:"",
                     //所有父级编号
-                    parentIds: "",
+                    parentIds:"",
+                    parentIdArray:[],
                     //名称
                     name: "",
                     //排序
@@ -234,7 +228,7 @@
                     //链接
                     href: "",
                     //目标
-                    target: "",
+//                    target: "",
                     //图标
                     icon: "",
                     //是否在菜单中显示
@@ -242,52 +236,49 @@
                     //权限标识
                     permission: "",
                     //创建者
-                    createBy: "",
+//                    createBy: "",
                     //创建时间
-                    createDate: "",
+//                    createDate: "",
                     //更新者
-                    updateBy: "",
+//                    updateBy: "",
                     //更新时间
-                    updateDate: "",
+//                    updateDate: "",
                     //备注信息
-                    remarks: "",
+//                    remarks: "",
                     //删除标记
-                    delFlag: "",
+//                    delFlag: "",
                     //域ID
                     domainId: "",
                     id: ""
                 },
                 rules: {
-                    parentId: [{required: true, message: '请输入父级编号', trigger: 'blur'}],
-                    parentIds: [{required: true, message: '请输入所有父级编号', trigger: 'blur'}],
+//                    parentId: [{required: true, message: '请输入父级编号', trigger: 'blur'}],
+                    parentIdArray: [{required: true, message: '请输入所有父级编号', trigger: 'blur'}],
                     name: [{required: true, message: '请输入名称', trigger: 'blur'}],
                     sort: [{required: true, message: '请输入排序', trigger: 'blur'}],
                     href: [{required: true, message: '请输入链接', trigger: 'blur'}],
-                    target: [{required: true, message: '请输入目标', trigger: 'blur'}],
+//                    target: [{required: true, message: '请输入目标', trigger: 'blur'}],
                     icon: [{required: true, message: '请输入图标', trigger: 'blur'}],
                     isShow: [{required: true, message: '请输入是否在菜单中显示', trigger: 'blur'}],
                     permission: [{required: true, message: '请输入权限标识', trigger: 'blur'}],
-                    createBy: [{required: true, message: '请输入创建者', trigger: 'blur'}],
-                    createDate: [{required: true, message: '请输入创建时间', trigger: 'blur'}],
-                    updateBy: [{required: true, message: '请输入更新者', trigger: 'blur'}],
-                    updateDate: [{required: true, message: '请输入更新时间', trigger: 'blur'}],
-                    remarks: [{required: true, message: '请输入备注信息', trigger: 'blur'}],
-                    delFlag: [{required: true, message: '请输入删除标记', trigger: 'blur'}],
+//                    createBy: [{required: true, message: '请输入创建者', trigger: 'blur'}],
+//                    createDate: [{required: true, message: '请输入创建时间', trigger: 'blur'}],
+//                    updateBy: [{required: true, message: '请输入更新者', trigger: 'blur'}],
+//                    updateDate: [{required: true, message: '请输入更新时间', trigger: 'blur'}],
+//                    remarks: [{required: true, message: '请输入备注信息', trigger: 'blur'}],
+//                    delFlag: [{required: true, message: '请输入删除标记', trigger: 'blur'}],
                     domainId: [{required: true, message: '请输入域ID', trigger: 'blur'}],
                     id: []
                 }
             },
             queryForm: {
-                dialogFormVisible: false,
                 data: {
-                    currentPage: 1,
-                    pageSize: 10,
 //                    //父级编号
 //                    parentId: "",
 //                    //所有父级编号
 //                    parentIds: "",
 //                    //名称
-                    name: ""
+                    name: "",
 //                    //排序
 //                    sort: "",
 //                    //链接
@@ -313,32 +304,46 @@
 //                    //删除标记
 //                    delFlag: "",
 //                    //域ID
-//                    domainId: "",
+                    domainId: ""
 //                    id: ""
                 }
             },
             options: {
-                domainId: [
+                domainId: [],
+                yesno: [
                     {
-                        "id": "04dbbae9-5fdf-45c4-a6a9-cecfd25e8735",
-                        "text": "标准化种植"
+                        "id": "1",
+                        "text": "是"
                     }, {
-                        "id": "51deaa68-df77-4f31-bf8c-51f0a01dfc1c",
-                        "text": "区块链"
-                    }, {
-                        "id": "5a3a051c-e90a-4059-9ad4-672d64a4ef05",
-                        "text": "价格体系"
-                    }, {
-                        "id": "c76b0455-674e-4b98-bb64-74573fc4e4b5",
-                        "text": "市政桥涵"
-                    }, {
-                        "id": "d03cd0ad-c773-43d0-a88d-6e6defac49e3",
-                        "text": "物联网平台"
-                    }, {"id": "d926086b-bdb9-4e9f-af4e-e960523e9427", "text": "系统管理"}
+                        "id": "0",
+                        "text": "否"
+                    }
                 ]
             }
         },
         methods: {
+            handleNodeClick: function (nodeData) {
+                console.log(nodeData.id);
+                this.$http.get(this.url.detail, {params: {id: nodeData.id}}).then(function (res) {
+                    this.editForm.data.id = res.data.data.id;
+                    this.editForm.formName="修改";
+                    this.editForm.data.parentIdArray = res.data.data.parentIds.split(":");
+                    this.editForm.data.name = res.data.data.name;
+                    this.editForm.data.sort = res.data.data.sort;
+                    this.editForm.data.href = res.data.data.href;
+                    this.editForm.data.icon = res.data.data.icon;
+                    this.editForm.data.isShow = res.data.data.isShow;
+                    this.editForm.data.permission = res.data.data.permission;
+                    this.editForm.data.domainId = res.data.data.domainId;
+                }, function (res) {
+                    this.loading = false;
+                    this.$message({
+                        showClose: true,
+                        message: "网络错误,code=" + res.status,
+                        type: "error"
+                    });
+                });
+            },
             handleSizeChange: function (val) {
                 this.queryFormSubmit();
             },
@@ -347,12 +352,10 @@
             },
             queryFormSubmit: function () {
                 this.loading = true;
-                this.queryForm.data.currentPage = this.pages.currentPage;
-                this.queryForm.data.pageSize = this.pages.pageSize;
-                this.$http.get(this.url.queryPage, {params: this.queryForm.data}).then(function (res) {
+                this.editForm.data.domainId=this.queryForm.data.domainId;
+                this.$http.get(this.url.queryTree, {params: this.queryForm.data}).then(function (res) {
                     this.loading = false;
-                    this.tableData = res.data.data.list;
-                    this.pages.total = res.data.data.total;
+                    this.treeData = res.data.data;
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -365,48 +368,49 @@
             showEditForm: function (action, index, row) {
                 if (action == "add") {
                     this.editForm.data.id = "";
+                    this.editForm.formName="添加";
+                    this.editForm.data.isShow = "1";
                 }
-                if (action == "edit") {
-                    this.editForm.data = row;
-                }
-                this.editForm.dialogFormVisible = true;
             },
             deleteItem: function (index, row) {
-                this.$confirm('此操作将删除' + row.name + ', 是否继续?', '提示', {
+                this.$confirm('此操作将删除' + this.editForm.data.name + ', 是否继续?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    this.$http.get(this.url.delete, {params: {id: row.id}}).then(function (res) {
-                    this.$message({
-                        type: 'success',
-                        message: '删除成功!'
+                    this.$http.get(this.url.delete, {params: {id: vueApp.editForm.data.id}}).then(function (res) {
+                        this.$message({
+                            type: 'success',
+                            message: '删除成功!'
+                        });
+                        vueApp.queryFormSubmit();
+                        vueApp.editForm.data={};
+                        vueApp.editForm.formName="添加";
+                    }, function (res) {
+                        this.$message({
+                            showClose: true,
+                            message: '网络错误' + res.status,
+                            type: 'error'
+                        });
                     });
-                    query();
-                }, function (res) {
+                }).catch(() => {
                     this.$message({
-                        showClose: true,
-                        message: '网络错误' + res.status,
-                        type: 'error'
+                        type: 'info',
+                        message: '已取消删除'
                     });
                 });
-            }).catch(() => {
-                    this.$message({
-                    type: 'info',
-                    message: '已取消删除'
-                });
-            });
             },
             save: function (formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
+                        this.editForm.data.parentId=this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length-1];
+                        this.editForm.data.parentIds=this.editForm.data.parentIdArray.join(":");
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
                             this.$message({
                                 type: 'success',
                                 message: '保存成功!'
                             });
-                            this.editForm.dialogFormVisible = false;
-                            query();
+                            vueApp.queryFormSubmit();
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);
@@ -427,19 +431,18 @@
         },
         mounted: function () {
             //初始化操作
-            /*debugger;
-             this.$http.get(this.url.domainOptions).then(function (res) {
-             this.options.domainId = res.data;
-             this.editForm.data.domainId=res.data[0].id;
-             this.queryForm.data.domainId=res.data[0].id;
-             }, function (res) {
-             this.$message({
-             showClose: true,
-             message: "网络错误,code=" + res.status,
-             type: "error"
-             });
-             });*/
-            this.queryFormSubmit();
+            this.$http.get(this.url.domainOptions).then(function (res) {
+                this.options.domainId = res.data;
+                this.editForm.data.domainId = res.data[0].id;
+                this.queryForm.data.domainId = res.data[0].id;
+                this.queryFormSubmit();
+            }, function (res) {
+                this.$message({
+                    showClose: true,
+                    message: "网络错误,code=" + res.status,
+                    type: "error"
+                });
+            });
         }
     });
 
