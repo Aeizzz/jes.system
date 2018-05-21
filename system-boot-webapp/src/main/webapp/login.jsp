@@ -5,6 +5,7 @@
 
 <head>
     <%@ include file="jsp/public/nifty.jsp" %>
+    <title>微立方智慧农业管理平台</title>
 </head>
 
 <!--TIPS-->
@@ -24,8 +25,8 @@
         <div class="cls-content-sm panel">
             <div class="panel-body">
                 <div class="mar-ver pad-btm">
-                    <h1 class="h3">平台登录</h1>
-                    <p>账号登录</p>
+                    <h1 class="h3">微立方智慧农业管理平台</h1>
+                    <%--<p>账号登录</p>--%>
                 </div>
                 <form method="post" action="/login">
                     <div class="form-group">

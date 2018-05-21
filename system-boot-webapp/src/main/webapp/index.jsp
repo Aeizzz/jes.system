@@ -2,7 +2,7 @@
 <%@ include file="jsp/public/head.jsp" %>
 <html xmlns="http://www.w3.org/1999/xhtml" id="vue">
 <head>
-    <title>物联网平台</title>
+    <title>微立方智慧农业管理平台</title>
     <%@ include file="jsp/public/nifty.jsp" %>
 </head>
 
@@ -18,7 +18,7 @@
                     <!--系统名称 Brand logo & name-->
                     <!--================================-->
                     <div class="navbar-header">
-                        <a href="index.html" class="navbar-brand">
+                        <a href="#" class="navbar-brand">
                             <img src="static/img/logo.png" alt="Nifty Logo" class="brand-icon">
                             <div class="brand-title">
                                 <span class="brand-text">{{selectedDomain.name}}</span>
@@ -77,7 +77,7 @@
                                             <!--Mega menu list-->
                                             <ul class="list-unstyled">
                                                 <li v-for="domain in my.domainList">
-                                                    <a href="#" class="media mar-btm" v-on:click="selectDomain(domain)">
+                                                    <a href="#" class="media mar-btm mega-dropdown-toggle" v-on:click="selectDomain(domain)">
                                                         <span class="badge badge-success pull-right">new</span>
                                                         <div class="media-left">
                                                             <i class="pli-data-settings icon-2x"></i>
@@ -176,7 +176,6 @@
         </el-header>
         <el-container>
             <el-aside>
-
                 <el-menu :default-openeds="['userinfo']" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
                          :collapse="isCollapse">
 
@@ -192,7 +191,7 @@
                                     <img class="img-circle img-md" src="img/profile-photos/1.png" alt="Profile Picture">
                                 </div>
                                 <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
-                                    <p class="mnp-name">管理员</p>
+                                    <p class="mnp-name">{{my.userinfo.name}}</p>
                                 </a>
                             </div>
                         </div>
@@ -250,7 +249,10 @@
                         url: "http://www.baidu.com"
                     }
                 ],
-                domainList: []
+                domainList: [],
+                userinfo:{
+                    name:"管理员"
+                }
             },
             selectedDomain: {
                 id: "d926086b-bdb9-4e9f-af4e-e960523e9427",
@@ -261,9 +263,9 @@
         },
         methods: {
             selectDomain: function (domain) {
-                this.selectDomain.id = domain.id;
-                this.selectDomain.name = domain.text;
-                this.getDomainMenu(this.selectDomain.id);
+                this.selectedDomain.id = domain.id;
+                this.selectedDomain.name = domain.text;
+                this.getDomainMenu(this.selectedDomain.id);
             },
             getDomainMenu: function (domainId) {
                 //查询菜单
@@ -281,9 +283,11 @@
                 $("#mainframe").attr("src", data.href);
             },
             handleOpen(key, keyPath) {
+                debugger
                 console.log(key, keyPath);
             },
             handleClose(key, keyPath) {
+                debugger
                 console.log(key, keyPath);
             },
             toggleMainnav(){
@@ -298,7 +302,7 @@
             //查询域
             this.$http.get(this.url.domainOptions).then(function (res) {
                 this.selectedDomain.id = res.data[0].id;
-                this.selectedDomain.name = res.data[0].name;
+                this.selectedDomain.name = res.data[0].text;
                 this.my.domainList = res.data;
                 this.getDomainMenu(this.selectedDomain.id);
             }, function (res) {
@@ -319,5 +323,15 @@
     .el-menu-vertical-demo:not(.el-menu--collapse) {
         width: 100%;
         min-height: 100%;
+    }
+    .brand-text{
+        color: white;
+        font-family: monospace;
+    }
+    #navbar .brand-title{
+        width: 300px;
+    }
+    .el-main{
+        padding: 0px;
     }
 </style>

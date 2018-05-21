@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44f1b9ac-cb95-41c5-9367-d106b908f71e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDict.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDict.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$Criteria.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$Criteria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$Criterion.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$Criterion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$GeneratedCriteria.class" afterPath="$PROJECT_DIR$/systemapi/target/classes/com/lizhivscaomei/jes/sys/entity/SysDictExample$GeneratedCriteria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/controller/SysAreaController.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/controller/SysAreaController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/controller/SysMenuController.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/controller/SysMenuController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysDictMapper.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysDictMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysDictSqlProvider.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/dao/SysDictSqlProvider.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/service/SysAreaServiceImp.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/service/SysAreaServiceImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.class" afterPath="$PROJECT_DIR$/systembusiness/target/classes/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.jsp" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -126,12 +117,13 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="185" column="51" lean-forward="false" selection-start-line="185" selection-start-column="47" selection-end-line="185" selection-end-column="51" />
+            <state relative-caret-position="643">
+              <caret line="334" column="20" lean-forward="false" selection-start-line="334" selection-start-column="20" selection-end-line="334" selection-end-column="20" />
               <folding>
                 <element signature="n#el-header#0;n#el-container#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#el-main#0;n#el-container#0;n#el-container#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#12096#12629#0#HTML" expanded="false" />
+                <element signature="n#header#0;n#el-header#0;n#el-container#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#el-aside#0;n#el-container#0;n#el-container#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#12130#12663#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -149,12 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>parentOptions</find>
-      <find>tableData</find>
-      <find>met</find>
-      <find>filterTreeNode</find>
-      <find>treeProps</find>
-      <find>treeFilterText</find>
       <find>treeData</find>
       <find>parentIdArray</find>
       <find>parentIds</find>
@@ -172,13 +158,19 @@
       <find>queryForm</find>
       <find>openframe</find>
       <find>domainOptions</find>
-      <find>domainList</find>
       <find>getDomainMenu</find>
-      <find>handleClose</find>
       <find>el-menu</find>
       <find>el-menu-vertical-demo</find>
       <find>asize</find>
       <find>aside</find>
+      <find>isCollapse</find>
+      <find>asideWidth</find>
+      <find>selectedDomain</find>
+      <find>selectedDomain.name</find>
+      <find>domainList</find>
+      <find>selectDomain</find>
+      <find>handleClose</find>
+      <find>toggleMainnav</find>
     </findStrings>
     <replaceStrings>
       <replace>com.lizhivscaomei.jes.common.exception.AppException</replace>
@@ -234,7 +226,6 @@
         <option value="E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/view/tree/TreeViewService.class" />
         <option value="$PROJECT_DIR$/system-boot-webapp/pom.xml" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.html" />
-        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDomain/sysDomainList.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysMenu/sysMenuList.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.jsp" />
@@ -269,6 +260,7 @@
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysArea/sysAreaList.html" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDict/sysDictList.html" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysMenu/sysMenuList.html" />
+        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.jsp" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" />
       </list>
     </option>
@@ -412,9 +404,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1087,6 +1076,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1722,7 +1714,7 @@
       <workItem from="1526631112651" duration="6588000" />
       <workItem from="1526637743825" duration="23000" />
       <workItem from="1526688034379" duration="27022000" />
-      <workItem from="1526860981922" duration="4095000" />
+      <workItem from="1526860981922" duration="10634000" />
     </task>
     <task id="LOCAL-00001" summary="cas初步打通">
       <created>1522489673810</created>
@@ -1878,11 +1870,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526722500416</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="首页基本完成">
+      <created>1526865112809</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1526865112809</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312966000" />
+    <option name="totallyTimeSpent" value="319505000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1318" extended-state="6" />
@@ -1960,7 +1959,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35573477" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19096334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19096334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294539" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1992,7 +1991,8 @@
     <MESSAGE value="树形下拉菜单" />
     <MESSAGE value="弃用datatable" />
     <MESSAGE value="还差首页" />
-    <option name="LAST_COMMIT_MESSAGE" value="还差首页" />
+    <MESSAGE value="首页基本完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="首页基本完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2005,14 +2005,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/public/nifty.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.jsp" />
     <entry file="file://$PROJECT_DIR$/systembusiness/src/test/java/com/lizhivscaomei/jes/sys/service/SysDictServiceImp.java" />
     <entry file="file://$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysMenuService.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2053,6 +2045,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <folding>
+            <element signature="n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2111,6 +2106,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="604">
           <caret line="58" column="12" lean-forward="false" selection-start-line="58" selection-start-column="8" selection-end-line="62" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2205,6 +2201,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
           <caret line="136" column="10" lean-forward="true" selection-start-line="136" selection-start-column="10" selection-end-line="136" selection-end-column="10" />
+          <folding>
+            <element signature="e#6124#6571#0" expanded="false" />
+            <element signature="e#6592#6739#0" expanded="false" />
+            <element signature="e#8368#9120#0" expanded="false" />
+            <element signature="e#11159#12160#0" expanded="false" />
+            <element signature="e#12200#13258#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2240,6 +2243,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="86" column="53" lean-forward="false" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2261,6 +2265,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="86" column="54" lean-forward="false" selection-start-line="86" selection-start-column="54" selection-end-line="86" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2275,6 +2280,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
           <caret line="35" column="51" lean-forward="false" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2362,14 +2368,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/public/nifty.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="185" column="51" lean-forward="false" selection-start-line="185" selection-start-column="47" selection-end-line="185" selection-end-column="51" />
+        <state relative-caret-position="643">
+          <caret line="334" column="20" lean-forward="false" selection-start-line="334" selection-start-column="20" selection-end-line="334" selection-end-column="20" />
           <folding>
             <element signature="n#el-header#0;n#el-container#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#el-main#0;n#el-container#0;n#el-container#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#12096#12629#0#HTML" expanded="false" />
+            <element signature="n#header#0;n#el-header#0;n#el-container#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#el-aside#0;n#el-container#0;n#el-container#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#12130#12663#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
