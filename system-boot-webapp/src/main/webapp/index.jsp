@@ -67,9 +67,6 @@
                         </ul>
                         <ul class="nav navbar-top-links">
 
-
-                            <!--Mega dropdown-->
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                             <li class="mega-dropdown">
                                 <a href="#" class="mega-dropdown-toggle">
                                     <i class="pli-layout-grid"></i>
@@ -86,7 +83,8 @@
                                                             <i class="pli-data-settings icon-2x"></i>
                                                         </div>
                                                         <div class="media-body">
-                                                            <p class="text-semibold text-main mar-no">{{domain.text}}</p>
+                                                            <p class="text-semibold text-main mar-no">
+                                                                {{domain.text}}</p>
                                                             <small class="text-muted"></small>
                                                         </div>
                                                     </a>
@@ -94,48 +92,6 @@
 
                                             </ul>
                                         </div>
-                                        <%--<div class="col-sm-4 col-md-3">
-
-                                            <!--Mega menu list-->
-                                            <ul class="list-unstyled">
-                                                <li class="dropdown-header"><i class="pli-mail icon-lg icon-fw"></i> Mailbox
-                                                </li>
-                                                <li><a href="#"><span class="pull-right label label-danger">Hot</span>Indox</a>
-                                                </li>
-                                                <li><a href="#">Read Message</a></li>
-                                                <li><a href="#">Compose</a></li>
-                                                <li><a href="#">Template</a></li>
-                                            </ul>
-                                            <p class="pad-top text-main text-sm text-uppercase text-bold"><i
-                                                    class="icon-lg pli-calendar-4 icon-fw"></i>News</p>
-                                            <p class="pad-top mar-top bord-top text-sm">Lorem ipsum dolor sit amet, consectetuer
-                                                adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                                                natoque penatibus et magnis dis parturient montes.</p>
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <p class="dropdown-header"><i class="pli-file-jpg icon-lg icon-fw"></i> Gallery</p>
-                                            <div class="row img-gallery">
-                                                <div class="col-xs-4">
-                                                    <img class="img-responsive" src="static/img/thumbs/img-1.jpg" alt="thumbs">
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <img class="img-responsive" src="static/img/thumbs/img-3.jpg" alt="thumbs">
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <img class="img-responsive" src="static/img/thumbs/img-2.jpg" alt="thumbs">
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <img class="img-responsive" src="static/img/thumbs/img-4.jpg" alt="thumbs">
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <img class="img-responsive" src="static/img/thumbs/img-6.jpg" alt="thumbs">
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <img class="img-responsive" src="static/img/thumbs/img-5.jpg" alt="thumbs">
-                                                </div>
-                                            </div>
-                                            <a href="#" class="btn btn-block btn-primary">Browse Gallery</a>
-                                        </div>--%>
                                     </div>
                                 </div>
                             </li>
@@ -176,7 +132,6 @@
                                         </div>
                                     </div>
 
-                                    <!--Dropdown footer-->
                                     <div class="pad-all bord-top">
                                         <a href="#" class="btn-link text-main box-block">
                                             <i class="pci-chevron chevron-right pull-right"></i>显示所有
@@ -184,25 +139,11 @@
                                     </div>
                                 </div>
                             </li>
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                            <!--End notifications dropdown-->
-
-
-                            <!--User dropdown-->
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                             <li id="dropdown-user" class="dropdown">
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
                                 <span class="ic-user pull-right">
-                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                    <!--You can use an image instead of an icon.-->
-                                    <!--<img class="img-circle img-user media-object" src="static/img/profile-photos/1.png" alt="Profile Picture">-->
-                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                                     <i class="pli-male"></i>
                                 </span>
-                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                    <!--You can also display a user name in the navbar.-->
-                                    <!--<div class="username hidden-xs">Aaron Chavez</div>-->
-                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                                 </a>
 
 
@@ -228,71 +169,49 @@
                                     </ul>
                                 </div>
                             </li>
-                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                            <!--End user dropdown-->
-
-                            <%--<li>
-                                <a href="#" class="aside-toggle">
-                                    <i class="pli-dot-vertical"></i>
-                                </a>
-                            </li>--%>
                         </ul>
                     </div>
-                    <!--================================-->
-                    <!--End Navbar Dropdown-->
-
                 </div>
             </header>
         </el-header>
         <el-container>
-            <el-asize>
-                <%--<ul id="mainnav-menu" class="list-group">
-                                <!--Menu list item-->
-                                <li v-for="menu in selectedDomain.menuList">
-                                    <a href="#">
-                                        <i class="pli-receipt-4"></i>
-                                        <span class="menu-title"><strong>{{menu.text}}</strong></span><i class="arrow"></i>
-                                    </a>
-                                    <ul class="collapse">
-                                        <li v-for="menu2 in menu.nodes" ><a href="#" v-on:click="openframe(menu2)"><i class="pli-circular-point"></i>{{menu2.text}}</a></li>
-                                    </ul>
-                                </li>
-                            </ul>--%>
-                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+            <el-aside>
+
+                <el-menu :default-openeds="['userinfo']" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
                          :collapse="isCollapse">
 
-                    <el-submenu index="1">
+                    <el-submenu index="userinfo">
                         <template slot="title">
-                            <i class="el-icon-location"></i>
-                            <span slot="title">导航一</span>
+                            <i class="el-icon-picture"></i>
+                            <span slot="title">当前用户</span>
                         </template>
-                        <el-menu-item-group>
-                            <span slot="title">分组一</span>
-                            <el-menu-item index="1-1">选项1</el-menu-item>
-                            <el-menu-item index="1-2">选项2</el-menu-item>
-                        </el-menu-item-group>
-                        <el-menu-item-group title="分组2">
-                            <el-menu-item index="1-3">选项3</el-menu-item>
-                        </el-menu-item-group>
-                        <el-submenu index="1-4">
-                            <span slot="title">选项4</span>
-                            <el-menu-item index="1-4-1">选项1</el-menu-item>
-                        </el-submenu>
+
+                        <div class="mainnav-profile">
+                            <div class="profile-wrap text-center">
+                                <div class="pad-btm">
+                                    <img class="img-circle img-md" src="img/profile-photos/1.png" alt="Profile Picture">
+                                </div>
+                                <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                                    <p class="mnp-name">管理员</p>
+                                </a>
+                            </div>
+                        </div>
                     </el-submenu>
-                    <el-menu-item index="2">
-                        <i class="el-icon-menu"></i>
-                        <span slot="title">导航二</span>
-                    </el-menu-item>
-                    <el-menu-item index="3" disabled>
-                        <i class="el-icon-document"></i>
-                        <span slot="title">导航三</span>
-                    </el-menu-item>
-                    <el-menu-item index="4">
-                        <i class="el-icon-setting"></i>
-                        <span slot="title">导航四</span>
-                    </el-menu-item>
+                    <el-submenu v-for="menu in selectedDomain.menuList" :index="menu.id">
+                        <template slot="title">
+                            <i class="el-icon-star-on"></i>
+                            <span slot="title">{{menu.text}}</span>
+                        </template>
+
+                        <el-menu-item :index="menu2.id" v-for="menu2 in menu.nodes" @click="openframe(menu2)">
+
+                            <i class="el-icon-tickets"></i>
+                            <span>{{menu2.text}}</span>
+
+                        </el-menu-item>
+                    </el-submenu>
                 </el-menu>
-            </el-asize>
+            </el-aside>
             <el-main>
                 <div id="page-content" style="padding: 0px">
                     <iframe v-bind:src="iframeDefUrl" width="100%" height="90%" frameborder="0"
@@ -302,8 +221,6 @@
         </el-container>
     </el-container>
 </div>
-
-
 </body>
 </html>
 <script>
