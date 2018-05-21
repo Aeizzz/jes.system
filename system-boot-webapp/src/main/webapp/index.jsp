@@ -175,7 +175,7 @@
             </header>
         </el-header>
         <el-container>
-            <el-aside>
+            <div>
                 <el-menu :default-openeds="['userinfo']" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
                          :collapse="isCollapse">
 
@@ -210,14 +210,15 @@
                         </el-menu-item>
                     </el-submenu>
                 </el-menu>
-            </el-aside>
+            </div>
             <el-main>
                 <div id="page-content" style="padding: 0px">
-                    <iframe v-bind:src="iframeDefUrl" width="100%" height="90%" frameborder="0"
+                    <iframe v-bind:src="iframeDefUrl" width="100%" height="100%" frameborder="0"
                             name="mainframe" id="mainframe"></iframe>
                 </div>
             </el-main>
         </el-container>
+        <el-footer>技术支持：<a href="mailto://denglizh7573@qq.com">denglizh7573@qq.com</a></el-footer>
     </el-container>
 </div>
 </body>
@@ -320,8 +321,9 @@
 <script src="static/js/nifty.min.js"></script>
 
 <style>
+
     .el-menu-vertical-demo:not(.el-menu--collapse) {
-        width: 100%;
+        width: 300px;
         min-height: 100%;
     }
     .brand-text{
