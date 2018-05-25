@@ -284,11 +284,9 @@
                 $("#mainframe").attr("src", data.href);
             },
             handleOpen(key, keyPath) {
-                debugger
                 console.log(key, keyPath);
             },
             handleClose(key, keyPath) {
-                debugger
                 console.log(key, keyPath);
             },
             toggleMainnav(){

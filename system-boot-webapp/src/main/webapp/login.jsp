@@ -25,6 +25,7 @@
         <div class="cls-content-sm panel">
             <div class="panel-body">
                 <div class="mar-ver pad-btm">
+                    <img class="img-circle img-md" src="static/img/profile-photos/1.png" alt="Profile Picture">
                     <h1 class="h3">微立方智慧农业管理平台</h1>
                     <%--<p>账号登录</p>--%>
                 </div>
@@ -62,4 +63,12 @@
 
 </body>
 </html>
+<style>
+    .cls-content{
+        margin-top: 200px;
+    }
+    .bg-img ~ .cls-content .panel{
+        margin-right: 200px;
+    }
+</style>
 
