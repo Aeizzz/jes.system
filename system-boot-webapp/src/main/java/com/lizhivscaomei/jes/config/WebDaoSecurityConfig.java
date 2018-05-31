@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 /**
- * Spring Security配置类：
+ * Spring Security配置类
  * @author lizhivscaomei
  */
 @Configuration
@@ -26,6 +26,7 @@ public class WebDaoSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     JesUserDetailsService jesUserDetailsService;
 
+    /*http协议安全配置*/
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
@@ -50,6 +51,7 @@ public class WebDaoSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    //配置认证管理器，需要的UserDetailsService和密码编码器
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(jesUserDetailsService).passwordEncoder(passwordEncoder);
