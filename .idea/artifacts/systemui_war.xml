@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="systemui:war">
+    <output-path>$PROJECT_DIR$/systemui/target</output-path>
+    <root id="archive" name="systemui-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="systemui:war exploded" />
+    </root>
+  </artifact>
+</component>

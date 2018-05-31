@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/system-boot-webapp" />
+    <file type="web" url="file://$PROJECT_DIR$/systemui" />
     <file type="web" url="file://$PROJECT_DIR$/systemweb" />
   </component>
   <component name="JavaScriptSettings">
@@ -12,6 +13,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/system-boot-webapp/pom.xml" />
+        <option value="$PROJECT_DIR$/systemui/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

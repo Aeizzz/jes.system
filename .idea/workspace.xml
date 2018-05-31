@@ -1,22 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44f1b9ac-cb95-41c5-9367-d106b908f71e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/.mvn/wrapper/maven-wrapper.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/.mvn/wrapper/maven-wrapper.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/README.MD" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/mvnw" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/mvnw.cmd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/IndexController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/SystemBootWebappApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/cas/JesCasUserDetailsService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/cas/WebCasSecurityConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/dao/WebDaoSecurityConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/resources/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/test/java/com/lizhivscaomei/jes/SystemBootWebappApplicationTests.java" afterPath="" />
+    <list default="true" id="44f1b9ac-cb95-41c5-9367-d106b908f71e" name="Default" comment="web容器的独立">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/images/Sorting icons.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/images/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/images/sort_asc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/images/sort_asc_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/images/sort_both.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/images/sort_desc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/images/sort_desc_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/element/css/fonts/element-icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/bg-img-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/flags/france.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/flags/germany.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/flags/italy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/flags/spain.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/flags/united-kingdom.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/7.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/8.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/img/profile-photos/9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/line-icons/fonts/premium-line-icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/solid-icons/fonts/premium-solid-icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/systemui_war.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/systemui_war_exploded.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_2_7_8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_7_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_7_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_jasper_8_5_28.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_9_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jdt_ecj_3_12_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jasig_cas_client_cas_client_core_3_5_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_15_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_0_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_0_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_0_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_0_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_cas_5_0_3_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_0_3_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_0_4_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_4_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_0_4_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_4_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_4_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_0_4_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_0_4_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_5_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/README.MD" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/java/com/lizhivscaomei/jes/IndexController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/java/com/lizhivscaomei/jes/SystemBootWebappApplication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/java/com/lizhivscaomei/jes/config/security/cas/JesCasUserDetailsService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/java/com/lizhivscaomei/jes/config/security/cas/WebCasSecurityConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/java/com/lizhivscaomei/jes/config/security/dao/WebDaoSecurityConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/application.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/module/sys/sysArea/sysAreaList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/module/sys/sysDict/sysDictList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/module/sys/sysDomain/sysDomainList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/module/sys/sysMenu/sysMenuList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/module/sys/sysParam/sysParamList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/module/sys/sysRole/sysRoleList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/module/sys/sysUser/sysUserList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/commonTable.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/echarts.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/editHead.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/editHeadImg.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/head.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/listHead.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/nifty.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/noCache.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/rtmp_sewise.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/rtmp_videojs.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/jsp/public/weuiHead.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/css/bootstrap-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/css/bootstrap-theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/css/bootstrap-theme.min.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/css/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/css/bootstrap.min.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/js/npm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/plugins/treeview/bootstrap-treeview.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/bootstrap/3.3.7/plugins/treeview/bootstrap-treeview.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.bootstrap4.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.bootstrap4.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.foundation.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.foundation.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.jqueryui.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.jqueryui.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.material.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.material.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.semanticui.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.semanticui.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.uikit.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/dataTables.uikit.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/jquery.dataTables.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/jquery.dataTables.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/css/jquery.dataTables_themeroller.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTable.default.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.bootstrap4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.bootstrap4.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.foundation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.foundation.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.jqueryui.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.jqueryui.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.material.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.material.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.semanticui.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.semanticui.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.uikit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/dataTables.uikit.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/jquery.dataTables.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/jquery.dataTables.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/datatables/js/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/element/css/fonts/element-icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/element/css/index.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/element/js/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/select2/4.0.6/select2.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/select2/4.0.6/select2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/component/way/way.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/nifty.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/pace.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-coffee.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-dark.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-dust.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-gray.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-lime.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-mint.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-navy.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-ocean.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-prickly-pear.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-purple.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-well-red.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-a/theme-yellow.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-coffee.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-dark.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-dust.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-gray.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-lime.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-mint.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-navy.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-ocean.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-prickly-pear.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-purple.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-well-red.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-b/theme-yellow.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-coffee.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-dark.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-dust.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-gray.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-lime.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-mint.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-navy.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-ocean.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-prickly-pear.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-purple.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-well-red.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-c/theme-yellow.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-coffee.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-dark.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-dust.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-gray.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-lime.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-mint.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-navy.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-ocean.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-prickly-pear.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-purple.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-well-red.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-d/theme-yellow.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-coffee.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-dark.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-dust.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-gray.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-lime.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-mint.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-navy.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-ocean.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-prickly-pear.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-purple.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-well-red.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-e/theme-yellow.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-full/theme-dark-full.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/css/themes/type-full/theme-light-full.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/js/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/js/nifty.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/js/pace.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/js/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/js/vue-resource.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/js/vue.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/js/vue.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/line-icons/fonts/premium-line-icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/line-icons/fonts/premium-line-icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/line-icons/premium-line-icons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/line-icons/premium-line-icons.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/solid-icons/fonts/premium-solid-icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/solid-icons/fonts/premium-solid-icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/solid-icons/premium-solid-icons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/main/resources/static/static/premium/icon-sets/icons/solid-icons/premium-solid-icons.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/src/test/java/com/lizhivscaomei/jes/SystemBootWebappApplicationTests.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/systemui/systemui.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/system_boot_webapp_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/system_boot_webapp_war.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/system_boot_webapp_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/system_boot_webapp_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -26,6 +256,7 @@
     <ignored path="$PROJECT_DIR$/systembusiness/target/" />
     <ignored path="$PROJECT_DIR$/systemweb/target/" />
     <ignored path="$PROJECT_DIR$/system-boot-webapp/target/" />
+    <ignored path="$PROJECT_DIR$/systemui/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +270,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/systemui/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -132,7 +373,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/systemapi/src/main/java/com/lizhivscaomei/jes/sys/service/SysMenuService.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysMenuServiceImp.java" />
         <option value="E:/java/maven/.m2/com/lizhivscaomei/jes/common/1.0-SNAPSHOT/common-1.0-SNAPSHOT.jar!/com/lizhivscaomei/jes/common/view/tree/TreeViewService.class" />
         <option value="$PROJECT_DIR$/system-boot-webapp/pom.xml" />
@@ -183,6 +423,7 @@
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/dao/WebDaoSecurityConfig.java" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/cas/WebCasSecurityConfig.java" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/cas/JesCasUserDetailsService.java" />
+        <option value="$PROJECT_DIR$/systemui/pom.xml" />
       </list>
     </option>
   </component>
@@ -271,6 +512,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="systemui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -781,7 +1036,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lizhivscaomei.jes.SystemBootWebappApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <module name="system-boot-webapp" />
+      <module name="systemui" />
       <envs />
       <method />
     </configuration>
@@ -918,7 +1173,7 @@
       <workItem from="1527125187676" duration="3576000" />
       <workItem from="1527207533908" duration="11061000" />
       <workItem from="1527226906461" duration="674000" />
-      <workItem from="1527729881773" duration="4625000" />
+      <workItem from="1527729881773" duration="5245000" />
     </task>
     <task id="LOCAL-00001" summary="cas初步打通">
       <created>1522489673810</created>
@@ -1158,15 +1413,22 @@
       <option name="project" value="LOCAL" />
       <updated>1527734305426</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="web容器的独立">
+      <created>1527734535694</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1527734535694</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="345101000" />
+    <option name="totallyTimeSpent" value="345721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1318" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1184,18 +1446,20 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978687" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43369177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43369177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35573477" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2945439" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2945439" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294539" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1203,9 +1467,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1276,7 +1538,8 @@
     <MESSAGE value="首页完善" />
     <MESSAGE value="放弃jsp spring boot 运行" />
     <MESSAGE value="精简不必要的类" />
-    <option name="LAST_COMMIT_MESSAGE" value="精简不必要的类" />
+    <MESSAGE value="web容器的独立" />
+    <option name="LAST_COMMIT_MESSAGE" value="web容器的独立" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1289,8 +1552,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.jsp" />
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysMenu/sysMenuList.jsp" />
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysParam/sysParamList.html" />
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysUser/sysUserList.html2" />
     <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/service/SysUserServiceImp.java">
@@ -1553,10 +1814,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/systemui/sys/sysArea/sysAreaList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/systemui/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1580,7 +1857,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Spring</last-edited>
+          <last-edited>Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1615,12 +1892,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>systemapi</last-edited>
+          <last-edited>systemui</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

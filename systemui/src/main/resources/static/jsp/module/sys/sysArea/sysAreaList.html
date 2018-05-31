@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>行政区划</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/component/element/css/index.css">
+
+</head>
+<body style="background-color: white">
+<div id="app">
+    <hr style="border: none">
+
+    <div>
+        <el-container>
+            <el-aside>
+                <el-card>
+                    <div slot="header">
+                        行政区划-索引
+                    </div>
+                    <el-input
+                            placeholder="输入名称或代码进行过滤"
+                            v-model="treeFilterText">
+                    </el-input>
+                    <el-tree class="filter-tree" :filter-node-method="filterTreeNode" ref="tree"
+                             :data="treeData" :props="treeProps" node-key="id" :default-expanded-keys="['0']"
+                             @node-click="handleNodeClick"></el-tree>
+                </el-card>
+            </el-aside>
+            <el-main>
+                <div>
+                    <el-button size="mini" type="primary" @click="showEditForm('add')" icon="el-icon-plus">添加
+                    </el-button>
+                    <el-button size="mini" type="danger" @click="deleteItem()" icon="el-icon-delete">删除
+                    </el-button>
+                    <hr style="border: none">
+
+                </div>
+                <hr>
+
+                <el-form ref="editForm.data" :model="editForm.data" :rules="editForm.rules" label-width="120px"
+                         label-position="right">
+                    <el-row>
+                        <el-col :span="24">
+                            <el-form-item label="父级" prop="parentIdArray">
+                                <el-cascader v-model="editForm.data.parentIdArray" :props="treeProps" expand-trigger="click" style="width: 100%"
+                                             :options="treeData" :show-all-levels="false"
+                                             change-on-select
+                                ></el-cascader>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="名称" prop="name">
+                                <el-input v-model="editForm.data.name" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="区域编码" prop="code">
+                                <el-input v-model="editForm.data.code" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="24">
+                            <el-form-item label="备注信息" prop="remarks">
+                                <el-input v-model="editForm.data.remarks" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-form-item style="text-align: right">
+                            <el-button type="primary" @click="save('editForm.data')">保 存 （{{editForm.formName}}）
+                            </el-button>
+                        </el-form-item>
+                    </el-row>
+                    <input type="hidden" v-model="editForm.data.id">
+                </el-form>
+
+            </el-main>
+        </el-container>
+
+    </div>
+
+</div>
+</body>
+
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/vue-resource.min.js"></script>
+<script src="/static/component/element/js/index.js"></script>
+<script>
+
+    Vue.http.options.emulateJSON = true;
+    var vueApp = new Vue({
+        el: "#app",
+        data: {
+            treeFilterText:"",
+            loading: false,
+            url: {
+                queryPage: "/com/lizhivscaomei/jes/sys/controller/sysArea/query/page",
+                select: "/com/lizhivscaomei/jes/sys/controller/sysArea/query/select",
+                save: "/com/lizhivscaomei/jes/sys/controller/sysArea/save",
+                delete: "/com/lizhivscaomei/jes/sys/controller/sysArea/delete",
+                detail: "/com/lizhivscaomei/jes/sys/controller/sysArea/query/detail",
+                domainOptions: "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner"
+            },
+            treeData: [],
+            treeProps: {
+                value: "id",
+                label: "text",
+                children: "nodes"
+            },
+            editForm: {
+                formName: "添加",
+                data: {
+                    //父级编号
+                    parentId: "",
+                    //所有父级编号
+                    parentIds: "",
+                    parentIdArray: [],
+                    //名称
+                    name: "",
+                    //区域编码
+                    code: "",
+                    remarks: "",
+                    id: ""
+                },
+                rules: {
+                    parentIdArray: [{required: true, message: '请输入父级编号', trigger: 'blur'}],
+                    name: [{required: true, message: '请输入名称', trigger: 'blur'}],
+                    code: [{required: true, message: '请输入区域编码', trigger: 'blur'}],
+                    remarks: [{required: true, message: '请输入备注信息', trigger: 'blur'}],
+                    id: []
+                }
+            },
+            queryForm: {
+                data: {}
+            },
+            options: {
+                domainId: []
+            }
+        },
+        watch:{
+            treeFilterText(val){
+                this.$refs.tree.filter(val);
+            }
+        },
+        methods: {
+            filterTreeNode:function(filterText, data) {
+                if (!filterText) return true;
+                return data.text.indexOf(filterText) !== -1;
+            },
+            handleNodeClick: function (nodeData) {
+                this.$http.get(this.url.detail, {params: {id: nodeData.id}}).then(function (res) {
+                    this.editForm.data.id = res.data.data.id;
+                    this.editForm.formName = "修改";
+                    this.editForm.data.parentIdArray = res.data.data.parentIds.split(":");
+                    this.editForm.data.name = res.data.data.name;
+                    this.editForm.data.code = res.data.data.code;
+                    this.editForm.data.remarks = res.data.data.remarks;
+                }, function (res) {
+                    this.loading = false;
+                    this.$message({
+                        showClose: true,
+                        message: "网络错误,code=" + res.status,
+                        type: "error"
+                    });
+                });
+            },
+            handleSizeChange: function (val) {
+                this.queryFormSubmit();
+            },
+            handleCurrentChange: function (val) {
+                this.queryFormSubmit();
+            },
+            queryFormSubmit: function () {
+                this.loading = true;
+                this.$http.get(this.url.select, {params: {}}).then(function (res) {
+                    this.loading = false;
+                    this.treeData = res.data.data;
+                }, function (res) {
+                    this.loading = false;
+                    this.$message({
+                        showClose: true,
+                        message: "网络错误,code=" + res.status,
+                        type: "error"
+                    });
+                });
+            },
+            showEditForm: function (action, index, row) {
+                if (action == "add") {
+                    this.editForm.data.id = "";
+                    this.editForm.formName="添加";
+                }
+                if (action == "edit") {
+                    this.editForm.data = row;
+                }
+            },
+            deleteItem: function (index, row) {
+                this.$confirm('此操作将删除' + this.editForm.data.name + ', 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$http.get(this.url.delete, {params: {id: vueApp.editForm.data.id}}).then(function (res) {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    vueApp.queryFormSubmit();
+                    vueApp.editForm.data={};
+                    vueApp.editForm.formName="添加";
+                }, function (res) {
+                    this.$message({
+                        showClose: true,
+                        message: '网络错误' + res.status,
+                        type: 'error'
+                    });
+                });
+            }).catch(() => {
+                    this.$message({
+                    type: 'info',
+                    message: '已取消删除'
+                });
+            });
+            },
+            save: function (formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        this.editForm.data.parentId=this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length-1];
+                        this.editForm.data.parentIds=this.editForm.data.parentIdArray.join(":");
+                        this.$http.post(this.url.save, this.editForm.data).then(function (res) {
+                            this.$message({
+                                type: 'success',
+                                message: '保存成功!'
+                            });
+                            vueApp.queryFormSubmit();
+                        }, function (res) {
+                            this.loading = false;
+                            console.log(res.status);
+                            this.$message({
+                                showClose: true,
+                                message: '网络错误' + res.status,
+                                type: 'error'
+                            });
+                        });
+
+                    } else {
+                        console.log('error submit!!');
+
+                return false;
+            }
+            });
+            }
+        },
+        mounted: function () {
+            //初始化操作
+            /*debugger;
+             this.$http.get(this.url.domainOptions).then(function (res) {
+             this.options.domainId = res.data;
+             this.editForm.data.domainId=res.data[0].id;
+             this.queryForm.data.domainId=res.data[0].id;
+             }, function (res) {
+             this.$message({
+             showClose: true,
+             message: "网络错误,code=" + res.status,
+             type: "error"
+             });
+             });*/
+            this.queryFormSubmit();
+        }
+    });
+
+</script>
+</html>

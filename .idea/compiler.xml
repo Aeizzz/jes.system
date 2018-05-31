@@ -18,6 +18,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="systemapi" />
         <module name="systembusiness" />
+        <module name="systemui" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +26,7 @@
       <module name="system-boot-webapp" target="1.8" />
       <module name="systemapi" target="1.8" />
       <module name="systembusiness" target="1.8" />
+      <module name="systemui" target="1.8" />
       <module name="systemweb" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>数据字典</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/component/element/css/index.css">
+
+</head>
+<body style="background-color: white">
+<div id="app">
+
+    <hr style="border: none">
+    <div>
+        <el-container>
+            <el-aside>
+                <el-card>
+                    <div slot="header">
+                        行政区划-索引
+                    </div>
+                    <el-form :inline="true" :model="queryForm.data" class="demo-form-inline">
+                        <el-form-item style="width: 100%">
+                            <el-select v-model="queryForm.data.domainId" placeholder="所属域"
+                                       @change="queryFormSubmit">
+                                <el-option
+                                        v-for="item in options.domainId"
+                                        :key="item.id"
+                                        :label="item.text"
+                                        :value="item.id">
+                                </el-option>
+                            </el-select>
+                        </el-form-item>
+
+                    </el-form>
+                    <el-input style="width: 100%"
+                              placeholder="输入名称或代码进行过滤"
+                              v-model="treeFilterText">
+                    </el-input>
+                    <el-tree class="filter-tree" :filter-node-method="filterTreeNode" ref="tree"
+                             :data="treeData" :props="treeProps" node-key="id" :default-expanded-keys="['0']"
+                             @node-click="handleNodeClick"></el-tree>
+                </el-card>
+            </el-aside>
+            <el-main>
+                <div>
+                    <el-button size="mini" type="primary" @click="showEditForm('add')" icon="el-icon-plus">添加
+                    </el-button>
+                    <el-button size="mini" type="danger" @click="deleteItem()" icon="el-icon-delete">删除
+                    </el-button>
+                    <hr style="border: none">
+
+                </div>
+                <hr>
+
+                <el-form ref="editForm.data" :model="editForm.data" :rules="editForm.rules" label-width="120px"
+                         label-position="right">
+                    <el-row>
+                        <el-col :span="12">
+                            <el-form-item label="所属域" prop="domainId">
+                                <el-select v-model="editForm.data.domainId" placeholder="请选择" style="width: 100%">
+                                    <el-option
+                                            v-for="item in options.domainId"
+                                            :key="item.id"
+                                            :label="item.text"
+                                            :value="item.id">
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+
+                        </el-col>
+
+                        <el-col :span="12">
+
+                            <el-form-item label="父级" prop="parentIdArray">
+                                <el-cascader v-model="editForm.data.parentIdArray" :props="treeProps" expand-trigger="click" style="width: 100%"
+                                             :options="treeData" :show-all-levels="false"
+                                             change-on-select
+                                ></el-cascader>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+
+                            <el-form-item label="名称" prop="name">
+                                <el-input v-model="editForm.data.name" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+
+                            <el-form-item label="代码" prop="code">
+                                <el-input v-model="editForm.data.code" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="类型" prop="type">
+                                <el-select v-model="editForm.data.type" placeholder="请选择" style="width: 100%">
+                                    <el-option
+                                            v-for="item in options.type"
+                                            :key="item.id"
+                                            :label="item.text"
+                                            :value="item.id">
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form-item label="序号" prop="sort">
+                                <el-input v-model="editForm.data.sort" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :span="24">
+                            <el-form-item label="描述" prop="description">
+                                <el-input v-model="editForm.data.description" clearable></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+
+
+                    <!--<el-form-item label="创建者" prop="createBy">
+                        <el-input v-model="editForm.data.createBy" clearable></el-input>
+                    </el-form-item>
+                    <el-form-item label="创建时间" prop="createDate">
+                        <el-input v-model="editForm.data.createDate" clearable></el-input>
+                    </el-form-item>
+                    <el-form-item label="更新者" prop="updateBy">
+                        <el-input v-model="editForm.data.updateBy" clearable></el-input>
+                    </el-form-item>
+                    <el-form-item label="更新时间" prop="updateDate">
+                        <el-input v-model="editForm.data.updateDate" clearable></el-input>
+                    </el-form-item>
+                    <el-form-item label="备注信息" prop="remarks">
+                        <el-input v-model="editForm.data.remarks" clearable></el-input>
+                    </el-form-item>-->
+
+                    <el-row>
+                        <el-form-item style="text-align: right">
+                            <el-button type="primary" @click="save('editForm.data')">保 存 （{{editForm.formName}}）
+                            </el-button>
+                        </el-form-item>
+                    </el-row>
+                    <input type="hidden" v-model="editForm.data.id">
+                </el-form>
+
+            </el-main>
+        </el-container>
+
+    </div>
+</div>
+</body>
+
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/vue-resource.min.js"></script>
+<script src="/static/component/element/js/index.js"></script>
+<script>
+
+    Vue.http.options.emulateJSON = true;
+    var vueApp = new Vue({
+        el: "#app",
+        data: {
+            treeFilterText:"",
+            loading: false,
+            url: {
+                queryPage: "/com/lizhivscaomei/jes/sys/controller/sysDict/query/page",
+                save: "/com/lizhivscaomei/jes/sys/controller/sysDict/save",
+                delete: "/com/lizhivscaomei/jes/sys/controller/sysDict/delete",
+                detail: "/com/lizhivscaomei/jes/sys/controller/sysDict/query/detail",
+                domainOptions: "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner",
+                select: "/com/lizhivscaomei/jes/sys/controller/sysDict/query/select"
+            },
+            pages: {
+                total: 0,
+                currentPage: 1,
+                pageSize: 20,
+                pageSizeList: [20, 40, 100]
+            },
+            treeData: [],
+            treeProps: {
+                value: "id",
+                label: "text",
+                children: "nodes"
+            },
+            editForm: {
+                formName: "添加",
+                dialogFormVisible: false,
+                data: {
+                    //名称
+                    name: "",
+                    //代码
+                    code: "",
+                    //类型(分类/项目)
+                    type: "",
+                    //描述
+                    description: "",
+                    //排序（升序）
+                    sort: "",
+                    //父级编号
+                    parentId: "",
+                    parentIds: "",
+                    parentIdArray: [],
+                    //创建者
+                    /*createBy: "",
+                     //创建时间
+                     createDate: "",
+                     //更新者
+                     updateBy: "",
+                     //更新时间
+                     updateDate: "",
+                     //备注信息
+                     remarks: "",*/
+                    //所属域
+                    domainId: "",
+                    id: ""
+                },
+                rules: {
+                    name: [{required: true, message: '请输入名称', trigger: 'blur'}],
+                    code: [{required: true, message: '请输入代码', trigger: 'blur'}],
+                    type: [{required: true, message: '请输入类型(分类/项目)', trigger: 'blur'}],
+                    description: [{required: true, message: '请输入描述', trigger: 'blur'}],
+                    sort: [{required: true, message: '请输入排序（升序）', trigger: 'blur'}],
+                    parentIdArray: [{required: true, message: '请输入父级编号', trigger: 'blur'}],
+                    /*createBy: [{required: true, message: '请输入创建者', trigger: 'blur'}],
+                     createDate: [{required: true, message: '请输入创建时间', trigger: 'blur'}],
+                     updateBy: [{required: true, message: '请输入更新者', trigger: 'blur'}],
+                     updateDate: [{required: true, message: '请输入更新时间', trigger: 'blur'}],
+                     remarks: [{required: true, message: '请输入备注信息', trigger: 'blur'}],*/
+                    domainId: [{required: true, message: '请输入所属域', trigger: 'blur'}]
+                }
+            },
+            queryForm: {
+                dialogFormVisible: false,
+                data: {
+                    currentPage: 1,
+                    pageSize: 10,
+                    //名称
+                    name: "",
+                    //代码
+                    code: "",
+                    //类型(分类/项目)
+                    type: "",
+                    /*//描述
+                     description: "",
+                     //排序（升序）
+                     sort: "",
+                     //父级编号
+                     parentId: "",
+                     //创建者
+                     createBy: "",
+                     //创建时间
+                     createDate: "",
+                     //更新者
+                     updateBy: "",
+                     //更新时间
+                     updateDate: "",
+                     //备注信息
+                     remarks: "",*/
+                    //所属域
+                    domainId: ""
+                }
+            }
+            ,
+            options: {
+                domainId: [],
+                type: [
+                    {
+                        id: "0",
+                        text: "分类"
+                    },
+                    {
+                        id: "1",
+                        text: "项目"
+                    }
+                ],
+                parentId: []
+            }
+        },
+        watch:{
+            treeFilterText(val){
+                this.$refs.tree.filter(val);
+            }
+        },
+        methods: {
+            filterTreeNode:function(filterText, data) {
+                if (!filterText) return true;
+                return data.text.indexOf(filterText) !== -1;
+            },
+            handleNodeClick: function (nodeData) {
+                this.$http.get(this.url.detail, {params: {id: nodeData.id}}).then(function (res) {
+                    this.editForm.data.domainId = res.data.data.domainId;
+                    this.editForm.data.id = res.data.data.id;
+                    this.editForm.formName = "修改";
+                    this.editForm.data.parentIdArray = res.data.data.parentIds.split(":");
+                    this.editForm.data.name = res.data.data.name;
+                    this.editForm.data.code = res.data.data.code;
+                    this.editForm.data.sort = res.data.data.sort;
+                    this.editForm.data.description = res.data.data.description;
+                    this.editForm.data.type = res.data.data.type;
+                }, function (res) {
+                    this.loading = false;
+                    this.$message({
+                        showClose: true,
+                        message: "网络错误,code=" + res.status,
+                        type: "error"
+                    });
+                });
+            },
+            handleSizeChange: function (val) {
+                this.queryFormSubmit();
+            },
+            handleCurrentChange: function (val) {
+                this.queryFormSubmit();
+            },
+            queryFormSubmit: function () {
+                this.loading = true;
+                this.queryForm.data.currentPage = this.pages.currentPage;
+                this.queryForm.data.pageSize = this.pages.pageSize;
+                this.$http.get(this.url.select, {params: this.queryForm.data}).then(function (res) {
+                    this.loading = false;
+                    this.treeData = res.data.data;
+                    this.pages.total = res.data.data.total;
+                }, function (res) {
+                    this.loading = false;
+                    this.$message({
+                        showClose: true,
+                        message: "网络错误,code=" + res.status,
+                        type: "error"
+                    });
+                });
+            },
+            showEditForm: function (action, index, row) {
+                this.$http.get(this.url.select, {params: {domainId: this.queryForm.data.domainId}}).then(function (res) {
+                    this.options.parentId = res.data;
+                }, function (res) {
+                    this.$message({
+                        showClose: true,
+                        message: "网络错误,code=" + res.status,
+                        type: "error"
+                    });
+                });
+                if (action == "add") {
+                    this.editForm.data.id = "";
+                    this.editForm.formName="添加";
+                }
+                if (action == "edit") {
+                    this.editForm.data.id = row.id;
+                    this.editForm.data.name = row.name;
+                    this.editForm.data.code = row.code;
+                    this.editForm.data.type = row.type;
+                    this.editForm.data.description = row.description;
+                    this.editForm.data.sort = row.sort;
+                    this.editForm.data.parentId = row.parentId;
+                    this.editForm.data.domainId = row.domainId;
+                }
+                this.editForm.dialogFormVisible = true;
+            },
+            deleteItem: function (index, row) {
+                this.$confirm('此操作将删除' + this.editForm.data.name + ', 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$http.get(this.url.delete, {params: {id: vueApp.editForm.data.id}}).then(function (res) {
+                        this.$message({
+                            type: 'success',
+                            message: '删除成功!'
+                        });
+                        vueApp.queryFormSubmit();
+                        vueApp.editForm.data={};
+                        vueApp.editForm.formName="添加";
+                    }, function (res) {
+                        this.$message({
+                            showClose: true,
+                            message: '网络错误' + res.status,
+                            type: 'error'
+                        });
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+            },
+            save: function (formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        this.editForm.data.parentId=this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length-1];
+                        this.editForm.data.parentIds=this.editForm.data.parentIdArray.join(":");
+                        this.$http.post(this.url.save, this.editForm.data).then(function (res) {
+                            this.$message({
+                                type: 'success',
+                                message: '保存成功!'
+                            });
+                            this.editForm.dialogFormVisible = false;
+                            vueApp.queryFormSubmit();
+                        }, function (res) {
+                            this.loading = false;
+                            console.log(res.status);
+                            this.$message({
+                                showClose: true,
+                                message: '网络错误' + res.status,
+                                type: 'error'
+                            });
+                        });
+
+                    } else {
+                        console.log('error submit!!');
+
+                        return false;
+                    }
+                });
+            }
+        },
+        mounted: function () {
+            //初始化操作
+            this.$http.get(this.url.domainOptions).then(function (res) {
+                this.options.domainId = res.data;
+                this.editForm.data.domainId = res.data[0].id;
+                this.queryForm.data.domainId = res.data[0].id;
+                this.queryFormSubmit();
+            }, function (res) {
+                this.$message({
+                    showClose: true,
+                    message: "网络错误,code=" + res.status,
+                    type: "error"
+                });
+            });
+
+
+        }
+    });
+
+</script>
+</html>

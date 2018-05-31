@@ -1,0 +1,374 @@
+<html xmlns="http://www.w3.org/1999/xhtml" id="vue">
+<head>
+    <title>微立方智慧农业管理平台</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/static/component/element/css/index.css">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/nifty.min.css" rel="stylesheet">
+    <!--Premium Icons [ OPTIONAL ]-->
+    <link href="static/premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+    <link href="static/premium/icon-sets/icons/solid-icons/premium-solid-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="container">
+    <el-container>
+        <el-header>
+            <!--NAVBAR 顶部横条-->
+            <!--===================================================-->
+            <header id="navbar">
+                <div id="navbar-container" class="boxed">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand">
+                            <img src="static/img/logo.png" alt="Logo" class="brand-icon">
+                            <div class="brand-title">
+                                <span class="brand-text">{{selectedDomain.name}}</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="navbar-content clearfix">
+                        <ul class="nav navbar-top-links">
+
+                            <!--Navigation toogle button-->
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <li class="tgl-menu-btn">
+                                <a class="mainnav-toggle" href="#" @click="toggleMainnav()">
+                                    <i class="pli-list-view icon-lg"></i>
+                                </a>
+                            </li>
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <!--End Navigation toogle button-->
+
+
+                            <!--搜索-->
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <li>
+                                <div class="custom-search-form">
+                                    <label class="btn btn-trans" for="search-input" data-toggle="collapse"
+                                           data-target="#nav-searchbox">
+                                        <i class="pli-magnifi-glass"></i>
+                                    </label>
+                                    <form>
+                                        <div class="search-container collapse" id="nav-searchbox">
+                                            <input id="search-input" type="text" class="form-control" placeholder="搜一搜">
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <!--End Search-->
+
+
+                        </ul>
+                        <ul class="nav navbar-top-links">
+                            <li>
+                                <el-popover
+                                        placement="bottom"
+                                        width="400"
+                                        trigger="hover">
+                                    <ul class="list-unstyled">
+                                        <li v-for="domain in my.domainList">
+                                            <a href="#" class="media mar-btm mega-dropdown-toggle"
+                                               v-on:click="selectDomain(domain)">
+                                                <span class="badge badge-success pull-right">new</span>
+                                                <div class="media-left">
+                                                    <i class="pli-data-settings icon-2x"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <p class="text-semibold text-main mar-no">
+                                                        {{domain.text}}</p>
+                                                    <small class="text-muted"></small>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                    <a slot="reference" href="#" class="mega-dropdown-toggle">
+                                        <i class="pli-layout-grid"></i>
+                                    </a>
+                                </el-popover>
+                            </li>
+                            <li>
+                                <el-popover
+                                        placement="bottom"
+                                        width="400"
+                                        trigger="hover">
+                                    <ul class="list-unstyled">
+                                        <!-- Dropdown list-->
+                                        <li v-for="notification in my.notificationList">
+                                            <a href="#" class="media" v-on:click="openframe(notification)">
+                                                <span class="badge badge-success pull-right">1</span>
+                                                <div class="media-left">
+
+									<span class="icon-wrap icon-circle bg-danger">
+									    <i class="pli-mail-open icon-lg icon-lg"></i>
+									</span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="text-nowrap">{{notification.text}}</div>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                    <a slot="reference" href="#">
+                                        <i class="pli-bell"></i>
+                                    </a>
+                                </el-popover>
+                            </li>
+                            <li>
+                                <el-popover
+                                        placement="bottom"
+                                        width="250"
+                                        trigger="hover">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#">
+                                                <span class="badge badge-success pull-right"></span>
+                                                <div class="media-left">
+                                                    <span class="icon-wrap icon-circle"><i class="pli-male icon-lg icon-fw"></i></span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="text-nowrap">名片</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="badge badge-success pull-right"></span>
+                                                <div class="media-left">
+                                                    <span class="icon-wrap icon-circle"><i class="pli-computer-secure icon-lg icon-fw"></i></span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="text-nowrap">修改密码</div>
+                                                </div></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="badge badge-success pull-right"></span>
+                                                <div class="media-left">
+                                                    <span class="icon-wrap icon-circle"><i class="pli-folder-with-document icon-lg icon-fw"></i></span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="text-nowrap">帮助</div>
+                                                </div></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="badge badge-success pull-right"></span>
+                                                <div class="media-left">
+                                                    <span class="icon-wrap icon-circle"><i class="pli-gear icon-lg icon-fw"></i></span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="text-nowrap">设置</div>
+                                                </div></a>
+                                        </li>
+                                        <li>
+                                            <a href="/logout">
+                                                <span class="badge badge-success pull-right"></span>
+                                                <div class="media-left">
+                                                    <span class="icon-wrap icon-circle"><i class="pli-unlock icon-lg icon-fw"></i></span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="text-nowrap">安全退出</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <a slot="reference" href="#" data-toggle="dropdown"
+                                       class="dropdown-toggle text-right">
+                                        <i class="pli-male"></i>
+                                    </a>
+                                </el-popover>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </el-header>
+        <el-container>
+            <div>
+                <el-menu :default-openeds="['userinfo']" class="el-menu-vertical-demo" @open="handleOpen"
+                         @close="handleClose"
+                         :collapse="isCollapse">
+
+                    <el-submenu index="userinfo">
+                        <template slot="title">
+                            <i class="el-icon-picture"></i>
+                            <span slot="title">当前用户</span>
+                        </template>
+
+                        <div class="mainnav-profile">
+                            <div class="profile-wrap text-center">
+                                <div class="pad-btm">
+                                    <img class="img-circle img-md" src="static/img/profile-photos/1.png" alt="Profile Picture">
+                                </div>
+                                <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                                    <p class="mnp-name">{{my.userinfo.name}}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </el-submenu>
+                    <el-submenu v-for="menu in selectedDomain.menuList" :index="menu.id">
+                        <template slot="title">
+                            <i class="el-icon-star-on"></i>
+                            <span slot="title">{{menu.text}}</span>
+                        </template>
+
+                        <el-menu-item :index="menu2.id" v-for="menu2 in menu.nodes" @click="openframe(menu2)">
+
+                            <i class="el-icon-tickets"></i>
+                            <span>{{menu2.text}}</span>
+
+                        </el-menu-item>
+                    </el-submenu>
+                </el-menu>
+            </div>
+            <el-main>
+                <div id="page-content" style="padding: 0px">
+                    <iframe v-bind:src="iframeDefUrl" width="100%" height="100%" frameborder="0"
+                            name="mainframe" id="mainframe"></iframe>
+                </div>
+            </el-main>
+        </el-container>
+        <el-footer>技术支持：<a href="mailto://denglizh7573@qq.com">denglizh7573@qq.com</a></el-footer>
+    </el-container>
+</div>
+</body>
+</html>
+
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/vue-resource.min.js"></script>
+<script src="/static/component/element/js/index.js"></script>
+<script>
+    var vueApp = new Vue({
+        el: "#container",
+        data: {
+            isCollapse: false,
+            url: {
+                domainOptions: "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner",
+                queryMenuTree: "/com/lizhivscaomei/jes/sys/controller/sysMenu/query/select"
+            },
+            my: {
+                notificationList: [
+                    {
+                        id: "12313",
+                        text: "未处理订单",
+                        url: "http://www.163.com"
+                    },
+                    {
+                        id: "12313",
+                        text: "该浇水了",
+                        url: "http://www.sohu.com"
+                    },
+                    {
+                        id: "12313",
+                        text: "该施肥水了",
+                        url: "http://www.baidu.com"
+                    }
+                ],
+                domainList: [],
+                userinfo: {
+                    name: "管理员"
+                }
+            },
+            selectedDomain: {
+                id: "d926086b-bdb9-4e9f-af4e-e960523e9427",
+                name: "系统管理",
+                menuList: []
+            },
+            iframeDefUrl: "http://www.baidu.com"
+        },
+        methods: {
+            selectDomain: function (domain) {
+                this.selectedDomain.id = domain.id;
+                this.selectedDomain.name = domain.text;
+                this.getDomainMenu(this.selectedDomain.id);
+            },
+            getDomainMenu: function (domainId) {
+                //查询菜单
+                this.$http.get(this.url.queryMenuTree, {params: {domainId: domainId}}).then(function (res) {
+                    this.selectedDomain.menuList = res.data.data[0].nodes;
+                }, function (res) {
+                    this.$message({
+                        showClose: true,
+                        message: "网络错误,code=" + res.status,
+                        type: "error"
+                    });
+                });
+            },
+            openframe: function (data) {
+                document.getElementById("mainframe").src=data.href;
+            },
+            handleOpen(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleClose(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            toggleMainnav(){
+                if (this.isCollapse) {
+                    this.isCollapse = false;
+                } else {
+                    this.isCollapse = true;
+                }
+            }
+        },
+        mounted: function () {
+            //查询域
+            this.$http.get(this.url.domainOptions).then(function (res) {
+                this.selectedDomain.id = res.data[0].id;
+                this.selectedDomain.name = res.data[0].text;
+                this.my.domainList = res.data;
+                this.getDomainMenu(this.selectedDomain.id);
+            }, function (res) {
+                this.$message({
+                    showClose: true,
+                    message: "网络错误,code=" + res.status,
+                    type: "error"
+                });
+            });
+
+        }
+    });
+</script>
+<%--一定要放在最后--%>
+<%--<script src="static/js/nifty.min.js"></script>--%>
+
+<style>
+
+    .el-menu-vertical-demo:not(.el-menu--collapse) {
+        width: 300px;
+        min-height: 100%;
+    }
+
+    .brand-text {
+        color: white;
+        font-family: monospace;
+    }
+
+    #navbar .brand-title {
+        width: 300px;
+    }
+
+    .el-main {
+        padding: 0px;
+    }
+
+    .navbar-top-links > li > span > a {
+        font-size: 16px;
+        display: table-cell;
+        padding: 0 8px;
+        vertical-align: middle;
+        height: 59px;
+        color: #fff;
+        transition: all 0.4s;
+    }
+    .list-unstyled >li:hover{
+        background-color: #e8e8e8;
+    }
+</style>
