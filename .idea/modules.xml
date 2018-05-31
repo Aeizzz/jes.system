@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/system.iml" filepath="$PROJECT_DIR$/system.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system-boot-webapp/system-boot-webapp.iml" filepath="$PROJECT_DIR$/system-boot-webapp/system-boot-webapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/systemapi/systemapi.iml" filepath="$PROJECT_DIR$/systemapi/systemapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/systembusiness/systembusiness.iml" filepath="$PROJECT_DIR$/systembusiness/systembusiness.iml" />
     </modules>
