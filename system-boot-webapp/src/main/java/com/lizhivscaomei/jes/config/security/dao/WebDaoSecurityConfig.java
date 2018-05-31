@@ -29,7 +29,7 @@ public class WebDaoSecurityConfig extends WebSecurityConfigurerAdapter {
     /*http协议安全配置*/
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http.csrf().disable()//关闭CSRF攻击
                 .authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/logout").permitAll()
@@ -40,14 +40,13 @@ public class WebDaoSecurityConfig extends WebSecurityConfigurerAdapter {
                 //登录相关
                 .and().formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").defaultSuccessUrl("/home")
                 .and().sessionManagement().maximumSessions(1).sessionRegistry(new SessionRegistryImpl())
-                .and().and()
-                .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
                 .and()
+                //登出相关
+                .and().logout().invalidateHttpSession(true).clearAuthentication(true)
+                .and()
+                //header相关
                 .headers().frameOptions().disable()
-                .and()
-                .httpBasic();
+                .and().httpBasic();
 
     }
 

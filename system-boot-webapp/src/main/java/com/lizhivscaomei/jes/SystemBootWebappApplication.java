@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(value = {"com.lizhivscaomei.jes.config","com.lizhivscaomei.jes.sys"})
+@ComponentScan(value = {"com.lizhivscaomei.jes"})
 @MapperScan("com.lizhivscaomei.jes.sys.dao")
 public class SystemBootWebappApplication {
 
