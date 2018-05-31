@@ -1,4 +1,4 @@
-package com.lizhivscaomei.jes.config;
+package com.lizhivscaomei.jes.config.security.dao;
 
 
 import com.lizhivscaomei.jes.sys.security.userdetails.JesUserDetailsService;

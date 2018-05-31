@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44f1b9ac-cb95-41c5-9367-d106b908f71e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/ServletInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/resources/application.yml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/WebDaoSecurityConfig.java" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/WebDaoSecurityConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/WebDaoSecurityConfig.java" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/dao/WebDaoSecurityConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/integration/cas/JesCasUserDetailsService.java" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/cas/JesCasUserDetailsService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/integration/cas/WebCasSecurityConfig.java" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/cas/WebCasSecurityConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/sys/IndexController.java" afterPath="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/IndexController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,22 +37,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebDaoSecurityConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/WebDaoSecurityConfig.java">
+      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="677">
-              <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/resources/static/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="212" column="34" lean-forward="true" selection-start-line="212" selection-start-column="34" selection-end-line="212" selection-end-column="34" />
-              <folding />
+            <state relative-caret-position="165">
+              <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <folding>
+                <element signature="e#883#884#0" expanded="true" />
+                <element signature="e#913#914#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,7 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>save</find>
       <find>add</find>
       <find>delete</find>
       <find>SysMenu</find>
@@ -98,6 +91,7 @@
       <find>cls-content</find>
       <find>debugger</find>
       <find>iframeDefUrl</find>
+      <find>/profile-photos</find>
     </findStrings>
     <replaceStrings>
       <replace>com.lizhivscaomei.jes.common.exception.AppException</replace>
@@ -139,8 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysParamVo.java" />
-        <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysParamViewService.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/TreeVo.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/TreeViewService.java" />
         <option value="$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/view/SysMenuTreeViewService.java" />
@@ -190,6 +182,8 @@
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.html" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/WebDaoSecurityConfig.java" />
         <option value="$PROJECT_DIR$/system-boot-webapp/src/main/resources/static/index.html" />
+        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/dao/WebDaoSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/IndexController.java" />
       </list>
     </option>
   </component>
@@ -415,40 +409,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system-boot-webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -477,8 +437,20 @@
     <property name="ignore_missing_gitignore" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\js" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser\view" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\select2\4.0.6" />
+      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sysManage" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.lizhivscaomei.jes" />
       <recent name="jsp.module.sys" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lizhivscaomei.jes.sys.view" />
+      <recent name="com.lizhivscaomei.jes.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\code\system\system-boot-webapp\src\main\webapp" />
@@ -486,17 +458,6 @@
       <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\element\css\fonts" />
       <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\bootstrap\3.3.7\plugins\treeview" />
       <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\js" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.lizhivscaomei.jes.sys.view" />
-      <recent name="com.lizhivscaomei.jes.config" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\js" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sys\sysUser\view" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\static\component\select2\4.0.6" />
-      <recent name="E:\code\system\system-boot-webapp\src\main\webapp\jsp\module\sysManage" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SystemBootWebappApplication">
@@ -1092,7 +1053,7 @@
       <workItem from="1527125187676" duration="3576000" />
       <workItem from="1527207533908" duration="11061000" />
       <workItem from="1527226906461" duration="674000" />
-      <workItem from="1527729881773" duration="1320000" />
+      <workItem from="1527729881773" duration="1695000" />
     </task>
     <task id="LOCAL-00001" summary="cas初步打通">
       <created>1522489673810</created>
@@ -1290,11 +1251,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527228425640</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="精简不必要的类">
+      <created>1527731218408</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1527731218408</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="341796000" />
+    <option name="totallyTimeSpent" value="342171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1318" extended-state="6" />
@@ -1360,7 +1328,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978687" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46594983" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46594983" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1407,7 +1375,8 @@
     <MESSAGE value="首页基本完成" />
     <MESSAGE value="首页完善" />
     <MESSAGE value="放弃jsp spring boot 运行" />
-    <option name="LAST_COMMIT_MESSAGE" value="放弃jsp spring boot 运行" />
+    <MESSAGE value="精简不必要的类" />
+    <option name="LAST_COMMIT_MESSAGE" value="精简不必要的类" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1590,30 +1559,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysArea/sysAreaList.html" />
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysMenu/sysMenuList.html" />
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/integration/cas/WebCasSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/integration/cas/JesCasUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/public/head.jsp" />
     <entry file="file://$USER_HOME$/Desktop/jes_eb.sql" />
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/module/sys/sysDict/sysDictList.html" />
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/sys/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/jsp/public/nifty.jsp" />
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/index.jsp" />
     <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/webapp/login.jsp" />
@@ -1644,26 +1592,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/SystemBootWebappApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/systembusiness/src/main/java/com/lizhivscaomei/jes/sys/security/userdetails/JesUserDetailsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="20" column="64" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/WebDaoSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1673,6 +1605,49 @@
         <state relative-caret-position="498">
           <caret line="212" column="34" lean-forward="true" selection-start-line="212" selection-start-column="34" selection-end-line="212" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/cas/WebCasSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/cas/JesCasUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/config/security/dao/WebDaoSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/SystemBootWebappApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system-boot-webapp/src/main/java/com/lizhivscaomei/jes/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

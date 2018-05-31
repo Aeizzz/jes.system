@@ -1,4 +1,4 @@
-package com.lizhivscaomei.jes.sys;
+package com.lizhivscaomei.jes;
 
 import com.lizhivscaomei.jes.sys.security.userdetails.JesUserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 
 /**
+ * 首页
  * Created by lizhi on 2018/3/30.
  */
 @Controller

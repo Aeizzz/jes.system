@@ -1,4 +1,4 @@
-package com.lizhivscaomei.jes.config.integration.cas;
+package com.lizhivscaomei.jes.config.security.cas;
 
 import com.lizhivscaomei.jes.sys.security.userdetails.JesUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
