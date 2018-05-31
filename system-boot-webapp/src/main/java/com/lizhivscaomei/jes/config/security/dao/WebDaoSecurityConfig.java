@@ -36,7 +36,7 @@ public class WebDaoSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/jsp/pulic/**").permitAll()
                 .antMatchers("/favicon.ico").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().authenticated()//其余的所有请求都需要验证
                 //登录相关
                 .and().formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").defaultSuccessUrl("/home")
                 .and().sessionManagement().maximumSessions(1).sessionRegistry(new SessionRegistryImpl())
