@@ -61,7 +61,9 @@ public class SysDomainServiceImp implements SysDomainService {
 
     @Override
     public List<SysDomain> queryAll() {
-        List<SysDomain> list= this.sysDomainMapper.selectByExample(new SysDomainExample());
+        SysDomainExample example=new SysDomainExample();
+        example.setOrderByClause("code asc");
+        List<SysDomain> list= this.sysDomainMapper.selectByExample(example);
         return list;
     }
 }

@@ -5,11 +5,10 @@ import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
 import com.lizhivscaomei.jes.sys.dao.SysUserMapper;
-import com.lizhivscaomei.jes.sys.entity.SysMenu;
-import com.lizhivscaomei.jes.sys.entity.SysRole;
-import com.lizhivscaomei.jes.sys.entity.SysUser;
-import com.lizhivscaomei.jes.sys.entity.SysUserExample;
+import com.lizhivscaomei.jes.sys.dao.SysUserRoleMapper;
+import com.lizhivscaomei.jes.sys.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -23,6 +22,12 @@ import java.util.UUID;
 public class SysUserServiceImp implements SysUserService {
     @Autowired
     SysUserMapper sysUserMapper;
+    @Autowired
+    SysUserRoleMapper sysUserRoleMapper;
+    @Autowired
+    SysMenuService sysMenuService;
+    @Autowired
+    SysRoleService sysRoleService;
     /**
      * 添加用户
      * 只能是默认密码
@@ -67,7 +72,7 @@ public class SysUserServiceImp implements SysUserService {
     }
 
     public SysUser getByLoginName(String s) throws AppException {
-        boolean test=true;
+        boolean test=false;
         if(test){
             SysUser sysUser=new SysUser();
             sysUser.setName("admin");
@@ -137,12 +142,28 @@ public class SysUserServiceImp implements SysUserService {
     @Override
     public List<SysMenu> getMyMenus(String userid) {
         List<SysMenu> menuList=new ArrayList<>();
-        SysMenu sysMenu=new SysMenu();
-        sysMenu.setId(UUID.randomUUID().toString());
-        sysMenu.setName("用户管理");
-        sysMenu.setHref("http://www.baidu.com");
-        sysMenu.setPermission("user");
-        menuList.add(sysMenu);
+        //我有那些角色
+        SysUserRoleExample userRoleExample=new SysUserRoleExample();
+        SysUserRoleExample.Criteria criteria = userRoleExample.createCriteria();
+        criteria.andUserIdEqualTo(userid);
+        List<SysUserRole> userRoleList = this.sysUserRoleMapper.selectByExample(userRoleExample);
+        //我每个角色授予了那些菜单
+        if(userRoleList!=null&&userRoleList.size()>0){
+            for(SysUserRole userRole:userRoleList){
+                List<SysMenu> roleMenuList = this.sysRoleService.getMenus(userRole.getRoleId());
+                if(roleMenuList!=null&&roleMenuList.size()>0){
+                    menuList.addAll(roleMenuList);
+                }
+            }
+        }
         return menuList;
+    }
+
+
+    @Override
+    public List<SysUser> queryAll() {
+        SysUserExample example=new SysUserExample();
+        example.setOrderByClause("login_name asc");
+        return this.sysUserMapper.selectByExample(example);
     }
 }

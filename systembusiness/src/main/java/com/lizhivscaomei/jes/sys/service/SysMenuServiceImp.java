@@ -4,9 +4,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
-import com.lizhivscaomei.jes.sys.entity.SysMenu;
+import com.lizhivscaomei.jes.sys.dao.SysUserRoleMapper;
+import com.lizhivscaomei.jes.sys.entity.*;
 import com.lizhivscaomei.jes.sys.dao.SysMenuMapper;
-import com.lizhivscaomei.jes.sys.entity.SysMenuExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,6 +20,10 @@ import java.util.UUID;
 public class SysMenuServiceImp implements SysMenuService {
     @Autowired
     SysMenuMapper sysMenuMapper;
+    @Autowired
+    SysUserRoleMapper sysUserRoleMapper;
+    @Autowired
+    SysRoleService sysRoleService;
 
     public void add(SysMenu entity) throws AppException {
         if(entity!=null){
@@ -82,4 +86,5 @@ public class SysMenuServiceImp implements SysMenuService {
         list.add(root);
         return list;
     }
+
 }

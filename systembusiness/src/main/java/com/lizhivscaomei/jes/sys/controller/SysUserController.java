@@ -9,6 +9,7 @@ import com.lizhivscaomei.jes.sys.entity.SysUser;
 import com.lizhivscaomei.jes.sys.service.SysUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,7 @@ public class SysUserController {
     * */
     @ResponseBody
     @RequestMapping("/sysUser/save")
+//    @PreAuthorize(value = "hasAuthority('sys.usercenter.user')")
     public Msg add(SysUser entity){
         Msg msg=new Msg();
         try {

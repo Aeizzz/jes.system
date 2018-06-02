@@ -47,15 +47,21 @@
             <!--<el-table-column label="是否系统数据" prop="isSys"></el-table-column>-->
             <!--<el-table-column label="是否可用" prop="useable"></el-table-column>-->
             <!--<el-table-column label="归属机构" prop="officeId"></el-table-column>-->
-            <el-table-column label="所属域" prop="domainId"></el-table-column>
+            <!--<el-table-column label="所属域" prop="domainId"></el-table-column>-->
             <!--<el-table-column label="创建者" prop="createBy"></el-table-column>-->
             <!--<el-table-column label="创建时间" prop="createDate"></el-table-column>-->
             <!--<el-table-column label="更新者" prop="updateBy"></el-table-column>-->
             <!--<el-table-column label="更新时间" prop="updateDate"></el-table-column>-->
             <!--<el-table-column label="备注信息" prop="remarks"></el-table-column>-->
             <!--<el-table-column label="删除标记" prop="delFlag"></el-table-column>-->
-            <el-table-column label="操作" fixed="right" width="200" prop="id">
+            <el-table-column label="操作" fixed="right" width="600" prop="id">
                 <template slot-scope="scope">
+                    <el-button size="mini" type="primary" @click="showUserPanel(scope.$index, scope.row)"
+                               icon="el-icon-edit">用户管理
+                    </el-button>
+                    <el-button size="mini" type="primary" @click="showPrivilegePanel(scope.$index, scope.row)"
+                               icon="el-icon-edit">权限管理
+                    </el-button>
                     <el-button size="mini" type="primary" @click="showEditForm('edit',scope.$index, scope.row)"
                                icon="el-icon-edit">编辑
                     </el-button>
@@ -142,6 +148,27 @@
                 <el-button type="primary" @click="save('editForm.data')">保 存</el-button>
             </div>
         </el-dialog>
+        <el-dialog :title="userPanel.title" :visible.sync="userPanel.visible">
+            <el-transfer
+                    v-model="userPanel.rightData"
+                    :data="userPanel.leftData"
+                    :props="{key: 'id',label: 'text'}"
+                    :titles="['未选择', '已选择']"></el-transfer>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="userPanel.visible = false">取 消</el-button>
+                <el-button type="primary" @click="saveUserPanel()">保 存</el-button>
+            </div>
+        </el-dialog>
+        <el-dialog :title="privilegePanel.title" :visible.sync="privilegePanel.visible">
+            <el-tree :data="privilegePanel.all"
+                     :props="privilegePanel.treeProps" node-key="id" show-checkbox ref="tree"
+                     :default-expanded-keys="privilegePanel.selected"
+                     :default-checked-keys="privilegePanel.selected"></el-tree>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="privilegePanel.visible = false">取 消</el-button>
+                <el-button type="primary" @click="savePrivilegePanel()">保 存</el-button>
+            </div>
+        </el-dialog>
     </div>
 </div>
 </body>
@@ -161,7 +188,11 @@
                 save: "/com/lizhivscaomei/jes/sys/controller/sysRole/save",
                 delete: "/com/lizhivscaomei/jes/sys/controller/sysRole/delete",
                 detail: "/com/lizhivscaomei/jes/sys/controller/sysRole/query/detail",
-                domainOptions: "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner"
+                domainOptions: "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner",
+                roleUserQuery: "/com/lizhivscaomei/jes/sys/controller/sysRole/user/query",
+                roleUserSave: "/com/lizhivscaomei/jes/sys/controller/sysRole/user/save",
+                rolePrivilegeQuery: "/com/lizhivscaomei/jes/sys/controller/sysRole/privilege/query",
+                rolePrivilegeSave: "/com/lizhivscaomei/jes/sys/controller/sysRole/privilege/save"
             },
             pages: {
                 total: 0,
@@ -234,7 +265,7 @@
                     //角色代码
                     enname: "",
                     //角色名称
-                    name: "",
+                    name: ""
                     //角色类型
                     /*roleType: "",
                      //数据范围
@@ -257,10 +288,28 @@
                      delFlag: "",
                      id: ""*/
                 }
-            }
-            ,
+            },
             options: {
                 domainId: []
+            },
+            userPanel:{
+                title:"角色-用户",
+                visible: false,
+                roleId: "",
+                leftData:[],
+                rightData:[]
+            },
+            privilegePanel:{
+                title:"角色-权限",
+                roleId: "",
+                visible: false,
+                treeProps: {
+                    value:"id",
+                    label: "text",
+                    children: "nodes",
+                },
+                all:[],
+                selected:[]
             }
         },
         methods: {
@@ -350,6 +399,96 @@
 
                         return false;
                     }
+                });
+            },
+            showUserPanel: function (index, row) {
+                this.userPanel.roleId=row.id;
+                this.$http.get(this.url.roleUserQuery, {params: {roleId: this.userPanel.roleId}}).then(function (res) {
+                    this.userPanel.leftData = res.data.data.all;
+                    this.userPanel.rightData = res.data.data.selected;
+                    this.userPanel.visible = true;
+                }, function (res) {
+                    this.$message({
+                        showClose: true,
+                        message: '网络错误' + res.status,
+                        type: 'error'
+                    });
+                });
+            },
+            saveUserPanel:function(){
+                this.$confirm('权限模块谨慎操作, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$http.post(this.url.roleUserSave, {roleId:this.userPanel.roleId,selectedList:this.userPanel.rightData.join(",")}).then(function (res) {
+                        this.$message({
+                            type: 'success',
+                            message: '保存成功!'
+                        });
+                        this.userPanel.visible = false;
+                    }, function (res) {
+                        this.loading = false;
+                        console.log(res.status);
+                        this.$message({
+                            showClose: true,
+                            message: '网络错误' + res.status,
+                            type: 'error'
+                        });
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消'
+                    });
+                });
+
+            },
+            showPrivilegePanel: function (index, row) {
+                this.privilegePanel.roleId=row.id;
+                this.$http.get(this.url.rolePrivilegeQuery, {params: {roleId: this.privilegePanel.roleId}}).then(function (res) {
+                    this.privilegePanel.all = res.data.data.all;
+                    this.privilegePanel.selected = res.data.data.selected;
+                    this.privilegePanel.visible=true;
+                }, function (res) {
+                    this.$message({
+                        showClose: true,
+                        message: '网络错误' + res.status,
+                        type: 'error'
+                    });
+                });
+            },
+            savePrivilegePanel:function(){
+                this.$confirm('权限模块谨慎操作, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    var selectedIds=[];
+                    var selectedNodes=this.$refs.tree.getCheckedNodes();
+                    for(var i=0;i<selectedNodes.length;i++){
+                        selectedIds.push(selectedNodes[i].id);
+                    }
+                    this.$http.post(this.url.rolePrivilegeSave, {roleId:this.privilegePanel.roleId,selectedList:selectedIds.join(",")}).then(function (res) {
+                        this.$message({
+                            type: 'success',
+                            message: '保存成功!'
+                        });
+                        this.privilegePanel.visible = false;
+                    }, function (res) {
+                        this.loading = false;
+                        console.log(res.status);
+                        this.$message({
+                            showClose: true,
+                            message: '网络错误' + res.status,
+                            type: 'error'
+                        });
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消'
+                    });
                 });
             }
         },

@@ -7,11 +7,13 @@ import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
 import com.lizhivscaomei.jes.common.view.tree.TreeVo;
 import com.lizhivscaomei.jes.sys.entity.SysMenu;
+import com.lizhivscaomei.jes.sys.security.userdetails.JesUserDetails;
 import com.lizhivscaomei.jes.sys.service.SysMenuService;
 import com.lizhivscaomei.jes.sys.view.SysMenuTreeViewService;
 import com.lizhivscaomei.jes.sys.view.SysMenuViewService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -90,6 +92,23 @@ public class SysMenuController {
         Msg msg=new Msg();
         msg.setSuccess(true);
         msg.setData(new TreeVo[]{treeVo});
+        return msg;
+
+    }
+    /**
+     * 树形选择
+     * */
+    @ResponseBody
+    @RequestMapping("/sysMenu/query/my/granted")
+    public Msg queryMyGrantedMenu(String domainId){
+        JesUserDetails currentUser = (JesUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        this.sysMenuTreeViewService.setTreeVoList(list);
+        TreeVo treeVo = this.sysMenuTreeViewService.convertToTree();
+        Msg msg=new Msg();
+        msg.setSuccess(true);
+        msg.setData(new TreeVo[]{treeVo});
+        throw new RuntimeException("未完成");
         return msg;
 
     }

@@ -90,12 +90,14 @@ public class SysRoleServiceImp implements SysRoleService {
         SysUserRoleExample.Criteria criteria = example.createCriteria();
         criteria.andRoleIdEqualTo(s);
         this.sysUserRoleMapper.deleteByExample(example);
-        //添加新的
-        for(String userid:list){
-            SysUserRole record=new SysUserRole();
-            record.setRoleId(s);
-            record.setUserId(userid);
-            this.sysUserRoleMapper.insert(record);
+        if(list!=null&&list.size()>0){
+            //添加新的
+            for(String userid:list){
+                SysUserRole record=new SysUserRole();
+                record.setRoleId(s);
+                record.setUserId(userid);
+                this.sysUserRoleMapper.insert(record);
+            }
         }
     }
 
@@ -104,14 +106,18 @@ public class SysRoleServiceImp implements SysRoleService {
         SysRoleMenuExample.Criteria criteria = example.createCriteria();
         criteria.andRoleIdEqualTo(s);
         List<SysRoleMenu> menuRoleList = this.sysRoleMenuMapper.selectByExample(example);
-        List<String> menuidList=new ArrayList<String>();
-        for(SysRoleMenu sysRoleMenu:menuRoleList){
-            menuidList.add(sysRoleMenu.getMenuId());
+        if(menuRoleList!=null&&menuRoleList.size()>0){
+            List<String> menuidList=new ArrayList<String>();
+            for(SysRoleMenu sysRoleMenu:menuRoleList){
+                menuidList.add(sysRoleMenu.getMenuId());
+            }
+            SysMenuExample menuExample=new SysMenuExample();
+            SysMenuExample.Criteria menuCriteria = menuExample.createCriteria();
+            menuCriteria.andIdIn(menuidList);
+            return this.sysMenuMapper.selectByExample(menuExample);
+        }else {
+            return null;
         }
-        SysMenuExample menuExample=new SysMenuExample();
-        SysMenuExample.Criteria menuCriteria = menuExample.createCriteria();
-        menuCriteria.andIdIn(menuidList);
-        return this.sysMenuMapper.selectByExample(menuExample);
     }
 
     public List<SysUser> getUsers(String s) {
@@ -119,13 +125,17 @@ public class SysRoleServiceImp implements SysRoleService {
         SysUserRoleExample.Criteria criteria = example.createCriteria();
         criteria.andRoleIdEqualTo(s);
         List<SysUserRole> userRoleList = this.sysUserRoleMapper.selectByExample(example);
-        List<String> useridList=new ArrayList<String>();
-        for(SysUserRole sysUserRole:userRoleList){
-            useridList.add(sysUserRole.getUserId());
+        if(userRoleList!=null&&userRoleList.size()>0){
+            List<String> useridList=new ArrayList<String>();
+            for(SysUserRole sysUserRole:userRoleList){
+                useridList.add(sysUserRole.getUserId());
+            }
+            SysUserExample userExample=new SysUserExample();
+            SysUserExample.Criteria userCriteria = userExample.createCriteria();
+            userCriteria.andIdIn(useridList);
+            return this.sysUserMapper.selectByExample(userExample);
+        }else {
+            return null;
         }
-        SysUserExample userExample=new SysUserExample();
-        SysUserExample.Criteria userCriteria = userExample.createCriteria();
-        userCriteria.andIdIn(useridList);
-        return this.sysUserMapper.selectByExample(userExample);
     }
 }

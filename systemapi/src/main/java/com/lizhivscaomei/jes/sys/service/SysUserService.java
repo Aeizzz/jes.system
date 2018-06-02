@@ -25,5 +25,8 @@ public interface SysUserService extends EntityService<SysUser>{
     /*获取用户的角色*/
     List<SysRole> getMyRoles(String userid);
     /*获取用户的授权菜单*/
+    @Deprecated
     List<SysMenu> getMyMenus(String userid);
+    /*查询所有用户*/
+    List<SysUser> queryAll();
 }
