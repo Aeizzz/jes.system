@@ -1,5 +1,8 @@
 # jes系统管理模块
 jes模块运行在jes容器中，典型的是web容器，推荐springboot web容器
+## 先上图
+![login](docs/preview/login.png)
+![index](docs/preview/index.png)
 ## 系统管理模块
 - 用户中心
 - 权限管理

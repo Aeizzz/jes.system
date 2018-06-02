@@ -24,7 +24,7 @@
                     <el-form :inline="true" :model="queryForm.data" class="demo-form-inline">
                         <el-form-item style="width: 100%">
                             <el-select v-model="queryForm.data.domainId" placeholder="所属域"
-                                       @change="queryFormSubmit">
+                                       @change="handleSizeChange">
                                 <el-option
                                         v-for="item in options.domainId"
                                         :key="item.id"
@@ -308,6 +308,7 @@
                 });
             },
             handleSizeChange: function (val) {
+                this.editForm.data.domainId=this.queryForm.data.domainId;
                 this.queryFormSubmit();
             },
             handleCurrentChange: function (val) {
