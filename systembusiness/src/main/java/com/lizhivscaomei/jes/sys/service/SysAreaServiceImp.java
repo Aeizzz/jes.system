@@ -60,12 +60,6 @@ public class SysAreaServiceImp implements SysAreaService {
 
     @Override
     public List<SysArea> getAll() {
-        List<SysArea> list = this.sysAreaMapper.selectByExample(new SysAreaExample());
-        SysArea root=new SysArea();
-        root.setId("0");
-        root.setName("中华人民共和国");
-        root.setCode("86");
-        list.add(root);
-        return list;
+        return this.sysAreaMapper.selectByExample(new SysAreaExample());
     }
 }

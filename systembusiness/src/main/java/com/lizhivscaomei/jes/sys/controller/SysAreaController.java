@@ -85,7 +85,14 @@ public class SysAreaController {
     @RequestMapping("/sysArea/query/select")
     public Msg select(SysArea entity, Page page){
         List<SysArea> list = this.sysAreaService.getAll();
+        SysArea root=new SysArea();
+        root.setId("000000");
+        root.setName("中华人民共和国");
+        root.setCode("000000");
+        list.add(root);
+        this.sysAreaTreeViewService.setRootId("000000");
         this.sysAreaTreeViewService.setTreeVoList(list);
+
         TreeVo treeVo = this.sysAreaTreeViewService.convertToTree();
         Msg msg=new Msg();
         msg.setSuccess(true);

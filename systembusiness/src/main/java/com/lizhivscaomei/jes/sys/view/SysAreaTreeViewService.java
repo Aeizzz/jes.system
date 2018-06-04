@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 public class SysAreaTreeViewService extends TreeViewService<SysArea>{
     @Override
     public TreeVo convertDTO(SysArea sysArea) {
-        this.setRootId("0");
         TreeVo vo=new TreeVo();
         vo.setId(sysArea.getId());
         vo.setPid(sysArea.getParentId());

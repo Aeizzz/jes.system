@@ -154,7 +154,7 @@
                 this.$http.get(this.url.detail, {params: {id: nodeData.id}}).then(function (res) {
                     this.editForm.data.id = res.data.data.id;
                     this.editForm.formName = "修改";
-                    this.editForm.data.parentIdArray = res.data.data.parentIds.split(":");
+                    this.editForm.data.parentIdArray = res.data.data.parentIds.split(",");
                     this.editForm.data.name = res.data.data.name;
                     this.editForm.data.code = res.data.data.code;
                     this.editForm.data.remarks = res.data.data.remarks;
@@ -228,7 +228,7 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         this.editForm.data.parentId=this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length-1];
-                        this.editForm.data.parentIds=this.editForm.data.parentIdArray.join(":");
+                        this.editForm.data.parentIds=this.editForm.data.parentIdArray.join(",");
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
                             this.$message({
                                 type: 'success',

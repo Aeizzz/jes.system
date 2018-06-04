@@ -100,12 +100,12 @@
                                         <!-- Dropdown list-->
                                         <li v-for="notification in my.notificationList">
                                             <a href="#" class="media" v-on:click="openframe(notification)">
-                                                <span class="badge badge-success pull-right">1</span>
-                                                <div class="media-left">
 
-									<span class="icon-wrap icon-circle bg-danger">
-									    <i class="pli-mail-open icon-lg icon-lg"></i>
-									</span>
+                                                <span class="badge badge-success pull-right" v-if="notification.badge">1</span>
+                                                <div class="media-left">
+                                                    <span class="icon-wrap icon-circle bg-danger">
+                                                        <i class="pli-mail-open icon-lg icon-lg"></i>
+                                                    </span>
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="text-nowrap">{{notification.text}}</div>
@@ -130,7 +130,8 @@
                                             <a href="#">
                                                 <span class="badge badge-success pull-right"></span>
                                                 <div class="media-left">
-                                                    <span class="icon-wrap icon-circle"><i class="pli-male icon-lg icon-fw"></i></span>
+                                                    <span class="icon-wrap icon-circle"><i
+                                                            class="pli-male icon-lg icon-fw"></i></span>
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="text-nowrap">名片</div>
@@ -141,37 +142,44 @@
                                             <a href="#">
                                                 <span class="badge badge-success pull-right"></span>
                                                 <div class="media-left">
-                                                    <span class="icon-wrap icon-circle"><i class="pli-computer-secure icon-lg icon-fw"></i></span>
+                                                    <span class="icon-wrap icon-circle"><i
+                                                            class="pli-computer-secure icon-lg icon-fw"></i></span>
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="text-nowrap">修改密码</div>
-                                                </div></a>
+                                                </div>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <span class="badge badge-success pull-right"></span>
                                                 <div class="media-left">
-                                                    <span class="icon-wrap icon-circle"><i class="pli-folder-with-document icon-lg icon-fw"></i></span>
+                                                    <span class="icon-wrap icon-circle"><i
+                                                            class="pli-folder-with-document icon-lg icon-fw"></i></span>
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="text-nowrap">帮助</div>
-                                                </div></a>
+                                                </div>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <span class="badge badge-success pull-right"></span>
                                                 <div class="media-left">
-                                                    <span class="icon-wrap icon-circle"><i class="pli-gear icon-lg icon-fw"></i></span>
+                                                    <span class="icon-wrap icon-circle"><i
+                                                            class="pli-gear icon-lg icon-fw"></i></span>
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="text-nowrap">设置</div>
-                                                </div></a>
+                                                </div>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="/logout">
                                                 <span class="badge badge-success pull-right"></span>
                                                 <div class="media-left">
-                                                    <span class="icon-wrap icon-circle"><i class="pli-unlock icon-lg icon-fw"></i></span>
+                                                    <span class="icon-wrap icon-circle"><i
+                                                            class="pli-unlock icon-lg icon-fw"></i></span>
                                                 </div>
                                                 <div class="media-body">
                                                     <div class="text-nowrap">安全退出</div>
@@ -205,7 +213,8 @@
                         <div class="mainnav-profile">
                             <div class="profile-wrap text-center">
                                 <div class="pad-btm">
-                                    <img class="img-circle img-md" src="static/img/profile-photos/1.png" alt="Profile Picture">
+                                    <img class="img-circle img-md" src="static/img/profile-photos/1.png"
+                                         alt="Profile Picture">
                                 </div>
                                 <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
                                     <p class="mnp-name">{{my.userinfo.name}}</p>
@@ -256,7 +265,12 @@
             },
             my: {
                 notificationList: [
-
+                    {
+                        id: "-1",
+                        badge: false,
+                        text: "没有通知",
+                        href: ""
+                    }
                 ],
                 domainList: [],
                 userinfo: {
@@ -266,7 +280,7 @@
             selectedDomain: {
                 id: "",
                 name: "",
-                homeUrl: "",
+                href: "",
                 menuList: []
             },
             iframeDefUrl: ""
@@ -290,7 +304,7 @@
                 });
             },
             openframe: function (data) {
-                document.getElementById("mainframe").src=data.href;
+                document.getElementById("mainframe").src = data.href;
             },
             handleOpen(key, keyPath) {
                 console.log(key, keyPath);
@@ -366,7 +380,8 @@
         color: #fff;
         transition: all 0.4s;
     }
-    .list-unstyled >li:hover{
+
+    .list-unstyled > li:hover {
         background-color: #e8e8e8;
     }
 </style>
