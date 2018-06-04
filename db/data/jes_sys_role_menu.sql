@@ -1,0 +1,16 @@
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '-1');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '11b324cf-93dc-48d6-84b4-9e7330ff7b86');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '1f98b175-89ed-4ef9-8e89-527535765558');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '20087729-c6c5-4c88-9bf6-5ece0f73bd75');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '33c17909-a314-4642-b3b7-0009242515e8');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '3f067214-8c61-4444-b38c-ab25faa57d7f');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '4d337952-6c57-4d32-99a7-dda6e5a4d8e4');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '591304b7-9fb5-4a56-b65e-fe262eb5da8d');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '786a3bf0-dd27-45ba-b87a-f155e5a03bbc');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '8611ccb5-b226-4735-a1e5-ba7b1d4162b9');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', '95fc82bd-f9a6-4982-bca2-ddc367c7432b');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('f24642e2-7e13-4012-8fe4-fd897e982826', 'b4793219-4850-4783-beb4-1df2270d57ae');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('ffe4bb3c-5f10-4125-a33a-f9c10b0197de', '11b324cf-93dc-48d6-84b4-9e7330ff7b86');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('ffe4bb3c-5f10-4125-a33a-f9c10b0197de', '33c17909-a314-4642-b3b7-0009242515e8');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('ffe4bb3c-5f10-4125-a33a-f9c10b0197de', '591304b7-9fb5-4a56-b65e-fe262eb5da8d');
+INSERT INTO jes.sys_role_menu (role_id, menu_id) VALUES ('ffe4bb3c-5f10-4125-a33a-f9c10b0197de', 'b4793219-4850-4783-beb4-1df2270d57ae');
