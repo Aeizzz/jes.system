@@ -203,3 +203,33 @@ CREATE TABLE sys_user_role
     role_id VARCHAR(64) NOT NULL COMMENT '角色编号',
     CONSTRAINT `PRIMARY` PRIMARY KEY (user_id, role_id)
 );
+CREATE TABLE v_sys_user_domain_menu
+(
+    user_id VARCHAR(64) NOT NULL COMMENT '用户编号',
+    id VARCHAR(64) COMMENT '编号',
+    parent_id VARCHAR(64) COMMENT '父级编号',
+    parent_ids VARCHAR(2000) COMMENT '所有父级编号',
+    name VARCHAR(100) COMMENT '名称',
+    sort DECIMAL(10) COMMENT '排序',
+    href VARCHAR(2000) COMMENT '链接',
+    target VARCHAR(20) COMMENT '目标',
+    icon VARCHAR(100) COMMENT '图标',
+    is_show CHAR(1) COMMENT '是否在菜单中显示',
+    permission VARCHAR(200) COMMENT '权限标识',
+    create_by VARCHAR(64) COMMENT '创建者',
+    create_date DATETIME COMMENT '创建时间',
+    update_by VARCHAR(64) COMMENT '更新者',
+    update_date DATETIME COMMENT '更新时间',
+    remarks VARCHAR(255) COMMENT '备注信息',
+    del_flag CHAR(1) COMMENT '删除标记',
+    domain_id VARCHAR(64) COMMENT '域ID'
+);
+CREATE TABLE v_sys_user_role_domain
+(
+    user_id VARCHAR(64) NOT NULL COMMENT '用户编号',
+    role_id VARCHAR(64) NOT NULL COMMENT '角色编号',
+    user_name VARCHAR(100) COMMENT '姓名',
+    role_name VARCHAR(100) COMMENT '角色名称',
+    domain_id VARCHAR(64) COMMENT '所属域',
+    domain_name VARCHAR(100) COMMENT '名称'
+);
