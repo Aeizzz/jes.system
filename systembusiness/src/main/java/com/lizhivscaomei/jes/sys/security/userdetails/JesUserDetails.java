@@ -1,7 +1,10 @@
 package com.lizhivscaomei.jes.sys.security.userdetails;
 
+import com.lizhivscaomei.jes.sys.entity.SysDomain;
 import com.lizhivscaomei.jes.sys.entity.SysRole;
 import com.lizhivscaomei.jes.sys.entity.SysUser;
+import com.lizhivscaomei.jes.sys.entity.SysUserRole;
+import com.lizhivscaomei.jes.sys.security.userdetails.entity.JesDomain;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,7 +16,7 @@ import java.util.List;
  */
 public class JesUserDetails extends SysUser implements UserDetails {
     private List<JesGrantedAuthority> authorities;
-    private List<SysRole> roleList;
+    private List<JesDomain> domainList;
     public void setAuthorities(List<JesGrantedAuthority> authorities) {
         this.authorities = authorities;
     }
@@ -52,11 +55,11 @@ public class JesUserDetails extends SysUser implements UserDetails {
         return true;
     }
 
-    public List<SysRole> getRoleList() {
-        return roleList;
+    public List<JesDomain> getDomainList() {
+        return domainList;
     }
 
-    public void setRoleList(List<SysRole> roleList) {
-        this.roleList = roleList;
+    public void setDomainList(List<JesDomain> domainList) {
+        this.domainList = domainList;
     }
 }

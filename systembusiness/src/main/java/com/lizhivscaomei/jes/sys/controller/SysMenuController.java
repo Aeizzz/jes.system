@@ -96,23 +96,6 @@ public class SysMenuController {
 
     }
     /**
-     * 树形选择
-     * */
-    @ResponseBody
-    @RequestMapping("/sysMenu/query/my/granted")
-    public Msg queryMyGrantedMenu(String domainId){
-        JesUserDetails currentUser = (JesUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        this.sysMenuTreeViewService.setTreeVoList(list);
-        TreeVo treeVo = this.sysMenuTreeViewService.convertToTree();
-        Msg msg=new Msg();
-        msg.setSuccess(true);
-        msg.setData(new TreeVo[]{treeVo});
-        throw new RuntimeException("未完成");
-        return msg;
-
-    }
-    /**
     * 分页查询
     * */
     @ResponseBody

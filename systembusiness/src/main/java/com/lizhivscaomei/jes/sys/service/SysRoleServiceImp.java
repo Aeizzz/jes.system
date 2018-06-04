@@ -101,10 +101,10 @@ public class SysRoleServiceImp implements SysRoleService {
         }
     }
 
-    public List<SysMenu> getMenus(String s) {
+    public List<SysMenu> getMenusByRole(String roleId) {
         SysRoleMenuExample example=new SysRoleMenuExample();
         SysRoleMenuExample.Criteria criteria = example.createCriteria();
-        criteria.andRoleIdEqualTo(s);
+        criteria.andRoleIdEqualTo(roleId);
         List<SysRoleMenu> menuRoleList = this.sysRoleMenuMapper.selectByExample(example);
         if(menuRoleList!=null&&menuRoleList.size()>0){
             List<String> menuidList=new ArrayList<String>();
@@ -138,4 +138,18 @@ public class SysRoleServiceImp implements SysRoleService {
             return null;
         }
     }
+
+    @Override
+    public List<SysUserRole> getRolesByUser(String userid) {
+        SysUserRoleExample example=new SysUserRoleExample();
+        SysUserRoleExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(userid);
+       return this.sysUserRoleMapper.selectByExample(example);
+    }
+
+    @Override
+    public List<SysRole> getRolesByUserAndDomain(String userid, String domainId) {
+        throw new RuntimeException("未完成");
+    }
+
 }
