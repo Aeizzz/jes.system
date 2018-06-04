@@ -4,7 +4,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
+import com.lizhivscaomei.jes.common.utils.JavaBeanUtil;
 import com.lizhivscaomei.jes.sys.dao.SysUserRoleMapper;
+import com.lizhivscaomei.jes.sys.dao.VSysUserDomainMenuMapper;
 import com.lizhivscaomei.jes.sys.entity.*;
 import com.lizhivscaomei.jes.sys.dao.SysMenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.beans.IntrospectionException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -24,6 +28,8 @@ public class SysMenuServiceImp implements SysMenuService {
     SysUserRoleMapper sysUserRoleMapper;
     @Autowired
     SysRoleService sysRoleService;
+    @Autowired
+    VSysUserDomainMenuMapper vSysUserDomainMenuMapper;
 
     public void add(SysMenu entity) throws AppException {
         if(entity!=null){
@@ -85,6 +91,28 @@ public class SysMenuServiceImp implements SysMenuService {
         root.setName("顶级菜单");
         list.add(root);
         return list;
+    }
+
+    @Override
+    public List<SysMenu> getByUserAndDomain(String userId, String domainId) {
+        List<SysMenu> sysMenuList=new ArrayList<>();
+        VSysUserDomainMenuExample example=new VSysUserDomainMenuExample();
+        VSysUserDomainMenuExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(userId);
+        criteria.andDomainIdEqualTo(domainId);
+        List<VSysUserDomainMenu> list = this.vSysUserDomainMenuMapper.selectByExample(example);
+        for(VSysUserDomainMenu vSysUserDomainMenu:list){
+            SysMenu sysMenu=new SysMenu();
+            try {
+                JavaBeanUtil.javaBean2JavaBean(vSysUserDomainMenu,sysMenu);
+                if(!sysMenuList.contains(sysMenu)){
+                    sysMenuList.add(sysMenu);
+                }
+            } catch (IntrospectionException e) {
+//                e.printStackTrace();
+            }
+        }
+        return sysMenuList;
     }
 
 }

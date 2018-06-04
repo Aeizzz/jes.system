@@ -177,7 +177,7 @@ public class SysRoleController {
             TreeVo treeVo = this.sysMenuTreeViewService.convertToTree();
             //已选择的菜单
             List<String> menuIdList=new ArrayList<>();
-            List<SysMenu> menuList = this.sysRoleService.getMenus(roleId);
+            List<SysMenu> menuList = this.sysRoleService.getMenusByRole(roleId);
             if(menuList!=null&&menuList.size()>0){
                 for(SysMenu menu:menuList){
                     menuIdList.add(menu.getId());

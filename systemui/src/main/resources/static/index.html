@@ -250,8 +250,9 @@
         data: {
             isCollapse: false,
             url: {
-                domainOptions: "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner",
-                queryMenuTree: "/com/lizhivscaomei/jes/sys/controller/sysMenu/query/select"
+                userInfo: "/myinfo",
+                domainOptions: "/mydomain",
+                queryMenuTree: "/mymenu"
             },
             my: {
                 notificationList: [
@@ -259,16 +260,6 @@
                         id: "12313",
                         text: "未处理订单",
                         url: "http://www.163.com"
-                    },
-                    {
-                        id: "12313",
-                        text: "该浇水了",
-                        url: "http://www.sohu.com"
-                    },
-                    {
-                        id: "12313",
-                        text: "该施肥水了",
-                        url: "http://www.baidu.com"
                     }
                 ],
                 domainList: [],
@@ -292,7 +283,7 @@
             getDomainMenu: function (domainId) {
                 //查询菜单
                 this.$http.get(this.url.queryMenuTree, {params: {domainId: domainId}}).then(function (res) {
-                    this.selectedDomain.menuList = res.data.data[0].nodes;
+                    this.selectedDomain.menuList = res.data.data;
                 }, function (res) {
                     this.$message({
                         showClose: true,
@@ -316,14 +307,25 @@
                 } else {
                     this.isCollapse = true;
                 }
+            },
+            getUserInfo(){
+                this.$http.get(this.url.userInfo).then(function (res) {
+                    this.my.userinfo = res.data.data;
+                }, function (res) {
+                    this.$message({
+                        showClose: true,
+                        message: "网络错误,code=" + res.status,
+                        type: "error"
+                    });
+                });
             }
         },
         mounted: function () {
             //查询域
             this.$http.get(this.url.domainOptions).then(function (res) {
-                this.selectedDomain.id = res.data[0].id;
-                this.selectedDomain.name = res.data[0].text;
-                this.my.domainList = res.data;
+                this.selectedDomain.id = res.data.data[0].id;
+                this.selectedDomain.name = res.data.data[0].text;
+                this.my.domainList = res.data.data;
                 this.getDomainMenu(this.selectedDomain.id);
             }, function (res) {
                 this.$message({
@@ -332,7 +334,8 @@
                     type: "error"
                 });
             });
-
+            //用户基本信息查询
+            this.getUserInfo();
         }
     });
 </script>

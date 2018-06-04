@@ -29,6 +29,4 @@ public interface SysRoleService extends EntityService<SysRole>{
     /*获取用户对应的角色*/
     List<SysUserRole> getRolesByUser(String userid);
 
-    /*获取用户在某个域下对应的角色*/
-    List<SysRole> getRolesByUserAndDomain(String userid,String domainId);
 }

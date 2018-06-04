@@ -4,9 +4,12 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
+import com.lizhivscaomei.jes.sys.dao.VSysUserRoleDomainMapper;
 import com.lizhivscaomei.jes.sys.entity.SysDomain;
 import com.lizhivscaomei.jes.sys.dao.SysDomainMapper;
 import com.lizhivscaomei.jes.sys.entity.SysDomainExample;
+import com.lizhivscaomei.jes.sys.entity.VSysUserRoleDomain;
+import com.lizhivscaomei.jes.sys.entity.VSysUserRoleDomainExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,6 +23,8 @@ import java.util.UUID;
 public class SysDomainServiceImp implements SysDomainService {
     @Autowired
     SysDomainMapper sysDomainMapper;
+    @Autowired
+    VSysUserRoleDomainMapper vSysUserRoleDomainMapper;
 
     public void add(SysDomain entity) throws AppException {
         if(entity!=null){
@@ -65,5 +70,14 @@ public class SysDomainServiceImp implements SysDomainService {
         example.setOrderByClause("code asc");
         List<SysDomain> list= this.sysDomainMapper.selectByExample(example);
         return list;
+    }
+
+    @Override
+    public List<VSysUserRoleDomain> getByUser(String userId) {
+        VSysUserRoleDomainExample example=new VSysUserRoleDomainExample();
+        example.setDistinct(true);
+        VSysUserRoleDomainExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(userId);
+        return this.vSysUserRoleDomainMapper.selectByExample(example);
     }
 }

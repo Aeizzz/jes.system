@@ -31,10 +31,6 @@ public interface SysUserService extends EntityService<SysUser> {
     /*管理员重置密码*/
     void resetPassword(String userid, String newPassword) throws AppException;
 
-    /*获取用户的授权菜单*/
-    @Deprecated
-    List<SysMenu> getMyMenus(String userid);
-
     /*查询所有用户*/
     List<SysUser> queryAll();
 }

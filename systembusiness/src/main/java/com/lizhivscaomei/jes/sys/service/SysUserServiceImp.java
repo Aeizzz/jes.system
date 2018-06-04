@@ -123,27 +123,6 @@ public class SysUserServiceImp implements SysUserService {
     }
 
     @Override
-    public List<SysMenu> getMyMenus(String userid) {
-        List<SysMenu> menuList = new ArrayList<>();
-        //我有那些角色
-        SysUserRoleExample userRoleExample = new SysUserRoleExample();
-        SysUserRoleExample.Criteria criteria = userRoleExample.createCriteria();
-        criteria.andUserIdEqualTo(userid);
-        List<SysUserRole> userRoleList = this.sysUserRoleMapper.selectByExample(userRoleExample);
-        //我每个角色授予了那些菜单
-        if (userRoleList != null && userRoleList.size() > 0) {
-            for (SysUserRole userRole : userRoleList) {
-                List<SysMenu> roleMenuList = this.sysRoleService.getMenus(userRole.getRoleId());
-                if (roleMenuList != null && roleMenuList.size() > 0) {
-                    menuList.addAll(roleMenuList);
-                }
-            }
-        }
-        return menuList;
-    }
-
-
-    @Override
     public List<SysUser> queryAll() {
         SysUserExample example = new SysUserExample();
         example.setOrderByClause("login_name asc");

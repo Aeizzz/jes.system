@@ -147,9 +147,4 @@ public class SysRoleServiceImp implements SysRoleService {
        return this.sysUserRoleMapper.selectByExample(example);
     }
 
-    @Override
-    public List<SysRole> getRolesByUserAndDomain(String userid, String domainId) {
-        throw new RuntimeException("未完成");
-    }
-
 }

@@ -16,7 +16,6 @@ import java.util.List;
  */
 public class JesUserDetails extends SysUser implements UserDetails {
     private List<JesGrantedAuthority> authorities;
-    private List<JesDomain> domainList;
     public void setAuthorities(List<JesGrantedAuthority> authorities) {
         this.authorities = authorities;
     }
@@ -55,11 +54,4 @@ public class JesUserDetails extends SysUser implements UserDetails {
         return true;
     }
 
-    public List<JesDomain> getDomainList() {
-        return domainList;
-    }
-
-    public void setDomainList(List<JesDomain> domainList) {
-        this.domainList = domainList;
-    }
 }
