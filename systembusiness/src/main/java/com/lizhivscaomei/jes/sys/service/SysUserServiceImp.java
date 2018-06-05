@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,7 +31,8 @@ public class SysUserServiceImp implements SysUserService {
     SysRoleService sysRoleService;
     @Autowired
     SysParamService sysParamService;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     /**
      * 添加用户
      * 只能是默认密码
@@ -112,12 +114,24 @@ public class SysUserServiceImp implements SysUserService {
      * 用户自定义密码
      */
     public void regist(SysUser sysUser) throws AppException {
-
+        throw new RuntimeException("不支持自行注册");
     }
 
     @Override
     public void changePassword(String userid, String newPassword, String oldPassword) throws AppException {
-
+        if(StringUtils.isNotEmpty(userid)&&StringUtils.isNotEmpty(newPassword)&&StringUtils.isNotEmpty(oldPassword)){
+            SysUser user = this.getById(userid);
+            if(this.passwordEncoder.matches(oldPassword,user.getPassword())){
+                SysUser record=new SysUser();
+                record.setId(userid);
+                record.setPassword(newPassword);
+                this.sysUserMapper.updateByPrimaryKeySelective(record);
+            }else {
+                throw new AppException("旧密码验证失败");
+            }
+        }else {
+            throw new AppException("参数错误");
+        }
     }
 
     @Override

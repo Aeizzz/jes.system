@@ -101,7 +101,7 @@
                                         <li v-for="notification in my.notificationList">
                                             <a href="#" class="media" v-on:click="openframe(notification)">
 
-                                                <span class="badge badge-success pull-right" v-if="notification.badge">1</span>
+                                                <span class="badge badge-success pull-right">{{notification.badg}}</span>
                                                 <div class="media-left">
                                                     <span class="icon-wrap icon-circle bg-danger">
                                                         <i class="pli-mail-open icon-lg icon-lg"></i>
@@ -126,51 +126,16 @@
                                         width="250"
                                         trigger="hover">
                                     <ul class="list-unstyled">
-                                        <li>
-                                            <a href="#">
-                                                <span class="badge badge-success pull-right"></span>
+
+                                        <li v-for="action in my.setting">
+                                            <a v-on:click="openframe(action)">
+                                                <span class="badge badge-success pull-right">{{action.badge}}</span>
                                                 <div class="media-left">
                                                     <span class="icon-wrap icon-circle"><i
-                                                            class="pli-male icon-lg icon-fw"></i></span>
+                                                            :class="action.icon"></i></span>
                                                 </div>
                                                 <div class="media-body">
-                                                    <div class="text-nowrap">名片</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="badge badge-success pull-right"></span>
-                                                <div class="media-left">
-                                                    <span class="icon-wrap icon-circle"><i
-                                                            class="pli-computer-secure icon-lg icon-fw"></i></span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">修改密码</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="badge badge-success pull-right"></span>
-                                                <div class="media-left">
-                                                    <span class="icon-wrap icon-circle"><i
-                                                            class="pli-folder-with-document icon-lg icon-fw"></i></span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">帮助</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="badge badge-success pull-right"></span>
-                                                <div class="media-left">
-                                                    <span class="icon-wrap icon-circle"><i
-                                                            class="pli-gear icon-lg icon-fw"></i></span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="text-nowrap">设置</div>
+                                                    <div class="text-nowrap">{{action.text}}</div>
                                                 </div>
                                             </a>
                                         </li>
@@ -267,9 +232,25 @@
                 notificationList: [
                     {
                         id: "-1",
-                        badge: false,
+                        badge: "",
                         text: "没有通知",
                         href: ""
+                    }
+                ],
+                setting: [
+                    {
+                        id: "1",
+                        badge: "",
+                        icon: "pli-folder-with-document icon-lg icon-fw",
+                        text: "帮助",
+                        href: "help/index.html"
+                    },
+                    {
+                        id: "2",
+                        badge: "",
+                        icon: "pli-computer-secure icon-lg icon-fw",
+                        text: "修改密码",
+                        href: "my/changepwd.html"
                     }
                 ],
                 domainList: [],
@@ -372,7 +353,9 @@
     });
 </script>
 <style>
-
+    .text-nowrap{
+        padding-top: 10px;
+    }
     .el-menu-vertical-demo:not(.el-menu--collapse) {
         width: 300px;
         min-height: 100%;

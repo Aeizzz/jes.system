@@ -2,6 +2,7 @@ package com.lizhivscaomei.jes;
 
 import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.SpinnerVo;
+import com.lizhivscaomei.jes.common.exception.AppException;
 import com.lizhivscaomei.jes.common.view.tree.TreeVo;
 import com.lizhivscaomei.jes.sys.entity.SysMenu;
 import com.lizhivscaomei.jes.sys.entity.SysUser;
@@ -9,11 +10,13 @@ import com.lizhivscaomei.jes.sys.entity.VSysUserRoleDomain;
 import com.lizhivscaomei.jes.sys.security.userdetails.JesUserDetails;
 import com.lizhivscaomei.jes.sys.service.SysDomainService;
 import com.lizhivscaomei.jes.sys.service.SysMenuService;
+import com.lizhivscaomei.jes.sys.service.SysUserService;
 import com.lizhivscaomei.jes.sys.view.SysMenuTreeViewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,6 +36,8 @@ public class IndexController {
     SysDomainService sysDomainService;
     @Autowired
     SysMenuService sysMenuService;
+    @Autowired
+    SysUserService sysUserService;
     /**
      * 系统首页
      * 登录成功后，跳转的页面
@@ -107,6 +112,22 @@ public class IndexController {
         Msg msg = new Msg();
         msg.setSuccess(true);
         msg.setData(treeVo.getNodes());
+        return msg;
+    }
+
+    /*修改密码*/
+    @ResponseBody
+    @PostMapping("/change/mypwd")
+    public Msg changeMyPwd(String newpwd,String oldpwd) {
+        Msg msg = new Msg();
+        JesUserDetails currentUser = (JesUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        try {
+            this.sysUserService.changePassword(currentUser.getId(),newpwd,oldpwd);
+            msg.setSuccess(true);
+        } catch (AppException e) {
+            msg.setSuccess(false);
+            msg.setInfo(e.getMessage());
+        }
         return msg;
     }
 

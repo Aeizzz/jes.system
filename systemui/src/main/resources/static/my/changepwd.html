@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SysUser</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/component/element/css/index.css">
+
+</head>
+<body style="background-color: white">
+<div id="app">
+    <hr style="border: none">
+    <el-form ref="editForm.data" :model="editForm.data" :rules="editForm.rules" label-width="120px"
+             label-position="right">
+        <el-form-item label="当前密码" prop="oldpwd">
+            <el-input type="password" v-model="editForm.data.oldpwd" clearable></el-input>
+        </el-form-item>
+        <el-form-item  label="新密码" prop="newpwd">
+            <el-input type="password" v-model="editForm.data.newpwd" clearable></el-input>
+        </el-form-item>
+        <el-form-item label="再次新密码" prop="newpwd2">
+            <el-input type="password" v-model="editForm.data.newpwd2" clearable></el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="save('editForm.data')">保 存</el-button>
+        </el-form-item>
+    </el-form>
+    </div>
+</div>
+</body>
+
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/vue-resource.min.js"></script>
+<script src="/static/component/element/js/index.js"></script>
+<script>
+
+    Vue.http.options.emulateJSON = true;
+    var vueApp = new Vue({
+        el: "#app",
+        data: {
+            url: {
+                changePwd: "/change/mypwd",
+            },
+            editForm: {
+                formName: "changePwd",
+                data: {
+                    oldpwd:"",
+                    newpwd:"",
+                    newpwd2:""
+                },
+                rules: {
+                    oldpwd: [{required: true, message: '请输入当前密码', trigger: 'blur'}],
+                    newpwd: [{required: true, message: '请输入新密码', trigger: 'blur'}],
+                    newpwd2: [{required: true, message: '再次请输入新密码', trigger: 'blur'},{validator:(rule, value, callback)=>{
+                        if (value === '') {
+                            callback(new Error('请再次输入密码'));
+                        } else if (value !== vueApp.editForm.data.newpwd) {
+                            callback(new Error('两次输入密码不一致!'));
+                        } else {
+                            callback();
+                        }
+                    }, trigger: 'blur'}]
+                }
+            }
+        },
+        methods: {
+            save: function (formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        this.$http.post(this.url.changePwd, this.editForm.data).then(function (res) {
+                            if(res.data.success){
+                                this.$message({
+                                    type: 'success',
+                                    message: '修改成功!'
+                                });
+                            }else {
+                                this.$message({
+                                    type: 'error',
+                                    message: res.data.info
+                                });
+                            }
+                        }, function (res) {
+                            this.loading = false;
+                            console.log(res.status);
+                            this.$message({
+                                showClose: true,
+                                message: '网络错误' + res.status,
+                                type: 'error'
+                            });
+                        });
+
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            }
+        }
+    });
+
+</script>
+</html>
