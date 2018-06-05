@@ -5,7 +5,7 @@
 
 	<groupId>com.lizhivscaomei.jes</groupId>
 	<artifactId>systemui</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-RELEASE</version>
 	<packaging>war</packaging>
 
 	<name>system-boot-webapp</name>
@@ -85,7 +85,7 @@
         <dependency>
             <groupId>com.lizhivscaomei.jes</groupId>
             <artifactId>system.business</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0-RELEASE</version>
         </dependency>
 
         <!-- 业务模块 end-->
@@ -101,4 +101,11 @@
 	</build>
 
 
+	<distributionManagement>
+		<repository>
+			<id>local</id>
+			<name>local</name>
+			<url>http://10.0.0.6:9999/repository/local/</url>
+		</repository>
+	</distributionManagement>
 </project>

@@ -1,10 +1,6 @@
 package com.lizhivscaomei.jes.sys.security.userdetails;
 
-import com.lizhivscaomei.jes.sys.entity.SysDomain;
-import com.lizhivscaomei.jes.sys.entity.SysRole;
 import com.lizhivscaomei.jes.sys.entity.SysUser;
-import com.lizhivscaomei.jes.sys.entity.SysUserRole;
-import com.lizhivscaomei.jes.sys.security.userdetails.entity.JesDomain;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
