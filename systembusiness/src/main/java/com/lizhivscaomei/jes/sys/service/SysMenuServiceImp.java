@@ -64,6 +64,7 @@ public class SysMenuServiceImp implements SysMenuService {
 
     public PageInfo<SysMenu> queryPage(SysMenu entity, Page page) {
         SysMenuExample example=new SysMenuExample();
+        example.setOrderByClause("sort");
         SysMenuExample.Criteria criteria = example.createCriteria();
         criteria.andDomainIdEqualTo(entity.getDomainId());
         PageHelper.startPage(page.getCurrentPage(),page.getPageSize());
@@ -74,6 +75,7 @@ public class SysMenuServiceImp implements SysMenuService {
     @Override
     public List<SysMenu> getChilds(String domainId, String pid) {
         SysMenuExample example=new SysMenuExample();
+        example.setOrderByClause("sort");
         SysMenuExample.Criteria criteria = example.createCriteria();
         criteria.andParentIdEqualTo(pid);
         criteria.andDomainIdEqualTo(domainId);
@@ -83,6 +85,7 @@ public class SysMenuServiceImp implements SysMenuService {
     @Override
     public List<SysMenu> getAll(String domainId) {
         SysMenuExample example=new SysMenuExample();
+        example.setOrderByClause("sort");
         SysMenuExample.Criteria criteria = example.createCriteria();
         criteria.andDomainIdEqualTo(domainId);
         List<SysMenu> list = this.sysMenuMapper.selectByExample(example);
@@ -97,6 +100,7 @@ public class SysMenuServiceImp implements SysMenuService {
     public List<SysMenu> getByUserAndDomain(String userId, String domainId) {
         List<SysMenu> sysMenuList=new ArrayList<>();
         VSysUserDomainMenuExample example=new VSysUserDomainMenuExample();
+        example.setOrderByClause("sort");
         VSysUserDomainMenuExample.Criteria criteria = example.createCriteria();
         criteria.andUserIdEqualTo(userId);
         criteria.andDomainIdEqualTo(domainId);

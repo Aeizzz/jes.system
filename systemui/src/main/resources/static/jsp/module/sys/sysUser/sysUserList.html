@@ -50,8 +50,11 @@
             <!--<el-table-column label="更新时间" prop="updateDate"></el-table-column>-->
             <!--<el-table-column label="备注信息" prop="remarks"></el-table-column>-->
             <!--<el-table-column label="删除标记" prop="delFlag"></el-table-column>-->
-            <el-table-column label="操作" fixed="right" width="200" prop="id">
+            <el-table-column label="操作" fixed="right" width="300" prop="id">
                 <template slot-scope="scope">
+                    <el-button size="mini" type="primary" @click="resetPwd(scope.$index, scope.row)"
+                               icon="el-icon-edit">重置密码
+                    </el-button>
                     <el-button size="mini" type="primary" @click="showEditForm('edit',scope.$index, scope.row)"
                                icon="el-icon-edit">编辑
                     </el-button>
@@ -243,6 +246,7 @@
                 save: "/com/lizhivscaomei/jes/sys/controller/sysUser/save",
                 delete: "/com/lizhivscaomei/jes/sys/controller/sysUser/delete",
                 detail: "/com/lizhivscaomei/jes/sys/controller/sysUser/query/detail",
+                resetPwd: "/com/lizhivscaomei/jes/sys/controller/sysUser/admin/resetpwd",
                 domainOptions: "/com/lizhivscaomei/jes/sys/controller/sysDomain/query/spinner"
             },
             pages: {
@@ -388,14 +392,53 @@
                 this.queryForm.data.pageSize = this.pages.pageSize;
                 this.$http.get(this.url.queryPage, {params: this.queryForm.data}).then(function (res) {
                     this.loading = false;
-                    this.tableData = res.data.data.list;
-                    this.pages.total = res.data.data.total;
+                    if(res.data.success){
+                        this.tableData = res.data.data.list;
+                        this.pages.total = res.data.data.total;
+                    }else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
                         showClose: true,
                         message: "网络错误,code=" + res.status,
                         type: "error"
+                    });
+                });
+            },
+            resetPwd:function (index, row) {
+                this.$confirm('此操作将重置' + row.name + '的密码, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$http.get(this.url.resetPwd, {params: {userId: row.id}}).then(function (res) {
+                        if(res.data.success){
+                            this.$message({
+                                type: 'success',
+                                message: '重置成功!'
+                            });
+                        }else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
+                    }, function (res) {
+                        this.$message({
+                            showClose: true,
+                            message: '网络错误' + res.status,
+                            type: 'error'
+                        });
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消操作'
                     });
                 });
             },
@@ -421,11 +464,19 @@
                     type: 'warning'
                 }).then(() => {
                     this.$http.get(this.url.delete, {params: {id: row.id}}).then(function (res) {
-                        this.$message({
-                            type: 'success',
-                            message: '删除成功!'
-                        });
-                        vueApp.queryFormSubmit();
+
+                        if(res.data.success){
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            vueApp.queryFormSubmit();
+                        }else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
                     }, function (res) {
                         this.$message({
                             showClose: true,
@@ -444,12 +495,19 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
-                            this.$message({
-                                type: 'success',
-                                message: '保存成功!'
-                            });
-                            this.editForm.dialogFormVisible = false;
-                            vueApp.queryFormSubmit();
+                            if(res.data.success){
+                                this.$message({
+                                    type: 'success',
+                                    message: '保存成功!'
+                                });
+                                this.editForm.dialogFormVisible = false;
+                                vueApp.queryFormSubmit();
+                            }else {
+                                this.$message({
+                                    type: 'error',
+                                    message: res.data.info
+                                });
+                            }
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);

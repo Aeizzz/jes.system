@@ -6,10 +6,12 @@ import com.lizhivscaomei.jes.common.entity.Msg;
 import com.lizhivscaomei.jes.common.entity.Page;
 import com.lizhivscaomei.jes.common.exception.AppException;
 import com.lizhivscaomei.jes.sys.entity.SysUser;
+import com.lizhivscaomei.jes.sys.security.userdetails.JesUserDetails;
 import com.lizhivscaomei.jes.sys.service.SysUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -86,6 +88,39 @@ public class SysUserController {
         msg.setData(pages);
         return msg;
 
+    }
+    /**
+     * 重置密码
+     * */
+    @ResponseBody
+    @RequestMapping("/sysUser/admin/resetpwd")
+    public Msg resetPwd(String userId){
+        Msg msg=new Msg();
+        try {
+            this.sysUserService.resetPassword(userId);
+            msg.setSuccess(true);
+        } catch (AppException e) {
+            msg.setSuccess(false);
+            msg.setInfo(e.getMessage());
+        }
+        return msg;
+    }
+    /**
+     * 重置密码
+     * */
+    @ResponseBody
+    @RequestMapping("/sysUser/my/resetpwd")
+    public Msg resetMyPwd(){
+        Msg msg=new Msg();
+        JesUserDetails currentUser = (JesUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        try {
+            this.sysUserService.resetPassword(currentUser.getId());
+            msg.setSuccess(true);
+        } catch (AppException e) {
+            msg.setSuccess(false);
+            msg.setInfo(e.getMessage());
+        }
+        return msg;
     }
 
 }

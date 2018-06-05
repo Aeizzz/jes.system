@@ -229,9 +229,16 @@
                 this.queryForm.data.currentPage = this.pages.currentPage;
                 this.queryForm.data.pageSize = this.pages.pageSize;
                 this.$http.get(this.url.queryPage, {params: this.queryForm.data}).then(function (res) {
-                    this.loading = false;
-                    this.tableData = res.data.data.list;
-                    this.pages.total = res.data.data.total;
+                    if (res.data.success) {
+                        this.loading = false;
+                        this.tableData = res.data.data.list;
+                        this.pages.total = res.data.data.total;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -262,11 +269,18 @@
                     type: 'warning'
                 }).then(() => {
                     this.$http.get(this.url.delete, {params: {id: row.id}}).then(function (res) {
-                        this.$message({
-                            type: 'success',
-                            message: '删除成功!'
-                        });
-                        query();
+                        if (res.data.success) {
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            query();
+                        } else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
                     }, function (res) {
                         this.$message({
                             showClose: true,
@@ -285,12 +299,19 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
-                            this.$message({
-                                type: 'success',
-                                message: '保存成功!'
-                            });
-                            this.editForm.dialogFormVisible = false;
-                            query();
+                            if (res.data.success) {
+                                this.$message({
+                                    type: 'success',
+                                    message: '保存成功!'
+                                });
+                                this.editForm.dialogFormVisible = false;
+                                query();
+                            } else {
+                                this.$message({
+                                    type: 'error',
+                                    message: res.data.info
+                                });
+                            }
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);

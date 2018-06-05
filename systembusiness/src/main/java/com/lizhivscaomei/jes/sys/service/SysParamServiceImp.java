@@ -59,4 +59,16 @@ public class SysParamServiceImp implements SysParamService {
         List<SysParam> list= this.sysParamMapper.selectByExample(example);
         return new PageInfo<SysParam>(list);
     }
+
+    @Override
+    public SysParam getByCode(String code) {
+        SysParamExample example=new SysParamExample();
+        SysParamExample.Criteria criteria = example.createCriteria();
+        criteria.andCodeEqualTo(code);
+        List<SysParam> list = this.sysParamMapper.selectByExample(example);
+        if(list!=null&&list.size()>0){
+            return list.get(0);
+        }
+        return null;
+    }
 }

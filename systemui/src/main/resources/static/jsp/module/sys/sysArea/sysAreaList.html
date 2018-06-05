@@ -26,7 +26,7 @@
                             v-model="treeFilterText">
                     </el-input>
                     <el-tree class="filter-tree" :filter-node-method="filterTreeNode" ref="tree"
-                             :data="treeData" :props="treeProps" node-key="id" :default-expanded-keys="['0']"
+                             :data="treeData" :props="treeProps" node-key="id" :default-expanded-keys="['000000']"
                              @node-click="handleNodeClick"></el-tree>
                 </el-card>
             </el-aside>
@@ -46,7 +46,8 @@
                     <el-row>
                         <el-col :span="24">
                             <el-form-item label="父级" prop="parentIdArray">
-                                <el-cascader v-model="editForm.data.parentIdArray" :props="treeProps" expand-trigger="click" style="width: 100%"
+                                <el-cascader v-model="editForm.data.parentIdArray" :props="treeProps"
+                                             expand-trigger="click" style="width: 100%"
                                              :options="treeData" :show-all-levels="false"
                                              change-on-select
                                 ></el-cascader>
@@ -94,7 +95,7 @@
     var vueApp = new Vue({
         el: "#app",
         data: {
-            treeFilterText:"",
+            treeFilterText: "",
             loading: false,
             url: {
                 queryPage: "/com/lizhivscaomei/jes/sys/controller/sysArea/query/page",
@@ -140,24 +141,31 @@
                 domainId: []
             }
         },
-        watch:{
+        watch: {
             treeFilterText(val){
                 this.$refs.tree.filter(val);
             }
         },
         methods: {
-            filterTreeNode:function(filterText, data) {
+            filterTreeNode: function (filterText, data) {
                 if (!filterText) return true;
                 return data.text.indexOf(filterText) !== -1;
             },
             handleNodeClick: function (nodeData) {
                 this.$http.get(this.url.detail, {params: {id: nodeData.id}}).then(function (res) {
-                    this.editForm.data.id = res.data.data.id;
-                    this.editForm.formName = "修改";
-                    this.editForm.data.parentIdArray = res.data.data.parentIds.split(",");
-                    this.editForm.data.name = res.data.data.name;
-                    this.editForm.data.code = res.data.data.code;
-                    this.editForm.data.remarks = res.data.data.remarks;
+                    if (res.data.success) {
+                        this.editForm.data.id = res.data.data.id;
+                        this.editForm.formName = "修改";
+                        this.editForm.data.parentIdArray = res.data.data.parentIds.split(",");
+                        this.editForm.data.name = res.data.data.name;
+                        this.editForm.data.code = res.data.data.code;
+                        this.editForm.data.remarks = res.data.data.remarks;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -176,8 +184,15 @@
             queryFormSubmit: function () {
                 this.loading = true;
                 this.$http.get(this.url.select, {params: {}}).then(function (res) {
-                    this.loading = false;
-                    this.treeData = res.data.data;
+                    if (res.data.success) {
+                        this.loading = false;
+                        this.treeData = res.data.data;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -190,7 +205,7 @@
             showEditForm: function (action, index, row) {
                 if (action == "add") {
                     this.editForm.data.id = "";
-                    this.editForm.formName="添加";
+                    this.editForm.formName = "添加";
                 }
                 if (action == "edit") {
                     this.editForm.data = row;
@@ -203,38 +218,52 @@
                     type: 'warning'
                 }).then(() => {
                     this.$http.get(this.url.delete, {params: {id: vueApp.editForm.data.id}}).then(function (res) {
-                    this.$message({
-                        type: 'success',
-                        message: '删除成功!'
+                        if (res.data.success) {
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            vueApp.queryFormSubmit();
+                            vueApp.editForm.data = {};
+                            vueApp.editForm.formName = "添加";
+                        } else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
+                    }, function (res) {
+                        this.$message({
+                            showClose: true,
+                            message: '网络错误' + res.status,
+                            type: 'error'
+                        });
                     });
-                    vueApp.queryFormSubmit();
-                    vueApp.editForm.data={};
-                    vueApp.editForm.formName="添加";
-                }, function (res) {
+                }).catch(() => {
                     this.$message({
-                        showClose: true,
-                        message: '网络错误' + res.status,
-                        type: 'error'
+                        type: 'info',
+                        message: '已取消删除'
                     });
                 });
-            }).catch(() => {
-                    this.$message({
-                    type: 'info',
-                    message: '已取消删除'
-                });
-            });
             },
             save: function (formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        this.editForm.data.parentId=this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length-1];
-                        this.editForm.data.parentIds=this.editForm.data.parentIdArray.join(",");
+                        this.editForm.data.parentId = this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length - 1];
+                        this.editForm.data.parentIds = this.editForm.data.parentIdArray.join(",");
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
-                            this.$message({
-                                type: 'success',
-                                message: '保存成功!'
-                            });
-                            vueApp.queryFormSubmit();
+                            if (res.data.success) {
+                                this.$message({
+                                    type: 'success',
+                                    message: '保存成功!'
+                                });
+                                vueApp.queryFormSubmit();
+                            } else {
+                                this.$message({
+                                    type: 'error',
+                                    message: res.data.info
+                                });
+                            }
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);
@@ -248,9 +277,9 @@
                     } else {
                         console.log('error submit!!');
 
-                return false;
-            }
-            });
+                        return false;
+                    }
+                });
             }
         },
         mounted: function () {

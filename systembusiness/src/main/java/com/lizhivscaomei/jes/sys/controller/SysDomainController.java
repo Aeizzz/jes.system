@@ -92,7 +92,8 @@ public class SysDomainController {
      * */
     @ResponseBody
     @RequestMapping("/sysDomain/query/spinner")
-    public List<SpinnerVo> spinner(SysDomain entity){
+    public Msg spinner(SysDomain entity){
+        Msg msg=new Msg();
         List<SpinnerVo> spinnerVoList=new ArrayList<>();
         List<SysDomain> list = this.sysDomainService.queryAll();
         for(SysDomain sysDomain:list){
@@ -101,7 +102,9 @@ public class SysDomainController {
             spinner.setText(sysDomain.getName());
             spinnerVoList.add(spinner);
         }
-        return spinnerVoList;
+        msg.setSuccess(true);
+        msg.setData(spinnerVoList);
+        return msg;
 
     }
 }

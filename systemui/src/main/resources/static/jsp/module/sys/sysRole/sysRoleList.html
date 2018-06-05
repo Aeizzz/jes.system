@@ -325,8 +325,15 @@
                 this.queryForm.data.pageSize = this.pages.pageSize;
                 this.$http.get(this.url.queryPage, {params: this.queryForm.data}).then(function (res) {
                     this.loading = false;
-                    this.tableData = res.data.data.list;
-                    this.pages.total = res.data.data.total;
+                    if (res.data.success) {
+                        this.tableData = res.data.data.list;
+                        this.pages.total = res.data.data.total;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -355,11 +362,19 @@
                     type: 'warning'
                 }).then(() => {
                     this.$http.get(this.url.delete, {params: {id: row.id}}).then(function (res) {
-                        this.$message({
-                            type: 'success',
-                            message: '删除成功!'
-                        });
-                        vueApp.queryFormSubmit();
+
+                        if (res.data.success) {
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            vueApp.queryFormSubmit();
+                        } else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
                     }, function (res) {
                         this.$message({
                             showClose: true,
@@ -378,12 +393,20 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
-                            this.$message({
-                                type: 'success',
-                                message: '保存成功!'
-                            });
-                            this.editForm.dialogFormVisible = false;
-                            vueApp.queryFormSubmit();
+
+                            if (res.data.success) {
+                                this.$message({
+                                    type: 'success',
+                                    message: '保存成功!'
+                                });
+                                this.editForm.dialogFormVisible = false;
+                                vueApp.queryFormSubmit();
+                            } else {
+                                this.$message({
+                                    type: 'error',
+                                    message: res.data.info
+                                });
+                            }
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);
@@ -422,11 +445,19 @@
                     type: 'warning'
                 }).then(() => {
                     this.$http.post(this.url.roleUserSave, {roleId:this.userPanel.roleId,selectedList:this.userPanel.rightData.join(",")}).then(function (res) {
-                        this.$message({
-                            type: 'success',
-                            message: '保存成功!'
-                        });
-                        this.userPanel.visible = false;
+
+                        if (res.data.success) {
+                            this.$message({
+                                type: 'success',
+                                message: '保存成功!'
+                            });
+                            this.userPanel.visible = false;
+                        } else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
                     }, function (res) {
                         this.loading = false;
                         console.log(res.status);
@@ -447,9 +478,17 @@
             showPrivilegePanel: function (index, row) {
                 this.privilegePanel.roleId=row.id;
                 this.$http.get(this.url.rolePrivilegeQuery, {params: {roleId: this.privilegePanel.roleId}}).then(function (res) {
-                    this.privilegePanel.all = res.data.data.all;
-                    this.privilegePanel.selected = res.data.data.selected;
-                    this.privilegePanel.visible=true;
+
+                    if (res.data.success) {
+                        this.privilegePanel.all = res.data.data.all;
+                        this.privilegePanel.selected = res.data.data.selected;
+                        this.privilegePanel.visible=true;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.$message({
                         showClose: true,
@@ -470,11 +509,18 @@
                         selectedIds.push(selectedNodes[i].id);
                     }
                     this.$http.post(this.url.rolePrivilegeSave, {roleId:this.privilegePanel.roleId,selectedList:selectedIds.join(",")}).then(function (res) {
-                        this.$message({
-                            type: 'success',
-                            message: '保存成功!'
-                        });
-                        this.privilegePanel.visible = false;
+                        if (res.data.success) {
+                            this.$message({
+                                type: 'success',
+                                message: '保存成功!'
+                            });
+                            this.privilegePanel.visible = false;
+                        } else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
                     }, function (res) {
                         this.loading = false;
                         console.log(res.status);
@@ -495,10 +541,17 @@
         mounted: function () {
             //初始化操作
             this.$http.get(this.url.domainOptions).then(function (res) {
-                this.options.domainId = res.data;
-                this.editForm.data.domainId = res.data[0].id;
-                this.queryForm.data.domainId = res.data[0].id;
-                this.queryFormSubmit();
+                if (res.data.success) {
+                    this.options.domainId = res.data.data;
+                    this.editForm.data.domainId = res.data.data[0].id;
+                    this.queryForm.data.domainId = res.data.data[0].id;
+                    this.queryFormSubmit();
+                } else {
+                    this.$message({
+                        type: 'error',
+                        message: res.data.info
+                    });
+                }
             }, function (res) {
                 this.$message({
                     showClose: true,

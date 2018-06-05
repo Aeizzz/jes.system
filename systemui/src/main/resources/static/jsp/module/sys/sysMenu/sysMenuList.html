@@ -325,16 +325,23 @@
             handleNodeClick: function (nodeData) {
                 console.log(nodeData.id);
                 this.$http.get(this.url.detail, {params: {id: nodeData.id}}).then(function (res) {
-                    this.editForm.data.id = res.data.data.id;
-                    this.editForm.formName="修改";
-                    this.editForm.data.parentIdArray = res.data.data.parentIds.split(":");
-                    this.editForm.data.name = res.data.data.name;
-                    this.editForm.data.sort = res.data.data.sort;
-                    this.editForm.data.href = res.data.data.href;
-                    this.editForm.data.icon = res.data.data.icon;
-                    this.editForm.data.isShow = res.data.data.isShow;
-                    this.editForm.data.permission = res.data.data.permission;
-                    this.editForm.data.domainId = res.data.data.domainId;
+                    if (res.data.success) {
+                        this.editForm.data.id = res.data.data.id;
+                        this.editForm.formName="修改";
+                        this.editForm.data.parentIdArray = res.data.data.parentIds.split(":");
+                        this.editForm.data.name = res.data.data.name;
+                        this.editForm.data.sort = res.data.data.sort;
+                        this.editForm.data.href = res.data.data.href;
+                        this.editForm.data.icon = res.data.data.icon;
+                        this.editForm.data.isShow = res.data.data.isShow;
+                        this.editForm.data.permission = res.data.data.permission;
+                        this.editForm.data.domainId = res.data.data.domainId;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -355,7 +362,14 @@
                 this.editForm.data.domainId=this.queryForm.data.domainId;
                 this.$http.get(this.url.queryTree, {params: this.queryForm.data}).then(function (res) {
                     this.loading = false;
-                    this.treeData = res.data.data;
+                    if (res.data.success) {
+                        this.treeData = res.data.data;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -379,13 +393,20 @@
                     type: 'warning'
                 }).then(() => {
                     this.$http.get(this.url.delete, {params: {id: vueApp.editForm.data.id}}).then(function (res) {
-                        this.$message({
-                            type: 'success',
-                            message: '删除成功!'
-                        });
-                        vueApp.queryFormSubmit();
-                        vueApp.editForm.data={};
-                        vueApp.editForm.formName="添加";
+                        if (res.data.success) {
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            vueApp.queryFormSubmit();
+                            vueApp.editForm.data={};
+                            vueApp.editForm.formName="添加";
+                        } else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
                     }, function (res) {
                         this.$message({
                             showClose: true,
@@ -406,11 +427,19 @@
                         this.editForm.data.parentId=this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length-1];
                         this.editForm.data.parentIds=this.editForm.data.parentIdArray.join(":");
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
-                            this.$message({
-                                type: 'success',
-                                message: '保存成功!'
-                            });
-                            vueApp.queryFormSubmit();
+                            if (res.data.success) {
+                                this.$message({
+                                    type: 'success',
+                                    message: '保存成功!'
+                                });
+                                vueApp.queryFormSubmit();
+                            } else {
+                                this.$message({
+                                    type: 'error',
+                                    message: res.data.info
+                                });
+                            }
+
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);
@@ -432,10 +461,17 @@
         mounted: function () {
             //初始化操作
             this.$http.get(this.url.domainOptions).then(function (res) {
-                this.options.domainId = res.data;
-                this.editForm.data.domainId = res.data[0].id;
-                this.queryForm.data.domainId = res.data[0].id;
-                this.queryFormSubmit();
+                if (res.data.success) {
+                    this.options.domainId = res.data.data;
+                    this.editForm.data.domainId = res.data.data[0].id;
+                    this.queryForm.data.domainId = res.data.data[0].id;
+                    this.queryFormSubmit();
+                } else {
+                    this.$message({
+                        type: 'error',
+                        message: res.data.info
+                    });
+                }
             }, function (res) {
                 this.$message({
                     showClose: true,

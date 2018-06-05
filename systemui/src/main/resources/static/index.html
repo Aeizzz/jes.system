@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" id="vue">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
 <head>
     <title>微立方智慧农业管理平台</title>
     <meta charset="utf-8">
@@ -294,7 +294,14 @@
             getDomainMenu: function (domainId) {
                 //查询菜单
                 this.$http.get(this.url.queryMenuTree, {params: {domainId: domainId}}).then(function (res) {
-                    this.selectedDomain.menuList = res.data.data;
+                    if(res.data.success){
+                        this.selectedDomain.menuList = res.data.data;
+                    }else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.$message({
                         showClose: true,
@@ -321,7 +328,14 @@
             },
             getUserInfo(){
                 this.$http.get(this.url.userInfo).then(function (res) {
-                    this.my.userinfo = res.data.data;
+                    if(res.data.success){
+                        this.my.userinfo = res.data.data;
+                    }else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.$message({
                         showClose: true,
@@ -334,10 +348,17 @@
         mounted: function () {
             //查询域
             this.$http.get(this.url.domainOptions).then(function (res) {
-                this.selectedDomain.id = res.data.data[0].id;
-                this.selectedDomain.name = res.data.data[0].text;
-                this.my.domainList = res.data.data;
-                this.getDomainMenu(this.selectedDomain.id);
+                if(res.data.success){
+                    this.selectedDomain.id = res.data.data[0].id;
+                    this.selectedDomain.name = res.data.data[0].text;
+                    this.my.domainList = res.data.data;
+                    this.getDomainMenu(this.selectedDomain.id);
+                }else {
+                    this.$message({
+                        type: 'error',
+                        message: res.data.info
+                    });
+                }
             }, function (res) {
                 this.$message({
                     showClose: true,
@@ -350,7 +371,6 @@
         }
     });
 </script>
-
 <style>
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {

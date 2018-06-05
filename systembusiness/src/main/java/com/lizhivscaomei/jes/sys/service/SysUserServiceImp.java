@@ -7,6 +7,7 @@ import com.lizhivscaomei.jes.common.exception.AppException;
 import com.lizhivscaomei.jes.sys.dao.SysUserMapper;
 import com.lizhivscaomei.jes.sys.dao.SysUserRoleMapper;
 import com.lizhivscaomei.jes.sys.entity.*;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +28,8 @@ public class SysUserServiceImp implements SysUserService {
     SysMenuService sysMenuService;
     @Autowired
     SysRoleService sysRoleService;
+    @Autowired
+    SysParamService sysParamService;
 
     /**
      * 添加用户
@@ -118,8 +121,20 @@ public class SysUserServiceImp implements SysUserService {
     }
 
     @Override
-    public void resetPassword(String userid, String newPassword) throws AppException {
-
+    public void resetPassword(String userid) throws AppException {
+        if(StringUtils.isNotEmpty(userid)){
+            SysParam defaultPwd = this.sysParamService.getByCode("SYS_DEF_PWD");
+            if(defaultPwd!=null&& StringUtils.isNotEmpty(defaultPwd.getValue())){
+                SysUser record=new SysUser();
+                record.setId(userid);
+                record.setPassword(defaultPwd.getValue());
+                this.sysUserMapper.updateByPrimaryKeySelective(record);
+            }else {
+                throw new AppException("系统尚未设置默认密码");
+            }
+        }else{
+            throw new AppException("参数错误");
+        }
     }
 
     @Override

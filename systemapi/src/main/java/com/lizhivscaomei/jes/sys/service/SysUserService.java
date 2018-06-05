@@ -28,8 +28,8 @@ public interface SysUserService extends EntityService<SysUser> {
     /*自己修改密码*/
     void changePassword(String userid, String newPassword, String oldPassword) throws AppException;
 
-    /*管理员重置密码*/
-    void resetPassword(String userid, String newPassword) throws AppException;
+    /*重置密码*/
+    void resetPassword(String userid) throws AppException;
 
     /*查询所有用户*/
     List<SysUser> queryAll();

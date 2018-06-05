@@ -244,9 +244,16 @@
                 this.queryForm.data.currentPage = this.pages.currentPage;
                 this.queryForm.data.pageSize = this.pages.pageSize;
                 this.$http.get(this.url.queryPage, {params: this.queryForm.data}).then(function (res) {
-                    this.loading = false;
-                    this.tableData = res.data.data.list;
-                    this.pages.total = res.data.data.total;
+                    if (res.data.success) {
+                        this.loading = false;
+                        this.tableData = res.data.data.list;
+                        this.pages.total = res.data.data.total;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -258,7 +265,6 @@
             }
             ,
             showEditForm: function (action, index, row) {
-                debugger;
                 if (action == "add") {
                     this.editForm.data.id = "";
                 }
@@ -283,11 +289,19 @@
                     type: 'warning'
                 }).then(() => {
                     this.$http.get(this.url.delete, {params: {id: row.id}}).then(function (res) {
-                        this.$message({
-                            type: 'success',
-                            message: '删除成功!'
-                        });
-                    vueApp.queryFormSubmit();
+
+                        if (res.data.success) {
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            vueApp.queryFormSubmit();
+                        } else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
                     }, function (res) {
                         this.$message({
                             showClose: true,
@@ -308,12 +322,20 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
-                            this.$message({
-                                type: 'success',
-                                message: '保存成功!'
-                            });
-                            this.editForm.dialogFormVisible = false;
-                            vueApp.queryFormSubmit();
+
+                            if (res.data.success) {
+                                this.$message({
+                                    type: 'success',
+                                    message: '保存成功!'
+                                });
+                                this.editForm.dialogFormVisible = false;
+                                vueApp.queryFormSubmit();
+                            } else {
+                                this.$message({
+                                    type: 'error',
+                                    message: res.data.info
+                                });
+                            }
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);
@@ -335,10 +357,17 @@
         mounted: function () {
             //初始化操作
             this.$http.get(this.url.domainOptions).then(function (res) {
-                this.options.domainId = res.data;
-                this.editForm.data.domainId = res.data[0].id;
-                this.queryForm.data.domainId = res.data[0].id;
-                this.queryFormSubmit();
+                if (res.data.success) {
+                    this.options.domainId = res.data.data;
+                    this.editForm.data.domainId = res.data.data[0].id;
+                    this.queryForm.data.domainId = res.data.data[0].id;
+                    this.queryFormSubmit();
+                } else {
+                    this.$message({
+                        type: 'error',
+                        message: res.data.info
+                    });
+                }
             }, function (res) {
                 this.$message({
                     showClose: true,

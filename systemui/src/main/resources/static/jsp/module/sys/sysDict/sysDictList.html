@@ -158,10 +158,11 @@
 <script>
 
     Vue.http.options.emulateJSON = true;
-    var vueApp = new Vue({
+    var vueApp;
+    vueApp = new Vue({
         el: "#app",
         data: {
-            treeFilterText:"",
+            treeFilterText: "",
             loading: false,
             url: {
                 queryPage: "/com/lizhivscaomei/jes/sys/controller/sysDict/query/page",
@@ -277,27 +278,34 @@
                 parentId: []
             }
         },
-        watch:{
+        watch: {
             treeFilterText(val){
                 this.$refs.tree.filter(val);
             }
         },
         methods: {
-            filterTreeNode:function(filterText, data) {
+            filterTreeNode: function (filterText, data) {
                 if (!filterText) return true;
                 return data.text.indexOf(filterText) !== -1;
             },
             handleNodeClick: function (nodeData) {
                 this.$http.get(this.url.detail, {params: {id: nodeData.id}}).then(function (res) {
-                    this.editForm.data.domainId = res.data.data.domainId;
-                    this.editForm.data.id = res.data.data.id;
-                    this.editForm.formName = "修改";
-                    this.editForm.data.parentIdArray = res.data.data.parentIds.split(":");
-                    this.editForm.data.name = res.data.data.name;
-                    this.editForm.data.code = res.data.data.code;
-                    this.editForm.data.sort = res.data.data.sort;
-                    this.editForm.data.description = res.data.data.description;
-                    this.editForm.data.type = res.data.data.type;
+                    if (res.data.success) {
+                        this.editForm.data.domainId = res.data.data.domainId;
+                        this.editForm.data.id = res.data.data.id;
+                        this.editForm.formName = "修改";
+                        this.editForm.data.parentIdArray = res.data.data.parentIds.split(":");
+                        this.editForm.data.name = res.data.data.name;
+                        this.editForm.data.code = res.data.data.code;
+                        this.editForm.data.sort = res.data.data.sort;
+                        this.editForm.data.description = res.data.data.description;
+                        this.editForm.data.type = res.data.data.type;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -308,7 +316,7 @@
                 });
             },
             handleSizeChange: function (val) {
-                this.editForm.data.domainId=this.queryForm.data.domainId;
+                this.editForm.data.domainId = this.queryForm.data.domainId;
                 this.queryFormSubmit();
             },
             handleCurrentChange: function (val) {
@@ -319,9 +327,16 @@
                 this.queryForm.data.currentPage = this.pages.currentPage;
                 this.queryForm.data.pageSize = this.pages.pageSize;
                 this.$http.get(this.url.select, {params: this.queryForm.data}).then(function (res) {
-                    this.loading = false;
-                    this.treeData = res.data.data;
-                    this.pages.total = res.data.data.total;
+                    if (res.data.success) {
+                        this.loading = false;
+                        this.treeData = res.data.data;
+                        this.pages.total = res.data.data.total;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.loading = false;
                     this.$message({
@@ -333,7 +348,14 @@
             },
             showEditForm: function (action, index, row) {
                 this.$http.get(this.url.select, {params: {domainId: this.queryForm.data.domainId}}).then(function (res) {
-                    this.options.parentId = res.data;
+                    if (res.data.success) {
+                        this.options.parentId = res.data;
+                    } else {
+                        this.$message({
+                            type: 'error',
+                            message: res.data.info
+                        });
+                    }
                 }, function (res) {
                     this.$message({
                         showClose: true,
@@ -343,7 +365,7 @@
                 });
                 if (action == "add") {
                     this.editForm.data.id = "";
-                    this.editForm.formName="添加";
+                    this.editForm.formName = "添加";
                 }
                 if (action == "edit") {
                     this.editForm.data.id = row.id;
@@ -364,13 +386,20 @@
                     type: 'warning'
                 }).then(() => {
                     this.$http.get(this.url.delete, {params: {id: vueApp.editForm.data.id}}).then(function (res) {
-                        this.$message({
-                            type: 'success',
-                            message: '删除成功!'
-                        });
-                        vueApp.queryFormSubmit();
-                        vueApp.editForm.data={};
-                        vueApp.editForm.formName="添加";
+                        if (res.data.success) {
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+                            vueApp.queryFormSubmit();
+                            vueApp.editForm.data = {};
+                            vueApp.editForm.formName = "添加";
+                        } else {
+                            this.$message({
+                                type: 'error',
+                                message: res.data.info
+                            });
+                        }
                     }, function (res) {
                         this.$message({
                             showClose: true,
@@ -388,15 +417,22 @@
             save: function (formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        this.editForm.data.parentId=this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length-1];
-                        this.editForm.data.parentIds=this.editForm.data.parentIdArray.join(":");
+                        this.editForm.data.parentId = this.editForm.data.parentIdArray[this.editForm.data.parentIdArray.length - 1];
+                        this.editForm.data.parentIds = this.editForm.data.parentIdArray.join(":");
                         this.$http.post(this.url.save, this.editForm.data).then(function (res) {
-                            this.$message({
-                                type: 'success',
-                                message: '保存成功!'
-                            });
-                            this.editForm.dialogFormVisible = false;
-                            vueApp.queryFormSubmit();
+                            if (res.data.success) {
+                                this.$message({
+                                    type: 'success',
+                                    message: '保存成功!'
+                                });
+                                this.editForm.dialogFormVisible = false;
+                                vueApp.queryFormSubmit();
+                            } else {
+                                this.$message({
+                                    type: 'error',
+                                    message: res.data.info
+                                });
+                            }
                         }, function (res) {
                             this.loading = false;
                             console.log(res.status);
@@ -406,10 +442,8 @@
                                 type: 'error'
                             });
                         });
-
                     } else {
                         console.log('error submit!!');
-
                         return false;
                     }
                 });
@@ -418,9 +452,9 @@
         mounted: function () {
             //初始化操作
             this.$http.get(this.url.domainOptions).then(function (res) {
-                this.options.domainId = res.data;
-                this.editForm.data.domainId = res.data[0].id;
-                this.queryForm.data.domainId = res.data[0].id;
+                this.options.domainId = res.data.data;
+                this.editForm.data.domainId = res.data.data[0].id;
+                this.queryForm.data.domainId = res.data.data[0].id;
                 this.queryFormSubmit();
             }, function (res) {
                 this.$message({
