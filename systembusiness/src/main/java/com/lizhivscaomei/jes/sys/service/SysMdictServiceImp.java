@@ -49,4 +49,23 @@ public class SysMdictServiceImp implements SysMdictService {
         criteria.andParentIdsEqualTo(s);
         return this.sysMdictMapper.selectByExample(example);
     }
+
+    @Override
+    public List<SysMdict> getChildsByCode(String pcode) {
+        //获取父节点
+        //根据父节点的ID获取子节点
+        throw new RuntimeException("未完成");
+    }
+
+    @Override
+    public SysMdict getChildsByCode(String pcode, String code) {
+        //获取父节点
+        //根据父节点的ID和code获取
+        throw new RuntimeException("未完成");
+    }
+
+    @Override
+    public SysMdict getParentByCode(String pcode) {
+        throw new RuntimeException("未完成");
+    }
 }

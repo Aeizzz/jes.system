@@ -82,6 +82,11 @@ public class SysDictController {
     @RequestMapping("/sysDict/query/select")
     public Msg select(String domainId){
         List<SysDict> list = this.sysDictService.getAll(domainId);
+        SysDict root=new SysDict();
+        root.setId("0");
+        root.setCode("ROOT");
+        root.setName("根");
+        list.add(root);
         this.sysDictTreeViewService.setTreeVoList(list);
         TreeVo treeVo = this.sysDictTreeViewService.convertToTree();
         Msg msg=new Msg();

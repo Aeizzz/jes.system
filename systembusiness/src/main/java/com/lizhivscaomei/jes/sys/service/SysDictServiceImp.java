@@ -67,16 +67,52 @@ public class SysDictServiceImp implements SysDictService {
     }
 
     @Override
+    public List<SysDict> getChildsByCode(String domainId, String pcode) {
+        //获取分类节点的ID
+        SysDict category = this.getCategoryByCode(domainId, pcode);
+        if(category!=null){
+            //根据PID查询
+            return  this.getChilds(domainId,category.getId());
+        }
+        return null;
+    }
+
+    @Override
+    public SysDict getCategoryByCode(String domainId, String code) {
+        SysDictExample example=new SysDictExample();
+        SysDictExample.Criteria criteria = example.createCriteria();
+        criteria.andDomainIdEqualTo(domainId);
+        criteria.andCodeEqualTo(code);
+        List<SysDict> list = this.sysDictMapper.selectByExample(example);
+        if(list!=null&&list.size()>0){
+            return list.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public SysDict getChildByCode(String domainId, String pcode, String code) {
+        SysDict category = this.getCategoryByCode(domainId,pcode);
+        if(category!=null){
+            SysDictExample example=new SysDictExample();
+            SysDictExample.Criteria criteria = example.createCriteria();
+            criteria.andDomainIdEqualTo(domainId);
+            criteria.andParentIdEqualTo(category.getId());
+            criteria.andCodeEqualTo(code);
+            List<SysDict> childs = this.sysDictMapper.selectByExample(example);
+            if(childs!=null&&childs.size()>0){
+                return childs.get(0);
+            }
+        }
+        return null;
+    }
+
+    @Override
     public List<SysDict> getAll(String domainId) {
-        SysDict root=new SysDict();
-        root.setId("0");
-        root.setCode("ROOT");
-        root.setName("根");
         SysDictExample example=new SysDictExample();
         SysDictExample.Criteria criteria = example.createCriteria();
         criteria.andDomainIdEqualTo(domainId);
         List<SysDict> list = this.sysDictMapper.selectByExample(example);
-        list.add(root);
         return list;
     }
 }

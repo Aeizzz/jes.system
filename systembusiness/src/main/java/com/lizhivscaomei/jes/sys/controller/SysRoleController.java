@@ -154,6 +154,7 @@ public class SysRoleController {
             }
             try {
                 this.sysRoleService.saveRoleUsers(roleId,paramList);
+                msg.setSuccess(true);
             } catch (AppException e) {
                 msg.setSuccess(false);
                 msg.setInfo(e.getMessage());

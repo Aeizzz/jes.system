@@ -10,8 +10,13 @@ import java.util.List;
 * 用户管理
 * */
 public interface SysDomainService extends EntityService<SysDomain>{
-    //查询所有的域
+    /**
+     * 查询所有的域
+     * */
     List<SysDomain> queryAll();
-    //查询用户可以访问的域
+    /**
+     * 查询用户可以访问的域
+     * @param userId 用户ID
+     * */
     List<VSysUserRoleDomain> getByUser(String userId);
 }
