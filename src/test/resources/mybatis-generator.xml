@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <context id="mysql" defaultModelType="flat" targetRuntime="MyBatis3" >
+    <context id="mysql" defaultModelType="flat" targetRuntime="MyBatis3">
         <property name="autoDelimitKeywords" value="false"/>
         <property name="javaFileEncoding" value="UTF-8"/>
         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
@@ -47,9 +47,11 @@
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-        <javaClientGenerator targetPackage="com.lizhivscaomei.jes.sys.dao" type="ANNOTATEDMAPPER" targetProject="systembusiness/src/main/java">
+        <javaClientGenerator targetPackage="com.lizhivscaomei.jes.sys.dao" type="ANNOTATEDMAPPER"
+                             targetProject="systembusiness/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
+
 
         <!--<table tableName="sys_area"  ></table>-->
         <!--<table tableName="sys_dict"  ></table>-->
@@ -64,8 +66,22 @@
         <!--<table tableName="sys_role_office"></table>-->
         <!--<table tableName="sys_user"  ></table>-->
         <!--<table tableName="sys_user_role" ></table>-->
-        <table tableName="v_sys_user_role_domain" ></table>
-        <table tableName="v_sys_user_domain_menu" ></table>
+        <table tableName="v_sys_user_role_domain"
+               enableInsert="false"
+               enableSelectByPrimaryKey="false"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false"
+               enableUpdateByPrimaryKey="false"
+               enableUpdateByExample="false">
+        </table>
+        <table tableName="v_sys_user_domain_menu"
+               enableInsert="false"
+               enableSelectByPrimaryKey="false"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false"
+               enableUpdateByPrimaryKey="false"
+               enableUpdateByExample="false">
+        </table>
 
     </context>
 
