@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -26,6 +27,8 @@ public class SysDomainServiceImp implements SysDomainService {
     @Autowired
     VSysUserRoleDomainMapper vSysUserRoleDomainMapper;
 
+    @Override
+    @Transactional
     public void add(SysDomain entity) throws AppException {
         if(entity!=null){
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
@@ -41,6 +44,8 @@ public class SysDomainServiceImp implements SysDomainService {
         }
     }
 
+    @Override
+    @Transactional
     public void update(SysDomain entity) throws AppException {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
         entity.setUpdateBy(userDetails.getUsername());
@@ -48,14 +53,20 @@ public class SysDomainServiceImp implements SysDomainService {
         this.sysDomainMapper.updateByPrimaryKeySelective(entity);
     }
 
+    @Override
+    @Transactional
     public void delete(String id) throws AppException {
         this.sysDomainMapper.deleteByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysDomain getById(String id) {
         return this.sysDomainMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public PageInfo<SysDomain> queryPage(SysDomain entity, Page page) {
         SysDomainExample example=new SysDomainExample();
         example.setOrderByClause("code asc");
@@ -65,6 +76,7 @@ public class SysDomainServiceImp implements SysDomainService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysDomain> queryAll() {
         SysDomainExample example=new SysDomainExample();
         example.setOrderByClause("code asc");
@@ -73,6 +85,7 @@ public class SysDomainServiceImp implements SysDomainService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<VSysUserRoleDomain> getByUser(String userId) {
         VSysUserRoleDomainExample example=new VSysUserRoleDomainExample();
         example.setDistinct(true);

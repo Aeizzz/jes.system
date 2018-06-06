@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,7 @@ public class SysAreaServiceImp implements SysAreaService {
     @Autowired
     SysAreaMapper sysAreaMapper;
 
+    @Transactional
     public void add(SysArea entity) throws AppException {
         if(entity!=null){
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
@@ -36,6 +38,7 @@ public class SysAreaServiceImp implements SysAreaService {
         }
     }
 
+    @Transactional
     public void update(SysArea entity) throws AppException {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
         entity.setUpdateBy(userDetails.getUsername());
@@ -43,14 +46,17 @@ public class SysAreaServiceImp implements SysAreaService {
         this.sysAreaMapper.updateByPrimaryKeySelective(entity);
     }
 
+    @Transactional
     public void delete(String id) throws AppException {
         this.sysAreaMapper.deleteByPrimaryKey(id);
     }
 
+    @Transactional(readOnly = true)
     public SysArea getById(String id) {
         return this.sysAreaMapper.selectByPrimaryKey(id);
     }
 
+    @Transactional(readOnly = true)
     public PageInfo<SysArea> queryPage(SysArea entity, Page page) {
         SysAreaExample example=new SysAreaExample();
         PageHelper.startPage(page.getCurrentPage(),page.getPageSize());
@@ -59,6 +65,7 @@ public class SysAreaServiceImp implements SysAreaService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysArea> getAll() {
         return this.sysAreaMapper.selectByExample(new SysAreaExample());
     }

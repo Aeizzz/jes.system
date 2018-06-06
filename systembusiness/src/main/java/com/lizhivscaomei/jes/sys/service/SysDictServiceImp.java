@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -20,6 +21,7 @@ public class SysDictServiceImp implements SysDictService {
     @Autowired
     SysDictMapper sysDictMapper;
 
+    @Transactional
     public void add(SysDict entity) throws AppException {
         if(entity!=null){
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
@@ -34,22 +36,26 @@ public class SysDictServiceImp implements SysDictService {
             throw new AppException("entity不可为空");
         }
     }
-
+    @Transactional
     public void update(SysDict entity) throws AppException {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
         entity.setUpdateBy(userDetails.getUsername());
         entity.setUpdateDate(new Date());
         this.sysDictMapper.updateByPrimaryKeySelective(entity);
     }
-
+    @Transactional
     public void delete(String id) throws AppException {
         this.sysDictMapper.deleteByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysDict getById(String id) {
         return this.sysDictMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public PageInfo<SysDict> queryPage(SysDict entity, Page page) {
         SysDictExample example=new SysDictExample();
         PageHelper.startPage(page.getCurrentPage(),page.getPageSize());
@@ -58,6 +64,7 @@ public class SysDictServiceImp implements SysDictService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysDict> getChilds(String domainId, String pid) {
         SysDictExample example=new SysDictExample();
         SysDictExample.Criteria criteria = example.createCriteria();
@@ -67,6 +74,7 @@ public class SysDictServiceImp implements SysDictService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysDict> getChildsByCode(String domainId, String pcode) {
         //获取分类节点的ID
         SysDict category = this.getCategoryByCode(domainId, pcode);
@@ -78,6 +86,7 @@ public class SysDictServiceImp implements SysDictService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public SysDict getCategoryByCode(String domainId, String code) {
         SysDictExample example=new SysDictExample();
         SysDictExample.Criteria criteria = example.createCriteria();
@@ -91,6 +100,7 @@ public class SysDictServiceImp implements SysDictService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public SysDict getChildByCode(String domainId, String pcode, String code) {
         SysDict category = this.getCategoryByCode(domainId,pcode);
         if(category!=null){
@@ -108,6 +118,7 @@ public class SysDictServiceImp implements SysDictService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysDict> getAll(String domainId) {
         SysDictExample example=new SysDictExample();
         SysDictExample.Criteria criteria = example.createCriteria();

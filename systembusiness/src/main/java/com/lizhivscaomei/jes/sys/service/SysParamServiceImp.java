@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,8 @@ public class SysParamServiceImp implements SysParamService {
     @Autowired
     SysParamMapper sysParamMapper;
 
+    @Override
+    @Transactional
     public void add(SysParam entity) throws AppException {
         if(entity!=null){
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
@@ -36,6 +39,8 @@ public class SysParamServiceImp implements SysParamService {
         }
     }
 
+    @Override
+    @Transactional
     public void update(SysParam entity) throws AppException {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
         entity.setUpdateBy(userDetails.getUsername());
@@ -43,14 +48,20 @@ public class SysParamServiceImp implements SysParamService {
         this.sysParamMapper.updateByPrimaryKeySelective(entity);
     }
 
+    @Override
+    @Transactional
     public void delete(String id) throws AppException {
         this.sysParamMapper.deleteByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysParam getById(String id) {
         return this.sysParamMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public PageInfo<SysParam> queryPage(SysParam entity, Page page) {
         SysParamExample example=new SysParamExample();
         SysParamExample.Criteria criteria = example.createCriteria();
@@ -61,6 +72,7 @@ public class SysParamServiceImp implements SysParamService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public SysParam getByCode(String code) {
         SysParamExample example=new SysParamExample();
         SysParamExample.Criteria criteria = example.createCriteria();

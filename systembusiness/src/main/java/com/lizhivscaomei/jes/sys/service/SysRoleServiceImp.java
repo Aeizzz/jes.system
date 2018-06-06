@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,6 +30,8 @@ public class SysRoleServiceImp implements SysRoleService {
     @Autowired
     SysMenuMapper sysMenuMapper;
 
+    @Override
+    @Transactional
     public void add(SysRole entity) throws AppException {
         if(entity!=null){
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
@@ -45,6 +48,8 @@ public class SysRoleServiceImp implements SysRoleService {
         }
     }
 
+    @Override
+    @Transactional
     public void update(SysRole entity) throws AppException {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
         entity.setUpdateBy(userDetails.getUsername());
@@ -52,14 +57,20 @@ public class SysRoleServiceImp implements SysRoleService {
         this.sysRoleMapper.updateByPrimaryKeySelective(entity);
     }
 
+    @Override
+    @Transactional
     public void delete(String id) throws AppException {
         this.sysRoleMapper.deleteByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysRole getById(String id) {
         return this.sysRoleMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public PageInfo<SysRole> queryPage(SysRole entity, Page page) {
         SysRoleExample example=new SysRoleExample();
         SysRoleExample.Criteria criteria = example.createCriteria();
@@ -69,6 +80,8 @@ public class SysRoleServiceImp implements SysRoleService {
         return new PageInfo<SysRole>(list);
     }
 
+    @Override
+    @Transactional
     public void saveRoleMenus(String s, List<String> list) throws AppException {
         //删除旧的
         SysRoleMenuExample example=new SysRoleMenuExample();
@@ -84,6 +97,8 @@ public class SysRoleServiceImp implements SysRoleService {
         }
     }
 
+    @Override
+    @Transactional
     public void saveRoleUsers(String s, List<String> list) throws AppException {
         //删除旧的
         SysUserRoleExample example=new SysUserRoleExample();
@@ -101,6 +116,8 @@ public class SysRoleServiceImp implements SysRoleService {
         }
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public List<SysMenu> getMenusByRole(String roleId) {
         SysRoleMenuExample example=new SysRoleMenuExample();
         SysRoleMenuExample.Criteria criteria = example.createCriteria();
@@ -120,6 +137,8 @@ public class SysRoleServiceImp implements SysRoleService {
         }
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public List<SysUser> getUsers(String s) {
         SysUserRoleExample example=new SysUserRoleExample();
         SysUserRoleExample.Criteria criteria = example.createCriteria();
@@ -140,6 +159,7 @@ public class SysRoleServiceImp implements SysRoleService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysUserRole> getRolesByUser(String userid) {
         SysUserRoleExample example=new SysUserRoleExample();
         SysUserRoleExample.Criteria criteria = example.createCriteria();

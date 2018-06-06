@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,6 +38,8 @@ public class SysUserServiceImp implements SysUserService {
      * 添加用户
      * 只能是默认密码
      */
+    @Override
+    @Transactional
     public void add(SysUser entity) throws AppException {
         if (entity != null) {
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -54,6 +57,8 @@ public class SysUserServiceImp implements SysUserService {
         }
     }
 
+    @Override
+    @Transactional
     public void update(SysUser entity) throws AppException {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         entity.setUpdateBy(userDetails.getUsername());
@@ -61,14 +66,20 @@ public class SysUserServiceImp implements SysUserService {
         this.sysUserMapper.updateByPrimaryKeySelective(entity);
     }
 
+    @Override
+    @Transactional
     public void delete(String id) throws AppException {
         this.sysUserMapper.deleteByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysUser getById(String id) {
         return this.sysUserMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public PageInfo<SysUser> queryPage(SysUser entity, Page page) {
         SysUserExample example = new SysUserExample();
         PageHelper.startPage(page.getCurrentPage(), page.getPageSize());
@@ -76,6 +87,8 @@ public class SysUserServiceImp implements SysUserService {
         return new PageInfo<SysUser>(list);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysUser getByLoginName(String s) throws AppException {
         SysUserExample example = new SysUserExample();
         SysUserExample.Criteria criteria = example.createCriteria();
@@ -87,6 +100,8 @@ public class SysUserServiceImp implements SysUserService {
         return null;
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysUser getByEmail(String s) throws AppException {
         SysUserExample example = new SysUserExample();
         SysUserExample.Criteria criteria = example.createCriteria();
@@ -98,6 +113,8 @@ public class SysUserServiceImp implements SysUserService {
         return null;
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysUser getByPhone(String s) throws AppException {
         SysUserExample example = new SysUserExample();
         SysUserExample.Criteria criteria = example.createCriteria();
@@ -113,11 +130,14 @@ public class SysUserServiceImp implements SysUserService {
      * 用户注册
      * 用户自定义密码
      */
+    @Override
+    @Transactional
     public void regist(SysUser sysUser) throws AppException {
         throw new RuntimeException("不支持自行注册");
     }
 
     @Override
+    @Transactional
     public void changePassword(String userid, String newPassword, String oldPassword) throws AppException {
         if(StringUtils.isNotEmpty(userid)&&StringUtils.isNotEmpty(newPassword)&&StringUtils.isNotEmpty(oldPassword)){
             SysUser user = this.getById(userid);
@@ -135,6 +155,7 @@ public class SysUserServiceImp implements SysUserService {
     }
 
     @Override
+    @Transactional
     public void resetPassword(String userid) throws AppException {
         if(StringUtils.isNotEmpty(userid)){
             SysParam defaultPwd = this.sysParamService.getByCode("SYS_DEF_PWD");
@@ -152,6 +173,7 @@ public class SysUserServiceImp implements SysUserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysUser> queryAll() {
         SysUserExample example = new SysUserExample();
         example.setOrderByClause("login_name asc");

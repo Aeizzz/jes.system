@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.beans.IntrospectionException;
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public class SysMenuServiceImp implements SysMenuService {
     @Autowired
     VSysUserDomainMenuMapper vSysUserDomainMenuMapper;
 
+    @Override
+    @Transactional
     public void add(SysMenu entity) throws AppException {
         if(entity!=null){
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
@@ -47,6 +50,8 @@ public class SysMenuServiceImp implements SysMenuService {
         }
     }
 
+    @Override
+    @Transactional
     public void update(SysMenu entity) throws AppException {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
         entity.setUpdateBy(userDetails.getUsername());
@@ -54,14 +59,20 @@ public class SysMenuServiceImp implements SysMenuService {
         this.sysMenuMapper.updateByPrimaryKeySelective(entity);
     }
 
+    @Override
+    @Transactional
     public void delete(String id) throws AppException {
         this.sysMenuMapper.deleteByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public SysMenu getById(String id) {
         return this.sysMenuMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
     public PageInfo<SysMenu> queryPage(SysMenu entity, Page page) {
         SysMenuExample example=new SysMenuExample();
         example.setOrderByClause("sort");
@@ -73,6 +84,7 @@ public class SysMenuServiceImp implements SysMenuService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysMenu> getChilds(String domainId, String pid) {
         SysMenuExample example=new SysMenuExample();
         example.setOrderByClause("sort");
@@ -83,6 +95,7 @@ public class SysMenuServiceImp implements SysMenuService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysMenu> getAll(String domainId) {
         SysMenuExample example=new SysMenuExample();
         example.setOrderByClause("sort");
@@ -97,6 +110,7 @@ public class SysMenuServiceImp implements SysMenuService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SysMenu> getByUserAndDomain(String userId, String domainId) {
         List<SysMenu> sysMenuList=new ArrayList<>();
         VSysUserDomainMenuExample example=new VSysUserDomainMenuExample();
